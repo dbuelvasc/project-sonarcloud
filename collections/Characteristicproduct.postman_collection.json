@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "5cb1464d-5938-4f23-87e4-056951127101",
+		"name": "Characteristicproduct",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26638262",
+		"_collection_link": "https://martian-water-313571.postman.co/workspace/Team-Workspace~dd1ef38c-bff7-46fe-8ec5-a3cfc530106c/collection/26638262-5cb1464d-5938-4f23-87e4-056951127101?action=share&source=collection_link&creator=26638262"
+	},
+	"item": [
+		{
+			"name": "Add product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Parmigiano Reggiano\",\r\n  \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/products",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add product",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Example Product\",\r\n  \"description\": \"This is a sample product description.\",\r\n  \"history\": \"This product has a long and rich history.\",\r\n  \"category\": \"Example Category\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/products",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"id\": \"1\",\r\n  \"name\": \"Parmigiano Reggiano\",\r\n  \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\",\r\n  \"createdAt\": \"2024-08-25T12:34:56Z\",\r\n  \"updatedAt\": \"2024-08-25T12:34:56Z\"\r\n}"
+				},
+				{
+					"name": "Add product",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Parmigiano Reggiano\",\r\n  \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/products",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "GET All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET All Products",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "[\r\n  {\r\n    \"id\": \"8f5b3421-9bdf-4f2d-8472-72dc3eeb8f7a\",\r\n    \"name\": \"Parmigiano Reggiano\",\r\n    \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n    \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n    \"category\": \"Queso\",\r\n    \"createdAt\": \"2024-08-25T12:34:56Z\",\r\n    \"updatedAt\": \"2024-08-25T12:34:56Z\"\r\n  },\r\n  {\r\n    \"id\": \"2c5e4563-8a6f-4c1d-b15a-2f3e7a74a4c3\",\r\n    \"name\": \"Salsa de Soja\",\r\n    \"description\": \"Un condimento líquido elaborado a partir de la fermentación de la soja.\",\r\n    \"history\": \"Originaria de China, la salsa de soja se ha utilizado en la cocina asiática durante más de 2,000 años.\",\r\n    \"category\": \"Condimento\",\r\n    \"createdAt\": \"2024-08-25T12:35:00Z\",\r\n    \"updatedAt\": \"2024-08-25T12:35:00Z\"\r\n  }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "GET Product By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET Product By ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"id\": \"8f5b3421-9bdf-4f2d-8472-72dc3eeb8f7a\",\r\n  \"name\": \"Parmigiano Reggiano\",\r\n  \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\",\r\n  \"createdAt\": \"2024-08-25T12:34:56Z\",\r\n  \"updatedAt\": \"2024-08-25T12:34:56Z\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "GET An Invalid Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"00000000-0000-0000-00000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET An Invalid Product",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"00000000-0000-0000-00000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"error\": \"Product not found\",\r\n  \"statusCode\": 404\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Parmigiano Reggiano\",\r\n  \"description\": \"Queso duro, granular y añejo de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/products/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Product",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"id\": \"8f5b3421-9bdf-4f2d-8472-72dc3eeb8f7a\",\r\n  \"name\": \"Parmigiano Reggiano\",\r\n  \"description\": \"Queso duro, granular y añejo de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\",\r\n  \"createdAt\": \"2024-08-25T12:34:56Z\",\r\n  \"updatedAt\": \"2024-08-25T14:00:00Z\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update An Invalid Product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Producto Inexistente\",\r\n  \"description\": \"Intento de actualizar un producto que no existe.\",\r\n  \"history\": \"No hay historia porque este producto no existe.\",\r\n  \"category\": \"N/A\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"00000000-0000-0000-00000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update An Invalid Product",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Producto Inexistente\",\r\n  \"description\": \"Intento de actualizar un producto que no existe.\",\r\n  \"history\": \"No hay historia porque este producto no existe.\",\r\n  \"category\": \"N/A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"00000000-0000-0000-00000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"error\": \"Product not found\",\r\n  \"statusCode\": 404\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Product",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete An Invalid Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"00000000-0000-0000-00000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete An Invalid Product",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"00000000-0000-0000-00000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"error\": \"Product not found\",\r\n  \"statusCode\": 404\r\n}"
+				}
+			]
+		}
+	]
+}

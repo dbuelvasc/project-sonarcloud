@@ -1,0 +1,665 @@
+{
+	"info": {
+		"_postman_id": "99ee2b12-b907-42f8-b63a-8d6a52f69955",
+		"name": "GastronomicCulture-CharacteristicProduct",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26638262",
+		"_collection_link": "https://martian-water-313571.postman.co/workspace/Team-Workspace~dd1ef38c-bff7-46fe-8ec5-a3cfc530106c/collection/26638262-99ee2b12-b907-42f8-b63a-8d6a52f69955?action=share&source=collection_link&creator=26638262"
+	},
+	"item": [
+		{
+			"name": "Add Product to Gastronomic",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"{{gastronomicCulture_id}}",
+						"products",
+						"{{product_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Product to Gastronomic",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products",
+								"{{product_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"id\": \"a9f8f8b0-3c56-4b0a-9f89-a3e29e2cd7fa\",\r\n  \"name\": \"Italian Gastronomy\",\r\n  \"characteristicProducts\": [\r\n    {\r\n      \"id\": \"b7b9e6c7-1f45-4b22-82df-66fb2e1bb928\",\r\n      \"name\": \"Parmigiano Reggiano\",\r\n      \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n      \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n      \"category\": \"Queso\"\r\n    }\r\n  ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Product that doesn’t exist to Gastronomic",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"{{gastronomicCulture_id}}",
+						"products",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Product that doesn’t exist to Gastronomic",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The product with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Product to Gastronomic that doesn’t exist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"00000000-0000-0000-0000-000000000000",
+						"products",
+						"{{product_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Product to Gastronomic that doesn’t exist",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"00000000-0000-0000-0000-000000000000",
+								"products",
+								"{{product_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The gastronomic culture with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "GET Product From Gastronomic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"{{gastronomicCulture_id}}",
+						"products",
+						"{{product_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET Product From Gastronomic",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"id\": \"b7b9e6c7-1f45-4b22-82df-66fb2e1bb928\",\r\n  \"name\": \"Parmigiano Reggiano\",\r\n  \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "GET Product That Does Not Exist from Gastronomic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"{{gastronomicCulture_id}}",
+						"products",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET Product That Does Not Exist from Gastronomic",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The product with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "GET Product From Gastronomic That Does Not Exist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"00000000-0000-0000-0000-000000000000",
+						"products",
+						"{{product_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET Product From Gastronomic That Does Not Exist",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The gastronomic culture with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "GET Product That Is Not Associated with a Gastronomic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{unassociated_product_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"{{gastronomicCulture_id}}",
+						"products",
+						"{{unassociated_product_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET Product That Is Not Associated with a Gastronomic",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 412,\r\n  \"message\": \"The product with the given id is not associated with the gastronomic culture\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "GET Product of a Gastronomic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/{{id}}/products",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"{{id}}",
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET Product of a Gastronomic",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{id}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{id}}",
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "[\r\n  {\r\n    \"id\": \"b7b9e6c7-1f45-4b22-82df-66fb2e1bb928\",\r\n    \"name\": \"Parmigiano Reggiano\",\r\n    \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n    \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n    \"category\": \"Queso\"\r\n  },\r\n  {\r\n    \"id\": \"c6d78b3d-3b2f-4d57-b7c3-fb0b3d9f75c1\",\r\n    \"name\": \"Prosciutto di Parma\",\r\n    \"description\": \"Un tipo de jamón curado originario de Parma, Italia.\",\r\n    \"history\": \"El Prosciutto di Parma ha sido una especialidad culinaria de la región durante siglos.\",\r\n    \"category\": \"Carne\"\r\n  }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "GET Product of a Gastronomic That Does Not Exist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"00000000-0000-0000-0000-000000000000",
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET Product of a Gastronomic That Does Not Exist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"00000000-0000-0000-0000-000000000000",
+								"products"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The gastronomic culture with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Products of Gastronomic",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"{{gastronomicCulture_id}}",
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Products of Gastronomic",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"id\": \"a9f8f8b0-3c56-4b0a-9f89-a3e29e2cd7fa\",\r\n  \"name\": \"Italian Gastronomy\",\r\n  \"characteristicProducts\": [\r\n    {\r\n      \"id\": \"b7b9e6c7-1f45-4b22-82df-66fb2e1bb928\",\r\n      \"name\": \"Parmigiano Reggiano\",\r\n      \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n      \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n      \"category\": \"Queso\"\r\n    },\r\n    {\r\n      \"id\": \"c6d78b3d-3b2f-4d57-b7c3-fb0b3d9f75c1\",\r\n      \"name\": \"Prosciutto di Parma\",\r\n      \"description\": \"Un tipo de jamón curado originario de Parma, Italia.\",\r\n      \"history\": \"El Prosciutto di Parma ha sido una especialidad culinaria de la región durante siglos.\",\r\n      \"category\": \"Carne\"\r\n    }\r\n  ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Products that Do Not Exist for Gastronomic",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"{{gastronomicCulture_id}}",
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Products that Do Not Exist for Gastronomic",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"One or more products with the given ids were not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Products of Gastronomic that Does Not Exist",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"00000000-0000-0000-0000-000000000000",
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Products of Gastronomic that Does Not Exist",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"00000000-0000-0000-0000-000000000000",
+								"products"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The gastronomic culture with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Product from Gastronomic",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"{{gastronomicCulture_id}}",
+						"products",
+						"{{product_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Product from Gastronomic",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete Product from Non-Existent Gastronomic",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"00000000-0000-0000-0000-000000000000",
+						"products",
+						"{{product_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Product from Non-Existent Gastronomic",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"00000000-0000-0000-0000-000000000000",
+								"products",
+								"{{product_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The gastronomic culture with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Non-Existent Product from Gastronomic",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"{{gastronomicCulture_id}}",
+						"products",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Non-Existent Product from Gastronomic",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The product with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Product Not Associated with Gastronomic",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{unassociated_product_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomic-cultures",
+						"{{gastronomicCulture_id}}",
+						"products",
+						"{{unassociated_product_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Product Not Associated with Gastronomic",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": []
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n  \"statusCode\": 412,\r\n  \"message\": \"The product with the given id is not associated with the gastronomic culture\"\r\n}"
+				}
+			]
+		}
+	]
+}
