@@ -1,0 +1,828 @@
+{
+	"info": {
+		"_postman_id": "b0f78ac6-e5d5-493b-9c9c-eac3459471a5",
+		"name": "Gastronomies-Restaurants",
+		"description": "API for managing gastronomies and their relationships with restaurants and recipes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3587568"
+	},
+	"item": [
+		{
+			"name": "Add Restaurant to Gastronomy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants/{{restaurant_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"{{gastronomy_id}}",
+						"restaurants",
+						"{{restaurant_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants/{{restaurant_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"{{gastronomy_id}}",
+								"restaurants",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\"message\": \"Restaurant added to gastronomy successfully.\"}"
+				}
+			]
+		},
+		{
+			"name": "Add Restaurant That Does Not Exist to Gastronomy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants/999",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"{{gastronomy_id}}",
+						"restaurants",
+						"999"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Restaurant Not Found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"{{gastronomy_id}}",
+								"restaurants",
+								"999"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Restaurant with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Restaurant to Gastronomy That Does Not Exist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/999/restaurants/{{restaurant_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"999",
+						"restaurants",
+						"{{restaurant_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Gastronomy Not Found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/999/restaurants/{{restaurant_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"999",
+								"restaurants",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Gastronomy with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Restaurant from Gastronomy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants/{{restaurant_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"{{gastronomy_id}}",
+						"restaurants",
+						"{{restaurant_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Restaurant Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants/{{restaurant_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"{{gastronomy_id}}",
+								"restaurants",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n  \"id\": {{restaurant_id}},\n  \"name\": \"Le Gourmet\",\n  \"city\": \"Paris\",\n  \"country\": \"France\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Restaurant That Does Not Exist from Gastronomy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants/999",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"{{gastronomy_id}}",
+						"restaurants",
+						"999"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Restaurant Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"{{gastronomy_id}}",
+								"restaurants",
+								"999"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Restaurant with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Restaurant From Gastronomy That Does Not Exist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/999/restaurants/{{restaurant_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"999",
+						"restaurants",
+						"{{restaurant_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Gastronomy Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/999/restaurants/{{restaurant_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"999",
+								"restaurants",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Gastronomy with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Restaurant That Is Not Associated with a Gastronomy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/restaurants/999",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"restaurants",
+						"999"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Restaurant Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"999"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Restaurant with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Restaurants of a Gastronomy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"{{gastronomy_id}}",
+						"restaurants"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Restaurants Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"{{gastronomy_id}}",
+								"restaurants"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Le Gourmet\",\n    \"city\": \"Paris\",\n    \"country\": \"France\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Noma\",\n    \"city\": \"Copenhagen\",\n    \"country\": \"Denmark\"\n  }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Restaurants of a Gastronomy That Does Not Exist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/999/restaurants",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"999",
+						"restaurants"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Gastronomy Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/999/restaurants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"999",
+								"restaurants"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Gastronomy with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Restaurants of a Gastronomy",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"id\": 1, \"name\": \"Le Gourmet Updated\", \"city\": \"Paris\", \"country\": \"France\"}]"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"{{gastronomy_id}}",
+						"restaurants"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example Response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"{{gastronomy_id}}",
+								"restaurants"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\"message\": \"Restaurants updated successfully.\"}"
+				}
+			]
+		},
+		{
+			"name": "Update Restaurants That Do Not Exist for a Gastronomy",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Nonexistent Restaurant\", \"city\": \"Nowhere\", \"country\": \"Nowhere\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants/999",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"{{gastronomy_id}}",
+						"restaurants",
+						"999"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Restaurant Not Found",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"{{gastronomy_id}}",
+								"restaurants",
+								"999"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Restaurant with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Restaurants of a Gastronomy That Does Not Exist",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\"id\": 1, \"name\": \"Le Gourmet Updated\", \"city\": \"Paris\", \"country\": \"France\"}]"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/999/restaurants",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"999",
+						"restaurants"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Gastronomy Not Found",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/999/restaurants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"999",
+								"restaurants"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Gastronomy with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Restaurant from Gastronomy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/{{gastronomy_id}}/restaurants/{{restaurant_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"{{gastronomy_id}}",
+						"restaurants",
+						"{{restaurant_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example Response",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/1/restaurants/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"1",
+								"restaurants",
+								"2"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Delete Restaurant from Non-Existent Gastronomy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/999/restaurants/2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"999",
+						"restaurants",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Gastronomy Not Found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/999/restaurants/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"999",
+								"restaurants",
+								"2"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\"statusCode\": 404, \"message\": \"The Gastronomy with the given id was not found\"}"
+				}
+			]
+		},
+		{
+			"name": "Delete Non-Existent Restaurant from Gastronomy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/1/restaurants/999",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"1",
+						"restaurants",
+						"999"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Restaurant Not Found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/1/restaurants/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"1",
+								"restaurants",
+								"999"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\"statusCode\": 404, \"message\": \"The Restaurant with the given id was not found\"}"
+				}
+			]
+		},
+		{
+			"name": "Delete Restaurant Not Associated with Gastronomy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/gastronomies/1/restaurants/3",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"gastronomies",
+						"1",
+						"restaurants",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Restaurant Not Associated",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomies/1/restaurants/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomies",
+								"1",
+								"restaurants",
+								"3"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\"statusCode\": 409, \"message\": \"The Restaurant with the given id is not associated with the Gastronomy\"}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"exec": [
+					""
+				],
+				"type": "text/javascript"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"exec": [
+					""
+				],
+				"type": "text/javascript"
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/api",
+			"type": "string"
+		},
+		{
+			"key": "gastronomy_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "restaurant_id",
+			"value": "2",
+			"type": "string"
+		}
+	]
+}
