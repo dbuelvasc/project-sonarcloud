@@ -1,11 +1,12 @@
+/* eslint-disable prettier/prettier */
 import { GastronomicCultureEntity } from 'src/gastronomic-culture/gastronomic-culture.entity/gastronomic-culture.entity';
 import { RestaurantEntity } from 'src/restaurant/restaurant.entity/restaurant.entity';
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
 
 @Entity()
 export class CountryEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn("uuid")
+    id: string;
 
     @Column()
     name: string;
@@ -17,6 +18,5 @@ export class CountryEntity {
     @ManyToMany(() => GastronomicCultureEntity, (gastronomicCulture) => gastronomicCulture.country)
     @JoinTable()
     gastronomicCultures: GastronomicCultureEntity[];
-    
     
 }
