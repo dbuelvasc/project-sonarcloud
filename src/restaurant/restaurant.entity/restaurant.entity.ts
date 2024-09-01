@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, ManyToOne} from "typeorm";
 import { UUID } from "typeorm/driver/mongodb/bson.typings";
 import { GastronomicCultureEntity } from "../../gastronomic-culture/gastronomic-culture.entity/gastronomic-culture.entity";
