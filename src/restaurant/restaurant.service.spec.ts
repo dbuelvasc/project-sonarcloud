@@ -6,14 +6,12 @@ import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-co
 import { faker } from '@faker-js/faker';
 import { RestaurantService } from './restaurant.service';
 import { RestaurantEntity } from './restaurant.entity/restaurant.entity';
-import { CountryEntity } from 'src/country/country.entity/country.entity';
-
 
 describe('RestaurantService', () => {
   let service: RestaurantService;
   let repository: Repository<RestaurantEntity>;
   let restaurantList: RestaurantEntity[];
-  
+
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [...TypeOrmTestingConfig(), CacheModule.register()],
@@ -35,8 +33,8 @@ describe('RestaurantService', () => {
         name: faker.company.name(),
         city: faker.location.city(),
         michelinStars: faker.number.int({ min: 1, max: 3 }),
-      awardDate: faker.date.past(),
-      gastronomicCulture: [],
+        awardDate: faker.date.past(),
+        gastronomicCulture: [],
       });
       restaurantList.push(restaurante);
     }
@@ -63,34 +61,29 @@ describe('RestaurantService', () => {
   });
 
   it('Obtener restaurante con id invalido', async () => {
-    await expect(service.findOne("-1")).rejects.toThrow();
+    await expect(service.findOne('-1')).rejects.toHaveProperty(
+      'message',
+      'The restaurant with the given id was not found',
+    );
   });
 
   it('Crear un restaurante', async () => {
-    const country: CountryEntity = await repository.save({
-      name: faker.address.country(),
-      restaurants: [],
-      gastronomicCultures: [],
-    });
     const restauranteData = {
       name: faker.company.name(),
       city: faker.location.city() || 'Default City', // Asegurarse de que city no sea nulo
       michelinStars: faker.number.int({ min: 1, max: 3 }),
       awardDate: faker.date.past(),
       gastronomicCulture: [],
-      country: country,
     };
 
-    const nuevoRestaurante: RestaurantEntity = await service.create(
-      restauranteData,
-    );
+    const nuevoRestaurante: RestaurantEntity =
+      await service.create(restauranteData);
 
     expect(nuevoRestaurante).not.toBeNull();
     expect(nuevoRestaurante.id).toBeDefined();
     expect(nuevoRestaurante.name).toEqual(restauranteData.name);
     expect(nuevoRestaurante.city).toEqual(restauranteData.city);
   });
-
 
   it('Actualizar un restaurante', async () => {
     const restaurante: RestaurantEntity = restaurantList[0];
@@ -111,7 +104,10 @@ describe('RestaurantService', () => {
     restaurante.name = `${faker.company.name()} UPDATED`;
     restaurante.city = `${faker.location.city()} UPDATED`;
 
-    await expect(service.update("-1", restaurante)).rejects.toThrow();
+    await expect(service.update('-1', restaurante)).rejects.toHaveProperty(
+      'message',
+      'The restaurant with the given id was not found',
+    );
   });
 
   it('Eliminar un restaurante', async () => {
@@ -125,7 +121,9 @@ describe('RestaurantService', () => {
   });
 
   it('Eliminar un restaurante con id invalido', async () => {
-    await expect(service.delete("-1")).rejects.toThrow();
+    await expect(service.delete('-1')).rejects.toHaveProperty(
+      'message',
+      'The restaurant with the given id was not found',
+    );
   });
-
 });
