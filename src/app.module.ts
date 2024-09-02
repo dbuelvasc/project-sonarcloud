@@ -7,7 +7,7 @@ import { RestaurantEntity } from './restaurant/restaurant.entity/restaurant.enti
 import { GastronomicCultureModule } from './gastronomic-culture/gastronomic-culture.module';
 import { GastronomicCultureEntity } from './gastronomic-culture/gastronomic-culture.entity/gastronomic-culture.entity';
 import { CharacteristicproductModule } from './characteristicproduct/characteristicproduct.module';
-import { CharacteristicproductEntity } from './characteristicproduct/characteristicproduct.entity/characteristicproduct.entity';
+import { CharacteristicProductEntity } from './characteristicproduct/characteristicproduct.entity/characteristicproduct.entity';
 import { RecipeModule } from './recipe/recipe.module';
 import { RecipeEntity } from './recipe/recipe.entity/recipe.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -22,7 +22,7 @@ import { CountryEntity } from './country/country.entity/country.entity';
     username: 'postgres',
     password: 'postgres',
     database: 'postgres',
-    entities: [RestaurantEntity, GastronomicCultureEntity, CharacteristicproductEntity, RecipeEntity, CountryEntity],
+    entities: [RestaurantEntity, GastronomicCultureEntity, CharacteristicProductEntity, RecipeEntity, CountryEntity],
     dropSchema: true,
     synchronize: true,
     keepConnectionAlive: true

@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
-import { CharacteristicproductService } from './characteristicproduct.service';
+import { CharacteristicProductService } from './characteristicproduct.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CharacteristicproductEntity } from './characteristicproduct.entity/characteristicproduct.entity';
+import { CharacteristicProductEntity } from './characteristicproduct.entity/characteristicproduct.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([CharacteristicproductEntity])],
-  providers: [CharacteristicproductService]
+  imports: [TypeOrmModule.forFeature([CharacteristicProductEntity])],
+  providers: [CharacteristicProductService]
 })
 export class CharacteristicproductModule {}

@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CharacteristicproductEntity } from '../../characteristicproduct/characteristicproduct.entity/characteristicproduct.entity';
+import { CharacteristicProductEntity } from '../../characteristicproduct/characteristicproduct.entity/characteristicproduct.entity';
 import { CountryEntity } from '../../country/country.entity/country.entity';
 import { GastronomicCultureEntity } from '../../gastronomic-culture/gastronomic-culture.entity/gastronomic-culture.entity';
 import { RecipeEntity } from '../../recipe/recipe.entity/recipe.entity';
@@ -16,7 +16,7 @@ export const TypeOrmTestingConfig = () => [
       RecipeEntity,
       RestaurantEntity,
       CountryEntity,     
-      CharacteristicproductEntity,
+      CharacteristicProductEntity,
       GastronomicCultureEntity,
     ],
     synchronize: true,
@@ -26,7 +26,7 @@ export const TypeOrmTestingConfig = () => [
     RecipeEntity,
     RestaurantEntity,
     CountryEntity,     
-    CharacteristicproductEntity,
+    CharacteristicProductEntity,
     GastronomicCultureEntity,
   ]),
 ];

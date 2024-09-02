@@ -20,7 +20,7 @@ export class RecipeEntity {
     preparationProcess: string;
 
     @Column()
-    video: string[];
+    video: string;
 
     @ManyToOne(() => GastronomicCultureEntity, (gastronomicCulture) => gastronomicCulture.recipes)
     gastronomicCulture: GastronomicCultureEntity;

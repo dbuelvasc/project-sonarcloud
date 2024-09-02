@@ -4,6 +4,8 @@ import { Repository } from 'typeorm';
 import { RestaurantEntity } from './restaurant.entity/restaurant.entity';
 import { BusinessLogicException } from '../shared/errors/business-errors';
 import { BusinessError } from '../shared/errors/business-errors';
+import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-config';
+
 
 @Injectable()
 export class RestaurantService {
@@ -24,7 +26,8 @@ export class RestaurantService {
         return restaurant;
     }
 
-    async create(restaurant: RestaurantEntity): Promise<RestaurantEntity> {
+    async create(data: Partial<RestaurantEntity>): Promise<RestaurantEntity> {
+        const restaurant = this.restaurantRepository.create(data);
         return this.restaurantRepository.save(restaurant);
     }
 
