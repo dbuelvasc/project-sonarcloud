@@ -6,16 +6,15 @@ import { GastronomicCultureEntity } from '../../gastronomic-culture/gastronomic-
 import { RecipeEntity } from '../../recipe/recipe.entity/recipe.entity';
 import { RestaurantEntity } from '../../restaurant/restaurant.entity/restaurant.entity';
 
-
 export const TypeOrmTestingConfig = () => [
   TypeOrmModule.forRoot({
     type: 'sqlite',
     database: ':memory:',
     dropSchema: true,
-    entities: [      
+    entities: [
       RecipeEntity,
       RestaurantEntity,
-      CountryEntity,     
+      CountryEntity,
       CharacteristicProductEntity,
       GastronomicCultureEntity,
     ],
@@ -25,7 +24,7 @@ export const TypeOrmTestingConfig = () => [
   TypeOrmModule.forFeature([
     RecipeEntity,
     RestaurantEntity,
-    CountryEntity,     
+    CountryEntity,
     CharacteristicProductEntity,
     GastronomicCultureEntity,
   ]),
