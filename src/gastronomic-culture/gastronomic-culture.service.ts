@@ -32,8 +32,9 @@ export class GastronomicCultureService {
   }
 
   async create(
-    gastronomicCulture: GastronomicCultureEntity,
+    data: Partial<GastronomicCultureEntity>,
   ): Promise<GastronomicCultureEntity> {
+    const gastronomicCulture = this.gastronomicCultureRepository.create(data);
     return this.gastronomicCultureRepository.save(gastronomicCulture);
   }
 

@@ -4,6 +4,7 @@ import {
   OneToMany,
   ManyToMany,
   PrimaryGeneratedColumn,
+  JoinTable,
 } from 'typeorm';
 import { CharacteristicProductEntity } from '../../characteristicproduct/characteristicproduct.entity/characteristicproduct.entity';
 import { RestaurantEntity } from '../../restaurant/restaurant.entity/restaurant.entity';
@@ -28,9 +29,11 @@ export class GastronomicCultureEntity {
     () => RestaurantEntity,
     (restaurant) => restaurant.gastronomicCulture,
   )
+  @JoinTable()
   restaurants: RestaurantEntity[];
 
   @ManyToMany(() => CountryEntity, (country) => country.gastronomicCultures)
+  @JoinTable()
   countries: CountryEntity[];
 
   @OneToMany(() => RecipeEntity, (recipe) => recipe.gastronomicCulture)
