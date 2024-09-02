@@ -1,10 +1,11 @@
-/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { CharacteristicProductEntity } from './characteristicproduct.entity/characteristicproduct.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { BusinessLogicException } from '../shared/errors/business-errors';
-import { BusinessError } from '../shared/errors/business-errors';
+import {
+  BusinessError,
+  BusinessLogicException,
+} from '../shared/errors/business-errors';
 
 @Injectable()
 export class CharacteristicProductService {
