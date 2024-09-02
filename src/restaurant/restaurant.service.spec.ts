@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-config';
 import { faker } from '@faker-js/faker';
 import { RestaurantService } from './restaurant.service';
-import { RestaurantEntity } from './restaurant.entity/restaurant.entity';
+import { RestaurantEntity } from './restaurant.entity';
 
 describe('RestaurantService', () => {
   let service: RestaurantService;

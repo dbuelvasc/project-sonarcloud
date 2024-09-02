@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { GastronomicCultureEntity } from './gastronomic-culture.entity/gastronomic-culture.entity';
+import { GastronomicCultureEntity } from './gastronomic-culture.entity';
 import {
   BusinessError,
   BusinessLogicException,

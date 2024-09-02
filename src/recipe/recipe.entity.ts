@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { GastronomicCultureEntity } from '../../gastronomic-culture/gastronomic-culture.entity/gastronomic-culture.entity';
+import { GastronomicCultureEntity } from '../gastronomic-culture/gastronomic-culture.entity';
 
 @Entity()
 export class RecipeEntity {

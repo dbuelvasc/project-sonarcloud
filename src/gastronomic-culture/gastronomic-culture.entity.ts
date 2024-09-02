@@ -6,10 +6,10 @@ import {
   PrimaryGeneratedColumn,
   JoinTable,
 } from 'typeorm';
-import { CharacteristicProductEntity } from '../../characteristicproduct/characteristicproduct.entity/characteristicproduct.entity';
-import { RestaurantEntity } from '../../restaurant/restaurant.entity/restaurant.entity';
-import { CountryEntity } from '../../country/country.entity/country.entity';
-import { RecipeEntity } from '../../recipe/recipe.entity/recipe.entity';
+import { CharacteristicProductEntity } from '../characteristicproduct/characteristicproduct.entity';
+import { RestaurantEntity } from '../restaurant/restaurant.entity';
+import { CountryEntity } from '../country/country.entity';
+import { RecipeEntity } from '../recipe/recipe.entity';
 
 @Entity()
 export class GastronomicCultureEntity {

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CharacteristicProductEntity } from './characteristicproduct.entity/characteristicproduct.entity';
+import { CharacteristicProductEntity } from './characteristicproduct.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import {
