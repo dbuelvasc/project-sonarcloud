@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { CacheModule } from '@nestjs/cache-manager';
 import { Repository } from 'typeorm';
-import { RecipeEntity } from './recipe.entity/recipe.entity';
+import { RecipeEntity } from './recipe.entity';
 import { RecipeService } from './recipe.service';
 import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-config';
 import { faker } from '@faker-js/faker';

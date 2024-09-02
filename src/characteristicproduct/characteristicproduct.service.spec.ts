@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-config';
 import { faker } from '@faker-js/faker';
 import { CharacteristicProductService } from './characteristicproduct.service';
-import { CharacteristicProductEntity } from './characteristicproduct.entity/characteristicproduct.entity';
+import { CharacteristicProductEntity } from './characteristicproduct.entity';
 
 describe('CharacteristicProductService', () => {
   let service: CharacteristicProductService;

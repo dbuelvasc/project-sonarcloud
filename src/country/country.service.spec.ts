@@ -3,7 +3,7 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { CacheModule } from '@nestjs/cache-manager';
 import { Repository } from 'typeorm';
 import { CountryService } from './country.service';
-import { CountryEntity } from './country.entity/country.entity';
+import { CountryEntity } from './country.entity';
 import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-config';
 import { faker } from '@faker-js/faker';
 

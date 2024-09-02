@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { RecipeEntity } from './recipe.entity/recipe.entity';
+import { RecipeEntity } from './recipe.entity';
 import {
   BusinessError,
   BusinessLogicException,

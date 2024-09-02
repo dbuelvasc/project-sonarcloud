@@ -5,7 +5,7 @@ import {
   BusinessError,
   BusinessLogicException,
 } from '../shared/errors/business-errors';
-import { CountryEntity } from './country.entity/country.entity';
+import { CountryEntity } from './country.entity';
 
 @Injectable()
 export class CountryService {

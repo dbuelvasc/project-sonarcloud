@@ -6,8 +6,8 @@ import {
   ManyToOne,
   JoinTable,
 } from 'typeorm';
-import { GastronomicCultureEntity } from '../../gastronomic-culture/gastronomic-culture.entity/gastronomic-culture.entity';
-import { CountryEntity } from '../../country/country.entity/country.entity';
+import { GastronomicCultureEntity } from '../gastronomic-culture/gastronomic-culture.entity';
+import { CountryEntity } from '../country/country.entity';
 
 @Entity()
 export class RestaurantEntity {
