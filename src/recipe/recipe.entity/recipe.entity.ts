@@ -18,8 +18,8 @@ export class RecipeEntity {
   @Column()
   preparationProcess: string;
 
-  @Column()
-  video: string[];
+  @Column({ nullable: true })
+  video?: string;
 
   @ManyToOne(
     () => GastronomicCultureEntity,
