@@ -33,12 +33,6 @@ export class CharacteristicProductService {
   async create(
     product: CharacteristicProductEntity,
   ): Promise<CharacteristicProductEntity> {
-    if (!product.category) {
-      throw new BusinessLogicException(
-        'The category field is required',
-        BusinessError.PRECONDITION_FAILED,
-      );
-    }
     return await this.characteristicproductRepository.save(product);
   }
   //Modify a characteristic product
@@ -52,12 +46,6 @@ export class CharacteristicProductService {
       throw new BusinessLogicException(
         'The product with the given id was not found',
         BusinessError.NOT_FOUND,
-      );
-    }
-    if (!product.category) {
-      throw new BusinessLogicException(
-        'The category field is required',
-        BusinessError.PRECONDITION_FAILED,
       );
     }
     return await this.characteristicproductRepository.save({
@@ -76,11 +64,5 @@ export class CharacteristicProductService {
       );
 
     await this.characteristicproductRepository.remove(product);
-  }
-
-  // Método para validar la categoría
-  private validateCategory(category: string): boolean {
-    const allowedCategories = ['category1', 'category2', 'category3'];
-    return allowedCategories.includes(category);
   }
 }
