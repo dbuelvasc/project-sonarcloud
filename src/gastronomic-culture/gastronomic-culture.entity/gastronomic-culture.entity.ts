@@ -5,7 +5,7 @@ import {
   ManyToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { CharacteristicproductEntity } from '../../characteristicproduct/characteristicproduct.entity/characteristicproduct.entity';
+import { CharacteristicProductEntity } from '../../characteristicproduct/characteristicproduct.entity/characteristicproduct.entity';
 import { RestaurantEntity } from '../../restaurant/restaurant.entity/restaurant.entity';
 import { CountryEntity } from '../../country/country.entity/country.entity';
 import { RecipeEntity } from '../../recipe/recipe.entity/recipe.entity';
@@ -19,10 +19,10 @@ export class GastronomicCultureEntity {
   name: string;
 
   @OneToMany(
-    () => CharacteristicproductEntity,
+    () => CharacteristicProductEntity,
     (characteristicproduct) => characteristicproduct.gastronomicCulture,
   )
-  characteristicproducts: CharacteristicproductEntity[];
+  characteristicproducts: CharacteristicProductEntity[];
 
   @ManyToMany(
     () => RestaurantEntity,

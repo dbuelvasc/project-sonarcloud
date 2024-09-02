@@ -4,6 +4,7 @@ import {
   Column,
   ManyToMany,
   ManyToOne,
+  JoinTable,
 } from 'typeorm';
 import { GastronomicCultureEntity } from '../../gastronomic-culture/gastronomic-culture.entity/gastronomic-culture.entity';
 import { CountryEntity } from '../../country/country.entity/country.entity';
@@ -29,6 +30,7 @@ export class RestaurantEntity {
     () => GastronomicCultureEntity,
     (gastronomicCulture) => gastronomicCulture.restaurants,
   )
+  @JoinTable()
   gastronomicCulture: GastronomicCultureEntity[];
 
   @ManyToOne(() => CountryEntity, (country) => country.restaurants)

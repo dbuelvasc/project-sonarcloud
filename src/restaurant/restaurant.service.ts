@@ -29,7 +29,8 @@ export class RestaurantService {
     return restaurant;
   }
 
-  async create(restaurant: RestaurantEntity): Promise<RestaurantEntity> {
+  async create(data: Partial<RestaurantEntity>): Promise<RestaurantEntity> {
+    const restaurant = this.restaurantRepository.create(data);
     return this.restaurantRepository.save(restaurant);
   }
 

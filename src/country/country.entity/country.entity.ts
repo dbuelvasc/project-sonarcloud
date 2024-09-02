@@ -1,5 +1,5 @@
-import { GastronomicCultureEntity } from 'src/gastronomic-culture/gastronomic-culture.entity/gastronomic-culture.entity';
-import { RestaurantEntity } from 'src/restaurant/restaurant.entity/restaurant.entity';
+import { GastronomicCultureEntity } from '../../gastronomic-culture/gastronomic-culture.entity/gastronomic-culture.entity';
+import { RestaurantEntity } from '../../restaurant/restaurant.entity/restaurant.entity';
 import {
   Entity,
   Column,

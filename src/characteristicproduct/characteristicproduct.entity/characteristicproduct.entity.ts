@@ -1,8 +1,9 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { GastronomicCultureEntity } from '../../gastronomic-culture/gastronomic-culture.entity/gastronomic-culture.entity';
+// import { Category } from './category.enum';
 
 @Entity()
-export class CharacteristicproductEntity {
+export class CharacteristicProductEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -15,6 +16,7 @@ export class CharacteristicproductEntity {
   @Column()
   history: string;
 
+  // Cambia el tipo de dato de enum a string
   @Column()
   category: string;
 
