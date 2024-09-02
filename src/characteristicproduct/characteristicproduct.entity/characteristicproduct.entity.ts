@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { GastronomicCultureEntity } from '../../gastronomic-culture/gastronomic-culture.entity/gastronomic-culture.entity';
 
@@ -21,6 +20,7 @@ export class CharacteristicproductEntity {
 
   @ManyToOne(
     () => GastronomicCultureEntity,
-    (gastronomicCulture) => gastronomicCulture.characteristicproducts)
+    (gastronomicCulture) => gastronomicCulture.characteristicproducts,
+  )
   gastronomicCulture: GastronomicCultureEntity;
 }
