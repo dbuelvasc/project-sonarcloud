@@ -7,7 +7,6 @@ import { faker } from '@faker-js/faker';
 import { CharacteristicProductService } from './characteristicproduct.service';
 import { CharacteristicProductEntity } from './characteristicproduct.entity/characteristicproduct.entity';
 
-
 describe('CharacteristicProductService', () => {
   let service: CharacteristicProductService;
   let repository: Repository<CharacteristicProductEntity>;
@@ -19,7 +18,9 @@ describe('CharacteristicProductService', () => {
       providers: [CharacteristicProductService],
     }).compile();
 
-    service = module.get<CharacteristicProductService>(CharacteristicProductService);
+    service = module.get<CharacteristicProductService>(
+      CharacteristicProductService,
+    );
     repository = module.get<Repository<CharacteristicProductEntity>>(
       getRepositoryToken(CharacteristicProductEntity),
     );
@@ -53,7 +54,9 @@ describe('CharacteristicProductService', () => {
 
   it('findOne should return a product by id', async () => {
     const storedProduct: CharacteristicProductEntity = productsList[0];
-    const product: CharacteristicProductEntity = await service.findOne(storedProduct.id);
+    const product: CharacteristicProductEntity = await service.findOne(
+      storedProduct.id,
+    );
     expect(product).not.toBeNull();
     expect(product.name).toEqual(storedProduct.name);
     expect(product.description).toEqual(storedProduct.description);
@@ -77,12 +80,15 @@ describe('CharacteristicProductService', () => {
       category: faker.word.noun(),
     };
 
-    const newProduct: CharacteristicProductEntity = await service.create(product);
+    const newProduct: CharacteristicProductEntity =
+      await service.create(product);
     expect(newProduct).not.toBeNull();
 
-    const storedProduct: CharacteristicProductEntity = await repository.findOne({
-      where: { id: newProduct.id },
-    });
+    const storedProduct: CharacteristicProductEntity = await repository.findOne(
+      {
+        where: { id: newProduct.id },
+      },
+    );
     expect(storedProduct).not.toBeNull();
     expect(storedProduct.name).toEqual(newProduct.name);
     expect(storedProduct.description).toEqual(newProduct.description);
@@ -99,9 +105,11 @@ describe('CharacteristicProductService', () => {
       product,
     );
     expect(updatedProduct).not.toBeNull();
-    const storedProduct: CharacteristicProductEntity = await repository.findOne({
-      where: { id: product.id },
-    });
+    const storedProduct: CharacteristicProductEntity = await repository.findOne(
+      {
+        where: { id: product.id },
+      },
+    );
     expect(storedProduct).not.toBeNull();
     expect(storedProduct.name).toEqual(product.name);
     expect(storedProduct.description).toEqual(product.description);
@@ -125,9 +133,10 @@ describe('CharacteristicProductService', () => {
   it('delete should remove a product', async () => {
     const product: CharacteristicProductEntity = productsList[0];
     await service.delete(product.id);
-    const deletedProduct: CharacteristicProductEntity = await repository.findOne({
-      where: { id: product.id },
-    });
+    const deletedProduct: CharacteristicProductEntity =
+      await repository.findOne({
+        where: { id: product.id },
+      });
     expect(deletedProduct).toBeNull();
   });
 
@@ -138,4 +147,3 @@ describe('CharacteristicProductService', () => {
     );
   });
 });
-
