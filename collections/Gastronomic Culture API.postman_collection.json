@@ -1,0 +1,5645 @@
+{
+	"info": {
+		"_postman_id": "6d79bf29-e45e-405f-a700-90d22a2e45e7",
+		"name": "Gastronomic Culture API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6679811",
+		"_collection_link": "https://martian-water-313571.postman.co/workspace/Team-Workspace~dd1ef38c-bff7-46fe-8ec5-a3cfc530106c/collection/6679811-6d79bf29-e45e-405f-a700-90d22a2e45e7?action=share&source=collection_link&creator=6679811"
+	},
+	"item": [
+		{
+			"name": "CharacteristicProduct",
+			"item": [
+				{
+					"name": "Add product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Parmigiano Reggiano\",\r\n  \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/products",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Example Product\",\r\n  \"description\": \"This is a sample product description.\",\r\n  \"history\": \"This product has a long and rich history.\",\r\n  \"category\": \"Example Category\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/products",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"id\": \"1\",\r\n  \"name\": \"Parmigiano Reggiano\",\r\n  \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\",\r\n  \"createdAt\": \"2024-08-25T12:34:56Z\",\r\n  \"updatedAt\": \"2024-08-25T12:34:56Z\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "GET All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET All Products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n  {\r\n    \"id\": \"8f5b3421-9bdf-4f2d-8472-72dc3eeb8f7a\",\r\n    \"name\": \"Parmigiano Reggiano\",\r\n    \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n    \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n    \"category\": \"Queso\",\r\n    \"createdAt\": \"2024-08-25T12:34:56Z\",\r\n    \"updatedAt\": \"2024-08-25T12:34:56Z\"\r\n  },\r\n  {\r\n    \"id\": \"2c5e4563-8a6f-4c1d-b15a-2f3e7a74a4c3\",\r\n    \"name\": \"Salsa de Soja\",\r\n    \"description\": \"Un condimento líquido elaborado a partir de la fermentación de la soja.\",\r\n    \"history\": \"Originaria de China, la salsa de soja se ha utilizado en la cocina asiática durante más de 2,000 años.\",\r\n    \"category\": \"Condimento\",\r\n    \"createdAt\": \"2024-08-25T12:35:00Z\",\r\n    \"updatedAt\": \"2024-08-25T12:35:00Z\"\r\n  }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "GET Product By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET Product By ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"id\": \"8f5b3421-9bdf-4f2d-8472-72dc3eeb8f7a\",\r\n  \"name\": \"Parmigiano Reggiano\",\r\n  \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\",\r\n  \"createdAt\": \"2024-08-25T12:34:56Z\",\r\n  \"updatedAt\": \"2024-08-25T12:34:56Z\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "GET An Invalid Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"00000000-0000-0000-00000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET An Invalid Product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"00000000-0000-0000-00000000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"error\": \"Product not found\",\r\n  \"statusCode\": 404\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Parmigiano Reggiano\",\r\n  \"description\": \"Queso duro, granular y añejo de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"id\": \"8f5b3421-9bdf-4f2d-8472-72dc3eeb8f7a\",\r\n  \"name\": \"Parmigiano Reggiano\",\r\n  \"description\": \"Queso duro, granular y añejo de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\",\r\n  \"createdAt\": \"2024-08-25T12:34:56Z\",\r\n  \"updatedAt\": \"2024-08-25T14:00:00Z\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update An Invalid Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Producto Inexistente\",\r\n  \"description\": \"Intento de actualizar un producto que no existe.\",\r\n  \"history\": \"No hay historia porque este producto no existe.\",\r\n  \"category\": \"N/A\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"00000000-0000-0000-00000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update An Invalid Product",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Producto Inexistente\",\r\n  \"description\": \"Intento de actualizar un producto que no existe.\",\r\n  \"history\": \"No hay historia porque este producto no existe.\",\r\n  \"category\": \"N/A\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"00000000-0000-0000-00000000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"error\": \"Product not found\",\r\n  \"statusCode\": 404\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Product",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete An Invalid Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"00000000-0000-0000-00000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete An Invalid Product",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"00000000-0000-0000-00000000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"error\": \"Product not found\",\r\n  \"statusCode\": 404\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Recipes",
+			"item": [
+				{
+					"name": "Add Recipe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Pasta Carbonara\", \"description\": \"A classic Italian pasta dish.\", \"photo\": \"http://example.com/photo.jpg\", \"preparationProcess\": \"Cook pasta, mix with sauce.\", \"video\": \"http://example.com/video.mp4\"}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/recipes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"recipes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\": \"Pasta Carbonara\", \"description\": \"A classic Italian pasta dish.\", \"photo\": \"http://example.com/photo.jpg\", \"preparationProcess\": \"Cook pasta, mix with sauce.\", \"video\": \"http://example.com/video.mp4\"}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/recipes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"recipes"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\"id\": 1, \"name\": \"Pasta Carbonara\", \"description\": \"A classic Italian pasta dish.\", \"photo\": \"http://example.com/photo.jpg\", \"preparationProcess\": \"Cook pasta, mix with sauce.\", \"video\": \"http://example.com/video.mp4\"}"
+						}
+					]
+				},
+				{
+					"name": "Get All Recipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/recipes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"recipes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All Recipes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/recipes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"recipes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Pasta Carbonara\",\n    \"description\": \"A classic Italian pasta dish.\",\n    \"photo\": \"http://example.com/photo.jpg\",\n    \"preparationProcess\": \"Cook pasta, mix with sauce.\",\n    \"video\": \"http://example.com/video.mp4\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Chicken Curry\",\n    \"description\": \"A spicy chicken dish.\",\n    \"photo\": \"http://example.com/photo2.jpg\",\n    \"preparationProcess\": \"Cook chicken with spices.\",\n    \"video\": \"http://example.com/video2.mp4\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Recipe by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/recipes/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"recipes",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Recipe by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/recipes/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"recipes",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"name\": \"Pasta Carbonara\",\n  \"description\": \"A classic Italian pasta dish.\",\n  \"photo\": \"http://example.com/photo.jpg\",\n  \"preparationProcess\": \"Cook pasta, mix with sauce.\",\n  \"video\": \"http://example.com/video.mp4\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get An Invalid Recipe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/recipes/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"recipes",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Recipe Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/recipes/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"recipes",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Recipe with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Recipe",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Pasta Carbonara Updated\", \"description\": \"A classic Italian pasta dish with a twist.\", \"photo\": \"http://example.com/photo_updated.jpg\", \"preparationProcess\": \"Cook pasta, mix with new sauce.\", \"video\": \"http://example.com/video_updated.mp4\"}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/recipes/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"recipes",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"name\": \"Pasta Carbonara Updated\", \"description\": \"A classic Italian pasta dish with a twist.\", \"photo\": \"http://example.com/photo_updated.jpg\", \"preparationProcess\": \"Cook pasta, mix with new sauce.\", \"video\": \"http://example.com/video_updated.mp4\"}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/recipes/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"recipes",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\"id\": 1, \"name\": \"Pasta Carbonara Updated\", \"description\": \"A classic Italian pasta dish with a twist.\", \"photo\": \"http://example.com/photo_updated.jpg\", \"preparationProcess\": \"Cook pasta, mix with new sauce.\", \"video\": \"http://example.com/video_updated.mp4\"}"
+						}
+					]
+				},
+				{
+					"name": "Update An Invalid Recipe",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Nonexistent Recipe\", \"description\": \"This recipe does not exist.\", \"photo\": \"http://example.com/photo_nonexistent.jpg\", \"preparationProcess\": \"N/A\", \"video\": \"http://example.com/video_nonexistent.mp4\"}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/recipes/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"recipes",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Recipe Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/recipes/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"recipes",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Recipe with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Recipe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/recipes/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"recipes",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/recipes/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"recipes",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete An Invalid Recipe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/recipes/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"recipes",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Recipe Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/recipes/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"recipes",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Recipe with the given id was not found\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Gastronomic Culture",
+			"item": [
+				{
+					"name": "Add Gastronomic Culture",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"id_gastronomic_culture\", data.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Gastronomic culture name\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/gastronomic-cultures",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"gastronomic-cultures"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Gastronomic Culture",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"País de prueba\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/gastronomic-cultures",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"gastronomic-cultures"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Cultura gastronómica de ejemplo\"\n}\n"
+						}
+					]
+				},
+				{
+					"name": "Get Gastronomic Cultures",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Number of countries > ' + 0, function () {\r",
+									"   var data = pm.response.json()\r",
+									"   pm.expect(data.length).to.greaterThan(0)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/gastronomic-cultures",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"gastronomic-cultures"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Gastronomic Cultures",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/gastronomic-cultures",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"gastronomic-cultures"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Cultura gastronómica de prueba\",\n        \"characteristicProducts\": [],\n        \"recipes\": [],\n        \"restaurants\": [],\n        \"countries\":[]\n    }\n]\n"
+						}
+					]
+				},
+				{
+					"name": "Get Gastronomic Culture",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/gastronomic-cultures/{{id_gastronomic_culture}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{id_gastronomic_culture}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Gastronomic Culture",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/gastronomic-cultures/{{id_gastronomic_culture}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{id_gastronomic_culture}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": 1,\r\n    \"name\": \"Cultura gastronómica de prueba\",\r\n    \"characteristicProducts\": [],\r\n    \"recipes\": [],\r\n    \"restaurants\": [],\r\n    \"countries\":[]\r\n}\r\n"
+						}
+					]
+				},
+				{
+					"name": "Get Gastronomic Culture that Does Not Exist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"   pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"Cultura gastronómica no encontrada\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/gastronomic-cultures/-{{id_gastronomic_culture}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"-{{id_gastronomic_culture}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Gastronomic Culture that Does Not Exist",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/gastronomic-cultures/-{{id_gastronomic_culture}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"-{{id_gastronomic_culture}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Cultura gastronómica no encontrada\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Gastronomic Culture",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Cultura gastronómica de prueba actualizado\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/gastronomic-cultures/{{id_gastronomic_culture}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{id_gastronomic_culture}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Gastronomic Culture",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"País de prueba actualizado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/gastronomic-cultures/{{id_gastronomic_culture}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{id_gastronomic_culture}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Cultura gastronómica Colombiana\",\n    \"characteristicProducts\": [],\n    \"recipes\": [],\n    \"restaurants\": [],\n    \"countries\":[]\n}\n"
+						}
+					]
+				},
+				{
+					"name": "Update Gastronomic Culture that Does Not Exist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"   pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"Cultura gastronómica no encontrada\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Cultura gastronómica de prueba actualizado\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/gastronomic-cultures/-{{id_gastronomic_culture}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"-{{id_gastronomic_culture}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Gastronomic Culture that Does Not Exist",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"País de prueba actualizado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/gastronomic-cultures/-{{id_gastronomic_culture}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"-{{id_gastronomic_culture}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"Cultura gastronómica no encontrada\"\r\n}\r\n"
+						}
+					]
+				},
+				{
+					"name": "Delete Gastronomic Culture",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"   pm.response.to.have.status(204);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/gastronomic-cultures/{{id_gastronomic_culture}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{id_gastronomic_culture}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Gastronomic Culture",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/gastronomic-cultures/{{id_gastronomic_culture}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{id_gastronomic_culture}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete Gastronomic Culture that Does Not Exist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"   pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"Cultura gastronómica no encontrada\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/gastronomic-cultures/-{{id_gastronomic_culture}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"-{{id_gastronomic_culture}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Gastronomic Culture that Does Not Exist",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/gastronomic-cultures/-{{id_gastronomic_culture}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"-{{id_gastronomic_culture}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Cultura gastronómica no encontrada\"\n}\n"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Restaurants",
+			"item": [
+				{
+					"name": "Add Restaurant",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Le Gourmet\", \"city\": \"Paris\", \"country\": \"France\", \"michelinStars\": 3, \"awardDate\": \"2024-01-15\"}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/restaurants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\"id\": 1, \"name\": \"Le Gourmet\", \"city\": \"Paris\", \"country\": \"France\", \"michelinStars\": 3, \"awardDate\": \"2024-01-15\"}"
+						}
+					]
+				},
+				{
+					"name": "Get All Restaurants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All Restaurants",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/restaurants",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"restaurants"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Le Gourmet\",\n    \"city\": \"Paris\",\n    \"country\": \"France\",\n    \"michelinStars\": 3,\n    \"awardDate\": \"2024-01-15\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Noma\",\n    \"city\": \"Copenhagen\",\n    \"country\": \"Denmark\",\n    \"michelinStars\": 2,\n    \"awardDate\": \"2023-05-20\"\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Osteria Francescana\",\n    \"city\": \"Modena\",\n    \"country\": \"Italy\",\n    \"michelinStars\": 3,\n    \"awardDate\": \"2022-11-10\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Restaurant by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/restaurants/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"restaurants",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"name\": \"Le Gourmet\",\n  \"city\": \"Paris\",\n  \"country\": \"France\",\n  \"michelinStars\": 3,\n  \"awardDate\": \"2024-01-15\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get An Invalid Restaurant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/restaurants/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"restaurants",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n   \"statusCode\": 404,\n   \"message\": \"The Restaurant with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Restaurant",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Le Gourmet Updated\", \"city\": \"Paris\", \"country\": \"France\", \"michelinStars\": 3, \"awardDate\": \"2024-01-15\"}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\"id\": 1, \"name\": \"Le Gourmet Updated\", \"city\": \"Paris\", \"country\": \"France\", \"michelinStars\": 3, \"awardDate\": \"2024-01-15\"}"
+						}
+					]
+				},
+				{
+					"name": "Update An Invalid Restaurant",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Nonexistent Restaurant\", \"city\": \"Nowhere\", \"country\": \"Nowhere\", \"michelinStars\": 0, \"awardDate\": \"2024-01-01\"}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/restaurants/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"restaurants",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The Restaurant with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Restaurant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete An Invalid Restaurant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/restaurants/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"restaurants",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The Restaurant with the given id was not found\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Country",
+			"item": [
+				{
+					"name": "Add Country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"id_pais\", data.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"País de prueba\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/countries",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Country",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "Content-Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"País de prueba\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/countries",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"countries"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"País de prueba\",\n    \"gastronomic_cultures\": [],\n    \"restaurants\": []\n}\n"
+						}
+					]
+				},
+				{
+					"name": "Get Countries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Number of countries > ' + 0, function () {\r",
+									"   var data = pm.response.json()\r",
+									"   pm.expect(data.length).to.greaterThan(0)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/countries",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Countries",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "Content-Type",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/countries",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"countries"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"País de prueba\"\n    }\n]\n"
+						}
+					]
+				},
+				{
+					"name": "Get Country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/countries/{{country_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"countries",
+								"{{country_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Country",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/countries/{{id_pais}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"countries",
+										"{{id_pais}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": 1,\r\n    \"name\": \"País de prueba\",\r\n    \"gastronomic_cultures\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Cultura gastronómica de prueba\",\r\n            \"descripcion\": \"Descripción de la cultura gastronómica de prueba\"\r\n        }\r\n    ],\r\n    \"restaurants\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Restaurante de prueba\",\r\n            \"ciudad\": \"Madrid\"\r\n        }\r\n    ]\r\n}\r\n"
+						}
+					]
+				},
+				{
+					"name": "Get Country that Does Not Exist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"   pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"País no encontrado\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/countries/-{{country_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"countries",
+								"-{{country_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Country that Does Not Exist",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/countries/{{id_pais}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"countries",
+										"{{id_pais}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"País no encontrado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"País de prueba actualizado\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/countries/{{country_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"countries",
+								"{{country_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Country",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"País de prueba actualizado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/countries/{{id_pais}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"countries",
+										"{{id_pais}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"País de prueba actualizado\",\n    \"gastronomic_cultures\": [],\n    \"restaurants\": []\n}\n"
+						}
+					]
+				},
+				{
+					"name": "Update Country that Does Not Exist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"   pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"País no encontrado\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"País de prueba actualizado\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/countries/-{{country_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"countries",
+								"-{{country_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Country that Does Not Exist",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"País de prueba actualizado\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/countries/{{id_pais}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"countries",
+										"{{id_pais}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"País no encontrado\"\r\n}\r\n"
+						}
+					]
+				},
+				{
+					"name": "Delete Country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"   pm.response.to.have.status(204);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/countries/{{country_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"countries",
+								"{{country_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Country",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/countries/{{id_pais}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"countries",
+										"{{id_pais}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete Country that Does Not Exist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"   pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"País no encontrado\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/countries/-{{country_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"countries",
+								"-{{country_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Country that Does Not Exist",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "Content-Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/countries/{{id_pais}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"countries",
+										"{{id_pais}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"País no encontrado\"\n}\n"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "GastronomicCulture-Country",
+			"item": [
+				{
+					"name": "Add Country to Gastronomic Culture",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/{{Country_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"countries",
+								"{{Country_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/{{Country_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"countries",
+										"{{Country_id}}"
+									]
+								}
+							},
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\"message\": \"Country added to gastronomy successfully.\"}"
+						}
+					]
+				},
+				{
+					"name": "Add Country That Does Not Exist to Gastronomic Culture",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"countries",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Country Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"countries",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Country with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add country to Gastronomic Culture That Does Not Exist",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/countries/{{country_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"countries",
+								"{{country_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/countries/{{country_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"countries",
+										"{{country_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Gastronomic Culture with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Country from Gastronomic Culture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/{{country_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"countries",
+								"{{country_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Country Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/{{country_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"countries",
+										"{{country_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"name\": \"Colombia\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Country That Does Not Exist from Gastronomic Culture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"countries",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"countries",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The country with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Country From Gastronomic Culture That Does Not Exist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/countries/{{country_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"countries",
+								"{{country_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/countries/{{country_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"countries",
+										"{{country_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Gastronomic Culture with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Country That Is Not Associated with a Gastronomic Culture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/countries/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"countries",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/countries/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"countries",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Country with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Country of a Gastronomic Culture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"countries"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Countries Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"countries"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Colombia\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Polonia\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Country of a Gastronomic Culture That Does Not Exist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/countries",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"countries"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/countries",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"countries"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Gastronomic Culture with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Countries of a Gastronomic Culture",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"id\": 1, \"name\": \"Cultura gastronómica de prueba\"}]"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"countries"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"countries"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\"message\": \"Countries updated successfully.\"}"
+						}
+					]
+				},
+				{
+					"name": "Update Countries That Do Not Exist for a Gastronomic Culture",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Cultura gastronómica de prueba\"}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"countries",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Countries Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"countries",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The countries with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Country of a Gastronomic Culture That Does Not Exist",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"id\": 1, \"name\": \"Cultura gastronómica de prueba\"}]"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/countries",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"countries"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/countries",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"countries"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Gastronomic Culture with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Country from Gastronomic Culture",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/{{country_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"countries",
+								"{{country_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/{{country_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"countries",
+										"{{country_id}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete Country from Non-Existent Gastronomic Culture",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/countries/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"countries",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/countries/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"countries",
+										"2"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Gastronomic Culture with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Delete Non-Existent Country from Gastronomic Culture",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/1/countries/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"1",
+								"countries",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Country Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/countries/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"countries",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Country with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Delete Countries Not Associated with Gastronomic Culture",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/1/countries/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"1",
+								"countries",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Country Not Associated",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/countries/3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"countries",
+										"3"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 409, \"message\": \"The Country with the given id is not associated with the Gastronomic Culture\"}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "GastronomicCulture-CharateristicProduct",
+			"item": [
+				{
+					"name": "Add Product to Gastronomic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Product to Gastronomic",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomicCulture_id}}",
+										"products",
+										"{{product_id}}"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"id\": \"a9f8f8b0-3c56-4b0a-9f89-a3e29e2cd7fa\",\r\n  \"name\": \"Italian Gastronomy\",\r\n  \"characteristicProducts\": [\r\n    {\r\n      \"id\": \"b7b9e6c7-1f45-4b22-82df-66fb2e1bb928\",\r\n      \"name\": \"Parmigiano Reggiano\",\r\n      \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n      \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n      \"category\": \"Queso\"\r\n    }\r\n  ]\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Product that doesn’t exist to Gastronomic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Product that doesn’t exist to Gastronomic",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomicCulture_id}}",
+										"products",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The product with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Product to Gastronomic that doesn’t exist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"00000000-0000-0000-0000-000000000000",
+								"products",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Product to Gastronomic that doesn’t exist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"00000000-0000-0000-0000-000000000000",
+										"products",
+										"{{product_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The gastronomic culture with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "GET Product From Gastronomic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET Product From Gastronomic",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"id\": \"b7b9e6c7-1f45-4b22-82df-66fb2e1bb928\",\r\n  \"name\": \"Parmigiano Reggiano\",\r\n  \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "GET Product That Does Not Exist from Gastronomic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET Product That Does Not Exist from Gastronomic",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The product with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "GET Product From Gastronomic That Does Not Exist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"00000000-0000-0000-0000-000000000000",
+								"products",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET Product From Gastronomic That Does Not Exist",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The gastronomic culture with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "GET Product That Is Not Associated with a Gastronomic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{unassociated_product_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products",
+								"{{unassociated_product_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET Product That Is Not Associated with a Gastronomic",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"statusCode\": 412,\r\n  \"message\": \"The product with the given id is not associated with the gastronomic culture\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "GET Product of a Gastronomic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{id}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{id}}",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET Product of a Gastronomic",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{id}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{id}}",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n  {\r\n    \"id\": \"b7b9e6c7-1f45-4b22-82df-66fb2e1bb928\",\r\n    \"name\": \"Parmigiano Reggiano\",\r\n    \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n    \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n    \"category\": \"Queso\"\r\n  },\r\n  {\r\n    \"id\": \"c6d78b3d-3b2f-4d57-b7c3-fb0b3d9f75c1\",\r\n    \"name\": \"Prosciutto di Parma\",\r\n    \"description\": \"Un tipo de jamón curado originario de Parma, Italia.\",\r\n    \"history\": \"El Prosciutto di Parma ha sido una especialidad culinaria de la región durante siglos.\",\r\n    \"category\": \"Carne\"\r\n  }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "GET Product of a Gastronomic That Does Not Exist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"00000000-0000-0000-0000-000000000000",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET Product of a Gastronomic That Does Not Exist",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"00000000-0000-0000-0000-000000000000",
+										"products"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The gastronomic culture with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Products of Gastronomic",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Products of Gastronomic",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomicCulture_id}}",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"id\": \"a9f8f8b0-3c56-4b0a-9f89-a3e29e2cd7fa\",\r\n  \"name\": \"Italian Gastronomy\",\r\n  \"characteristicProducts\": [\r\n    {\r\n      \"id\": \"b7b9e6c7-1f45-4b22-82df-66fb2e1bb928\",\r\n      \"name\": \"Parmigiano Reggiano\",\r\n      \"description\": \"Un queso duro, granular, y añejo originario de la región de Emilia-Romaña, Italia.\",\r\n      \"history\": \"El Parmigiano Reggiano ha sido producido de manera artesanal desde hace más de 800 años en el valle del río Po.\",\r\n      \"category\": \"Queso\"\r\n    },\r\n    {\r\n      \"id\": \"c6d78b3d-3b2f-4d57-b7c3-fb0b3d9f75c1\",\r\n      \"name\": \"Prosciutto di Parma\",\r\n      \"description\": \"Un tipo de jamón curado originario de Parma, Italia.\",\r\n      \"history\": \"El Prosciutto di Parma ha sido una especialidad culinaria de la región durante siglos.\",\r\n      \"category\": \"Carne\"\r\n    }\r\n  ]\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Products that Do Not Exist for Gastronomic",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Products that Do Not Exist for Gastronomic",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomicCulture_id}}",
+										"products"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"One or more products with the given ids were not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Products of Gastronomic that Does Not Exist",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"00000000-0000-0000-0000-000000000000",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Products of Gastronomic that Does Not Exist",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"00000000-0000-0000-0000-000000000000",
+										"products"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The gastronomic culture with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Product from Gastronomic",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Product from Gastronomic",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete Product from Non-Existent Gastronomic",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"00000000-0000-0000-0000-000000000000",
+								"products",
+								"{{product_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Product from Non-Existent Gastronomic",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"00000000-0000-0000-0000-000000000000",
+										"products",
+										"{{product_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The gastronomic culture with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Non-Existent Product from Gastronomic",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Non-Existent Product from Gastronomic",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomicCulture_id}}",
+										"products",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"statusCode\": 404,\r\n  \"message\": \"The product with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Product Not Associated with Gastronomic",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{unassociated_product_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomicCulture_id}}",
+								"products",
+								"{{unassociated_product_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Product Not Associated with Gastronomic",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "Precondition Failed",
+							"code": 412,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n  \"statusCode\": 412,\r\n  \"message\": \"The product with the given id is not associated with the gastronomic culture\"\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "GastronomicCulture-Recipe",
+			"item": [
+				{
+					"name": "Add Recipe to Gastronomic Culture",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/{{recipe_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"recipes",
+								"{{recipe_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"recipes",
+										"2"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"gastronomic_culture_id\": 1, \"recipe_id\": 2}"
+						}
+					]
+				},
+				{
+					"name": "Add Recipe that Does Not Exist to Gastronomic Culture",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"recipes",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Recipe Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"recipes",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Recipe with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Add Recipe to Gastronomic Culture that Does Not Exist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes/{{recipe_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"recipes",
+								"{{recipe_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"recipes",
+										"2"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Gastronomic Culture with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Get Recipe from Gastronomic Culture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/{{recipe_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"recipes",
+								"{{recipe_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"recipes",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"gastronomic_culture_id\": 1, \"recipe_id\": 2}"
+						}
+					]
+				},
+				{
+					"name": "Get Recipe that Does Not Exist from Gastronomic Culture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"recipes",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Recipe Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"recipes",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Recipe with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Get Recipe from Gastronomic Culture that Does Not Exist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes/{{recipe_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"recipes",
+								"{{recipe_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"recipes",
+										"2"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Gastronomic Culture with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Get Recipe that is Not Associated with a Gastronomic Culture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"recipes",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Recipe Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"recipes",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Recipe with the given id is not associated with the Gastronomic Culture\"}"
+						}
+					]
+				},
+				{
+					"name": "Get All Recipes of Gastronomic Culture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"recipes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"recipes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[{\"id\": 1, \"name\": \"Pasta Carbonara\", \"description\": \"A classic Italian pasta dish.\", \"photo\": \"http://example.com/photo.jpg\", \"preparationProcess\": \"Cook pasta, mix with sauce.\", \"video\": \"http://example.com/video.mp4\"}]"
+						}
+					]
+				},
+				{
+					"name": "Get All Recipes of Gastronomic Culture that Does Not Exist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"recipes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"recipes"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Gastronomic Culture with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Update Recipes of Gastronomic Culture",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"recipes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"recipes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[{\"id\": 1, \"name\": \"Pasta Carbonara Updated\", \"description\": \"A classic Italian pasta dish with a twist.\", \"photo\": \"http://example.com/photo_updated.jpg\", \"preparationProcess\": \"Cook pasta, mix with new sauce.\", \"video\": \"http://example.com/video_updated.mp4\"}]"
+						}
+					]
+				},
+				{
+					"name": "Update Recipes that Do Not Exist for Gastronomic Culture",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"recipes",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Recipe Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"recipes",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Recipe with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Update Recipes of Gastronomic Culture that Does Not Exist",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"recipes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"recipes"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Gastronomic Culture with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Delete Recipe from Gastronomic Culture",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/{{recipe_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"recipes",
+								"{{recipe_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"recipes",
+										"2"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete Recipe from Gastronomic Culture",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/{{recipe_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"recipes",
+								"{{recipe_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"recipes",
+										"2"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete Recipe from Non-Existent Gastronomic Culture",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"recipes",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"recipes",
+										"2"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Gastronomic Culture with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Delete Non-Existent Recipe from Gastronomic Culture",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"1",
+								"recipes",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Recipe Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"recipes",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Recipe with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Delete Recipe Not Associated with Gastronomic Culture",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"1",
+								"recipes",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Recipe Not Associated",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"recipes",
+										"3"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 409, \"message\": \"The Recipe with the given id is not associated with the Gastronomic Culture\"}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "GastronomicCulture-Restaurants",
+			"item": [
+				{
+					"name": "Add Restaurant to Gastronomic Culture",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/{{restaurant_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"restaurants",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/{{restaurant_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"restaurants",
+										"{{restaurant_id}}"
+									]
+								}
+							},
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\"message\": \"Restaurant added to gastronomy successfully.\"}"
+						}
+					]
+				},
+				{
+					"name": "Add Restaurant That Does Not Exist to Gastronomic Culture",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"restaurants",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"restaurants",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Restaurant with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Restaurant to Gastronomic Culture That Does Not Exist",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants/{{restaurant_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"restaurants",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants/{{restaurant_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"restaurants",
+										"{{restaurant_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Gastronomic Culture with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Restaurant from Gastronomic Culture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/{{restaurant_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"restaurants",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/{{restaurant_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"restaurants",
+										"{{restaurant_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"id\": {{restaurant_id}},\n  \"name\": \"Le Gourmet\",\n  \"city\": \"Paris\",\n  \"country\": \"France\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Restaurant That Does Not Exist from Gastronomic Culture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"restaurants",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"restaurants",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Restaurant with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Restaurant From Gastronomic Culture That Does Not Exist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants/{{restaurant_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"restaurants",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants/{{restaurant_id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"restaurants",
+										"{{restaurant_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Gastronomic Culture with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Restaurant That Is Not Associated with a Gastronomic Culture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/restaurants/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"restaurants",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/restaurants/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"restaurants",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Restaurant with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Restaurants of a Gastronomic Culture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"restaurants"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurants Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"restaurants"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Le Gourmet\",\n    \"city\": \"Paris\",\n    \"country\": \"France\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Noma\",\n    \"city\": \"Copenhagen\",\n    \"country\": \"Denmark\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Restaurants of a Gastronomic Culture That Does Not Exist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"restaurants"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"restaurants"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Gastronomic Culture with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Restaurants of a Gastronomic Culture",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"id\": 1, \"name\": \"Le Gourmet Updated\", \"city\": \"Paris\", \"country\": \"France\"}]"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"restaurants"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"restaurants"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\"message\": \"Restaurants updated successfully.\"}"
+						}
+					]
+				},
+				{
+					"name": "Update Restaurants That Do Not Exist for a Gastronomic Culture",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Nonexistent Restaurant\", \"city\": \"Nowhere\", \"country\": \"Nowhere\"}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"restaurants",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"{{gastronomic_culture_id}}",
+										"restaurants",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Restaurant with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Restaurants of a Gastronomic Culture That Does Not Exist",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\"id\": 1, \"name\": \"Le Gourmet Updated\", \"city\": \"Paris\", \"country\": \"France\"}]"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"restaurants"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"restaurants"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The Gastronomic Culture with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Restaurant from Gastronomic Culture",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/{{restaurant_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"{{gastronomic_culture_id}}",
+								"restaurants",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/restaurants/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"restaurants",
+										"2"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete Restaurant from Non-Existent Gastronomic Culture",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"999",
+								"restaurants",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gastronomic Culture Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"999",
+										"restaurants",
+										"2"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Gastronomic Culture with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Delete Non-Existent Restaurant from Gastronomic Culture",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/1/restaurants/999",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"1",
+								"restaurants",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/restaurants/999",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"restaurants",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Restaurant with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Delete Restaurant Not Associated with Gastronomic Culture",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/gastronomic-cultures/1/restaurants/3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"gastronomic-cultures",
+								"1",
+								"restaurants",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant Not Associated",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/gastronomic-cultures/1/restaurants/3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"gastronomic-cultures",
+										"1",
+										"restaurants",
+										"3"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 409, \"message\": \"The Restaurant with the given id is not associated with the Gastronomic Culture\"}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
