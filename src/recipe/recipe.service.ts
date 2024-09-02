@@ -9,7 +9,7 @@ import { BusinessError } from '../shared/errors/business-errors';
 export class RecipeService {
     constructor(
         @InjectRepository(RecipeEntity)
-        private readonly recipeRepository: Repository<RecipeEntity>,
+        private recipeRepository: Repository<RecipeEntity>,
     ) {}
 
     async findAll(): Promise<RecipeEntity[]> {
