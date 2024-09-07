@@ -6,11 +6,14 @@ import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-co
 import { faker } from '@faker-js/faker';
 import { GastronomicCultureService } from './gastronomic-culture.service';
 import { GastronomicCultureEntity } from './gastronomic-culture.entity';
+import { CharacteristicProductEntity } from '../characteristicproduct/characteristicproduct.entity';
 
 describe('GastronomicCultureService', () => {
   let service: GastronomicCultureService;
-  let repository: Repository<GastronomicCultureEntity>;
+  let gastronomicCultureRepository: Repository<GastronomicCultureEntity>;
+  let characteristicProductRepository: Repository<CharacteristicProductEntity>;
   let gastronomicCultureList: GastronomicCultureEntity[];
+  let characteristicProduct: CharacteristicProductEntity;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -19,22 +22,36 @@ describe('GastronomicCultureService', () => {
     }).compile();
 
     service = module.get<GastronomicCultureService>(GastronomicCultureService);
-    repository = module.get<Repository<GastronomicCultureEntity>>(
-      getRepositoryToken(GastronomicCultureEntity),
-    );
+    gastronomicCultureRepository = module.get<
+      Repository<GastronomicCultureEntity>
+    >(getRepositoryToken(GastronomicCultureEntity));
+
+    characteristicProductRepository = module.get<
+      Repository<CharacteristicProductEntity>
+    >(getRepositoryToken(CharacteristicProductEntity));
     await seedDatabase();
   });
 
   const seedDatabase = async () => {
-    repository.clear();
+    gastronomicCultureRepository.clear();
+    characteristicProductRepository.clear();
     gastronomicCultureList = [];
     for (let i = 0; i < 5; i++) {
       const gastronomicCulture: GastronomicCultureEntity =
-        await repository.save({
+        await gastronomicCultureRepository.save({
           name: faker.word.verb(),
+          // characteristicProducts: [],
         });
       gastronomicCultureList.push(gastronomicCulture);
     }
+
+    characteristicProduct = await characteristicProductRepository.save({
+      name: faker.word.verb(),
+      category: faker.word.adjective(),
+      description: faker.lorem.sentence(),
+      history: faker.lorem.sentence(),
+      // gastronomicCulture: [],
+    });
   };
 
   it('should be defined', () => {
@@ -112,7 +129,7 @@ describe('GastronomicCultureService', () => {
     await service.delete(gastronomicCulture.id);
 
     const deletedGastronomicCulture: GastronomicCultureEntity =
-      await repository.findOne({
+      await gastronomicCultureRepository.findOne({
         where: { id: gastronomicCulture.id },
       });
     expect(deletedGastronomicCulture).toBeNull();
@@ -123,5 +140,29 @@ describe('GastronomicCultureService', () => {
       'message',
       'The gastronomic culture with the given id was not found',
     );
+  });
+
+  it('should add a characteristic product to a gastronomic culture', async () => {
+    const gastronomicCulture: GastronomicCultureEntity =
+      await gastronomicCultureRepository.save({
+        name: faker.word.verb(),
+      });
+    gastronomicCultureList.push(gastronomicCulture);
+
+    characteristicProduct = await characteristicProductRepository.save({
+      name: faker.word.verb(),
+      category: faker.word.adjective(),
+      description: faker.lorem.sentence(),
+      history: faker.lorem.sentence(),
+      // gastronomicCulture: [],
+    });
+
+    const updatedGastronomicCulture = await service.addCharacteristicProduct(
+      gastronomicCulture.id,
+      characteristicProduct.id,
+    );
+
+    expect(updatedGastronomicCulture).not.toBeNull();
+    expect(updatedGastronomicCulture.characteristicProducts).toHaveLength(1);
   });
 });

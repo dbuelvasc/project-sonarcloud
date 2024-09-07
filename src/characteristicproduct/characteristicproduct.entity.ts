@@ -21,7 +21,7 @@ export class CharacteristicProductEntity {
 
   @ManyToOne(
     () => GastronomicCultureEntity,
-    (gastronomicCulture) => gastronomicCulture.characteristicproducts,
+    (gastronomicCulture) => gastronomicCulture.characteristicProducts,
   )
   gastronomicCulture: GastronomicCultureEntity;
 }

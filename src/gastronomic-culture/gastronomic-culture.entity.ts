@@ -23,7 +23,7 @@ export class GastronomicCultureEntity {
     () => CharacteristicProductEntity,
     (characteristicproduct) => characteristicproduct.gastronomicCulture,
   )
-  characteristicproducts: CharacteristicProductEntity[];
+  characteristicProducts: CharacteristicProductEntity[];
 
   @ManyToMany(
     () => RestaurantEntity,
