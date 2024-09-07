@@ -164,5 +164,8 @@ describe('GastronomicCultureService', () => {
 
     expect(updatedGastronomicCulture).not.toBeNull();
     expect(updatedGastronomicCulture.characteristicProducts).toHaveLength(1);
+    expect(updatedGastronomicCulture.characteristicProducts[0].id).toEqual(
+      characteristicProduct.id,
+    );
   });
 });

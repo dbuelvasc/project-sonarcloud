@@ -23,6 +23,9 @@ export class GastronomicCultureService {
   ) {
     const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
       where: { id: gastronomicCultureId },
+      relations: {
+        characteristicProducts: true,
+      },
     });
     if (!gastronomicCulture) {
       throw new BusinessLogicException(
@@ -40,11 +43,6 @@ export class GastronomicCultureService {
         'The characteristic product with the given id was not found',
         BusinessError.NOT_FOUND,
       );
-    }
-
-    // TODO: Check alternative way to add an element to an array
-    if (typeof gastronomicCulture.characteristicProducts === 'undefined') {
-      gastronomicCulture.characteristicProducts = [];
     }
 
     gastronomicCulture.characteristicProducts = [
