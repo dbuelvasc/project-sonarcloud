@@ -1,17 +1,19 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { RestaurantModule } from './restaurant/restaurant.module';
-import { RestaurantEntity } from './restaurant/restaurant.entity';
-import { GastronomicCultureModule } from './gastronomicCulture/gastronomicCulture.module';
-import { GastronomicCultureEntity } from './gastronomicCulture/gastronomicCulture.entity';
-import { CharacteristicProductModule } from './characteristicProduct/characteristicProduct.module';
 import { CharacteristicProductEntity } from './characteristicProduct/characteristicProduct.entity';
-import { RecipeModule } from './recipe/recipe.module';
-import { RecipeEntity } from './recipe/recipe.entity';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { CountryModule } from './country/country.module';
+import { CharacteristicProductModule } from './characteristicProduct/characteristicProduct.module';
 import { CountryEntity } from './country/country.entity';
+import { CountryModule } from './country/country.module';
+import { GastronomicCultureEntity } from './gastronomicCulture/gastronomicCulture.entity';
+import { GastronomicCultureModule } from './gastronomicCulture/gastronomicCulture.module';
+import { RecipeEntity } from './recipe/recipe.entity';
+import { RecipeModule } from './recipe/recipe.module';
+import { RestaurantEntity } from './restaurant/restaurant.entity';
+import { RestaurantModule } from './restaurant/restaurant.module';
+
 @Module({
   imports: [
     RestaurantModule,
