@@ -1,4 +1,4 @@
-import { GastronomicCultureEntity } from '../gastronomic-culture/gastronomic-culture.entity';
+import { GastronomicCultureEntity } from '../gastronomicCulture/gastronomicCulture.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

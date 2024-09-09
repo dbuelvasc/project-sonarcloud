@@ -4,8 +4,8 @@ import { CacheModule } from '@nestjs/cache-manager';
 import { Repository } from 'typeorm';
 import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-config';
 import { faker } from '@faker-js/faker';
-import { GastronomicCultureService } from './gastronomic-culture.service';
-import { GastronomicCultureEntity } from './gastronomic-culture.entity';
+import { GastronomicCultureService } from './gastronomicCulture.service';
+import { GastronomicCultureEntity } from './gastronomicCulture.entity';
 import { CharacteristicProductEntity } from '../characteristicproduct/characteristicproduct.entity';
 
 describe('GastronomicCultureService', () => {

@@ -1,7 +1,7 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CharacteristicProductEntity } from '../../characteristicproduct/characteristicproduct.entity';
 import { CountryEntity } from '../../country/country.entity';
-import { GastronomicCultureEntity } from '../../gastronomic-culture/gastronomic-culture.entity';
+import { GastronomicCultureEntity } from '../../gastronomicCulture/gastronomicCulture.entity';
 import { RecipeEntity } from '../../recipe/recipe.entity';
 import { RestaurantEntity } from '../../restaurant/restaurant.entity';
 
