@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
   JoinTable,
 } from 'typeorm';
-import { CharacteristicProductEntity } from '../characteristicproduct/characteristicproduct.entity';
+import { CharacteristicProductEntity } from '../characteristicProduct/characteristicProduct.entity';
 import { RestaurantEntity } from '../restaurant/restaurant.entity';
 import { CountryEntity } from '../country/country.entity';
 import { RecipeEntity } from '../recipe/recipe.entity';

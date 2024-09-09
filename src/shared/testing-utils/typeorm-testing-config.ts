@@ -1,5 +1,5 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CharacteristicProductEntity } from '../../characteristicproduct/characteristicproduct.entity';
+import { CharacteristicProductEntity } from '../../characteristicProduct/characteristicProduct.entity';
 import { CountryEntity } from '../../country/country.entity';
 import { GastronomicCultureEntity } from '../../gastronomicCulture/gastronomicCulture.entity';
 import { RecipeEntity } from '../../recipe/recipe.entity';

@@ -7,4 +7,4 @@ import { CharacteristicProductEntity } from './characteristicproduct.entity';
   imports: [TypeOrmModule.forFeature([CharacteristicProductEntity])],
   providers: [CharacteristicProductService],
 })
-export class CharacteristicproductModule {}
+export class CharacteristicProductModule {}

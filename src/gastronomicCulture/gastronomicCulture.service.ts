@@ -6,7 +6,7 @@ import {
   BusinessError,
   BusinessLogicException,
 } from '../shared/errors/business-errors';
-import { CharacteristicProductEntity } from '../characteristicproduct/characteristicproduct.entity';
+import { CharacteristicProductEntity } from '../characteristicProduct/characteristicProduct.entity';
 
 @Injectable()
 export class GastronomicCultureService {

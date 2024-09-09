@@ -6,7 +6,7 @@ import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-co
 import { faker } from '@faker-js/faker';
 import { GastronomicCultureService } from './gastronomicCulture.service';
 import { GastronomicCultureEntity } from './gastronomicCulture.entity';
-import { CharacteristicProductEntity } from '../characteristicproduct/characteristicproduct.entity';
+import { CharacteristicProductEntity } from '../characteristicProduct/characteristicProduct.entity';
 
 describe('GastronomicCultureService', () => {
   let service: GastronomicCultureService;

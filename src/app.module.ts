@@ -5,8 +5,8 @@ import { RestaurantModule } from './restaurant/restaurant.module';
 import { RestaurantEntity } from './restaurant/restaurant.entity';
 import { GastronomicCultureModule } from './gastronomicCulture/gastronomicCulture.module';
 import { GastronomicCultureEntity } from './gastronomicCulture/gastronomicCulture.entity';
-import { CharacteristicproductModule } from './characteristicproduct/characteristicproduct.module';
-import { CharacteristicProductEntity } from './characteristicproduct/characteristicproduct.entity';
+import { CharacteristicProductModule } from './characteristicProduct/characteristicProduct.module';
+import { CharacteristicProductEntity } from './characteristicProduct/characteristicProduct.entity';
 import { RecipeModule } from './recipe/recipe.module';
 import { RecipeEntity } from './recipe/recipe.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -16,7 +16,7 @@ import { CountryEntity } from './country/country.entity';
   imports: [
     RestaurantModule,
     GastronomicCultureModule,
-    CharacteristicproductModule,
+    CharacteristicProductModule,
     RecipeModule,
     CountryModule,
     TypeOrmModule.forRoot({
