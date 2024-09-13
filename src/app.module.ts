@@ -12,6 +12,8 @@ import { RecipeEntity } from './recipe/recipe.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CountryModule } from './country/country.module';
 import { CountryEntity } from './country/country.entity';
+import { CountryRestaurantController } from './country-restaurant/country-restaurant.controller';
+import { CountryRestaurantModule } from './country-restaurant/country-restaurant.module';
 @Module({
   imports: [
     RestaurantModule,
@@ -37,8 +39,9 @@ import { CountryEntity } from './country/country.entity';
       synchronize: true,
       keepConnectionAlive: true,
     }),
+    CountryRestaurantModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, CountryRestaurantController],
   providers: [AppService],
 })
 export class AppModule {}
