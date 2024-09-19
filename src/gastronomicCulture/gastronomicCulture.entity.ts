@@ -5,15 +5,15 @@ import {
   ManyToMany,
   PrimaryGeneratedColumn,
   JoinTable,
-} from 'typeorm';
-import { CharacteristicProductEntity } from '../characteristicproduct/characteristicproduct.entity';
-import { RestaurantEntity } from '../restaurant/restaurant.entity';
-import { CountryEntity } from '../country/country.entity';
-import { RecipeEntity } from '../recipe/recipe.entity';
+} from "typeorm";
+import { CharacteristicProductEntity } from "../characteristicProduct/characteristicProduct.entity";
+import { RestaurantEntity } from "../restaurant/restaurant.entity";
+import { CountryEntity } from "../country/country.entity";
+import { RecipeEntity } from "../recipe/recipe.entity";
 
 @Entity()
 export class GastronomicCultureEntity {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @Column()
@@ -23,7 +23,7 @@ export class GastronomicCultureEntity {
     () => CharacteristicProductEntity,
     (characteristicproduct) => characteristicproduct.gastronomicCulture,
   )
-  characteristicproducts: CharacteristicProductEntity[];
+  characteristicProducts: CharacteristicProductEntity[];
 
   @ManyToMany(
     () => RestaurantEntity,

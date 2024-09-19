@@ -1,65 +1,71 @@
 import {
-    Body,
-    Controller,
-    Delete,
-    Get,
-    HttpCode,
-    Param,
-    Post,
-    Put,
-    UseInterceptors,
-    UseGuards,
-  } from '@nestjs/common';
-import { CountryService } from './country.service';
-import { CountryDto } from './country.dto';
-import { CountryEntity } from './country.entity';
-import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors/business-errors.interceptor';
-import { plainToInstance } from 'class-transformer';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { RoleGuard } from '../auth/roles/role.guard';
-import { Roles } from '../auth/roles/roles.decorator';
-import userRoles from './../shared/security/user_roles';
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  Param,
+  Post,
+  Put,
+  UseGuards,
+  UseInterceptors,
+} from "@nestjs/common";
 
-@Controller('country')
-@UseInterceptors(BusinessErrorsInterceptor)
+import { JwtAuthGuard } from "@/auth/guards/jwtAuth.guard";
+import { RoleGuard } from "@/auth/roles/role.guard";
+import { Roles } from "@/auth/roles/roles.decorator";
+import {
+  BusinessErrorsInterceptor,
+  UUIDValidationInterceptor,
+} from "@/shared/interceptors";
+import { userRoles } from "@/shared/security/userRoles";
+import { CountryDto } from "./country.dto";
+import { CountryService } from "./country.service";
+
+@Controller("country")
+@UseInterceptors(
+  BusinessErrorsInterceptor,
+  new UUIDValidationInterceptor("countryId"),
+)
 export class CountryController {
-    constructor(private readonly countryService: CountryService) {}
+  constructor(private readonly countryService: CountryService) {}
 
-    @Get()
-    @UseGuards(JwtAuthGuard, RoleGuard)
-    @Roles(userRoles.ADMIN, userRoles.FULL_READER)
-    async findAll() {
-        return await this.countryService.findAll();
-    }
+  @Get()
+  @UseGuards(JwtAuthGuard, RoleGuard)
+  @Roles(userRoles.ADMIN, userRoles.FULL_READER)
+  async findAll() {
+    return await this.countryService.findAll();
+  }
 
-    @Get(':countryId')
-    @UseGuards(JwtAuthGuard, RoleGuard)
-    @Roles(userRoles.ADMIN, userRoles.LIMITED_READER)
-    async findOne(@Param('countryId') countryId: string) {
-        return await this.countryService.findOne(countryId);
-    }
+  @Get(":countryId")
+  @UseGuards(JwtAuthGuard, RoleGuard)
+  @Roles(userRoles.ADMIN, userRoles.LIMITED_READER)
+  async findOne(@Param("countryId") countryId: string) {
+    return await this.countryService.findOne(countryId);
+  }
 
-    @Post()
-    @UseGuards(JwtAuthGuard, RoleGuard)
-    @Roles(userRoles.ADMIN, userRoles.WRITER)
-    async create(@Body() CountryDto: CountryDto) {
-        const country: CountryEntity = plainToInstance(CountryEntity, CountryDto);
-        return await this.countryService.create(country);
-    }
+  @Post()
+  @UseGuards(JwtAuthGuard, RoleGuard)
+  @Roles(userRoles.ADMIN, userRoles.WRITER)
+  async create(@Body() countryDto: CountryDto) {
+    return await this.countryService.create(countryDto);
+  }
 
-    @Put(':countryId')
-    @UseGuards(JwtAuthGuard, RoleGuard)
-    @Roles(userRoles.ADMIN, userRoles.WRITER)
-    async update(@Param('countryId') countryId: string, @Body() countryDto: CountryDto) {
-        const country: CountryEntity = plainToInstance(CountryEntity, countryDto);
-        return await this.countryService.update(countryId, country);
-    }
+  @Put(":countryId")
+  @UseGuards(JwtAuthGuard, RoleGuard)
+  @Roles(userRoles.ADMIN, userRoles.WRITER)
+  async update(
+    @Param("countryId") countryId: string,
+    @Body() countryDto: CountryDto,
+  ) {
+    return await this.countryService.update(countryId, countryDto);
+  }
 
-    @Delete(':countryId')
-    @UseGuards(JwtAuthGuard, RoleGuard)
-    @Roles(userRoles.ADMIN, userRoles.DELETE)
-    @HttpCode(204)
-    async delete(@Param('countryId') countryId: string) {
-        return await this.countryService.delete(countryId);
-    }
+  @Delete(":countryId")
+  @UseGuards(JwtAuthGuard, RoleGuard)
+  @Roles(userRoles.ADMIN, userRoles.DELETE)
+  @HttpCode(204)
+  async delete(@Param("countryId") countryId: string) {
+    return await this.countryService.delete(countryId);
+  }
 }

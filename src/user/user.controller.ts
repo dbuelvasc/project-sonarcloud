@@ -1,15 +1,14 @@
-/* eslint-disable prettier/prettier */
-import { Controller, Post, Req, UseGuards } from '@nestjs/common';
-import { LocalAuthGuard } from '../auth/guards/local-auth.guard';
-import { AuthService } from '../auth/auth.service';
+import { Controller, Post, Req, UseGuards } from "@nestjs/common";
 
-@Controller('users')
+import { AuthService } from "@/auth/auth.service";
+import { LocalAuthGuard } from "@/auth/guards/localAuth.guard";
+
+@Controller("users")
 export class UserController {
-
-    constructor(private readonly authService: AuthService){}
-    @UseGuards(LocalAuthGuard)
-    @Post('login')
-    async login(@Req() req) {
-        return this.authService.login(req);
-    }
+  constructor(private readonly authService: AuthService) {}
+  @UseGuards(LocalAuthGuard)
+  @Post("login")
+  async login(@Req() req) {
+    return this.authService.login(req);
+  }
 }

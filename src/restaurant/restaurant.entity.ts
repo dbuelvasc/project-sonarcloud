@@ -5,13 +5,13 @@ import {
   ManyToMany,
   ManyToOne,
   JoinTable,
-} from 'typeorm';
-import { GastronomicCultureEntity } from '../gastronomic-culture/gastronomic-culture.entity';
-import { CountryEntity } from '../country/country.entity';
+} from "typeorm";
+import { GastronomicCultureEntity } from "@/gastronomicCulture/gastronomicCulture.entity";
+import { CountryEntity } from "@/country/country.entity";
 
 @Entity()
 export class RestaurantEntity {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @Column()
