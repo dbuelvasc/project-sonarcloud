@@ -36,10 +36,14 @@ export class CharacteristicProductService {
   async create(
     characteristicproductDto: CharacteristicProductDto,
   ): Promise<CharacteristicProductEntity> {
-    const product: CharacteristicProductEntity = plainToInstance(
+    const productInstance: CharacteristicProductEntity = plainToInstance(
       CharacteristicProductEntity,
       characteristicproductDto,
     );
+
+    const product: CharacteristicProductEntity =
+      this.characteristicproductRepository.create(productInstance);
+
     return await this.characteristicproductRepository.save(product);
   }
   //Modify a characteristic product
@@ -47,20 +51,22 @@ export class CharacteristicProductService {
     id: string,
     characteristicproductDto: CharacteristicProductDto,
   ): Promise<CharacteristicProductEntity> {
-    const product: CharacteristicProductEntity = plainToInstance(
-      CharacteristicProductEntity,
-      characteristicproductDto,
-    );
-    const persistedProduct: CharacteristicProductEntity =
+    const existingProduct: CharacteristicProductEntity =
       await this.characteristicproductRepository.findOne({ where: { id } });
-    if (!persistedProduct) {
+
+    if (!existingProduct) {
       throw new BusinessLogicException(
         "The product with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
-    return await this.characteristicproductRepository.save({
-      ...persistedProduct,
+
+    const product: CharacteristicProductEntity = plainToInstance(
+      CharacteristicProductEntity,
+      characteristicproductDto,
+    );
+    return this.characteristicproductRepository.save({
+      ...existingProduct,
       ...product,
     });
   }

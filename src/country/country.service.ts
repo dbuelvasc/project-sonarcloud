@@ -33,23 +33,32 @@ export class CountryService {
   }
 
   async create(countryDto: CountryDto): Promise<CountryEntity> {
-    const country: CountryEntity = plainToInstance(CountryEntity, countryDto);
+    const countryInstance: CountryEntity = plainToInstance(
+      CountryEntity,
+      countryDto,
+    );
+
+    const country: CountryEntity =
+      this.countryRepository.create(countryInstance);
 
     return this.countryRepository.save(country);
   }
 
   async update(id: string, countryDto: CountryDto): Promise<CountryEntity> {
-    const country: CountryEntity = plainToInstance(CountryEntity, countryDto);
+    const existingCountry: CountryEntity = await this.countryRepository.findOne(
+      { where: { id } },
+    );
 
-    const persistedCountry: CountryEntity =
-      await this.countryRepository.findOne({ where: { id } });
-    if (!persistedCountry) {
+    if (!existingCountry) {
       throw new BusinessLogicException(
         "The country with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
-    return this.countryRepository.save({ ...persistedCountry, ...country });
+
+    const country: CountryEntity = plainToInstance(CountryEntity, countryDto);
+
+    return this.countryRepository.save({ ...existingCountry, ...country });
   }
 
   async delete(id: string) {

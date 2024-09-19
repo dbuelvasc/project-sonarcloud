@@ -55,9 +55,15 @@ export class RestaurantService {
         BusinessError.NOT_FOUND,
       );
     }
-    return await this.restaurantRepository.save({
+
+    const restaurant: RestaurantEntity = plainToInstance(
+      RestaurantEntity,
+      restaurantDto,
+    );
+
+    return this.restaurantRepository.save({
       ...existingRestaurant,
-      ...restaurantDto,
+      ...restaurant,
     });
   }
 
