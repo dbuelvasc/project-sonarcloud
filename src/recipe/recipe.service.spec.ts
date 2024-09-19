@@ -1,13 +1,13 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { getRepositoryToken } from '@nestjs/typeorm';
-import { CacheModule } from '@nestjs/cache-manager';
-import { Repository } from 'typeorm';
-import { RecipeEntity } from './recipe.entity';
-import { RecipeService } from './recipe.service';
-import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-config';
-import { faker } from '@faker-js/faker';
+import { Test, TestingModule } from "@nestjs/testing";
+import { getRepositoryToken } from "@nestjs/typeorm";
+import { CacheModule } from "@nestjs/cache-manager";
+import { Repository } from "typeorm";
+import { RecipeEntity } from "./recipe.entity";
+import { RecipeService } from "./recipe.service";
+import { TypeOrmTestingConfig } from "../shared/testing-utils/typeorm-testing-config";
+import { faker } from "@faker-js/faker";
 
-describe('RecipeService', () => {
+describe("RecipeService", () => {
   let service: RecipeService;
   let repository: Repository<RecipeEntity>;
   let recipesList: RecipeEntity[];
@@ -40,17 +40,17 @@ describe('RecipeService', () => {
     }
   };
 
-  it('should be defined', () => {
+  it("should be defined", () => {
     expect(service).toBeDefined();
   });
 
-  it('findAll should return all recipes', async () => {
+  it("findAll should return all recipes", async () => {
     const recipes: RecipeEntity[] = await service.findAll();
     expect(recipes).not.toBeNull();
     expect(recipes).toHaveLength(recipesList.length);
   });
 
-  it('findOne should return a recipe by id', async () => {
+  it("findOne should return a recipe by id", async () => {
     const storedRecipe: RecipeEntity = recipesList[0];
     const recipe: RecipeEntity = await service.findOne(storedRecipe.id);
     expect(recipe).not.toBeNull();
@@ -61,16 +61,16 @@ describe('RecipeService', () => {
     expect(recipe.video).toEqual(storedRecipe.video);
   });
 
-  it('findOne should throw an exception for an invalid recipe', async () => {
-    await expect(() => service.findOne('0')).rejects.toHaveProperty(
-      'message',
-      'The recipe with the given id was not found',
+  it("findOne should throw an exception for an invalid recipe", async () => {
+    await expect(() => service.findOne("0")).rejects.toHaveProperty(
+      "message",
+      "The recipe with the given id was not found",
     );
   });
 
-  it('create should return a new recipe', async () => {
+  it("create should return a new recipe", async () => {
     const recipe: RecipeEntity = {
-      id: '0',
+      id: "0",
       name: faker.word.noun(),
       description: faker.lorem.paragraph(),
       photo: faker.internet.url(),
@@ -95,13 +95,13 @@ describe('RecipeService', () => {
     expect(storedRecipe.video).toEqual(newRecipe.video);
   });
 
-  it('update should modify a recipe', async () => {
+  it("update should modify a recipe", async () => {
     const recipe: RecipeEntity = recipesList[0];
-    recipe.name = 'Wonderland';
-    recipe.description = 'A wonderfull place';
-    recipe.photo = 'https://www.LaReceta.com/foto1';
-    recipe.preparationProcess = 'Paso 1, paso 2, paso 3';
-    recipe.video = 'https://www.LaReceta.com/video1';
+    recipe.name = "Wonderland";
+    recipe.description = "A wonderfull place";
+    recipe.photo = "https://www.LaReceta.com/foto1";
+    recipe.preparationProcess = "Paso 1, paso 2, paso 3";
+    recipe.video = "https://www.LaReceta.com/video1";
 
     const updatedRecipe: RecipeEntity = await service.update(recipe.id, recipe);
     expect(updatedRecipe).not.toBeNull();
@@ -116,23 +116,23 @@ describe('RecipeService', () => {
     expect(storedRecipe.video).toEqual(recipe.video);
   });
 
-  it('update should throw an exception for an invalid recipe', async () => {
+  it("update should throw an exception for an invalid recipe", async () => {
     let recipe: RecipeEntity = recipesList[0];
     recipe = {
       ...recipe,
-      name: 'Wonderland 2',
-      description: 'Another magic place',
-      photo: 'https://www.LaReceta.com/foto12',
-      preparationProcess: 'Paso 1, paso 2, paso 3, paso 3.1',
-      video: 'https://www.LaReceta.com/video12',
+      name: "Wonderland 2",
+      description: "Another magic place",
+      photo: "https://www.LaReceta.com/foto12",
+      preparationProcess: "Paso 1, paso 2, paso 3, paso 3.1",
+      video: "https://www.LaReceta.com/video12",
     };
-    await expect(() => service.update('0', recipe)).rejects.toHaveProperty(
-      'message',
-      'The recipe with the given id was not found',
+    await expect(() => service.update("0", recipe)).rejects.toHaveProperty(
+      "message",
+      "The recipe with the given id was not found",
     );
   });
 
-  it('delete should remove a recipe', async () => {
+  it("delete should remove a recipe", async () => {
     const recipe: RecipeEntity = recipesList[0];
     await service.delete(recipe.id);
     const deletedRecipe: RecipeEntity = await repository.findOne({
@@ -141,10 +141,10 @@ describe('RecipeService', () => {
     expect(deletedRecipe).toBeNull();
   });
 
-  it('delete should throw an exception for an invalid recipe', async () => {
-    await expect(() => service.delete('0')).rejects.toHaveProperty(
-      'message',
-      'The recipe with the given id was not found',
+  it("delete should throw an exception for an invalid recipe", async () => {
+    await expect(() => service.delete("0")).rejects.toHaveProperty(
+      "message",
+      "The recipe with the given id was not found",
     );
   });
 });

@@ -1,10 +1,14 @@
-export function BusinessLogicException(message: string, type: number) {
-  this.message = message;
-  this.type = type;
+export class BusinessLogicException extends Error {
+  constructor(
+    public message: string,
+    public type: BusinessError,
+  ) {
+    super(message);
+  }
 }
 
-export enum BusinessError {
-  NOT_FOUND,
-  PRECONDITION_FAILED,
-  BAD_REQUEST,
+export const enum BusinessError {
+  BAD_REQUEST = "BAD_REQUEST",
+  NOT_FOUND = "NOT_FOUND",
+  PRECONDITION_FAILED = "PRECONDITION_FAILED",
 }

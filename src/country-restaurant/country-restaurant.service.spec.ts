@@ -1,18 +1,21 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { CountryRestaurantService } from './country-restaurant.service';
+import { Test, TestingModule } from "@nestjs/testing";
 
-describe('CountryRestaurantService', () => {
+import { TypeOrmTestingConfig } from "@/shared/testing-utils/typeorm-testing-config";
+import { CountryRestaurantService } from "./country-restaurant.service";
+
+describe("CountryRestaurantService", () => {
   let service: CountryRestaurantService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
+      imports: [...TypeOrmTestingConfig()],
       providers: [CountryRestaurantService],
     }).compile();
 
     service = module.get<CountryRestaurantService>(CountryRestaurantService);
   });
 
-  it('should be defined', () => {
+  it("should be defined", () => {
     expect(service).toBeDefined();
   });
 });

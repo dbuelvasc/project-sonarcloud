@@ -1,11 +1,14 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Injectable } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm";
+import { plainToInstance } from "class-transformer";
+import { Repository } from "typeorm";
+
 import {
   BusinessError,
   BusinessLogicException,
-} from '../shared/errors/business-errors';
-import { CountryEntity } from './country.entity';
+} from "@/shared/errors/business-errors";
+import { CountryDto } from "./country.dto";
+import { CountryEntity } from "./country.entity";
 
 @Injectable()
 export class CountryService {
@@ -14,70 +17,55 @@ export class CountryService {
     private readonly countryRepository: Repository<CountryEntity>,
   ) {}
 
-  private isValidUUID(id: string): boolean {
-    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-    return uuidRegex.test(id);
-  }
-
   async findAll(): Promise<CountryEntity[]> {
     return this.countryRepository.find();
   }
 
   async findOne(id: string): Promise<CountryEntity> {
-    // Verificar si el ID es un UUID válido
-    if (!this.isValidUUID(id)) {
-      throw new BusinessLogicException(
-        'The country with the given id was not found',
-        BusinessError.NOT_FOUND,
-      );
-    }
     const country = await this.countryRepository.findOne({ where: { id } });
     if (!country) {
       throw new BusinessLogicException(
-        'The country with the given id was not found',
+        "The country with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
     return country;
   }
 
-  
+  async create(countryDto: CountryDto): Promise<CountryEntity> {
+    const countryInstance: CountryEntity = plainToInstance(
+      CountryEntity,
+      countryDto,
+    );
 
-  async create(country: CountryEntity): Promise<CountryEntity> {
+    const country: CountryEntity =
+      this.countryRepository.create(countryInstance);
+
     return this.countryRepository.save(country);
   }
 
-  async update(id: string, country: CountryEntity): Promise<CountryEntity> {
-    // Verificar si el ID es un UUID válido
-    if (!this.isValidUUID(id)) {
+  async update(id: string, countryDto: CountryDto): Promise<CountryEntity> {
+    const existingCountry: CountryEntity = await this.countryRepository.findOne(
+      { where: { id } },
+    );
+
+    if (!existingCountry) {
       throw new BusinessLogicException(
-        'The country with the given id was not found',
+        "The country with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
-    const persistedCountry: CountryEntity =
-      await this.countryRepository.findOne({ where: { id } });
-    if (!persistedCountry) {
-      throw new BusinessLogicException(
-        'The country with the given id was not found',
-        BusinessError.NOT_FOUND,
-      );
-    }
-    return this.countryRepository.save({ ...persistedCountry, ...country });
+
+    const country: CountryEntity = plainToInstance(CountryEntity, countryDto);
+
+    return this.countryRepository.save({ ...existingCountry, ...country });
   }
 
   async delete(id: string) {
-    // Verificar si el ID es un UUID válido
-    if (!this.isValidUUID(id)) {
-      throw new BusinessLogicException(
-        'The country with the given id was not found',
-        BusinessError.NOT_FOUND,
-      );
-    }
     const country = await this.countryRepository.findOne({ where: { id } });
     if (!country) {
       throw new BusinessLogicException(
-        'The country with the given id was not found',
+        "The country with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }

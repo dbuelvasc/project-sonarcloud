@@ -1,11 +1,12 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { GastronomicCultureEntity } from './gastronomic-culture.entity';
+import { Injectable } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
+
 import {
   BusinessError,
   BusinessLogicException,
-} from '../shared/errors/business-errors';
+} from "../shared/errors/business-errors";
+import { GastronomicCultureEntity } from "./gastronomicCulture.entity";
 
 @Injectable()
 export class GastronomicCultureService {
@@ -24,7 +25,7 @@ export class GastronomicCultureService {
     });
     if (!gastronomicCulture) {
       throw new BusinessLogicException(
-        'The gastronomic culture with the given id was not found',
+        "The gastronomic culture with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
@@ -46,7 +47,7 @@ export class GastronomicCultureService {
       await this.gastronomicCultureRepository.findOne({ where: { id } });
     if (!persistedGastronomicCulture) {
       throw new BusinessLogicException(
-        'The gastronomic culture with the given id was not found',
+        "The gastronomic culture with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
@@ -62,7 +63,7 @@ export class GastronomicCultureService {
     });
     if (!gastronomicCulture) {
       throw new BusinessLogicException(
-        'The gastronomic culture with the given id was not found',
+        "The gastronomic culture with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }

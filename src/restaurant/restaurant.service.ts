@@ -1,11 +1,14 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { RestaurantEntity } from './restaurant.entity';
+import { Injectable } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm";
+import { plainToInstance } from "class-transformer";
+import { Repository } from "typeorm";
+
 import {
   BusinessError,
   BusinessLogicException,
-} from '../shared/errors/business-errors';
+} from "@/shared/errors/business-errors";
+import { RestaurantDto } from "./restaurant.dto";
+import { RestaurantEntity } from "./restaurant.entity";
 
 @Injectable()
 export class RestaurantService {
@@ -14,78 +17,62 @@ export class RestaurantService {
     private readonly restaurantRepository: Repository<RestaurantEntity>,
   ) {}
 
-  private isValidUUID(id: string): boolean {
-    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-    return uuidRegex.test(id);
-  }
-
   async findAll(): Promise<RestaurantEntity[]> {
     return this.restaurantRepository.find();
   }
 
   async findOne(id: string): Promise<RestaurantEntity> {
-    // Verificar si el ID es un UUID válido
-    if (!this.isValidUUID(id)) {
-      throw new BusinessLogicException(
-        'The restaurant with the given id was not found',
-        BusinessError.NOT_FOUND,
-      );
-    }
     const restaurant = await this.restaurantRepository.findOne({
       where: { id },
     });
     if (!restaurant) {
       throw new BusinessLogicException(
-        'The restaurant with the given id was not found',
+        "The restaurant with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
     return restaurant;
   }
 
-  async create(data: Partial<RestaurantEntity>): Promise<RestaurantEntity> {
-    const restaurant = this.restaurantRepository.create(data);
+  async create(restaurantDto: RestaurantDto): Promise<RestaurantEntity> {
+    const restaurantInstance = plainToInstance(RestaurantEntity, restaurantDto);
+
+    const restaurant: RestaurantEntity =
+      this.restaurantRepository.create(restaurantInstance);
+
     return this.restaurantRepository.save(restaurant);
   }
 
   async update(
     id: string,
-    restaurant: RestaurantEntity,
+    restaurantDto: RestaurantDto,
   ): Promise<RestaurantEntity> {
-    // Verificar si el ID es un UUID válido
-    if (!this.isValidUUID(id)) {
-      throw new BusinessLogicException(
-        'The restaurant with the given id was not found',
-        BusinessError.NOT_FOUND,
-      );
-    }
-    const PersitedRestaurant: RestaurantEntity =
+    const existingRestaurant: RestaurantEntity =
       await this.restaurantRepository.findOne({ where: { id } });
-    if (!PersitedRestaurant) {
+    if (!existingRestaurant) {
       throw new BusinessLogicException(
-        'The restaurant with the given id was not found',
+        "The restaurant with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
-    return await this.restaurantRepository.save({
-      ...PersitedRestaurant,
+
+    const restaurant: RestaurantEntity = plainToInstance(
+      RestaurantEntity,
+      restaurantDto,
+    );
+
+    return this.restaurantRepository.save({
+      ...existingRestaurant,
       ...restaurant,
     });
   }
 
   async delete(id: string): Promise<void> {
-    // Verificar si el ID es un UUID válido
-    if (!this.isValidUUID(id)) {
-      throw new BusinessLogicException(
-        'The restaurant with the given id was not found',
-        BusinessError.NOT_FOUND,
-      );
-    }
     const restaurant: RestaurantEntity =
       await this.restaurantRepository.findOne({ where: { id } });
     if (!restaurant) {
       throw new BusinessLogicException(
-        'The restaurant with the given id was not found',
+        "The restaurant with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }

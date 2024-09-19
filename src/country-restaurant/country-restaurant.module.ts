@@ -1,15 +1,14 @@
-/* eslint-disable prettier/prettier */
-import { Module } from '@nestjs/common';
-import { CacheModule } from '@nestjs/cache-manager';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import * as sqliteStore from 'cache-manager-sqlite';
+import { CacheModule } from "@nestjs/cache-manager";
+import { Module } from "@nestjs/common";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import * as sqliteStore from "cache-manager-sqlite";
 
-import { CountryRestaurantService } from './country-restaurant.service';
-import { CountryEntity } from 'src/country/country.entity';
-import { RestaurantEntity } from '../restaurant/restaurant.entity';
+import { CountryEntity } from "@/country/country.entity";
+import { RestaurantEntity } from "@/restaurant/restaurant.entity";
+import { CountryRestaurantService } from "./country-restaurant.service";
 
 @Module({
-  providers: [CountryRestaurantService,],
+  providers: [CountryRestaurantService],
   imports: [
     TypeOrmModule.forFeature([CountryEntity, RestaurantEntity]),
     CacheModule.register({
@@ -17,7 +16,7 @@ import { RestaurantEntity } from '../restaurant/restaurant.entity';
       options: {
         ttl: 30,
       },
-      path: ':memory:',
+      path: ":memory:",
     }),
   ],
   exports: [CountryRestaurantService],
