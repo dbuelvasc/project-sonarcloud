@@ -9,14 +9,12 @@ import {
   Put,
   UseInterceptors,
 } from "@nestjs/common";
-import { plainToInstance } from "class-transformer";
 
 import {
   BusinessErrorsInterceptor,
   UUIDValidationInterceptor,
 } from "@/shared/interceptors";
 import { CountryDto } from "./country.dto";
-import { CountryEntity } from "./country.entity";
 import { CountryService } from "./country.service";
 
 @Controller("country")
@@ -44,9 +42,8 @@ export class CountryController {
   @Post()
   //@UseGuards(JwtAuthGuard, RoleGuard)
   //@Roles(userRoles.ADMIN, userRoles.WRITER)
-  async create(@Body() CountryDto: CountryDto) {
-    const country: CountryEntity = plainToInstance(CountryEntity, CountryDto);
-    return await this.countryService.create(country);
+  async create(@Body() countryDto: CountryDto) {
+    return await this.countryService.create(countryDto);
   }
 
   @Put(":countryId")
@@ -56,8 +53,7 @@ export class CountryController {
     @Param("countryId") countryId: string,
     @Body() countryDto: CountryDto,
   ) {
-    const country: CountryEntity = plainToInstance(CountryEntity, countryDto);
-    return await this.countryService.update(countryId, country);
+    return await this.countryService.update(countryId, countryDto);
   }
 
   @Delete(":countryId")

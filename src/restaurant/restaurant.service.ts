@@ -1,11 +1,14 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
+import { plainToInstance } from "class-transformer";
 import { Repository } from "typeorm";
-import { RestaurantEntity } from "./restaurant.entity";
+
 import {
   BusinessError,
   BusinessLogicException,
-} from "../shared/errors/business-errors";
+} from "@/shared/errors/business-errors";
+import { RestaurantDto } from "./restaurant.dto";
+import { RestaurantEntity } from "./restaurant.entity";
 
 @Injectable()
 export class RestaurantService {
@@ -31,26 +34,30 @@ export class RestaurantService {
     return restaurant;
   }
 
-  async create(data: Partial<RestaurantEntity>): Promise<RestaurantEntity> {
-    const restaurant = this.restaurantRepository.create(data);
+  async create(restaurantDto: RestaurantDto): Promise<RestaurantEntity> {
+    const restaurantInstance = plainToInstance(RestaurantEntity, restaurantDto);
+
+    const restaurant: RestaurantEntity =
+      this.restaurantRepository.create(restaurantInstance);
+
     return this.restaurantRepository.save(restaurant);
   }
 
   async update(
     id: string,
-    restaurant: RestaurantEntity,
+    restaurantDto: RestaurantDto,
   ): Promise<RestaurantEntity> {
-    const PersitedRestaurant: RestaurantEntity =
+    const existingRestaurant: RestaurantEntity =
       await this.restaurantRepository.findOne({ where: { id } });
-    if (!PersitedRestaurant) {
+    if (!existingRestaurant) {
       throw new BusinessLogicException(
         "The restaurant with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
     return await this.restaurantRepository.save({
-      ...PersitedRestaurant,
-      ...restaurant,
+      ...existingRestaurant,
+      ...restaurantDto,
     });
   }
 

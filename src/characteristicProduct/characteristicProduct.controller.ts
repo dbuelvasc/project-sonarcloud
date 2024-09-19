@@ -9,14 +9,12 @@ import {
   Put,
   UseInterceptors,
 } from "@nestjs/common";
-import { plainToInstance } from "class-transformer";
 
 import {
   BusinessErrorsInterceptor,
   UUIDValidationInterceptor,
 } from "@/shared/interceptors";
 import { CharacteristicProductDto } from "./characteristicProduct.dto";
-import { CharacteristicProductEntity } from "./characteristicProduct.entity";
 import { CharacteristicProductService } from "./characteristicProduct.service";
 
 @Controller("characteristicproduct")
@@ -45,11 +43,9 @@ export class CharacteristicProductController {
 
   @Post()
   async create(@Body() characteristicproductDto: CharacteristicProductDto) {
-    const product: CharacteristicProductEntity = plainToInstance(
-      CharacteristicProductEntity,
+    return await this.characteristicproductService.create(
       characteristicproductDto,
     );
-    return await this.characteristicproductService.create(product);
   }
 
   @Put(":characteristicproductId")
@@ -57,13 +53,9 @@ export class CharacteristicProductController {
     @Param("characteristicproductId") characteristicproductId: string,
     @Body() characteristicproductDto: CharacteristicProductDto,
   ) {
-    const product: CharacteristicProductEntity = plainToInstance(
-      CharacteristicProductEntity,
-      characteristicproductDto,
-    );
     return await this.characteristicproductService.update(
       characteristicproductId,
-      product,
+      characteristicproductDto,
     );
   }
 

@@ -1,11 +1,14 @@
 import { Injectable } from "@nestjs/common";
-import { CharacteristicProductEntity } from "./characteristicProduct.entity";
-import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
+import { plainToInstance } from "class-transformer";
+import { Repository } from "typeorm";
+
 import {
   BusinessError,
   BusinessLogicException,
-} from "../shared/errors/business-errors";
+} from "@/shared/errors/business-errors";
+import { CharacteristicProductDto } from "./characteristicProduct.dto";
+import { CharacteristicProductEntity } from "./characteristicProduct.entity";
 
 @Injectable()
 export class CharacteristicProductService {
@@ -31,15 +34,23 @@ export class CharacteristicProductService {
   }
   //Create a characteristic product
   async create(
-    product: CharacteristicProductEntity,
+    characteristicproductDto: CharacteristicProductDto,
   ): Promise<CharacteristicProductEntity> {
+    const product: CharacteristicProductEntity = plainToInstance(
+      CharacteristicProductEntity,
+      characteristicproductDto,
+    );
     return await this.characteristicproductRepository.save(product);
   }
   //Modify a characteristic product
   async update(
     id: string,
-    product: CharacteristicProductEntity,
+    characteristicproductDto: CharacteristicProductDto,
   ): Promise<CharacteristicProductEntity> {
+    const product: CharacteristicProductEntity = plainToInstance(
+      CharacteristicProductEntity,
+      characteristicproductDto,
+    );
     const persistedProduct: CharacteristicProductEntity =
       await this.characteristicproductRepository.findOne({ where: { id } });
     if (!persistedProduct) {

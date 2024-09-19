@@ -9,14 +9,12 @@ import {
   Put,
   UseInterceptors,
 } from "@nestjs/common";
-import { plainToInstance } from "class-transformer";
 
 import {
   BusinessErrorsInterceptor,
   UUIDValidationInterceptor,
 } from "@/shared/interceptors";
 import { RestaurantDto } from "./restaurant.dto";
-import { RestaurantEntity } from "./restaurant.entity";
 import { RestaurantService } from "./restaurant.service";
 
 @Controller("restaurant")
@@ -44,12 +42,8 @@ export class RestaurantController {
   @Post()
   //@UseGuards(JwtAuthGuard, RoleGuard)
   //@Roles(userRoles.ADMIN, userRoles.WRITER)
-  async create(@Body() restauranteDto: RestaurantDto) {
-    const restaurante: RestaurantEntity = plainToInstance(
-      RestaurantEntity,
-      restauranteDto,
-    );
-    return await this.restaurantService.create(restaurante);
+  async create(@Body() restaurantDto: RestaurantDto) {
+    return await this.restaurantService.create(restaurantDto);
   }
 
   @Put(":restaurantId")
@@ -57,13 +51,9 @@ export class RestaurantController {
   //@Roles(userRoles.ADMIN, userRoles.WRITER)
   async update(
     @Param("restaurantId") restaurantId: string,
-    @Body() restauranteDto: RestaurantDto,
+    @Body() restaurantDto: RestaurantDto,
   ) {
-    const restaurante: RestaurantEntity = plainToInstance(
-      RestaurantEntity,
-      restauranteDto,
-    );
-    return await this.restaurantService.update(restaurantId, restaurante);
+    return await this.restaurantService.update(restaurantId, restaurantDto);
   }
 
   @Delete(":restaurantId")
