@@ -1,4 +1,4 @@
-import { IsDate, IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsDateString, IsNotEmpty, IsNumber, IsString } from "class-validator";
 
 export class RestaurantDto {
   @IsString()
@@ -13,7 +13,8 @@ export class RestaurantDto {
   @IsNotEmpty()
   readonly michelinStars: number;
 
-  @IsDate()
+  @IsString()
+  @IsDateString()
   @IsNotEmpty()
   readonly awardDate: Date;
 }
