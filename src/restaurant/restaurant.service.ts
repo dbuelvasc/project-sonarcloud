@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { RestaurantEntity } from './restaurant.entity';
+import { Injectable } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
+import { RestaurantEntity } from "./restaurant.entity";
 import {
   BusinessError,
   BusinessLogicException,
-} from '../shared/errors/business-errors';
+} from "../shared/errors/business-errors";
 
 @Injectable()
 export class RestaurantService {
@@ -24,7 +24,7 @@ export class RestaurantService {
     });
     if (!restaurant) {
       throw new BusinessLogicException(
-        'The restaurant with the given id was not found',
+        "The restaurant with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
@@ -44,7 +44,7 @@ export class RestaurantService {
       await this.restaurantRepository.findOne({ where: { id } });
     if (!PersitedRestaurant) {
       throw new BusinessLogicException(
-        'The restaurant with the given id was not found',
+        "The restaurant with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
@@ -59,7 +59,7 @@ export class RestaurantService {
       await this.restaurantRepository.findOne({ where: { id } });
     if (!restaurant) {
       throw new BusinessLogicException(
-        'The restaurant with the given id was not found',
+        "The restaurant with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }

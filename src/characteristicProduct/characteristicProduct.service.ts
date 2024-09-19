@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
-import { CharacteristicProductEntity } from './characteristicproduct.entity';
-import { Repository } from 'typeorm';
-import { InjectRepository } from '@nestjs/typeorm';
+import { Injectable } from "@nestjs/common";
+import { CharacteristicProductEntity } from "./characteristicProduct.entity";
+import { Repository } from "typeorm";
+import { InjectRepository } from "@nestjs/typeorm";
 import {
   BusinessError,
   BusinessLogicException,
-} from '../shared/errors/business-errors';
+} from "../shared/errors/business-errors";
 
 @Injectable()
 export class CharacteristicProductService {
@@ -23,7 +23,7 @@ export class CharacteristicProductService {
       await this.characteristicproductRepository.findOne({ where: { id } });
     if (!product)
       throw new BusinessLogicException(
-        'The product with the given id was not found',
+        "The product with the given id was not found",
         BusinessError.NOT_FOUND,
       );
 
@@ -44,7 +44,7 @@ export class CharacteristicProductService {
       await this.characteristicproductRepository.findOne({ where: { id } });
     if (!persistedProduct) {
       throw new BusinessLogicException(
-        'The product with the given id was not found',
+        "The product with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
@@ -59,7 +59,7 @@ export class CharacteristicProductService {
       await this.characteristicproductRepository.findOne({ where: { id } });
     if (!product)
       throw new BusinessLogicException(
-        'The product with the given id was not found',
+        "The product with the given id was not found",
         BusinessError.NOT_FOUND,
       );
 

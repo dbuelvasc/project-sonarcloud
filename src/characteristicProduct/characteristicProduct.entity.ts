@@ -1,9 +1,9 @@
-import { GastronomicCultureEntity } from '../gastronomicCulture/gastronomicCulture.entity';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { GastronomicCultureEntity } from "../gastronomicCulture/gastronomicCulture.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class CharacteristicProductEntity {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @Column()

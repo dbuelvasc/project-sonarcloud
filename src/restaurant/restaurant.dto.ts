@@ -1,20 +1,19 @@
-import { IsDate, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsDate, IsNotEmpty, IsNumber, IsString } from "class-validator";
 
 export class RestaurantDto {
-    @IsString()
-    @IsNotEmpty()
-    name: string;
+  @IsString()
+  @IsNotEmpty()
+  name: string;
 
-    @IsString()
-    @IsNotEmpty()
-    city: string;
+  @IsString()
+  @IsNotEmpty()
+  city: string;
 
-    @IsNumber()
-    @IsNotEmpty()
-    michelinStars: number;
+  @IsNumber()
+  @IsNotEmpty()
+  michelinStars: number;
 
-    @IsDate()
-    @IsNotEmpty()
-    awardDate: Date;  
-    
+  @IsDate()
+  @IsNotEmpty()
+  awardDate: Date;
 }

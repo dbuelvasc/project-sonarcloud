@@ -1,15 +1,15 @@
-import { faker } from '@faker-js/faker';
-import { Test, TestingModule } from '@nestjs/testing';
+import { faker } from "@faker-js/faker";
+import { Test, TestingModule } from "@nestjs/testing";
 
-import { GastronomicCultureEntity } from '../gastronomicCulture/gastronomicCulture.entity';
-import { GastronomicCultureCharacteristicProductService } from './gastronomic-culture-characteristic-product.service';
-import { CacheModule } from '@nestjs/cache-manager';
-import { getRepositoryToken } from '@nestjs/typeorm';
-import { CharacteristicProductEntity } from '../characteristicProduct/characteristicProduct.entity';
-import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-config';
-import { Repository } from 'typeorm';
+import { GastronomicCultureEntity } from "../gastronomicCulture/gastronomicCulture.entity";
+import { GastronomicCultureCharacteristicProductService } from "./gastronomic-culture-characteristic-product.service";
+import { CacheModule } from "@nestjs/cache-manager";
+import { getRepositoryToken } from "@nestjs/typeorm";
+import { CharacteristicProductEntity } from "../characteristicProduct/characteristicProduct.entity";
+import { TypeOrmTestingConfig } from "../shared/testing-utils/typeorm-testing-config";
+import { Repository } from "typeorm";
 
-describe('GastronomicCultureCharacteristicProductService', () => {
+describe("GastronomicCultureCharacteristicProductService", () => {
   let service: GastronomicCultureCharacteristicProductService;
   let gastronomicCultureRepository: Repository<GastronomicCultureEntity>;
   let characteristicProductRepository: Repository<CharacteristicProductEntity>;
@@ -57,7 +57,7 @@ describe('GastronomicCultureCharacteristicProductService', () => {
     });
   };
 
-  it('should add a characteristic product to a gastronomic culture', async () => {
+  it("should add a characteristic product to a gastronomic culture", async () => {
     const gastronomicCulture: GastronomicCultureEntity =
       await gastronomicCultureRepository.save({
         name: faker.word.verb(),

@@ -1,5 +1,5 @@
-import { GastronomicCultureEntity } from '../gastronomicCulture/gastronomicCulture.entity';
-import { RestaurantEntity } from '../restaurant/restaurant.entity';
+import { GastronomicCultureEntity } from "../gastronomicCulture/gastronomicCulture.entity";
+import { RestaurantEntity } from "../restaurant/restaurant.entity";
 import {
   Entity,
   Column,
@@ -7,17 +7,17 @@ import {
   OneToMany,
   ManyToMany,
   JoinTable,
-} from 'typeorm';
+} from "typeorm";
 
 @Entity()
 export class CountryEntity {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @Column()
   name: string;
 
-  @OneToMany(() => RestaurantEntity, restaurant => restaurant.country)
+  @OneToMany(() => RestaurantEntity, (restaurant) => restaurant.country)
   @JoinTable()
   restaurants: RestaurantEntity[];
 
@@ -25,6 +25,5 @@ export class CountryEntity {
     () => GastronomicCultureEntity,
     (gastronomicCulture) => gastronomicCulture.countries,
   )
-  @JoinTable()
   gastronomicCultures: GastronomicCultureEntity[];
 }

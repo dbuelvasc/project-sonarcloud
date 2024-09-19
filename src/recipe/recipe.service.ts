@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { RecipeEntity } from './recipe.entity';
+import { Injectable } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
+import { RecipeEntity } from "./recipe.entity";
 import {
   BusinessError,
   BusinessLogicException,
-} from '../shared/errors/business-errors';
+} from "../shared/errors/business-errors";
 
 @Injectable()
 export class RecipeService {
@@ -22,7 +22,7 @@ export class RecipeService {
     const recipe = await this.recipeRepository.findOne({ where: { id } });
     if (!recipe) {
       throw new BusinessLogicException(
-        'The recipe with the given id was not found',
+        "The recipe with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
@@ -39,7 +39,7 @@ export class RecipeService {
     });
     if (!persistedRecipe) {
       throw new BusinessLogicException(
-        'The recipe with the given id was not found',
+        "The recipe with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
@@ -50,7 +50,7 @@ export class RecipeService {
     const recipe = await this.recipeRepository.findOne({ where: { id } });
     if (!recipe) {
       throw new BusinessLogicException(
-        'The recipe with the given id was not found',
+        "The recipe with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }

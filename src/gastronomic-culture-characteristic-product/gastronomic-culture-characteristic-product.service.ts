@@ -1,13 +1,13 @@
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Injectable } from "@nestjs/common";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
 
-import { CharacteristicProductEntity } from '../characteristicProduct/characteristicProduct.entity';
-import { GastronomicCultureEntity } from '../gastronomicCulture/gastronomicCulture.entity';
+import { CharacteristicProductEntity } from "../characteristicProduct/characteristicProduct.entity";
+import { GastronomicCultureEntity } from "../gastronomicCulture/gastronomicCulture.entity";
 import {
   BusinessLogicException,
   BusinessError,
-} from '../shared/errors/business-errors';
+} from "../shared/errors/business-errors";
 
 @Injectable()
 export class GastronomicCultureCharacteristicProductService {
@@ -30,7 +30,7 @@ export class GastronomicCultureCharacteristicProductService {
     });
     if (!gastronomicCulture) {
       throw new BusinessLogicException(
-        'The gastronomic culture with the given id was not found',
+        "The gastronomic culture with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
@@ -41,7 +41,7 @@ export class GastronomicCultureCharacteristicProductService {
       });
     if (!characteristicProduct) {
       throw new BusinessLogicException(
-        'The characteristic product with the given id was not found',
+        "The characteristic product with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }

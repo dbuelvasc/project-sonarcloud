@@ -7,14 +7,14 @@ import {
   Param,
   Post,
   Put,
-} from '@nestjs/common';
-import { CharacteristicProductService } from './characteristicproduct.service';
-import { CharacteristicProductEntity } from './characteristicproduct.entity';
-import { CharacteristicproductDto } from './characteristicproduct.dto';
-import { plainToInstance } from 'class-transformer';
+} from "@nestjs/common";
+import { CharacteristicProductService } from "./characteristicProduct.service";
+import { CharacteristicProductEntity } from "./characteristicProduct.entity";
+import { CharacteristicproductDto } from "./characteristicProduct.dto";
+import { plainToInstance } from "class-transformer";
 
-@Controller('characteristicproduct')
-export class CharacteristicproductController {
+@Controller("characteristicproduct")
+export class CharacteristicProductController {
   constructor(
     private readonly characteristicproductService: CharacteristicProductService,
   ) {}
@@ -24,9 +24,9 @@ export class CharacteristicproductController {
     return await this.characteristicproductService.findAll();
   }
 
-  @Get(':characteristicproductId')
+  @Get(":characteristicproductId")
   async findOne(
-    @Param('characteristicproductId') characteristicproductId: string,
+    @Param("characteristicproductId") characteristicproductId: string,
   ) {
     return await this.characteristicproductService.findOne(
       characteristicproductId,
@@ -42,9 +42,9 @@ export class CharacteristicproductController {
     return await this.characteristicproductService.create(product);
   }
 
-  @Put(':characteristicproductId')
+  @Put(":characteristicproductId")
   async update(
-    @Param('characteristicproductId') characteristicproductId: string,
+    @Param("characteristicproductId") characteristicproductId: string,
     @Body() characteristicproductDto: CharacteristicproductDto,
   ) {
     const product: CharacteristicProductEntity = plainToInstance(
@@ -57,10 +57,10 @@ export class CharacteristicproductController {
     );
   }
 
-  @Delete(':characteristicproductId')
+  @Delete(":characteristicproductId")
   @HttpCode(204)
   async delete(
-    @Param('characteristicproductId') characteristicproductId: string,
+    @Param("characteristicproductId") characteristicproductId: string,
   ) {
     return await this.characteristicproductService.delete(
       characteristicproductId,
