@@ -3,17 +3,17 @@ import { IsDate, IsNotEmpty, IsNumber, IsString } from "class-validator";
 export class RestaurantDto {
   @IsString()
   @IsNotEmpty()
-  name: string;
+  readonly name: string;
 
   @IsString()
   @IsNotEmpty()
-  city: string;
+  readonly city: string;
 
   @IsNumber()
   @IsNotEmpty()
-  michelinStars: number;
+  readonly michelinStars: number;
 
   @IsDate()
   @IsNotEmpty()
-  awardDate: Date;
+  readonly awardDate: Date;
 }

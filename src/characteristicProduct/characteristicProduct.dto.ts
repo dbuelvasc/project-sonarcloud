@@ -11,7 +11,7 @@ export class CharacteristicProductDto {
 
   @IsString()
   @IsNotEmpty()
-  readonlyhistory: string;
+  readonly history: string;
 
   @IsString()
   @IsNotEmpty()
