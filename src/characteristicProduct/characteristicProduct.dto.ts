@@ -1,6 +1,6 @@
 import { IsString, IsNotEmpty } from "class-validator";
 
-export class CharacteristicproductDto {
+export class CharacteristicProductDto {
   @IsString()
   @IsNotEmpty()
   readonly name: string;

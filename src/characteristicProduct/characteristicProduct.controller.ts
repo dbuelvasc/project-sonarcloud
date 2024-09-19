@@ -15,7 +15,7 @@ import {
   BusinessErrorsInterceptor,
   UUIDValidationInterceptor,
 } from "@/shared/interceptors";
-import { CharacteristicproductDto } from "./characteristicProduct.dto";
+import { CharacteristicProductDto } from "./characteristicProduct.dto";
 import { CharacteristicProductEntity } from "./characteristicProduct.entity";
 import { CharacteristicProductService } from "./characteristicProduct.service";
 
@@ -44,7 +44,7 @@ export class CharacteristicProductController {
   }
 
   @Post()
-  async create(@Body() characteristicproductDto: CharacteristicproductDto) {
+  async create(@Body() characteristicproductDto: CharacteristicProductDto) {
     const product: CharacteristicProductEntity = plainToInstance(
       CharacteristicProductEntity,
       characteristicproductDto,
@@ -55,7 +55,7 @@ export class CharacteristicProductController {
   @Put(":characteristicproductId")
   async update(
     @Param("characteristicproductId") characteristicproductId: string,
-    @Body() characteristicproductDto: CharacteristicproductDto,
+    @Body() characteristicproductDto: CharacteristicProductDto,
   ) {
     const product: CharacteristicProductEntity = plainToInstance(
       CharacteristicProductEntity,
