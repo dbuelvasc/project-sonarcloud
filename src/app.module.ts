@@ -14,6 +14,8 @@ import { CountryModule } from './country/country.module';
 import { CountryEntity } from './country/country.entity';
 import { CountryRestaurantController } from './country-restaurant/country-restaurant.controller';
 import { CountryRestaurantModule } from './country-restaurant/country-restaurant.module';
+import { UserModule } from './user/user.module';
+
 @Module({
   imports: [
     RestaurantModule,
@@ -39,6 +41,7 @@ import { CountryRestaurantModule } from './country-restaurant/country-restaurant
       synchronize: true,
       keepConnectionAlive: true,
     }),
+    UserModule,
     CountryRestaurantModule,
   ],
   controllers: [AppController, CountryRestaurantController],
