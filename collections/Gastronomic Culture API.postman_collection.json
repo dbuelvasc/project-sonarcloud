@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "6d79bf29-e45e-405f-a700-90d22a2e45e7",
+		"_postman_id": "21147ce7-1918-41c4-adec-644c0aa3b1f8",
 		"name": "Gastronomic Culture API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "37861229",
-		"_collection_link": "https://martian-water-313571.postman.co/workspace/Team-Workspace~dd1ef38c-bff7-46fe-8ec5-a3cfc530106c/collection/6679811-6d79bf29-e45e-405f-a700-90d22a2e45e7?action=share&source=collection_link&creator=37861229"
+		"_exporter_id": "38442113"
 	},
 	"item": [
 		{
@@ -1534,6 +1533,9 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"id_restaurant\", data.id);\r",
+									"\r",
 									"pm.test('Status code is 201', function () {\r",
 									"    pm.response.to.have.status(201);\r",
 									"});\r",
@@ -1558,7 +1560,12 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"name\": \"Le Gourmet\", \"city\": \"Paris\", \"country\": \"France\", \"michelinStars\": 3, \"awardDate\": \"2024-01-15\"}"
+							"raw": "{\r\n    \"name\": \"Le Gourmet\",\r\n    \"city\": \"Paris\",\r\n    \"michelinStars\": 3,\r\n    \"awardDate\": \"2024-01-15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "{{baseURL}}/restaurant",
@@ -1680,13 +1687,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/restaurant/1",
+							"raw": "{{baseURL}}/restaurant/{{id_restaurant}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"restaurant",
-								"1"
+								"{{id_restaurant}}"
 							]
 						}
 					},
@@ -1734,7 +1741,7 @@
 									"\r",
 									"pm.test(\"Get expected error message\", function () {\r",
 									"   var data = pm.response.json();\r",
-									"   pm.expect(data.message).to.eql(\"The Restaurant with the given id was not found\");\r",
+									"   pm.expect(data.message).to.eql(\"The restaurant with the given id was not found\");\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1746,13 +1753,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/restaurant/999",
+							"raw": "{{baseURL}}/restaurant/-{{id_restaurant}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"restaurant",
-								"999"
+								"-{{id_restaurant}}"
 							]
 						}
 					},
@@ -1820,16 +1827,16 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"name\": \"Le Gourmet Updated\", \"city\": \"Paris\", \"country\": \"France\", \"michelinStars\": 3, \"awardDate\": \"2024-01-15\"}"
+							"raw": "{\r\n    \"name\": \"Le Gourmet Updated\",\r\n    \"city\": \"Paris\",\r\n    \"michelinStars\": 3,\r\n    \"awardDate\": \"2024-01-15\"\r\n}"
 						},
 						"url": {
-							"raw": "{{baseURL}}/restaurant/1",
+							"raw": "{{baseURL}}/restaurant/{{id_restaurant}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"restaurant",
-								"1"
+								"{{id_restaurant}}"
 							]
 						}
 					},
@@ -1864,7 +1871,7 @@
 									"});\r",
 									"pm.test(\"Get expected error message\", function () {\r",
 									"   var data = pm.response.json();\r",
-									"   pm.expect(data.message).to.eql(\"The Restaurant with the given id was not found\");\r",
+									"   pm.expect(data.message).to.eql(\"The restaurant with the given id was not found\");\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1885,13 +1892,13 @@
 							"raw": "{\"name\": \"Nonexistent Restaurant\", \"city\": \"Nowhere\", \"country\": \"Nowhere\", \"michelinStars\": 0, \"awardDate\": \"2024-01-01\"}"
 						},
 						"url": {
-							"raw": "{{baseURL}}/restaurant/999",
+							"raw": "{{baseURL}}/restaurant/-{{id_restaurant}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"restaurant",
-								"999"
+								"-{{id_restaurant}}"
 							]
 						}
 					},
@@ -1946,13 +1953,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/restaurant/1",
+							"raw": "{{baseURL}}/restaurant/{{id_restaurant}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"restaurant",
-								"1"
+								"{{id_restaurant}}"
 							]
 						}
 					},
@@ -1988,7 +1995,7 @@
 									"\r",
 									"pm.test(\"Get expected error message\", function () {\r",
 									"   var data = pm.response.json();\r",
-									"   pm.expect(data.message).to.eql(\"The Restaurant with the given id was not found\");\r",
+									"   pm.expect(data.message).to.eql(\"The restaurant with the given id was not found\");\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -2000,13 +2007,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/restaurant/999",
+							"raw": "{{baseURL}}/restaurant/-{{id_restaurant}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"restaurant",
-								"999"
+								"-{{id_restaurant}}"
 							]
 						}
 					},
@@ -2874,11 +2881,12 @@
 									"\r",
 									"pm.test(\"Get expected error message\", function () {\r",
 									"   var data = pm.response.json();\r",
-									"   pm.expect(data.message).to.eql(\"País no encontrado\");\r",
+									"   pm.expect(data.message).to.eql(\"The country with the given id was not found\");\r",
 									"});\r",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -3045,11 +3053,12 @@
 									"\r",
 									"pm.test(\"Get expected error message\", function () {\r",
 									"   var data = pm.response.json();\r",
-									"   pm.expect(data.message).to.eql(\"País no encontrado\");\r",
+									"   pm.expect(data.message).to.eql(\"The country with the given id was not found\");\r",
 									"});\r",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -3208,11 +3217,12 @@
 									"\r",
 									"pm.test(\"Get expected error message\", function () {\r",
 									"   var data = pm.response.json();\r",
-									"   pm.expect(data.message).to.eql(\"País no encontrado\");\r",
+									"   pm.expect(data.message).to.eql(\"The country with the given id was not found\");\r",
 									"});\r",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],

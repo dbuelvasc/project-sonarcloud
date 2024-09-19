@@ -14,11 +14,23 @@ export class RestaurantService {
     private readonly restaurantRepository: Repository<RestaurantEntity>,
   ) {}
 
+  private isValidUUID(id: string): boolean {
+    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+    return uuidRegex.test(id);
+  }
+
   async findAll(): Promise<RestaurantEntity[]> {
     return this.restaurantRepository.find();
   }
 
   async findOne(id: string): Promise<RestaurantEntity> {
+    // Verificar si el ID es un UUID válido
+    if (!this.isValidUUID(id)) {
+      throw new BusinessLogicException(
+        'The restaurant with the given id was not found',
+        BusinessError.NOT_FOUND,
+      );
+    }
     const restaurant = await this.restaurantRepository.findOne({
       where: { id },
     });
@@ -40,6 +52,13 @@ export class RestaurantService {
     id: string,
     restaurant: RestaurantEntity,
   ): Promise<RestaurantEntity> {
+    // Verificar si el ID es un UUID válido
+    if (!this.isValidUUID(id)) {
+      throw new BusinessLogicException(
+        'The restaurant with the given id was not found',
+        BusinessError.NOT_FOUND,
+      );
+    }
     const PersitedRestaurant: RestaurantEntity =
       await this.restaurantRepository.findOne({ where: { id } });
     if (!PersitedRestaurant) {
@@ -55,6 +74,13 @@ export class RestaurantService {
   }
 
   async delete(id: string): Promise<void> {
+    // Verificar si el ID es un UUID válido
+    if (!this.isValidUUID(id)) {
+      throw new BusinessLogicException(
+        'The restaurant with the given id was not found',
+        BusinessError.NOT_FOUND,
+      );
+    }
     const restaurant: RestaurantEntity =
       await this.restaurantRepository.findOne({ where: { id } });
     if (!restaurant) {
