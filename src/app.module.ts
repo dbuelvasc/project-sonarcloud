@@ -1,48 +1,35 @@
-import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { Module } from "@nestjs/common";
+import { ConfigModule } from "@nestjs/config";
+import { TypeOrmModule } from "@nestjs/typeorm";
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { CharacteristicProductEntity } from './characteristicProduct/characteristicProduct.entity';
-import { CharacteristicProductModule } from './characteristicProduct/characteristicProduct.module';
-import { CountryRestaurantController } from './country-restaurant/country-restaurant.controller';
-import { CountryRestaurantModule } from './country-restaurant/country-restaurant.module';
-import { CountryEntity } from './country/country.entity';
-import { CountryModule } from './country/country.module';
-import { GastronomicCultureEntity } from './gastronomicCulture/gastronomicCulture.entity';
-import { GastronomicCultureModule } from './gastronomicCulture/gastronomicCulture.module';
-import { RecipeEntity } from './recipe/recipe.entity';
-import { RecipeModule } from './recipe/recipe.module';
-import { RestaurantEntity } from './restaurant/restaurant.entity';
-import { RestaurantModule } from './restaurant/restaurant.module';
+import { CharacteristicProductModule } from "@/characteristicProduct/characteristicProduct.module";
+import { CountryRestaurantModule } from "@/country-restaurant/country-restaurant.module";
+import { CountryModule } from "@/country/country.module";
+import { GastronomicCultureModule } from "@/gastronomicCulture/gastronomicCulture.module";
+import { RecipeModule } from "@/recipe/recipe.module";
+import { RestaurantModule } from "@/restaurant/restaurant.module";
+
 @Module({
   imports: [
-    RestaurantModule,
-    GastronomicCultureModule,
-    CharacteristicProductModule,
-    RecipeModule,
-    CountryModule,
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'postgres',
-      entities: [
-        RestaurantEntity,
-        GastronomicCultureEntity,
-        CharacteristicProductEntity,
-        RecipeEntity,
-        CountryEntity,
-      ],
+      autoLoadEntities: true,
+      database: process.env.DB_NAME,
       dropSchema: true,
-      synchronize: true,
+      host: process.env.DB_HOST,
       keepConnectionAlive: true,
+      password: process.env.DB_PASSWORD,
+      port: Number(process.env.DB_PORT),
+      synchronize: true,
+      type: "postgres",
+      username: process.env.DB_USER,
     }),
+    CharacteristicProductModule,
+    CountryModule,
     CountryRestaurantModule,
+    GastronomicCultureModule,
+    RecipeModule,
+    RestaurantModule,
   ],
-  controllers: [AppController, CountryRestaurantController],
-  providers: [AppService],
 })
 export class AppModule {}

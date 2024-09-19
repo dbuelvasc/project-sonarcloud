@@ -7,8 +7,8 @@ import {
   Post,
   UseInterceptors,
 } from "@nestjs/common";
-import { RestaurantEntity } from "src/restaurant/restaurant.entity";
-import { BusinessErrorsInterceptor } from "../shared/interceptors/business-errors/business-errors.interceptor";
+import { RestaurantEntity } from "@/restaurant/restaurant.entity";
+import { BusinessErrorsInterceptor } from "@/shared/interceptors/business-errors/business-errors.interceptor";
 import { CountryRestaurantService } from "./country-restaurant.service";
 
 @Controller("country-restaurant")
