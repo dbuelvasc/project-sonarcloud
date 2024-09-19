@@ -15,6 +15,7 @@ import { CountryEntity } from './country/country.entity';
 import { CountryRestaurantController } from './country-restaurant/country-restaurant.controller';
 import { CountryRestaurantModule } from './country-restaurant/country-restaurant.module';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { UserModule } from './user/user.module';
       keepConnectionAlive: true,
     }),
     UserModule,
+    AuthModule,
     CountryRestaurantModule,
   ],
   controllers: [AppController, CountryRestaurantController],
