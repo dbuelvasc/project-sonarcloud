@@ -7,13 +7,23 @@ import {
   Param,
   Post,
   Put,
+  UseInterceptors,
 } from "@nestjs/common";
-import { CharacteristicProductService } from "./characteristicProduct.service";
-import { CharacteristicProductEntity } from "./characteristicProduct.entity";
-import { CharacteristicproductDto } from "./characteristicProduct.dto";
 import { plainToInstance } from "class-transformer";
 
+import {
+  BusinessErrorsInterceptor,
+  UUIDValidationInterceptor,
+} from "@/shared/interceptors";
+import { CharacteristicproductDto } from "./characteristicProduct.dto";
+import { CharacteristicProductEntity } from "./characteristicProduct.entity";
+import { CharacteristicProductService } from "./characteristicProduct.service";
+
 @Controller("characteristicproduct")
+@UseInterceptors(
+  BusinessErrorsInterceptor,
+  new UUIDValidationInterceptor("characteristicproductId"),
+)
 export class CharacteristicProductController {
   constructor(
     private readonly characteristicproductService: CharacteristicProductService,

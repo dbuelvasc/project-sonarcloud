@@ -8,16 +8,22 @@ import {
   Post,
   Put,
   UseInterceptors,
-  UseGuards,
 } from "@nestjs/common";
-import { CountryService } from "./country.service";
-import { CountryDto } from "./country.dto";
-import { CountryEntity } from "./country.entity";
-import { BusinessErrorsInterceptor } from "../shared/interceptors/business-errors/business-errors.interceptor";
 import { plainToInstance } from "class-transformer";
 
+import {
+  BusinessErrorsInterceptor,
+  UUIDValidationInterceptor,
+} from "@/shared/interceptors";
+import { CountryDto } from "./country.dto";
+import { CountryEntity } from "./country.entity";
+import { CountryService } from "./country.service";
+
 @Controller("country")
-@UseInterceptors(BusinessErrorsInterceptor)
+@UseInterceptors(
+  BusinessErrorsInterceptor,
+  new UUIDValidationInterceptor("countryId"),
+)
 export class CountryController {
   constructor(private readonly countryService: CountryService) {}
 

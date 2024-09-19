@@ -7,12 +7,19 @@ import {
   Post,
   UseInterceptors,
 } from "@nestjs/common";
+
 import { RestaurantEntity } from "@/restaurant/restaurant.entity";
-import { BusinessErrorsInterceptor } from "@/shared/interceptors/business-errors/business-errors.interceptor";
+import {
+  BusinessErrorsInterceptor,
+  UUIDValidationInterceptor,
+} from "@/shared/interceptors";
 import { CountryRestaurantService } from "./country-restaurant.service";
 
 @Controller("country-restaurant")
-@UseInterceptors(BusinessErrorsInterceptor)
+@UseInterceptors(
+  BusinessErrorsInterceptor,
+  new UUIDValidationInterceptor("countryId"),
+)
 export class CountryRestaurantController {
   constructor(
     private readonly countryRestaurantService: CountryRestaurantService,

@@ -8,16 +8,22 @@ import {
   Post,
   Put,
   UseInterceptors,
-  UseGuards,
 } from "@nestjs/common";
-import { RestaurantService } from "./restaurant.service";
+import { plainToInstance } from "class-transformer";
+
+import {
+  BusinessErrorsInterceptor,
+  UUIDValidationInterceptor,
+} from "@/shared/interceptors";
 import { RestaurantDto } from "./restaurant.dto";
 import { RestaurantEntity } from "./restaurant.entity";
-import { plainToInstance } from "class-transformer";
-import { BusinessErrorsInterceptor } from "../shared/interceptors/business-errors/business-errors.interceptor";
+import { RestaurantService } from "./restaurant.service";
 
 @Controller("restaurant")
-@UseInterceptors(BusinessErrorsInterceptor)
+@UseInterceptors(
+  BusinessErrorsInterceptor,
+  new UUIDValidationInterceptor("restaurantId"),
+)
 export class RestaurantController {
   constructor(private readonly restaurantService: RestaurantService) {}
 
