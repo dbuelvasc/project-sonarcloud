@@ -7,23 +7,27 @@ import {
   NestInterceptor,
 } from "@nestjs/common";
 import { catchError, Observable } from "rxjs";
-import { BusinessError } from "@/shared/errors/business-errors";
+import {
+  BusinessError,
+  BusinessLogicException,
+} from "@/shared/errors/business-errors";
 
 @Injectable()
 export class BusinessErrorsInterceptor implements NestInterceptor {
-  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+  private readonly errors: Record<BusinessError, HttpStatus> = {
+    [BusinessError.BAD_REQUEST]: HttpStatus.BAD_REQUEST,
+    [BusinessError.NOT_FOUND]: HttpStatus.NOT_FOUND,
+    [BusinessError.PRECONDITION_FAILED]: HttpStatus.PRECONDITION_FAILED,
+  };
+
+  intercept(_: ExecutionContext, next: CallHandler): Observable<any> {
     return next.handle().pipe(
-      catchError((error) => {
-        if (error.type === BusinessError.NOT_FOUND)
-          throw new HttpException(error.message, HttpStatus.NOT_FOUND);
-        else if (error.type === BusinessError.PRECONDITION_FAILED)
-          throw new HttpException(
-            error.message,
-            HttpStatus.PRECONDITION_FAILED,
-          );
-        else if (error.type === BusinessError.BAD_REQUEST)
-          throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
-        else throw error;
+      catchError((err: BusinessLogicException) => {
+        const httpStatus = this.errors[err.type];
+        if (httpStatus) {
+          throw new HttpException(err.message, httpStatus);
+        }
+        throw err;
       }),
     );
   }
