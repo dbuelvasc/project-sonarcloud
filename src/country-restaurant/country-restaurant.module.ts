@@ -5,13 +5,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import * as sqliteStore from 'cache-manager-sqlite';
 
 import { CountryRestaurantService } from './country-restaurant.service';
-import { CountryService } from 'src/country/country.service';
+import { CountryEntity } from 'src/country/country.entity';
 import { RestaurantEntity } from '../restaurant/restaurant.entity';
 
 @Module({
-  providers: [CountryRestaurantService],
+  providers: [CountryRestaurantService,],
   imports: [
-    TypeOrmModule.forFeature([CountryService, RestaurantEntity]),
+    TypeOrmModule.forFeature([CountryEntity, RestaurantEntity]),
     CacheModule.register({
       store: sqliteStore,
       options: {
@@ -20,5 +20,6 @@ import { RestaurantEntity } from '../restaurant/restaurant.entity';
       path: ':memory:',
     }),
   ],
+  exports: [CountryRestaurantService],
 })
 export class CountryRestaurantModule {}
