@@ -2,12 +2,12 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 
-import { CharacteristicProductEntity } from "../characteristicProduct/characteristicProduct.entity";
-import { GastronomicCultureEntity } from "../gastronomicCulture/gastronomicCulture.entity";
+import { CharacteristicProductEntity } from "@/characteristicProduct/characteristicProduct.entity";
+import { GastronomicCultureEntity } from "@/gastronomicCulture/gastronomicCulture.entity";
 import {
-  BusinessLogicException,
   BusinessError,
-} from "../shared/errors/business-errors";
+  BusinessLogicException,
+} from "@/shared/errors/business-errors";
 
 @Injectable()
 export class GastronomicCultureCharacteristicProductService {

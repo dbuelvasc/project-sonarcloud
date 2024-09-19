@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import { Test, TestingModule } from "@nestjs/testing";
 
 import { GastronomicCultureEntity } from "../gastronomicCulture/gastronomicCulture.entity";
-import { GastronomicCultureCharacteristicProductService } from "./gastronomic-culture-characteristic-product.service";
+import { GastronomicCultureCharacteristicProductService } from "./gastronomicCulture-characteristicProduct.service";
 import { CacheModule } from "@nestjs/cache-manager";
 import { getRepositoryToken } from "@nestjs/typeorm";
 import { CharacteristicProductEntity } from "../characteristicProduct/characteristicProduct.entity";
