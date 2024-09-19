@@ -12,29 +12,37 @@
 # https://www.bretfisher.com/node-docker-good-defaults/
 # http://goldbergyoni.com/checklist-best-practice-of-node-js-in-production/
 
-FROM node:20-alpine as builder
+FROM node:20-alpine AS base
+
+FROM base AS builder
 
 ENV NODE_ENV build
 
-USER node
-WORKDIR /home/node
+RUN apk add --no-cache libc6-compat
 
-COPY package*.json ./
+WORKDIR /app
+
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm ci
 
-COPY --chown=node:node . .
+COPY . .
+
+RUN npm run build
 
 # ---
 
-FROM node:20-alpine
+FROM base AS production
 
 ENV NODE_ENV production
 
 USER node
-WORKDIR /home/node
+WORKDIR /app
 
-COPY --from=builder --chown=node:node /home/node/package*.json ./
-COPY --from=builder --chown=node:node /home/node/node_modules/ ./node_modules/
-COPY --from=builder --chown=node:node /home/node/dist/ ./dist/
+COPY --from=builder --chown=node:node /app/package.json ./
+COPY --from=builder --chown=node:node /app/package-lock.json ./
+COPY --from=builder --chown=node:node /app/node_modules/ ./node_modules/
+COPY --from=builder --chown=node:node /app/dist/ ./dist/
 
-CMD ["node", "dist/server.js"]
+CMD ["node", "dist/main.js"]
+

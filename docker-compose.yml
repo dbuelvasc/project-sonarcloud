@@ -1,32 +1,34 @@
-version: '3.5'
-
 services:
-  app-db:
-    image: postgres
-    restart: always
-    env_file:
-      - .env/development
-    environment:
-      - POSTGRES_PASSWORD=postgres
-    container_name: postgres
-    volumes:
-      - app-db_data:/var/lib/postgresql/data
-    ports:
-      - '5432:5432'
-
-  app:
+  gastronomic-culture-api:
     build:
       context: .
-      dockerfile: Dockerfile
-    container_name: nest-docker-postgres
-    env_file:
-      - .env/development
+    environment:
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_PORT: ${DB_PORT}
+      DB_HOST: ${DB_HOST}
     ports:
-      - '3000:3000'
+      - 3000:3000
     depends_on:
-      - app-db
+      - postgres
+    restart: always
+    networks:
+      - api_net
+
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
-      - ./src:/app/src
+      - ~/apps/postgres:/var/lib/postgresql/data
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    networks:
+      - api_net
 
   pgadmin:
     image: dpage/pgadmin4
@@ -38,8 +40,9 @@ services:
     ports:
       - '3001:80'
     depends_on:
-      - app-db
+      - postgres
+    networks:
+      - api_net
 
-volumes:
-  app-db_data:
-  pgadmin-data:
+networks:
+  api_net:
