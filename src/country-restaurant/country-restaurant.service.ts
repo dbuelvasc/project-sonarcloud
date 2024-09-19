@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CacheModule, CACHE_MANAGER } from '@nestjs/cache-manager';
+import { CacheModule } from '@nestjs/cache-manager';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Cache } from 'cache-manager';
 import { Repository } from 'typeorm';
@@ -19,8 +19,8 @@ export class CountryRestaurantService {
         @InjectRepository(CountryEntity)
         private readonly countryRepository: Repository<CountryEntity>,
 
-        @Inject(CACHE_MANAGER) private cacheService: Cache,
-        private readonly cacheManager: Cache,
+        //@Inject(CACHE_MANAGER) private cacheService: Cache,
+        //private readonly cacheManager: Cache,
     ) {}
 
     async addRestaurantToCountry(

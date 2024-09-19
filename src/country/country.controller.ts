@@ -38,7 +38,7 @@ export class CountryController {
     @Post()
     //@UseGuards(JwtAuthGuard, RoleGuard)
     //@Roles(userRoles.ADMIN, userRoles.WRITER)
-    async create(@Body() paisDto: CountryDto) {
+    async create(@Body() CountryDto: CountryDto) {
         const country: CountryEntity = plainToInstance(CountryEntity, CountryDto);
         return await this.countryService.create(country);
     }
