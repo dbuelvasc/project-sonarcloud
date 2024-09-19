@@ -4,6 +4,7 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
+  OneToMany,
   ManyToMany,
   JoinTable,
 } from 'typeorm';
@@ -16,7 +17,7 @@ export class CountryEntity {
   @Column()
   name: string;
 
-  @ManyToMany(() => RestaurantEntity, (restaurant) => restaurant.country)
+  @OneToMany(() => RestaurantEntity, restaurant => restaurant.country)
   @JoinTable()
   restaurants: RestaurantEntity[];
 

@@ -3,8 +3,8 @@
 		"_postman_id": "6d79bf29-e45e-405f-a700-90d22a2e45e7",
 		"name": "Gastronomic Culture API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "6679811",
-		"_collection_link": "https://martian-water-313571.postman.co/workspace/Team-Workspace~dd1ef38c-bff7-46fe-8ec5-a3cfc530106c/collection/6679811-6d79bf29-e45e-405f-a700-90d22a2e45e7?action=share&source=collection_link&creator=6679811"
+		"_exporter_id": "37861229",
+		"_collection_link": "https://martian-water-313571.postman.co/workspace/Team-Workspace~dd1ef38c-bff7-46fe-8ec5-a3cfc530106c/collection/6679811-6d79bf29-e45e-405f-a700-90d22a2e45e7?action=share&source=collection_link&creator=37861229"
 	},
 	"item": [
 		{
@@ -74,9 +74,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/products",
+							"raw": "{{baseURL}}/products",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"products"
@@ -108,9 +108,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/products/1",
+							"raw": "{{baseURL}}/products/1",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"products",
@@ -143,9 +143,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+							"raw": "{{baseURL}}/products/00000000-0000-0000-00000000",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"products",
@@ -160,9 +160,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+									"raw": "{{baseURL}}/products/00000000-0000-0000-00000000",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"products",
@@ -194,9 +194,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/products/1",
+							"raw": "{{baseURL}}/products/1",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"products",
@@ -238,9 +238,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+							"raw": "{{baseURL}}/products/00000000-0000-0000-00000000",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"products",
@@ -264,9 +264,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+									"raw": "{{baseURL}}/products/00000000-0000-0000-00000000",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"products",
@@ -289,9 +289,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/products/1",
+							"raw": "{{baseURL}}/products/1",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"products",
@@ -306,9 +306,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/products/1",
+									"raw": "{{baseURL}}/products/1",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"products",
@@ -331,9 +331,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+							"raw": "{{baseURL}}/products/00000000-0000-0000-00000000",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"products",
@@ -348,9 +348,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/products/00000000-0000-0000-00000000",
+									"raw": "{{baseURL}}/products/00000000-0000-0000-00000000",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"products",
@@ -387,9 +387,9 @@
 							"raw": "{\"name\": \"Pasta Carbonara\", \"description\": \"A classic Italian pasta dish.\", \"photo\": \"http://example.com/photo.jpg\", \"preparationProcess\": \"Cook pasta, mix with sauce.\", \"video\": \"http://example.com/video.mp4\"}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/recipes",
+							"raw": "{{baseURL}}/recipes",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"recipes"
@@ -412,9 +412,9 @@
 									"raw": "{\"name\": \"Pasta Carbonara\", \"description\": \"A classic Italian pasta dish.\", \"photo\": \"http://example.com/photo.jpg\", \"preparationProcess\": \"Cook pasta, mix with sauce.\", \"video\": \"http://example.com/video.mp4\"}"
 								},
 								"url": {
-									"raw": "{{baseUrl}}/recipes",
+									"raw": "{{baseURL}}/recipes",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"recipes"
@@ -436,9 +436,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/recipes",
+							"raw": "{{baseURL}}/recipes",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"recipes"
@@ -452,9 +452,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/recipes",
+									"raw": "{{baseURL}}/recipes",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"recipes"
@@ -481,9 +481,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/recipes/1",
+							"raw": "{{baseURL}}/recipes/1",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"recipes",
@@ -498,9 +498,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/recipes/1",
+									"raw": "{{baseURL}}/recipes/1",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"recipes",
@@ -528,9 +528,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/recipes/999",
+							"raw": "{{baseURL}}/recipes/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"recipes",
@@ -545,9 +545,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/recipes/999",
+									"raw": "{{baseURL}}/recipes/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"recipes",
@@ -584,9 +584,9 @@
 							"raw": "{\"name\": \"Pasta Carbonara Updated\", \"description\": \"A classic Italian pasta dish with a twist.\", \"photo\": \"http://example.com/photo_updated.jpg\", \"preparationProcess\": \"Cook pasta, mix with new sauce.\", \"video\": \"http://example.com/video_updated.mp4\"}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/recipes/1",
+							"raw": "{{baseURL}}/recipes/1",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"recipes",
@@ -610,9 +610,9 @@
 									"raw": "{\"name\": \"Pasta Carbonara Updated\", \"description\": \"A classic Italian pasta dish with a twist.\", \"photo\": \"http://example.com/photo_updated.jpg\", \"preparationProcess\": \"Cook pasta, mix with new sauce.\", \"video\": \"http://example.com/video_updated.mp4\"}"
 								},
 								"url": {
-									"raw": "{{baseUrl}}/recipes/1",
+									"raw": "{{baseURL}}/recipes/1",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"recipes",
@@ -644,9 +644,9 @@
 							"raw": "{\"name\": \"Nonexistent Recipe\", \"description\": \"This recipe does not exist.\", \"photo\": \"http://example.com/photo_nonexistent.jpg\", \"preparationProcess\": \"N/A\", \"video\": \"http://example.com/video_nonexistent.mp4\"}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/recipes/999",
+							"raw": "{{baseURL}}/recipes/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"recipes",
@@ -661,9 +661,9 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/recipes/999",
+									"raw": "{{baseURL}}/recipes/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"recipes",
@@ -691,9 +691,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/recipes/1",
+							"raw": "{{baseURL}}/recipes/1",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"recipes",
@@ -708,9 +708,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/recipes/1",
+									"raw": "{{baseURL}}/recipes/1",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"recipes",
@@ -733,9 +733,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/recipes/999",
+							"raw": "{{baseURL}}/recipes/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"recipes",
@@ -750,9 +750,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/recipes/999",
+									"raw": "{{baseURL}}/recipes/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"recipes",
@@ -891,7 +891,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test('Number of countries > ' + 0, function () {\r",
+									"pm.test('Number of country > ' + 0, function () {\r",
 									"   var data = pm.response.json()\r",
 									"   pm.expect(data.length).to.greaterThan(0)\r",
 									"});\r",
@@ -963,7 +963,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Cultura gastronómica de prueba\",\n        \"characteristicProducts\": [],\n        \"recipes\": [],\n        \"restaurants\": [],\n        \"countries\":[]\n    }\n]\n"
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Cultura gastronómica de prueba\",\n        \"characteristicProducts\": [],\n        \"recipes\": [],\n        \"restaurant\": [],\n        \"country\":[]\n    }\n]\n"
 						}
 					]
 				},
@@ -1037,7 +1037,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"id\": 1,\r\n    \"name\": \"Cultura gastronómica de prueba\",\r\n    \"characteristicProducts\": [],\r\n    \"recipes\": [],\r\n    \"restaurants\": [],\r\n    \"countries\":[]\r\n}\r\n"
+							"body": "{\r\n    \"id\": 1,\r\n    \"name\": \"Cultura gastronómica de prueba\",\r\n    \"characteristicProducts\": [],\r\n    \"recipes\": [],\r\n    \"restaurant\": [],\r\n    \"country\":[]\r\n}\r\n"
 						}
 					]
 				},
@@ -1208,7 +1208,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 1,\n    \"name\": \"Cultura gastronómica Colombiana\",\n    \"characteristicProducts\": [],\n    \"recipes\": [],\n    \"restaurants\": [],\n    \"countries\":[]\n}\n"
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Cultura gastronómica Colombiana\",\n    \"characteristicProducts\": [],\n    \"recipes\": [],\n    \"restaurant\": [],\n    \"country\":[]\n}\n"
 						}
 					]
 				},
@@ -1477,7 +1477,77 @@
 			"name": "Restaurants",
 			"item": [
 				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"token\", data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Add Restaurant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 201', function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test('Response must have an id', function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1491,12 +1561,12 @@
 							"raw": "{\"name\": \"Le Gourmet\", \"city\": \"Paris\", \"country\": \"France\", \"michelinStars\": 3, \"awardDate\": \"2024-01-15\"}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/restaurants",
+							"raw": "{{baseURL}}/restaurant",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"restaurants"
+								"restaurant"
 							]
 						}
 					},
@@ -1521,16 +1591,35 @@
 				},
 				{
 					"name": "Get All Restaurants",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Number of restaurant > ' + 0, function () {\r",
+									"   var data = pm.response.json()\r",
+									"   pm.expect(data.length).to.greaterThan(0)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/restaurants",
+							"raw": "{{baseURL}}/restaurant",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"restaurants"
+								"restaurant"
 							]
 						}
 					},
@@ -1541,12 +1630,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/restaurants",
+									"raw": "{{baseURL}}/restaurant",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
-										"restaurants"
+										"restaurant"
 									]
 								}
 							},
@@ -1566,16 +1655,37 @@
 				},
 				{
 					"name": "Get Restaurant by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains restaurant data\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('name');\r",
+									"    pm.expect(jsonData).to.have.property('city');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/restaurants/1",
+							"raw": "{{baseURL}}/restaurant/1",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"restaurants",
+								"restaurant",
 								"1"
 							]
 						}
@@ -1587,12 +1697,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/restaurants/1",
+									"raw": "{{baseURL}}/restaurant/1",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
-										"restaurants",
+										"restaurant",
 										"1"
 									]
 								}
@@ -1613,16 +1723,35 @@
 				},
 				{
 					"name": "Get An Invalid Restaurant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"The Restaurant with the given id was not found\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/restaurants/999",
+							"raw": "{{baseURL}}/restaurant/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"restaurants",
+								"restaurant",
 								"999"
 							]
 						}
@@ -1634,12 +1763,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/restaurants/999",
+									"raw": "{{baseURL}}/restaurant/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
-										"restaurants",
+										"restaurant",
 										"999"
 									]
 								}
@@ -1660,6 +1789,27 @@
 				},
 				{
 					"name": "Update Restaurant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains updated data\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.nombre).to.eql(pm.environment.get(\"name\"));\r",
+									"    pm.expect(jsonData.ciudad).to.eql(pm.environment.get(\"city\"));\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -1673,12 +1823,12 @@
 							"raw": "{\"name\": \"Le Gourmet Updated\", \"city\": \"Paris\", \"country\": \"France\", \"michelinStars\": 3, \"awardDate\": \"2024-01-15\"}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/restaurants/1",
+							"raw": "{{baseURL}}/restaurant/1",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"restaurants",
+								"restaurant",
 								"1"
 							]
 						}
@@ -1704,6 +1854,24 @@
 				},
 				{
 					"name": "Update An Invalid Restaurant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"The Restaurant with the given id was not found\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -1717,12 +1885,12 @@
 							"raw": "{\"name\": \"Nonexistent Restaurant\", \"city\": \"Nowhere\", \"country\": \"Nowhere\", \"michelinStars\": 0, \"awardDate\": \"2024-01-01\"}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/restaurants/999",
+							"raw": "{{baseURL}}/restaurant/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"restaurants",
+								"restaurant",
 								"999"
 							]
 						}
@@ -1734,12 +1902,12 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/restaurants/999",
+									"raw": "{{baseURL}}/restaurant/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
-										"restaurants",
+										"restaurant",
 										"999"
 									]
 								}
@@ -1760,16 +1928,30 @@
 				},
 				{
 					"name": "Delete Restaurant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/restaurants/1",
+							"raw": "{{baseURL}}/restaurant/1",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"restaurants",
+								"restaurant",
 								"1"
 							]
 						}
@@ -1795,16 +1977,35 @@
 				},
 				{
 					"name": "Delete An Invalid Restaurant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"The Restaurant with the given id was not found\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/restaurants/999",
+							"raw": "{{baseURL}}/restaurant/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"restaurants",
+								"restaurant",
 								"999"
 							]
 						}
@@ -1816,12 +2017,12 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/restaurants/999",
+									"raw": "{{baseURL}}/restaurant/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
-										"restaurants",
+										"restaurant",
 										"999"
 									]
 								}
@@ -1843,8 +2044,565 @@
 			]
 		},
 		{
+			"name": "Restaurant-Country",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"token\", data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Restaurant to Country",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/country/{{country_id}}/restaurant/{{restaurant_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"country",
+								"{{country_id}}",
+								"restaurant",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/country/1/restaurant/2",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"country",
+										"1",
+										"restaurant",
+										"2"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"country_id\": 1, \"restaurant_id\": 2}"
+						}
+					]
+				},
+				{
+					"name": "Get Restaurant from Country",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/country/{{country_id}}/restaurant/{{restaurant_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"country",
+								"{{country_id}}",
+								"restaurant",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/country/1/restaurant/2",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"country",
+										"1",
+										"restaurant",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"country_id\": 1, \"restaurant_id\": 2}"
+						}
+					]
+				},
+				{
+					"name": "Get All Restaurants of Country",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/country/{{country_id}}/restaurant",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"country",
+								"{{country_id}}",
+								"restaurant"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/country/1/restaurant",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"country",
+										"1",
+										"restaurant"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[{\"id\": 1, \"name\": \"Le Gourmet\", \"city\": \"Paris\", \"country\": \"France\", \"michelinStars\": 3}, {\"id\": 2, \"name\": \"Noma\", \"city\": \"Copenhagen\", \"country\": \"Denmark\", \"michelinStars\": 2}]"
+						}
+					]
+				},
+				{
+					"name": "Get All Restaurants of Non-Existent Country",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/country/999/restaurant",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"country",
+								"999",
+								"restaurant"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Country Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/country/999/restaurant",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"country",
+										"999",
+										"restaurant"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Country with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Update Restaurant of Country",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/country/{{country_id}}/restaurant/{{restaurant_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"country",
+								"{{country_id}}",
+								"restaurant",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/country/1/restaurant/2",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"country",
+										"1",
+										"restaurant",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"country_id\": 1, \"restaurant_id\": 2, \"name\": \"Le Gourmet Updated\", \"city\": \"Paris\", \"michelinStars\": 3}"
+						}
+					]
+				},
+				{
+					"name": "Delete Restaurant from Country",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/country/{{country_id}}/restaurant/{{restaurant_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"country",
+								"{{country_id}}",
+								"restaurant",
+								"{{restaurant_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/country/1/restaurant/2",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"country",
+										"1",
+										"restaurant",
+										"2"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete Restaurant from Non-Existent Country",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/country/999/restaurant/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"country",
+								"999",
+								"restaurant",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Country Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/country/999/restaurant/2",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"country",
+										"999",
+										"restaurant",
+										"2"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Country with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Delete Non-Existent Restaurant from Country",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/country/1/restaurant/999",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"country",
+								"1",
+								"restaurant",
+								"999"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/country/1/restaurant/999",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"country",
+										"1",
+										"restaurant",
+										"999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 404, \"message\": \"The Restaurant with the given id was not found\"}"
+						}
+					]
+				},
+				{
+					"name": "Delete Restaurant Not Associated with Country",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/country/1/restaurant/3",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"country",
+								"1",
+								"restaurant",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Restaurant Not Associated",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/country/1/restaurant/3",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"country",
+										"1",
+										"restaurant",
+										"3"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\"statusCode\": 409, \"message\": \"The Restaurant with the given id is not associated with the Country\"}"
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Country",
 			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"token\", data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Add Country",
 					"event": [
@@ -1887,12 +2645,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/countries",
+							"raw": "{{baseURL}}/country",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"countries"
+								"country"
 							]
 						}
 					},
@@ -1919,12 +2677,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/countries",
+									"raw": "{{baseURL}}/country",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
-										"countries"
+										"country"
 									]
 								}
 							},
@@ -1941,7 +2699,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 1,\n    \"name\": \"País de prueba\",\n    \"gastronomic_cultures\": [],\n    \"restaurants\": []\n}\n"
+							"body": "{\n    \"id\": 1,\n    \"name\": \"País de prueba\",\n    \"gastronomic_cultures\": [],\n    \"restaurant\": []\n}\n"
 						}
 					]
 				},
@@ -1952,7 +2710,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test('Number of countries > ' + 0, function () {\r",
+									"pm.test('Number of country > ' + 0, function () {\r",
 									"   var data = pm.response.json()\r",
 									"   pm.expect(data.length).to.greaterThan(0)\r",
 									"});\r",
@@ -1980,12 +2738,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/countries",
+							"raw": "{{baseURL}}/country",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"countries"
+								"country"
 							]
 						}
 					},
@@ -2003,12 +2761,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{baseURL}}/countries",
+									"raw": "{{baseURL}}/country",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
-										"countries"
+										"country"
 									]
 								}
 							},
@@ -2041,8 +2799,7 @@
 									"});\r",
 									""
 								],
-								"type": "text/javascript",
-								"packages": {}
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -2060,13 +2817,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/countries/{{country_id}}",
+							"raw": "{{baseURL}}/country/{{id_pais}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"countries",
-								"{{country_id}}"
+								"country",
+								"{{id_pais}}"
 							]
 						}
 					},
@@ -2077,12 +2834,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseURL}}/countries/{{id_pais}}",
+									"raw": "{{baseURL}}/country/{{id_pais}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
-										"countries",
+										"country",
 										"{{id_pais}}"
 									]
 								}
@@ -2100,7 +2857,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"id\": 1,\r\n    \"name\": \"País de prueba\",\r\n    \"gastronomic_cultures\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Cultura gastronómica de prueba\",\r\n            \"descripcion\": \"Descripción de la cultura gastronómica de prueba\"\r\n        }\r\n    ],\r\n    \"restaurants\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Restaurante de prueba\",\r\n            \"ciudad\": \"Madrid\"\r\n        }\r\n    ]\r\n}\r\n"
+							"body": "{\r\n    \"id\": 1,\r\n    \"name\": \"País de prueba\",\r\n    \"gastronomic_cultures\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Cultura gastronómica de prueba\",\r\n            \"descripcion\": \"Descripción de la cultura gastronómica de prueba\"\r\n        }\r\n    ],\r\n    \"restaurant\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Restaurante de prueba\",\r\n            \"ciudad\": \"Madrid\"\r\n        }\r\n    ]\r\n}\r\n"
 						}
 					]
 				},
@@ -2121,8 +2878,7 @@
 									"});\r",
 									""
 								],
-								"type": "text/javascript",
-								"packages": {}
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -2140,13 +2896,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/countries/-{{country_id}}",
+							"raw": "{{baseURL}}/country/-{{id_pais}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"countries",
-								"-{{country_id}}"
+								"country",
+								"-{{id_pais}}"
 							]
 						}
 					},
@@ -2157,12 +2913,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseURL}}/countries/{{id_pais}}",
+									"raw": "{{baseURL}}/country/{{id_pais}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
-										"countries",
+										"country",
 										"{{id_pais}}"
 									]
 								}
@@ -2196,8 +2952,7 @@
 									"});\r",
 									""
 								],
-								"type": "text/javascript",
-								"packages": {}
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -2224,13 +2979,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/countries/{{country_id}}",
+							"raw": "{{baseURL}}/country/{{id_pais}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"countries",
-								"{{country_id}}"
+								"country",
+								"{{id_pais}}"
 							]
 						}
 					},
@@ -2250,12 +3005,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/countries/{{id_pais}}",
+									"raw": "{{baseURL}}/country/{{id_pais}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
-										"countries",
+										"country",
 										"{{id_pais}}"
 									]
 								}
@@ -2273,7 +3028,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 1,\n    \"name\": \"País de prueba actualizado\",\n    \"gastronomic_cultures\": [],\n    \"restaurants\": []\n}\n"
+							"body": "{\n    \"id\": 1,\n    \"name\": \"País de prueba actualizado\",\n    \"gastronomic_cultures\": [],\n    \"restaurant\": []\n}\n"
 						}
 					]
 				},
@@ -2294,8 +3049,7 @@
 									"});\r",
 									""
 								],
-								"type": "text/javascript",
-								"packages": {}
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -2322,13 +3076,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/countries/-{{country_id}}",
+							"raw": "{{baseURL}}/country/-{{id_pais}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"countries",
-								"-{{country_id}}"
+								"country",
+								"-{{id_pais}}"
 							]
 						}
 					},
@@ -2348,12 +3102,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/countries/{{id_pais}}",
+									"raw": "{{baseURL}}/country/{{id_pais}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
-										"countries",
+										"country",
 										"{{id_pais}}"
 									]
 								}
@@ -2387,8 +3141,7 @@
 									"});\r",
 									""
 								],
-								"type": "text/javascript",
-								"packages": {}
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -2406,13 +3159,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/countries/{{country_id}}",
+							"raw": "{{baseURL}}/country/{{id_pais}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"countries",
-								"{{country_id}}"
+								"country",
+								"{{id_pais}}"
 							]
 						}
 					},
@@ -2423,12 +3176,12 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseURL}}/countries/{{id_pais}}",
+									"raw": "{{baseURL}}/country/{{id_pais}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
-										"countries",
+										"country",
 										"{{id_pais}}"
 									]
 								}
@@ -2459,8 +3212,7 @@
 									"});\r",
 									""
 								],
-								"type": "text/javascript",
-								"packages": {}
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -2478,13 +3230,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/countries/-{{country_id}}",
+							"raw": "{{baseURL}}/country/-{{id_pais}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"countries",
-								"-{{country_id}}"
+								"country",
+								"-{{id_pais}}"
 							]
 						}
 					},
@@ -2511,12 +3263,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseURL}}/countries/{{id_pais}}",
+									"raw": "{{baseURL}}/country/{{id_pais}}",
 									"host": [
 										"{{baseURL}}"
 									],
 									"path": [
-										"countries",
+										"country",
 										"{{id_pais}}"
 									]
 								}
@@ -2554,14 +3306,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/{{Country_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country/{{Country_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"countries",
+								"country",
 								"{{Country_id}}"
 							]
 						}
@@ -2573,14 +3325,14 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/{{Country_id}}",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country/{{Country_id}}",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"countries",
+										"country",
 										"{{Country_id}}"
 									]
 								}
@@ -2604,14 +3356,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/999",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"countries",
+								"country",
 								"999"
 							]
 						}
@@ -2623,14 +3375,14 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/999",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"countries",
+										"country",
 										"999"
 									]
 								}
@@ -2655,14 +3407,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/countries/{{country_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/country/{{country_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"999",
-								"countries",
+								"country",
 								"{{country_id}}"
 							]
 						}
@@ -2674,14 +3426,14 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/countries/{{country_id}}",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/country/{{country_id}}",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"999",
-										"countries",
+										"country",
 										"{{country_id}}"
 									]
 								}
@@ -2701,14 +3453,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/{{country_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country/{{country_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"countries",
+								"country",
 								"{{country_id}}"
 							]
 						}
@@ -2720,14 +3472,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/{{country_id}}",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country/{{country_id}}",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"countries",
+										"country",
 										"{{country_id}}"
 									]
 								}
@@ -2747,14 +3499,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/999",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"countries",
+								"country",
 								"999"
 							]
 						}
@@ -2766,14 +3518,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/999",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"countries",
+										"country",
 										"999"
 									]
 								}
@@ -2793,14 +3545,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/countries/{{country_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/country/{{country_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"999",
-								"countries",
+								"country",
 								"{{country_id}}"
 							]
 						}
@@ -2812,14 +3564,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/countries/{{country_id}}",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/country/{{country_id}}",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"999",
-										"countries",
+										"country",
 										"{{country_id}}"
 									]
 								}
@@ -2839,12 +3591,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/countries/999",
+							"raw": "{{baseURL}}/country/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"countries",
+								"country",
 								"999"
 							]
 						}
@@ -2856,12 +3608,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/countries/999",
+									"raw": "{{baseURL}}/country/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
-										"countries",
+										"country",
 										"999"
 									]
 								}
@@ -2881,14 +3633,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"countries"
+								"country"
 							]
 						}
 					},
@@ -2899,14 +3651,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"countries"
+										"country"
 									]
 								}
 							},
@@ -2925,14 +3677,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/countries",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/country",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"999",
-								"countries"
+								"country"
 							]
 						}
 					},
@@ -2943,14 +3695,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/countries",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/country",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"999",
-										"countries"
+										"country"
 									]
 								}
 							},
@@ -2978,14 +3730,14 @@
 							"raw": "[{\"id\": 1, \"name\": \"Cultura gastronómica de prueba\"}]"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"countries"
+								"country"
 							]
 						}
 					},
@@ -2996,14 +3748,14 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"countries"
+										"country"
 									]
 								}
 							},
@@ -3031,14 +3783,14 @@
 							"raw": "{\"name\": \"Cultura gastronómica de prueba\"}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/999",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"countries",
+								"country",
 								"999"
 							]
 						}
@@ -3050,14 +3802,14 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/999",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"countries",
+										"country",
 										"999"
 									]
 								}
@@ -3067,7 +3819,7 @@
 							"_postman_previewlanguage": "json",
 							"header": [],
 							"cookie": [],
-							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The countries with the given id was not found\"\n}"
+							"body": "{\n  \"statusCode\": 404,\n  \"message\": \"The country with the given id was not found\"\n}"
 						}
 					]
 				},
@@ -3086,14 +3838,14 @@
 							"raw": "[{\"id\": 1, \"name\": \"Cultura gastronómica de prueba\"}]"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/countries",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/country",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"999",
-								"countries"
+								"country"
 							]
 						}
 					},
@@ -3104,14 +3856,14 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/countries",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/country",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"999",
-										"countries"
+										"country"
 									]
 								}
 							},
@@ -3130,14 +3882,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/{{country_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country/{{country_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"countries",
+								"country",
 								"{{country_id}}"
 							]
 						}
@@ -3149,14 +3901,14 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/countries/{{country_id}}",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/country/{{country_id}}",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"countries",
+										"country",
 										"{{country_id}}"
 									]
 								}
@@ -3176,14 +3928,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/countries/2",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/country/2",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"999",
-								"countries",
+								"country",
 								"2"
 							]
 						}
@@ -3195,14 +3947,14 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/countries/2",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/country/2",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"999",
-										"countries",
+										"country",
 										"2"
 									]
 								}
@@ -3227,14 +3979,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/1/countries/999",
+							"raw": "{{baseURL}}/gastronomic-cultures/1/country/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"1",
-								"countries",
+								"country",
 								"999"
 							]
 						}
@@ -3246,14 +3998,14 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/countries/999",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/country/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"1",
-										"countries",
+										"country",
 										"999"
 									]
 								}
@@ -3278,14 +4030,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/1/countries/3",
+							"raw": "{{baseURL}}/gastronomic-cultures/1/country/3",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"1",
-								"countries",
+								"country",
 								"3"
 							]
 						}
@@ -3297,14 +4049,14 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/countries/3",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/country/3",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"1",
-										"countries",
+										"country",
 										"3"
 									]
 								}
@@ -3334,9 +4086,9 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3353,9 +4105,9 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -3380,9 +4132,9 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3399,9 +4151,9 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -3426,9 +4178,9 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3445,9 +4197,9 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+									"raw": "{{baseURL}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -3472,9 +4224,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3509,9 +4261,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3546,9 +4298,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3583,9 +4335,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{unassociated_product_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{unassociated_product_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3620,9 +4372,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{id}}/products",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{id}}/products",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3638,9 +4390,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{id}}/products",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{id}}/products",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -3664,9 +4416,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
+							"raw": "{{baseURL}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3682,9 +4434,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
+									"raw": "{{baseURL}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -3708,9 +4460,9 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3726,9 +4478,9 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -3752,9 +4504,9 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3770,9 +4522,9 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -3796,9 +4548,9 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
+							"raw": "{{baseURL}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3814,9 +4566,9 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
+									"raw": "{{baseURL}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -3840,9 +4592,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{product_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3877,9 +4629,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3896,9 +4648,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
+									"raw": "{{baseURL}}/gastronomic-cultures/00000000-0000-0000-0000-000000000000/products/{{product_id}}",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -3923,9 +4675,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -3942,9 +4694,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/00000000-0000-0000-0000-000000000000",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -3969,9 +4721,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{unassociated_product_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomicCulture_id}}/products/{{unassociated_product_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4011,9 +4763,9 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/{{recipe_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/{{recipe_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4030,9 +4782,9 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/2",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/recipes/2",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4062,9 +4814,9 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/999",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4081,9 +4833,9 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/999",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/recipes/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4113,9 +4865,9 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes/{{recipe_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/recipes/{{recipe_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4132,9 +4884,9 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes/2",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/recipes/2",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4164,9 +4916,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/{{recipe_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/{{recipe_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4183,9 +4935,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/2",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/recipes/2",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4215,9 +4967,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/999",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4234,9 +4986,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/999",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/recipes/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4266,9 +5018,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes/{{recipe_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/recipes/{{recipe_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4285,9 +5037,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes/2",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/recipes/2",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4317,9 +5069,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/999",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4336,9 +5088,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/999",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/recipes/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4368,9 +5120,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4386,9 +5138,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/recipes",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4417,9 +5169,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/recipes",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4435,9 +5187,9 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/recipes",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4466,9 +5218,9 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4484,9 +5236,9 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/recipes",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4515,9 +5267,9 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/999",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4534,9 +5286,9 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/999",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/recipes/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4566,9 +5318,9 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/recipes",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4584,9 +5336,9 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/recipes",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4615,9 +5367,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/{{recipe_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/{{recipe_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4634,9 +5386,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/2",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/recipes/2",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4661,9 +5413,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/{{recipe_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/recipes/{{recipe_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4680,9 +5432,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/2",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/recipes/2",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4707,9 +5459,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes/2",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/recipes/2",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4726,9 +5478,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/recipes/2",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/recipes/2",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4758,9 +5510,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/999",
+							"raw": "{{baseURL}}/gastronomic-cultures/1/recipes/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4777,9 +5529,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/999",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/recipes/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4809,9 +5561,9 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/3",
+							"raw": "{{baseURL}}/gastronomic-cultures/1/recipes/3",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
@@ -4828,9 +5580,9 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/recipes/3",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/recipes/3",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
@@ -4870,14 +5622,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/{{restaurant_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant/{{restaurant_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"restaurants",
+								"restaurant",
 								"{{restaurant_id}}"
 							]
 						}
@@ -4889,14 +5641,14 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/{{restaurant_id}}",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant/{{restaurant_id}}",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"restaurants",
+										"restaurant",
 										"{{restaurant_id}}"
 									]
 								}
@@ -4920,14 +5672,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/999",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"restaurants",
+								"restaurant",
 								"999"
 							]
 						}
@@ -4939,14 +5691,14 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/999",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"restaurants",
+										"restaurant",
 										"999"
 									]
 								}
@@ -4971,14 +5723,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants/{{restaurant_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/restaurant/{{restaurant_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"999",
-								"restaurants",
+								"restaurant",
 								"{{restaurant_id}}"
 							]
 						}
@@ -4990,14 +5742,14 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants/{{restaurant_id}}",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/restaurant/{{restaurant_id}}",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"999",
-										"restaurants",
+										"restaurant",
 										"{{restaurant_id}}"
 									]
 								}
@@ -5017,14 +5769,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/{{restaurant_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant/{{restaurant_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"restaurants",
+								"restaurant",
 								"{{restaurant_id}}"
 							]
 						}
@@ -5036,14 +5788,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/{{restaurant_id}}",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant/{{restaurant_id}}",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"restaurants",
+										"restaurant",
 										"{{restaurant_id}}"
 									]
 								}
@@ -5063,14 +5815,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/999",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"restaurants",
+								"restaurant",
 								"999"
 							]
 						}
@@ -5082,14 +5834,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/999",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"restaurants",
+										"restaurant",
 										"999"
 									]
 								}
@@ -5109,14 +5861,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants/{{restaurant_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/restaurant/{{restaurant_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"999",
-								"restaurants",
+								"restaurant",
 								"{{restaurant_id}}"
 							]
 						}
@@ -5128,14 +5880,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants/{{restaurant_id}}",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/restaurant/{{restaurant_id}}",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"999",
-										"restaurants",
+										"restaurant",
 										"{{restaurant_id}}"
 									]
 								}
@@ -5155,12 +5907,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/restaurants/999",
+							"raw": "{{baseURL}}/restaurant/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
-								"restaurants",
+								"restaurant",
 								"999"
 							]
 						}
@@ -5172,12 +5924,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/restaurants/999",
+									"raw": "{{baseURL}}/restaurant/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
-										"restaurants",
+										"restaurant",
 										"999"
 									]
 								}
@@ -5197,14 +5949,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"restaurants"
+								"restaurant"
 							]
 						}
 					},
@@ -5215,14 +5967,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"restaurants"
+										"restaurant"
 									]
 								}
 							},
@@ -5241,14 +5993,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/restaurant",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"999",
-								"restaurants"
+								"restaurant"
 							]
 						}
 					},
@@ -5259,14 +6011,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/restaurant",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"999",
-										"restaurants"
+										"restaurant"
 									]
 								}
 							},
@@ -5294,14 +6046,14 @@
 							"raw": "[{\"id\": 1, \"name\": \"Le Gourmet Updated\", \"city\": \"Paris\", \"country\": \"France\"}]"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"restaurants"
+								"restaurant"
 							]
 						}
 					},
@@ -5312,14 +6064,14 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"restaurants"
+										"restaurant"
 									]
 								}
 							},
@@ -5347,14 +6099,14 @@
 							"raw": "{\"name\": \"Nonexistent Restaurant\", \"city\": \"Nowhere\", \"country\": \"Nowhere\"}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/999",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"restaurants",
+								"restaurant",
 								"999"
 							]
 						}
@@ -5366,14 +6118,14 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/999",
+									"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"{{gastronomic_culture_id}}",
-										"restaurants",
+										"restaurant",
 										"999"
 									]
 								}
@@ -5402,14 +6154,14 @@
 							"raw": "[{\"id\": 1, \"name\": \"Le Gourmet Updated\", \"city\": \"Paris\", \"country\": \"France\"}]"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/restaurant",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"999",
-								"restaurants"
+								"restaurant"
 							]
 						}
 					},
@@ -5420,14 +6172,14 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/restaurant",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"999",
-										"restaurants"
+										"restaurant"
 									]
 								}
 							},
@@ -5446,14 +6198,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurants/{{restaurant_id}}",
+							"raw": "{{baseURL}}/gastronomic-cultures/{{gastronomic_culture_id}}/restaurant/{{restaurant_id}}",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"{{gastronomic_culture_id}}",
-								"restaurants",
+								"restaurant",
 								"{{restaurant_id}}"
 							]
 						}
@@ -5465,14 +6217,14 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/restaurants/2",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/restaurant/2",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"1",
-										"restaurants",
+										"restaurant",
 										"2"
 									]
 								}
@@ -5492,14 +6244,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants/2",
+							"raw": "{{baseURL}}/gastronomic-cultures/999/restaurant/2",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"999",
-								"restaurants",
+								"restaurant",
 								"2"
 							]
 						}
@@ -5511,14 +6263,14 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/999/restaurants/2",
+									"raw": "{{baseURL}}/gastronomic-cultures/999/restaurant/2",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"999",
-										"restaurants",
+										"restaurant",
 										"2"
 									]
 								}
@@ -5543,14 +6295,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/1/restaurants/999",
+							"raw": "{{baseURL}}/gastronomic-cultures/1/restaurant/999",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"1",
-								"restaurants",
+								"restaurant",
 								"999"
 							]
 						}
@@ -5562,14 +6314,14 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/restaurants/999",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/restaurant/999",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"1",
-										"restaurants",
+										"restaurant",
 										"999"
 									]
 								}
@@ -5594,14 +6346,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/gastronomic-cultures/1/restaurants/3",
+							"raw": "{{baseURL}}/gastronomic-cultures/1/restaurant/3",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseURL}}"
 							],
 							"path": [
 								"gastronomic-cultures",
 								"1",
-								"restaurants",
+								"restaurant",
 								"3"
 							]
 						}
@@ -5613,14 +6365,14 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/gastronomic-cultures/1/restaurants/3",
+									"raw": "{{baseURL}}/gastronomic-cultures/1/restaurant/3",
 									"host": [
-										"{{baseUrl}}"
+										"{{baseURL}}"
 									],
 									"path": [
 										"gastronomic-cultures",
 										"1",
-										"restaurants",
+										"restaurant",
 										"3"
 									]
 								}
