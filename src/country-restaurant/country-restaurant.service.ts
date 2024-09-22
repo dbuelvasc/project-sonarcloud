@@ -1,15 +1,13 @@
-import { Inject, Injectable } from "@nestjs/common";
-import { CacheModule } from "@nestjs/cache-manager";
+import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Cache } from "cache-manager";
 import { Repository } from "typeorm";
 
+import { CountryEntity } from "@/country/country.entity";
+import { RestaurantEntity } from "@/restaurant/restaurant.entity";
 import {
   BusinessError,
   BusinessLogicException,
-} from "../shared/errors/business-errors";
-import { CountryEntity } from "../country/country.entity";
-import { RestaurantEntity } from "../restaurant/restaurant.entity";
+} from "@/shared/errors/business-errors";
 
 @Injectable()
 export class CountryRestaurantService {
@@ -104,10 +102,7 @@ export class CountryRestaurantService {
     return restaurantInCountry;
   }
 
-  async deleteRestaurantFromCountry(
-    countryId: string,
-    restaurantId: string,
-  ): Promise<RestaurantEntity> {
+  async deleteRestaurantFromCountry(countryId: string, restaurantId: string) {
     const restaurant = await this.restaurantRepository.findOne({
       where: { id: restaurantId },
     });
@@ -120,18 +115,28 @@ export class CountryRestaurantService {
     const country = await this.countryRepository.findOne({
       where: { id: countryId },
     });
+
     if (!country)
       throw new BusinessLogicException(
         "The country with the given id was not found",
         BusinessError.NOT_FOUND,
       );
 
+    const restaurantInCountry = country.restaurants.find(
+      (r) => r.id === restaurant.id,
+    );
+
+    if (!restaurantInCountry) {
+      throw new BusinessLogicException(
+        "The restaurant with the given id is not associated with the given country",
+        BusinessError.PRECONDITION_FAILED,
+      );
+    }
+
     country.restaurants = country.restaurants.filter(
       (r) => r.id !== restaurantId,
     );
-    restaurant.country = null;
-    await this.restaurantRepository.save(restaurant);
+
     await this.countryRepository.save(country);
-    return restaurant;
   }
 }
