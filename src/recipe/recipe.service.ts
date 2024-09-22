@@ -1,11 +1,12 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { RecipeEntity } from "./recipe.entity";
+
 import {
   BusinessError,
   BusinessLogicException,
-} from "../shared/errors/business-errors";
+} from "@/shared/errors/business-errors";
+import { RecipeEntity } from "./recipe.entity";
 
 @Injectable()
 export class RecipeService {
@@ -34,7 +35,7 @@ export class RecipeService {
   }
 
   async update(id: string, recipe: RecipeEntity): Promise<RecipeEntity> {
-    const persistedRecipe: RecipeEntity = await this.recipeRepository.findOne({
+    const persistedRecipe = await this.recipeRepository.findOne({
       where: { id },
     });
     if (!persistedRecipe) {

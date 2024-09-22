@@ -1,13 +1,14 @@
-import { GastronomicCultureEntity } from "../gastronomicCulture/gastronomicCulture.entity";
-import { RestaurantEntity } from "../restaurant/restaurant.entity";
 import {
-  Entity,
   Column,
-  PrimaryGeneratedColumn,
-  OneToMany,
-  ManyToMany,
+  Entity,
   JoinTable,
+  ManyToMany,
+  OneToMany,
+  PrimaryGeneratedColumn,
 } from "typeorm";
+
+import { GastronomicCultureEntity } from "@/gastronomicCulture/gastronomicCulture.entity";
+import { RestaurantEntity } from "@/restaurant/restaurant.entity";
 
 @Entity()
 export class CountryEntity {

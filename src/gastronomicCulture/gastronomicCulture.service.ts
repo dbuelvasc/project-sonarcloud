@@ -5,7 +5,7 @@ import { Repository } from "typeorm";
 import {
   BusinessError,
   BusinessLogicException,
-} from "../shared/errors/business-errors";
+} from "@/shared/errors/business-errors";
 import { GastronomicCultureEntity } from "./gastronomicCulture.entity";
 
 @Injectable()
@@ -43,7 +43,7 @@ export class GastronomicCultureService {
     id: string,
     gastronomicCulture: GastronomicCultureEntity,
   ): Promise<GastronomicCultureEntity> {
-    const persistedGastronomicCulture: GastronomicCultureEntity =
+    const persistedGastronomicCulture =
       await this.gastronomicCultureRepository.findOne({ where: { id } });
     if (!persistedGastronomicCulture) {
       throw new BusinessLogicException(

@@ -1,11 +1,12 @@
+import { faker } from "@faker-js/faker";
+import { CacheModule } from "@nestjs/cache-manager";
 import { Test, TestingModule } from "@nestjs/testing";
 import { getRepositoryToken } from "@nestjs/typeorm";
-import { CacheModule } from "@nestjs/cache-manager";
 import { Repository } from "typeorm";
+
+import { TypeOrmTestingConfig } from "@/shared/testing-utils/typeorm-testing-config";
 import { RecipeEntity } from "./recipe.entity";
 import { RecipeService } from "./recipe.service";
-import { TypeOrmTestingConfig } from "../shared/testing-utils/typeorm-testing-config";
-import { faker } from "@faker-js/faker";
 
 describe("RecipeService", () => {
   let service: RecipeService;
@@ -82,7 +83,7 @@ describe("RecipeService", () => {
     const newRecipe: RecipeEntity = await service.create(recipe);
     expect(newRecipe).not.toBeNull();
 
-    const storedRecipe: RecipeEntity = await repository.findOne({
+    const storedRecipe = await repository.findOne({
       where: { id: newRecipe.id },
     });
     expect(storedRecipe).not.toBeNull();
@@ -105,7 +106,7 @@ describe("RecipeService", () => {
 
     const updatedRecipe: RecipeEntity = await service.update(recipe.id, recipe);
     expect(updatedRecipe).not.toBeNull();
-    const storedRecipe: RecipeEntity = await repository.findOne({
+    const storedRecipe = await repository.findOne({
       where: { id: recipe.id },
     });
     expect(storedRecipe).not.toBeNull();
@@ -135,7 +136,7 @@ describe("RecipeService", () => {
   it("delete should remove a recipe", async () => {
     const recipe: RecipeEntity = recipesList[0];
     await service.delete(recipe.id);
-    const deletedRecipe: RecipeEntity = await repository.findOne({
+    const deletedRecipe = await repository.findOne({
       where: { id: recipe.id },
     });
     expect(deletedRecipe).toBeNull();

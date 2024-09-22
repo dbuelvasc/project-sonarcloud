@@ -4,7 +4,7 @@ import { Test, TestingModule } from "@nestjs/testing";
 import { getRepositoryToken } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 
-import { TypeOrmTestingConfig } from "../shared/testing-utils/typeorm-testing-config";
+import { TypeOrmTestingConfig } from "@/shared/testing-utils/typeorm-testing-config";
 import { GastronomicCultureEntity } from "./gastronomicCulture.entity";
 import { GastronomicCultureService } from "./gastronomicCulture.service";
 
@@ -72,7 +72,7 @@ describe("GastronomicCultureService", () => {
       recipes: [],
       countries: [],
       restaurants: [],
-      characteristicproducts: [],
+      characteristicProducts: [],
     };
 
     const createdGastronomicCulture: GastronomicCultureEntity =
@@ -112,7 +112,7 @@ describe("GastronomicCultureService", () => {
       gastronomicCultureList[0];
     await service.delete(gastronomicCulture.id);
 
-    const deletedGastronomicCulture: GastronomicCultureEntity =
+    const deletedGastronomicCulture =
       await gastronomicCultureRepository.findOne({
         where: { id: gastronomicCulture.id },
       });

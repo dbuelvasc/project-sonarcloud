@@ -1,13 +1,13 @@
 import { faker } from "@faker-js/faker";
-import { Test, TestingModule } from "@nestjs/testing";
-
-import { GastronomicCultureEntity } from "../gastronomicCulture/gastronomicCulture.entity";
-import { GastronomicCultureCharacteristicProductService } from "./gastronomicCulture-characteristicProduct.service";
 import { CacheModule } from "@nestjs/cache-manager";
+import { Test, TestingModule } from "@nestjs/testing";
 import { getRepositoryToken } from "@nestjs/typeorm";
-import { CharacteristicProductEntity } from "../characteristicProduct/characteristicProduct.entity";
-import { TypeOrmTestingConfig } from "../shared/testing-utils/typeorm-testing-config";
 import { Repository } from "typeorm";
+
+import { CharacteristicProductEntity } from "@/characteristicProduct/characteristicProduct.entity";
+import { GastronomicCultureEntity } from "@/gastronomicCulture/gastronomicCulture.entity";
+import { TypeOrmTestingConfig } from "@/shared/testing-utils/typeorm-testing-config";
+import { GastronomicCultureCharacteristicProductService } from "./gastronomicCulture-characteristicProduct.service";
 
 describe("GastronomicCultureCharacteristicProductService", () => {
   let service: GastronomicCultureCharacteristicProductService;

@@ -1,15 +1,16 @@
 import {
-  Entity,
   Column,
-  OneToMany,
-  ManyToMany,
-  PrimaryGeneratedColumn,
+  Entity,
   JoinTable,
+  ManyToMany,
+  OneToMany,
+  PrimaryGeneratedColumn,
 } from "typeorm";
-import { CharacteristicProductEntity } from "../characteristicProduct/characteristicProduct.entity";
-import { RestaurantEntity } from "../restaurant/restaurant.entity";
-import { CountryEntity } from "../country/country.entity";
-import { RecipeEntity } from "../recipe/recipe.entity";
+
+import { CharacteristicProductEntity } from "@/characteristicProduct/characteristicProduct.entity";
+import { CountryEntity } from "@/country/country.entity";
+import { RecipeEntity } from "@/recipe/recipe.entity";
+import { RestaurantEntity } from "@/restaurant/restaurant.entity";
 
 @Entity()
 export class GastronomicCultureEntity {

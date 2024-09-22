@@ -2,7 +2,6 @@ import { Injectable } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 
 import { jwtConstants } from "@/shared/security/constants";
-import { User } from "@/user/user";
 import { UserService } from "@/user/user.service";
 import type { AuthRequest, ValidatedUser } from "./auth.types";
 
@@ -17,7 +16,7 @@ export class AuthService {
     username: string,
     password: string,
   ): Promise<ValidatedUser | null> {
-    const user: User = await this.usersService.findOne(username);
+    const user = await this.usersService.findOne(username);
 
     if (!user || user.password !== password) {
       return null;
