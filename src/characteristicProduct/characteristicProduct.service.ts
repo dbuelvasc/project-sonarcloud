@@ -22,8 +22,9 @@ export class CharacteristicProductService {
   }
   //Find one characteristic product
   async findOne(id: string): Promise<CharacteristicProductEntity> {
-    const product: CharacteristicProductEntity =
-      await this.characteristicproductRepository.findOne({ where: { id } });
+    const product = await this.characteristicproductRepository.findOne({
+      where: { id },
+    });
     if (!product)
       throw new BusinessLogicException(
         "The product with the given id was not found",
@@ -51,8 +52,9 @@ export class CharacteristicProductService {
     id: string,
     characteristicproductDto: CharacteristicProductDto,
   ): Promise<CharacteristicProductEntity> {
-    const existingProduct: CharacteristicProductEntity =
-      await this.characteristicproductRepository.findOne({ where: { id } });
+    const existingProduct = await this.characteristicproductRepository.findOne({
+      where: { id },
+    });
 
     if (!existingProduct) {
       throw new BusinessLogicException(
@@ -72,8 +74,9 @@ export class CharacteristicProductService {
   }
   //Delete a characteristic product
   async delete(id: string) {
-    const product: CharacteristicProductEntity =
-      await this.characteristicproductRepository.findOne({ where: { id } });
+    const product = await this.characteristicproductRepository.findOne({
+      where: { id },
+    });
     if (!product)
       throw new BusinessLogicException(
         "The product with the given id was not found",

@@ -47,8 +47,9 @@ export class RestaurantService {
     id: string,
     restaurantDto: RestaurantDto,
   ): Promise<RestaurantEntity> {
-    const existingRestaurant: RestaurantEntity =
-      await this.restaurantRepository.findOne({ where: { id } });
+    const existingRestaurant = await this.restaurantRepository.findOne({
+      where: { id },
+    });
     if (!existingRestaurant) {
       throw new BusinessLogicException(
         "The restaurant with the given id was not found",
@@ -68,8 +69,9 @@ export class RestaurantService {
   }
 
   async delete(id: string): Promise<void> {
-    const restaurant: RestaurantEntity =
-      await this.restaurantRepository.findOne({ where: { id } });
+    const restaurant = await this.restaurantRepository.findOne({
+      where: { id },
+    });
     if (!restaurant) {
       throw new BusinessLogicException(
         "The restaurant with the given id was not found",

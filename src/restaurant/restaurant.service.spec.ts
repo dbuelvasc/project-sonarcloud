@@ -1,11 +1,12 @@
+import { faker } from "@faker-js/faker";
+import { CacheModule } from "@nestjs/cache-manager";
 import { Test, TestingModule } from "@nestjs/testing";
 import { getRepositoryToken } from "@nestjs/typeorm";
-import { CacheModule } from "@nestjs/cache-manager";
 import { Repository } from "typeorm";
-import { TypeOrmTestingConfig } from "../shared/testing-utils/typeorm-testing-config";
-import { faker } from "@faker-js/faker";
-import { RestaurantService } from "./restaurant.service";
+
+import { TypeOrmTestingConfig } from "@/shared/testing-utils/typeorm-testing-config";
 import { RestaurantEntity } from "./restaurant.entity";
+import { RestaurantService } from "./restaurant.service";
 
 describe("RestaurantService", () => {
   let service: RestaurantService;
@@ -29,14 +30,14 @@ describe("RestaurantService", () => {
     repository.clear();
     restaurantList = [];
     for (let i = 0; i < 5; i++) {
-      const restaurante: RestaurantEntity = await repository.save({
+      const restaurant: RestaurantEntity = await repository.save({
         name: faker.company.name(),
         city: faker.location.city(),
         michelinStars: faker.number.int({ min: 1, max: 3 }),
         awardDate: faker.date.past(),
         gastronomicCulture: [],
       });
-      restaurantList.push(restaurante);
+      restaurantList.push(restaurant);
     }
   };
 
@@ -44,31 +45,31 @@ describe("RestaurantService", () => {
     expect(service).toBeDefined();
   });
 
-  it("Obtener todos los restaurantes", async () => {
-    const restaurantes: RestaurantEntity[] = await service.findAll();
-    expect(restaurantes).not.toBeNull();
-    expect(restaurantes).toHaveLength(restaurantList.length);
+  it("should return all restaurants", async () => {
+    const restaurants: RestaurantEntity[] = await service.findAll();
+    expect(restaurants).not.toBeNull();
+    expect(restaurants).toHaveLength(restaurantList.length);
   });
 
-  it("Obtener restaurante por id", async () => {
-    const restauranteGuardado: RestaurantEntity = restaurantList[0];
-    const restaurante: RestaurantEntity = await service.findOne(
-      restauranteGuardado.id,
+  it("should return restaurant by id", async () => {
+    const storedRestaurant: RestaurantEntity = restaurantList[0];
+    const restaurant: RestaurantEntity = await service.findOne(
+      storedRestaurant.id,
     );
-    expect(restaurante).not.toBeNull();
-    expect(restaurante.name).toEqual(restauranteGuardado.name);
-    expect(restaurante.city).toEqual(restauranteGuardado.city);
+    expect(restaurant).not.toBeNull();
+    expect(restaurant.name).toEqual(storedRestaurant.name);
+    expect(restaurant.city).toEqual(storedRestaurant.city);
   });
 
-  it("Obtener restaurante con id invalido", async () => {
+  it("should throw an error when restaurant with given id is not found", async () => {
     await expect(service.findOne("-1")).rejects.toHaveProperty(
       "message",
       "The restaurant with the given id was not found",
     );
   });
 
-  it("Crear un restaurante", async () => {
-    const restauranteData = {
+  it("should create a restaurant", async () => {
+    const restaurantData = {
       name: faker.company.name(),
       city: faker.location.city() || "Default City", // Asegurarse de que city no sea nulo
       michelinStars: faker.number.int({ min: 1, max: 3 }),
@@ -76,51 +77,51 @@ describe("RestaurantService", () => {
       gastronomicCulture: [],
     };
 
-    const nuevoRestaurante: RestaurantEntity =
-      await service.create(restauranteData);
+    const newRestaurant: RestaurantEntity =
+      await service.create(restaurantData);
 
-    expect(nuevoRestaurante).not.toBeNull();
-    expect(nuevoRestaurante.id).toBeDefined();
-    expect(nuevoRestaurante.name).toEqual(restauranteData.name);
-    expect(nuevoRestaurante.city).toEqual(restauranteData.city);
+    expect(newRestaurant).not.toBeNull();
+    expect(newRestaurant.id).toBeDefined();
+    expect(newRestaurant.name).toEqual(restaurantData.name);
+    expect(newRestaurant.city).toEqual(restaurantData.city);
   });
 
-  it("Actualizar un restaurante", async () => {
-    const restaurante: RestaurantEntity = restaurantList[0];
-    restaurante.name = `${faker.company.name()} NEW`;
-    restaurante.city = `${faker.location.city()} NEW`;
+  it("should update a restaurant", async () => {
+    const restaurant: RestaurantEntity = restaurantList[0];
+    restaurant.name = `${faker.company.name()} NEW`;
+    restaurant.city = `${faker.location.city()} NEW`;
 
-    const restauranteActualizado: RestaurantEntity = await service.update(
-      restaurante.id,
-      restaurante,
+    const updatedRestaurant: RestaurantEntity = await service.update(
+      restaurant.id,
+      restaurant,
     );
-    expect(restauranteActualizado).not.toBeNull();
-    expect(restauranteActualizado.name).toEqual(restaurante.name);
-    expect(restauranteActualizado.city).toEqual(restaurante.city);
+    expect(updatedRestaurant).not.toBeNull();
+    expect(updatedRestaurant.name).toEqual(restaurant.name);
+    expect(updatedRestaurant.city).toEqual(restaurant.city);
   });
 
-  it("Actualizar un restaurante con id invalido", async () => {
-    const restaurante: RestaurantEntity = restaurantList[0];
-    restaurante.name = `${faker.company.name()} UPDATED`;
-    restaurante.city = `${faker.location.city()} UPDATED`;
+  it("should throw an error when restaurant with given id is not found", async () => {
+    const restaurant: RestaurantEntity = restaurantList[0];
+    restaurant.name = `${faker.company.name()} UPDATED`;
+    restaurant.city = `${faker.location.city()} UPDATED`;
 
-    await expect(service.update("-1", restaurante)).rejects.toHaveProperty(
+    await expect(service.update("-1", restaurant)).rejects.toHaveProperty(
       "message",
       "The restaurant with the given id was not found",
     );
   });
 
-  it("Eliminar un restaurante", async () => {
-    const restaurante: RestaurantEntity = restaurantList[0];
-    await service.delete(restaurante.id);
+  it("should delete a restaurant", async () => {
+    const restaurant: RestaurantEntity = restaurantList[0];
+    await service.delete(restaurant.id);
 
-    const restauranteEliminado: RestaurantEntity = await repository.findOne({
-      where: { id: restaurante.id },
+    const deletedRestaurant = await repository.findOne({
+      where: { id: restaurant.id },
     });
-    expect(restauranteEliminado).toBeNull();
+    expect(deletedRestaurant).toBeNull();
   });
 
-  it("Eliminar un restaurante con id invalido", async () => {
+  it("should throw an error when restaurant with given id is not found", async () => {
     await expect(service.delete("-1")).rejects.toHaveProperty(
       "message",
       "The restaurant with the given id was not found",

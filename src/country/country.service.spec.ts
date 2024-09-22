@@ -1,11 +1,12 @@
+import { faker } from "@faker-js/faker";
+import { CacheModule } from "@nestjs/cache-manager";
 import { Test, TestingModule } from "@nestjs/testing";
 import { getRepositoryToken } from "@nestjs/typeorm";
-import { CacheModule } from "@nestjs/cache-manager";
 import { Repository } from "typeorm";
-import { CountryService } from "./country.service";
+
+import { TypeOrmTestingConfig } from "@/shared/testing-utils/typeorm-testing-config";
 import { CountryEntity } from "./country.entity";
-import { TypeOrmTestingConfig } from "../shared/testing-utils/typeorm-testing-config";
-import { faker } from "@faker-js/faker";
+import { CountryService } from "./country.service";
 
 describe("CountryService", () => {
   let service: CountryService;
@@ -73,7 +74,7 @@ describe("CountryService", () => {
     const newCountry: CountryEntity = await service.create(country);
     expect(newCountry).not.toBeNull();
 
-    const storedCountry: CountryEntity = await repository.findOne({
+    const storedCountry = await repository.findOne({
       where: { id: newCountry.id },
     });
     expect(storedCountry).not.toBeNull();
@@ -88,7 +89,7 @@ describe("CountryService", () => {
       country,
     );
     expect(updatedCountry).not.toBeNull();
-    const storedCountry: CountryEntity = await repository.findOne({
+    const storedCountry = await repository.findOne({
       where: { id: country.id },
     });
     expect(storedCountry).not.toBeNull();
@@ -110,7 +111,7 @@ describe("CountryService", () => {
   it("delete should remove a country", async () => {
     const country: CountryEntity = countriesList[0];
     await service.delete(country.id);
-    const deletedCountry: CountryEntity = await repository.findOne({
+    const deletedCountry = await repository.findOne({
       where: { id: country.id },
     });
     expect(deletedCountry).toBeNull();

@@ -45,9 +45,9 @@ export class CountryService {
   }
 
   async update(id: string, countryDto: CountryDto): Promise<CountryEntity> {
-    const existingCountry: CountryEntity = await this.countryRepository.findOne(
-      { where: { id } },
-    );
+    const existingCountry = await this.countryRepository.findOne({
+      where: { id },
+    });
 
     if (!existingCountry) {
       throw new BusinessLogicException(
