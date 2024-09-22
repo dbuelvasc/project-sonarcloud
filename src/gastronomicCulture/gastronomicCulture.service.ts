@@ -7,6 +7,8 @@ import {
   BusinessLogicException,
 } from "@/shared/errors/business-errors";
 import { GastronomicCultureEntity } from "./gastronomicCulture.entity";
+import { GastronomicCultureDto } from "./gastronomicCulture.dto";
+import { plainToInstance } from "class-transformer";
 
 @Injectable()
 export class GastronomicCultureService {
@@ -33,15 +35,23 @@ export class GastronomicCultureService {
   }
 
   async create(
-    data: Partial<GastronomicCultureEntity>,
+    gastronomicCultureDto: GastronomicCultureDto,
   ): Promise<GastronomicCultureEntity> {
-    const gastronomicCulture = this.gastronomicCultureRepository.create(data);
+    const gastronomicCultureInstance = plainToInstance(
+      GastronomicCultureEntity,
+      gastronomicCultureDto,
+    );
+
+    const gastronomicCulture = this.gastronomicCultureRepository.create(
+      gastronomicCultureInstance,
+    );
+
     return this.gastronomicCultureRepository.save(gastronomicCulture);
   }
 
   async update(
     id: string,
-    gastronomicCulture: GastronomicCultureEntity,
+    gastronomicCultureDto: GastronomicCultureDto,
   ): Promise<GastronomicCultureEntity> {
     const persistedGastronomicCulture =
       await this.gastronomicCultureRepository.findOne({ where: { id } });
@@ -51,9 +61,15 @@ export class GastronomicCultureService {
         BusinessError.NOT_FOUND,
       );
     }
+
+    const gastronomicCultureInstance = plainToInstance(
+      GastronomicCultureEntity,
+      gastronomicCultureDto,
+    );
+
     return this.gastronomicCultureRepository.save({
       ...persistedGastronomicCulture,
-      ...gastronomicCulture,
+      ...gastronomicCultureInstance,
     });
   }
 
