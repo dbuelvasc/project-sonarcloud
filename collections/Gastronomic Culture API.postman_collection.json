@@ -1473,7 +1473,7 @@
 			]
 		},
 		{
-			"name": "Restaurants",
+			"name": "Restaurant",
 			"item": [
 				{
 					"name": "Login",
@@ -1568,12 +1568,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/restaurant",
+							"raw": "{{baseURL}}/restaurants",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"restaurant"
+								"restaurants"
 							]
 						}
 					},
@@ -1621,12 +1621,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/restaurant",
+							"raw": "{{baseURL}}/restaurants",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"restaurant"
+								"restaurants"
 							]
 						}
 					},
@@ -1687,12 +1687,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/restaurant/{{id_restaurant}}",
+							"raw": "{{baseURL}}/restaurants/{{id_restaurant}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"restaurant",
+								"restaurants",
 								"{{id_restaurant}}"
 							]
 						}
@@ -1735,13 +1735,13 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 404\", function () {\r",
-									"    pm.response.to.have.status(404);\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Get expected error message\", function () {\r",
 									"   var data = pm.response.json();\r",
-									"   pm.expect(data.message).to.eql(\"The restaurant with the given id was not found\");\r",
+									"   pm.expect(data.message).to.eql(\"Invalid UUID for parameter 'restaurantId'\");\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1753,12 +1753,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/restaurant/-{{id_restaurant}}",
+							"raw": "{{baseURL}}/restaurants/-{{id_restaurant}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"restaurant",
+								"restaurants",
 								"-{{id_restaurant}}"
 							]
 						}
@@ -1830,12 +1830,12 @@
 							"raw": "{\r\n    \"name\": \"Le Gourmet Updated\",\r\n    \"city\": \"Paris\",\r\n    \"michelinStars\": 3,\r\n    \"awardDate\": \"2024-01-15\"\r\n}"
 						},
 						"url": {
-							"raw": "{{baseURL}}/restaurant/{{id_restaurant}}",
+							"raw": "{{baseURL}}/restaurants/{{id_restaurant}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"restaurant",
+								"restaurants",
 								"{{id_restaurant}}"
 							]
 						}
@@ -1866,12 +1866,12 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 404\", function () {\r",
-									"    pm.response.to.have.status(404);\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
 									"});\r",
 									"pm.test(\"Get expected error message\", function () {\r",
 									"   var data = pm.response.json();\r",
-									"   pm.expect(data.message).to.eql(\"The restaurant with the given id was not found\");\r",
+									"   pm.expect(data.message).to.eql(\"Invalid UUID for parameter 'restaurantId'\");\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -1892,12 +1892,12 @@
 							"raw": "{\"name\": \"Nonexistent Restaurant\", \"city\": \"Nowhere\", \"country\": \"Nowhere\", \"michelinStars\": 0, \"awardDate\": \"2024-01-01\"}"
 						},
 						"url": {
-							"raw": "{{baseURL}}/restaurant/-{{id_restaurant}}",
+							"raw": "{{baseURL}}/restaurants/-{{id_restaurant}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"restaurant",
+								"restaurants",
 								"-{{id_restaurant}}"
 							]
 						}
@@ -1953,12 +1953,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/restaurant/{{id_restaurant}}",
+							"raw": "{{baseURL}}/restaurants/{{id_restaurant}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"restaurant",
+								"restaurants",
 								"{{id_restaurant}}"
 							]
 						}
@@ -1989,13 +1989,13 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 404\", function () {\r",
-									"    pm.response.to.have.status(404);\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Get expected error message\", function () {\r",
 									"   var data = pm.response.json();\r",
-									"   pm.expect(data.message).to.eql(\"The restaurant with the given id was not found\");\r",
+									"   pm.expect(data.message).to.eql(\"Invalid UUID for parameter 'restaurantId'\");\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -2007,12 +2007,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/restaurant/-{{id_restaurant}}",
+							"raw": "{{baseURL}}/restaurants/-{{id_restaurant}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"restaurant",
+								"restaurants",
 								"-{{id_restaurant}}"
 							]
 						}
@@ -2051,7 +2051,7 @@
 			]
 		},
 		{
-			"name": "Restaurant-Country",
+			"name": "Country-Restaurant",
 			"item": [
 				{
 					"name": "Login",
@@ -2105,19 +2105,313 @@
 					"response": []
 				},
 				{
-					"name": "Add Restaurant to Country",
+					"name": "Create Restaurant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"restaurant_id\", data.id);\r",
+									"\r",
+									"pm.test('Status code is 201', function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test('Response must have an id', function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Le Gourmet\",\r\n    \"city\": \"Paris\",\r\n    \"michelinStars\": 3,\r\n    \"awardDate\": \"2024-01-15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{baseURL}}/country/{{country_id}}/restaurant/{{restaurant_id}}",
+							"raw": "{{baseURL}}/restaurants",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country",
+								"restaurants"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\"id\": 1, \"name\": \"Le Gourmet\", \"city\": \"Paris\", \"country\": \"France\", \"michelinStars\": 3, \"awardDate\": \"2024-01-15\"}"
+						}
+					]
+				},
+				{
+					"name": "Create Second Restaurant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"restaurant2_id\", data.id);\r",
+									"\r",
+									"pm.test('Status code is 201', function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test('Response must have an id', function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Le Gourmet\",\r\n    \"city\": \"Paris\",\r\n    \"michelinStars\": 3,\r\n    \"awardDate\": \"2024-01-15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/restaurants",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"restaurants"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\"id\": 1, \"name\": \"Le Gourmet\", \"city\": \"Paris\", \"country\": \"France\", \"michelinStars\": 3, \"awardDate\": \"2024-01-15\"}"
+						}
+					]
+				},
+				{
+					"name": "Create Country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"country_id\", data.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"País de prueba\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/countries",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Country",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"name": "Content-Type",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"País de prueba\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/country",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"country"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"País de prueba\",\n    \"gastronomic_cultures\": [],\n    \"restaurant\": []\n}\n"
+						}
+					]
+				},
+				{
+					"name": "Add Restaurant to Country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/countries/{{country_id}}/restaurants/{{restaurant_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"countries",
 								"{{country_id}}",
-								"restaurant",
+								"restaurants",
 								"{{restaurant_id}}"
 							]
 						}
@@ -2157,18 +2451,48 @@
 				},
 				{
 					"name": "Get Restaurant from Country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains restaurant data\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property('name');\r",
+									"    pm.expect(jsonData).to.have.property('city');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/country/{{country_id}}/restaurant/{{restaurant_id}}",
+							"raw": "{{baseURL}}/countries/{{country_id}}/restaurants/{{restaurant_id}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country",
+								"countries",
 								"{{country_id}}",
-								"restaurant",
+								"restaurants",
 								"{{restaurant_id}}"
 							]
 						}
@@ -2208,18 +2532,47 @@
 				},
 				{
 					"name": "Get All Restaurants of Country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Number of restaurants > ' + 0, function () {\r",
+									"   var data = pm.response.json()\r",
+									"   pm.expect(data.length).to.greaterThan(0)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/country/{{country_id}}/restaurant",
+							"raw": "{{baseURL}}/countries/{{country_id}}/restaurants",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country",
+								"countries",
 								"{{country_id}}",
-								"restaurant"
+								"restaurants"
 							]
 						}
 					},
@@ -2257,18 +2610,48 @@
 				},
 				{
 					"name": "Get All Restaurants of Non-Existent Country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"   pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"Invalid UUID for parameter 'countryId'\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/country/999/restaurant",
+							"raw": "{{baseURL}}/countries/-1{{country_id}}/restaurants",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country",
-								"999",
-								"restaurant"
+								"countries",
+								"-1{{country_id}}",
+								"restaurants"
 							]
 						}
 					},
@@ -2305,70 +2688,43 @@
 					]
 				},
 				{
-					"name": "Update Restaurant of Country",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}/country/{{country_id}}/restaurant/{{restaurant_id}}",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"country",
-								"{{country_id}}",
-								"restaurant",
-								"{{restaurant_id}}"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Example Response",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [],
-								"url": {
-									"raw": "{{baseURL}}/country/1/restaurant/2",
-									"host": [
-										"{{baseURL}}"
-									],
-									"path": [
-										"country",
-										"1",
-										"restaurant",
-										"2"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "{\"country_id\": 1, \"restaurant_id\": 2, \"name\": \"Le Gourmet Updated\", \"city\": \"Paris\", \"michelinStars\": 3}"
-						}
-					]
-				},
-				{
 					"name": "Delete Restaurant from Country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/country/{{country_id}}/restaurant/{{restaurant_id}}",
+							"raw": "{{baseURL}}/countries/{{country_id}}/restaurants/{{restaurant_id}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country",
+								"countries",
 								"{{country_id}}",
-								"restaurant",
+								"restaurants",
 								"{{restaurant_id}}"
 							]
 						}
@@ -2403,19 +2759,48 @@
 				},
 				{
 					"name": "Delete Restaurant from Non-Existent Country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"Invalid UUID for parameter 'countryId'\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/country/999/restaurant/2",
+							"raw": "{{baseURL}}/countries/-{{country_id}}/restaurants/{{restaurant_id}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country",
-								"999",
-								"restaurant",
-								"2"
+								"countries",
+								"-{{country_id}}",
+								"restaurants",
+								"{{restaurant_id}}"
 							]
 						}
 					},
@@ -2454,19 +2839,48 @@
 				},
 				{
 					"name": "Delete Non-Existent Restaurant from Country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"Invalid UUID for parameter 'restaurantId'\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/country/1/restaurant/999",
+							"raw": "{{baseURL}}/countries/{{country_id}}/restaurants/-{{restaurant_id}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country",
-								"1",
-								"restaurant",
-								"999"
+								"countries",
+								"{{country_id}}",
+								"restaurants",
+								"-{{restaurant_id}}"
 							]
 						}
 					},
@@ -2505,19 +2919,48 @@
 				},
 				{
 					"name": "Delete Restaurant Not Associated with Country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 412\", function () {\r",
+									"    pm.response.to.have.status(412);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"The restaurant with the given id is not associated with the given country\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/country/1/restaurant/3",
+							"raw": "{{baseURL}}/countries/{{country_id}}/restaurants/{{restaurant2_id}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country",
-								"1",
-								"restaurant",
-								"3"
+								"countries",
+								"{{country_id}}",
+								"restaurants",
+								"{{restaurant2_id}}"
 							]
 						}
 					},
@@ -2625,7 +3068,8 @@
 									"});\r",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -2652,12 +3096,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/country",
+							"raw": "{{baseURL}}/countries",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country"
+								"countries"
 							]
 						}
 					},
@@ -2727,7 +3171,8 @@
 									"});\r",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -2745,12 +3190,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/country",
+							"raw": "{{baseURL}}/countries",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country"
+								"countries"
 							]
 						}
 					},
@@ -2806,7 +3251,8 @@
 									"});\r",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -2824,12 +3270,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/country/{{id_pais}}",
+							"raw": "{{baseURL}}/countries/{{id_pais}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country",
+								"countries",
 								"{{id_pais}}"
 							]
 						}
@@ -2875,13 +3321,13 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 404\", function () {\r",
-									"   pm.response.to.have.status(404);\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"   pm.response.to.have.status(400);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Get expected error message\", function () {\r",
 									"   var data = pm.response.json();\r",
-									"   pm.expect(data.message).to.eql(\"The country with the given id was not found\");\r",
+									"   pm.expect(data.message).to.eql(\"Invalid UUID for parameter 'countryId'\");\r",
 									"});\r",
 									""
 								],
@@ -2904,12 +3350,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/country/-{{id_pais}}",
+							"raw": "{{baseURL}}/countries/-{{id_pais}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country",
+								"countries",
 								"-{{id_pais}}"
 							]
 						}
@@ -2960,7 +3406,8 @@
 									"});\r",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -2987,12 +3434,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/country/{{id_pais}}",
+							"raw": "{{baseURL}}/countries/{{id_pais}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country",
+								"countries",
 								"{{id_pais}}"
 							]
 						}
@@ -3047,13 +3494,13 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 404\", function () {\r",
-									"   pm.response.to.have.status(404);\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"   pm.response.to.have.status(400);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Get expected error message\", function () {\r",
 									"   var data = pm.response.json();\r",
-									"   pm.expect(data.message).to.eql(\"The country with the given id was not found\");\r",
+									"   pm.expect(data.message).to.eql(\"Invalid UUID for parameter 'countryId'\");\r",
 									"});\r",
 									""
 								],
@@ -3085,12 +3532,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/country/-{{id_pais}}",
+							"raw": "{{baseURL}}/countries/-{{id_pais}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country",
+								"countries",
 								"-{{id_pais}}"
 							]
 						}
@@ -3150,7 +3597,8 @@
 									"});\r",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -3168,12 +3616,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/country/{{id_pais}}",
+							"raw": "{{baseURL}}/countries/{{id_pais}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country",
+								"countries",
 								"{{id_pais}}"
 							]
 						}
@@ -3211,13 +3659,13 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 404\", function () {\r",
-									"   pm.response.to.have.status(404);\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"   pm.response.to.have.status(400);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Get expected error message\", function () {\r",
 									"   var data = pm.response.json();\r",
-									"   pm.expect(data.message).to.eql(\"The country with the given id was not found\");\r",
+									"   pm.expect(data.message).to.eql(\"Invalid UUID for parameter 'countryId'\");\r",
 									"});\r",
 									""
 								],
@@ -3240,12 +3688,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/country/-{{id_pais}}",
+							"raw": "{{baseURL}}/countries/-{{id_pais}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"country",
+								"countries",
 								"-{{id_pais}}"
 							]
 						}
