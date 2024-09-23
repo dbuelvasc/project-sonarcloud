@@ -27,32 +27,29 @@ import { CountryService } from "./country.service";
   BusinessErrorsInterceptor,
   new UUIDValidationInterceptor("countryId"),
 )
+@UseGuards(JwtAuthGuard, RoleGuard)
 export class CountryController {
   constructor(private readonly countryService: CountryService) {}
 
   @Get()
-  @UseGuards(JwtAuthGuard, RoleGuard)
   @Roles(UserRoles.ADMIN, UserRoles.FULL_READER)
   async findAll() {
     return await this.countryService.findAll();
   }
 
   @Get(":countryId")
-  @UseGuards(JwtAuthGuard, RoleGuard)
   @Roles(UserRoles.ADMIN, UserRoles.LIMITED_READER)
   async findOne(@Param("countryId") countryId: string) {
     return await this.countryService.findOne(countryId);
   }
 
   @Post()
-  @UseGuards(JwtAuthGuard, RoleGuard)
   @Roles(UserRoles.ADMIN, UserRoles.WRITER)
   async create(@Body() countryDto: CountryDto) {
     return await this.countryService.create(countryDto);
   }
 
   @Put(":countryId")
-  @UseGuards(JwtAuthGuard, RoleGuard)
   @Roles(UserRoles.ADMIN, UserRoles.WRITER)
   async update(
     @Param("countryId") countryId: string,
@@ -62,7 +59,6 @@ export class CountryController {
   }
 
   @Delete(":countryId")
-  @UseGuards(JwtAuthGuard, RoleGuard)
   @Roles(UserRoles.ADMIN, UserRoles.DELETE)
   @HttpCode(204)
   async delete(@Param("countryId") countryId: string) {
