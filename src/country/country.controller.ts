@@ -18,7 +18,7 @@ import {
   BusinessErrorsInterceptor,
   UUIDValidationInterceptor,
 } from "@/shared/interceptors";
-import { UserRoles } from "@/shared/security/UserRoles";
+import { UserRoles } from "@/shared/security/userRoles";
 import { CountryDto } from "./country.dto";
 import { CountryService } from "./country.service";
 

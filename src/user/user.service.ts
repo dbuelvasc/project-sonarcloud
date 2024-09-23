@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 
-import { UserRoles } from "@/shared/security/UserRoles";
+import { UserRoles } from "@/shared/security/userRoles";
 import { User } from "./user";
 
 @Injectable()
