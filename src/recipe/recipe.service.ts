@@ -1,11 +1,13 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
+import { plainToInstance } from "class-transformer";
 import { Repository } from "typeorm";
 
 import {
   BusinessError,
   BusinessLogicException,
 } from "@/shared/errors/business-errors";
+import { RecipeDto } from "./recipe.dto";
 import { RecipeEntity } from "./recipe.entity";
 
 @Injectable()
@@ -30,11 +32,15 @@ export class RecipeService {
     return recipe;
   }
 
-  async create(recipe: RecipeEntity): Promise<RecipeEntity> {
+  async create(recipeDto: RecipeDto): Promise<RecipeEntity> {
+    const recipeInstance = plainToInstance(RecipeEntity, recipeDto);
+
+    const recipe = this.recipeRepository.create(recipeInstance);
+
     return this.recipeRepository.save(recipe);
   }
 
-  async update(id: string, recipe: RecipeEntity): Promise<RecipeEntity> {
+  async update(id: string, recipeDto: RecipeDto): Promise<RecipeEntity> {
     const persistedRecipe = await this.recipeRepository.findOne({
       where: { id },
     });
@@ -44,7 +50,13 @@ export class RecipeService {
         BusinessError.NOT_FOUND,
       );
     }
-    return this.recipeRepository.save({ ...persistedRecipe, ...recipe });
+
+    const recipeInstance = plainToInstance(RecipeEntity, recipeDto);
+
+    return this.recipeRepository.save({
+      ...persistedRecipe,
+      ...recipeInstance,
+    });
   }
 
   async delete(id: string) {
