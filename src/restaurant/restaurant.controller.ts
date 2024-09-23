@@ -17,7 +17,7 @@ import {
 import { RestaurantDto } from "./restaurant.dto";
 import { RestaurantService } from "./restaurant.service";
 
-@Controller("restaurant")
+@Controller("restaurants")
 @UseInterceptors(
   BusinessErrorsInterceptor,
   new UUIDValidationInterceptor("restaurantId"),
