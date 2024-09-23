@@ -6,8 +6,8 @@ import {
   HttpCode,
   HttpStatus,
   Param,
-  Patch,
   Post,
+  Put,
   UseInterceptors,
 } from "@nestjs/common";
 
@@ -43,7 +43,7 @@ export class GastronomicCultureController {
     return this.gastronomicCultureService.create(airlineDto);
   }
 
-  @Patch(":gastronomicCultureId")
+  @Put(":gastronomicCultureId")
   async update(
     @Param("gastronomicCultureId") id: string,
     @Body() gastronomicCultureDto: GastronomicCultureDto,
