@@ -1,17 +1,96 @@
 {
 	"info": {
-		"_postman_id": "21147ce7-1918-41c4-adec-644c0aa3b1f8",
+		"_postman_id": "9e3abb9b-9cba-4f17-b2e9-fecee33c14cd",
 		"name": "Gastronomic Culture API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "38442113"
+		"_exporter_id": "26638262",
+		"_collection_link": "https://martian-water-313571.postman.co/workspace/proyecto-api-tmp-week8~fc749df6-4626-4c80-a4f9-1e78ccb3d5a5/collection/26638262-9e3abb9b-9cba-4f17-b2e9-fecee33c14cd?action=share&source=collection_link&creator=26638262"
 	},
 	"item": [
 		{
 			"name": "CharacteristicProduct",
 			"item": [
 				{
-					"name": "Add product",
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"token\", data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/users/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"id_product\", data.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -24,12 +103,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/products",
+							"raw": "{{baseURL}}/characteristicproduct",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"products"
+								"characteristicproduct"
 							]
 						}
 					},
@@ -69,16 +148,45 @@
 				},
 				{
 					"name": "GET All Products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Number of products > ' + 0, function () {\r",
+									"   var data = pm.response.json()\r",
+									"   pm.expect(data.length).to.greaterThan(0)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/products",
+							"raw": "{{baseURL}}/characteristicproduct",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"products"
+								"characteristicproduct"
 							]
 						}
 					},
@@ -103,17 +211,41 @@
 				},
 				{
 					"name": "GET Product By ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/products/1",
+							"raw": "{{baseURL}}/characteristicproduct/{{id_product}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"products",
-								"1"
+								"characteristicproduct",
+								"{{id_product}}"
 							]
 						}
 					},
@@ -138,16 +270,45 @@
 				},
 				{
 					"name": "GET An Invalid Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"   pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"Invalid UUID for parameter 'characteristicproductId'\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/products/00000000-0000-0000-00000000",
+							"raw": "{{baseURL}}/characteristicproduct/00000000-0000-0000-00000000",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"products",
+								"characteristicproduct",
 								"00000000-0000-0000-00000000"
 							]
 						}
@@ -180,12 +341,36 @@
 				},
 				{
 					"name": "Update Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Parmigiano Reggiano\",\r\n  \"description\": \"Queso duro, granular y añejo de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\"\r\n}",
+							"raw": "{\r\n  \"name\": \"Parmigiano Reggiano actualizado\",\r\n  \"description\": \"Queso duro, granular y añejo de Emilia-Romaña, Italia.\",\r\n  \"history\": \"El Parmigiano Reggiano ha sido producido desde hace más de 800 años en el valle del río Po.\",\r\n  \"category\": \"Queso\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -193,13 +378,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/products/1",
+							"raw": "{{baseURL}}/characteristicproduct/{{id_product}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"products",
-								"1"
+								"characteristicproduct",
+								"{{id_product}}"
 							]
 						}
 					},
@@ -224,7 +409,36 @@
 				},
 				{
 					"name": "Update An Invalid Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"   pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"Invalid UUID for parameter 'characteristicproductId'\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -237,12 +451,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/products/00000000-0000-0000-00000000",
+							"raw": "{{baseURL}}/characteristicproduct/00000000-0000-0000-00000000",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"products",
+								"characteristicproduct",
 								"00000000-0000-0000-00000000"
 							]
 						}
@@ -284,17 +498,41 @@
 				},
 				{
 					"name": "Delete Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"   pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/products/1",
+							"raw": "{{baseURL}}/characteristicproduct/{{id_product}}",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"products",
-								"1"
+								"characteristicproduct",
+								"{{id_product}}"
 							]
 						}
 					},
@@ -326,16 +564,45 @@
 				},
 				{
 					"name": "Delete An Invalid Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"   pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"Invalid UUID for parameter 'characteristicproductId'\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/products/00000000-0000-0000-00000000",
+							"raw": "{{baseURL}}/characteristicproduct/00000000-0000-0000-00000000",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"products",
+								"characteristicproduct",
 								"00000000-0000-0000-00000000"
 							]
 						}
@@ -6850,6 +7117,12 @@
 					]
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000/api/v1"
 		}
 	]
 }
