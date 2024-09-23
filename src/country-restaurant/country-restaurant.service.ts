@@ -46,7 +46,7 @@ export class CountryRestaurantService {
       );
 
     country.restaurants = country.restaurants || [];
-    
+
     country.restaurants = [...country.restaurants, restaurant];
     restaurant.country = country;
     await this.restaurantRepository.save(restaurant);
