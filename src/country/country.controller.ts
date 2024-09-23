@@ -22,7 +22,7 @@ import { UserRoles } from "@/shared/security/UserRoles";
 import { CountryDto } from "./country.dto";
 import { CountryService } from "./country.service";
 
-@Controller("country")
+@Controller("countries")
 @UseInterceptors(
   BusinessErrorsInterceptor,
   new UUIDValidationInterceptor("countryId"),
