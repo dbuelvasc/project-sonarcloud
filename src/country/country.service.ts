@@ -1,4 +1,6 @@
-import { Injectable } from "@nestjs/common";
+import { CACHE_MANAGER } from "@nestjs/cache-manager";
+import { Inject, Injectable } from "@nestjs/common";
+import { Cache } from "cache-manager";
 import { InjectRepository } from "@nestjs/typeorm";
 import { plainToInstance } from "class-transformer";
 import { Repository } from "typeorm";
@@ -15,6 +17,9 @@ export class CountryService {
   constructor(
     @InjectRepository(CountryEntity)
     private readonly countryRepository: Repository<CountryEntity>,
+
+    @Inject(CACHE_MANAGER)
+       private readonly CACHE_MANAGER: Cache
   ) {}
 
   async findAll(): Promise<CountryEntity[]> {
