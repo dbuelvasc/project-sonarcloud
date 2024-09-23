@@ -6,9 +6,11 @@ import * as sqliteStore from "cache-manager-sqlite";
 import { CountryEntity } from "@/country/country.entity";
 import { RestaurantEntity } from "@/restaurant/restaurant.entity";
 import { CountryRestaurantService } from "./country-restaurant.service";
+import { CountryRestaurantController } from "./country-restaurant.controller";
 
 @Module({
   providers: [CountryRestaurantService],
+  controllers: [CountryRestaurantController],
   imports: [
     TypeOrmModule.forFeature([CountryEntity, RestaurantEntity]),
     CacheModule.register({

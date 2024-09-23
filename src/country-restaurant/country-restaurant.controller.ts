@@ -15,10 +15,11 @@ import {
 } from "@/shared/interceptors";
 import { CountryRestaurantService } from "./country-restaurant.service";
 
-@Controller("country-restaurant")
+@Controller("countries")
 @UseInterceptors(
   BusinessErrorsInterceptor,
   new UUIDValidationInterceptor("countryId"),
+  new UUIDValidationInterceptor("restaurantId"),
 )
 export class CountryRestaurantController {
   constructor(
