@@ -5,9 +5,14 @@ import {
   HttpCode,
   Param,
   Post,
+  UseGuards,
   UseInterceptors,
 } from "@nestjs/common";
 
+import { JwtAuthGuard } from "@/auth/guards";
+import { RoleGuard } from "@/auth/roles/role.guard";
+import { Roles } from "@/auth/roles/roles.decorator";
+import { UserRoles } from "@/shared/security/userRoles";
 import { RestaurantEntity } from "@/restaurant/restaurant.entity";
 import {
   BusinessErrorsInterceptor,
@@ -15,17 +20,20 @@ import {
 } from "@/shared/interceptors";
 import { CountryRestaurantService } from "./country-restaurant.service";
 
-@Controller("country-restaurant")
+@Controller("countries")
 @UseInterceptors(
   BusinessErrorsInterceptor,
   new UUIDValidationInterceptor("countryId"),
+  new UUIDValidationInterceptor("restaurantId"),
 )
+@UseGuards(JwtAuthGuard, RoleGuard)
 export class CountryRestaurantController {
   constructor(
     private readonly countryRestaurantService: CountryRestaurantService,
   ) {}
 
   @Get(":countryId/restaurants/:restaurantId")
+  @Roles(UserRoles.ADMIN, UserRoles.FULL_READER)
   async findRestaurantByCountryIdRestaurantId(
     @Param("countryId") countryId: string,
     @Param("restaurantId") restaurantId: string,
@@ -37,6 +45,7 @@ export class CountryRestaurantController {
   }
 
   @Get(":countryId/restaurants")
+  @Roles(UserRoles.ADMIN, UserRoles.FULL_READER)
   async findRestaurantsByCountryId(
     @Param("countryId") countryId: string,
   ): Promise<RestaurantEntity[]> {
@@ -46,6 +55,7 @@ export class CountryRestaurantController {
   }
 
   @Post(":countryId/restaurants/:restaurantId")
+  @Roles(UserRoles.ADMIN, UserRoles.WRITER)
   async addRestaurantToCountry(
     @Param("countryId") countryId: string,
     @Param("restaurantId") restaurantId: string,
@@ -57,6 +67,7 @@ export class CountryRestaurantController {
   }
 
   @Delete(":countryId/restaurants/:restaurantId")
+  @Roles(UserRoles.ADMIN, UserRoles.DELETE)
   @HttpCode(204)
   async deleteRestaurantFromCountry(
     @Param("countryId") countryId: string,

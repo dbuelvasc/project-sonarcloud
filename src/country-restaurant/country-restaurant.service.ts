@@ -45,11 +45,16 @@ export class CountryRestaurantService {
         BusinessError.NOT_FOUND,
       );
 
+    country.restaurants = country.restaurants || [];
+
     country.restaurants = [...country.restaurants, restaurant];
     restaurant.country = country;
     await this.restaurantRepository.save(restaurant);
     await this.countryRepository.save(country);
-    return restaurant;
+
+    const restaurantWithoutCountry = { ...restaurant, country: undefined };
+
+    return restaurantWithoutCountry;
   }
 
   async findRestaurantsFromCountry(
@@ -114,6 +119,7 @@ export class CountryRestaurantService {
 
     const country = await this.countryRepository.findOne({
       where: { id: countryId },
+      relations: ["restaurants"],
     });
 
     if (!country)
