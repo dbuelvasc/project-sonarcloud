@@ -22,7 +22,7 @@ export class CountryRestaurantService {
     private readonly countryRepository: Repository<CountryEntity>,
 
     @Inject(CACHE_MANAGER)
-      private readonly cacheManager: Cache,
+    private readonly cacheManager: Cache,
   ) {}
 
   async addRestaurantToCountry(
@@ -62,20 +62,29 @@ export class CountryRestaurantService {
   async findRestaurantsFromCountry(
     countryId: string,
   ): Promise<RestaurantEntity[]> {
-    const cachedRestaurants: RestaurantEntity[] | undefined = await this.cacheManager.get<RestaurantEntity[]>(this.cacheKey);
-    if (!cachedRestaurants) {
-      const country = await this.countryRepository.findOne({
-        where: { id: countryId },
-        relations: ["restaurants"],
-      });
-      if (!country)
-        throw new BusinessLogicException(
-          "The country with the given id was not found",
-          BusinessError.NOT_FOUND,
-        );
-      await this.cacheManager.set(this.cacheKey, country.restaurants);
-      return country.restaurants;
-    }  
+    const cachedRestaurants = await this.cacheManager.get<RestaurantEntity[]>(
+      this.cacheKey,
+    );
+
+    if (cachedRestaurants) {
+      return cachedRestaurants;
+    }
+
+    const country = await this.countryRepository.findOne({
+      where: { id: countryId },
+      relations: ["restaurants"],
+    });
+
+    if (!country) {
+      throw new BusinessLogicException(
+        "The country with the given id was not found",
+        BusinessError.NOT_FOUND,
+      );
+    }
+
+    await this.cacheManager.set(this.cacheKey, country.restaurants);
+
+    return country.restaurants;
   }
 
   async findRestaurantFromCountry(
@@ -85,6 +94,7 @@ export class CountryRestaurantService {
     const restaurant = await this.restaurantRepository.findOne({
       where: { id: restaurantId },
     });
+
     if (!restaurant)
       throw new BusinessLogicException(
         "The restaurant with the given id was not found",
