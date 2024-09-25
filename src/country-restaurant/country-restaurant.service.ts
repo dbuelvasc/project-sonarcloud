@@ -67,7 +67,9 @@ export class CountryRestaurantService {
 
     const country = await this.countryRepository.findOne({
       where: { id: countryId },
-      relations: ["restaurants"],
+      relations: {
+        restaurants: true,
+      },
     });
 
     if (!country) {

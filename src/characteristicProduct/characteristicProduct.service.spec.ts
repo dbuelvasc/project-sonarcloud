@@ -5,8 +5,8 @@ import { getRepositoryToken } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 
 import { TypeOrmTestingConfig } from "@/shared/testing-utils/typeorm-testing-config";
-import { CharacteristicProductEntity } from "./characteristicproduct.entity";
-import { CharacteristicProductService } from "./characteristicproduct.service";
+import { CharacteristicProductEntity } from "./characteristicProduct.entity";
+import { CharacteristicProductService } from "./characteristicProduct.service";
 
 describe("CharacteristicProductService", () => {
   let service: CharacteristicProductService;

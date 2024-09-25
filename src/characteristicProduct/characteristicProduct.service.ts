@@ -13,20 +13,22 @@ import { CharacteristicProductEntity } from "./characteristicProduct.entity";
 
 @Injectable()
 export class CharacteristicProductService {
-  private readonly cacheKey = 'characteristicProducts';
+  private readonly cacheKey = "characteristicProducts";
 
   constructor(
     @InjectRepository(CharacteristicProductEntity)
-    private characteristicproductRepository: Repository<CharacteristicProductEntity>,
+    private characteristicProductRepository: Repository<CharacteristicProductEntity>,
 
     @Inject(CACHE_MANAGER)
-    private cacheService: Cache
+    private cacheService: Cache,
   ) {}
   //Find all characteristic products
   async findAll(): Promise<CharacteristicProductEntity[]> {
-    const cached = await this.cacheService.get<CharacteristicProductEntity[]>(this.cacheKey);
+    const cached = await this.cacheService.get<CharacteristicProductEntity[]>(
+      this.cacheKey,
+    );
     if (!cached) {
-      const products = await this.characteristicproductRepository.find();
+      const products = await this.characteristicProductRepository.find();
       await this.cacheService.set(this.cacheKey, products);
       return products;
     }
@@ -34,7 +36,7 @@ export class CharacteristicProductService {
   }
   //Find one characteristic product
   async findOne(id: string): Promise<CharacteristicProductEntity> {
-    const product = await this.characteristicproductRepository.findOne({
+    const product = await this.characteristicProductRepository.findOne({
       where: { id },
     });
     if (!product)
@@ -47,24 +49,24 @@ export class CharacteristicProductService {
   }
   //Create a characteristic product
   async create(
-    characteristicproductDto: CharacteristicProductDto,
+    characteristicProductDto: CharacteristicProductDto,
   ): Promise<CharacteristicProductEntity> {
     const productInstance: CharacteristicProductEntity = plainToInstance(
       CharacteristicProductEntity,
-      characteristicproductDto,
+      characteristicProductDto,
     );
 
     const product: CharacteristicProductEntity =
-      this.characteristicproductRepository.create(productInstance);
+      this.characteristicProductRepository.create(productInstance);
 
-    return await this.characteristicproductRepository.save(product);
+    return await this.characteristicProductRepository.save(product);
   }
   //Modify a characteristic product
   async update(
     id: string,
-    characteristicproductDto: CharacteristicProductDto,
+    characteristicProductDto: CharacteristicProductDto,
   ): Promise<CharacteristicProductEntity> {
-    const existingProduct = await this.characteristicproductRepository.findOne({
+    const existingProduct = await this.characteristicProductRepository.findOne({
       where: { id },
     });
 
@@ -77,16 +79,16 @@ export class CharacteristicProductService {
 
     const product: CharacteristicProductEntity = plainToInstance(
       CharacteristicProductEntity,
-      characteristicproductDto,
+      characteristicProductDto,
     );
-    return this.characteristicproductRepository.save({
+    return this.characteristicProductRepository.save({
       ...existingProduct,
       ...product,
     });
   }
   //Delete a characteristic product
   async delete(id: string) {
-    const product = await this.characteristicproductRepository.findOne({
+    const product = await this.characteristicProductRepository.findOne({
       where: { id },
     });
     if (!product)
@@ -95,6 +97,6 @@ export class CharacteristicProductService {
         BusinessError.NOT_FOUND,
       );
 
-    await this.characteristicproductRepository.remove(product);
+    await this.characteristicProductRepository.remove(product);
   }
 }
