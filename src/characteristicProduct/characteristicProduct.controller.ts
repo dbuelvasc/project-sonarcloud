@@ -22,7 +22,7 @@ import { UserRoles } from "@/shared/security/userRoles";
 import { CharacteristicProductDto } from "./characteristicProduct.dto";
 import { CharacteristicProductService } from "./characteristicProduct.service";
 
-@Controller("characteristicproduct")
+@Controller("products")
 @UseInterceptors(
   BusinessErrorsInterceptor,
   new UUIDValidationInterceptor("characteristicproductId"),
