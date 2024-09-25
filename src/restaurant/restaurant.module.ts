@@ -14,7 +14,7 @@ import * as sqliteStore from "cache-manager-sqlite";
       options: {
         ttl: 30,
       },
-      path: ':memory:',
+      path: ":memory:",
     }),
   ],
   providers: [RestaurantService],

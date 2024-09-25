@@ -6,7 +6,10 @@ import { CharacteristicProductEntity } from "./characteristicProduct.entity";
 import { CharacteristicProductController } from "./characteristicProduct.controller";
 
 @Module({
-  imports: [TypeOrmModule.forFeature([CharacteristicProductEntity]),  CacheModule.register()],
+  imports: [
+    TypeOrmModule.forFeature([CharacteristicProductEntity]),
+    CacheModule.register(),
+  ],
   providers: [CharacteristicProductService],
   controllers: [CharacteristicProductController],
 })
