@@ -16,7 +16,6 @@ export class CharacteristicProductEntity {
   @Column()
   history: string;
 
-  // Cambia el tipo de dato de enum a string
   @Column()
   category: string;
 
