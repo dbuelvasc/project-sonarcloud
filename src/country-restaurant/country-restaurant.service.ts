@@ -28,7 +28,7 @@ export class CountryRestaurantService {
   async addRestaurantToCountry(
     countryId: string,
     restaurantId: string,
-  ): Promise<RestaurantEntity> {
+  ): Promise<CountryEntity> {
     const restaurant = await this.restaurantRepository.findOne({
       where: { id: restaurantId },
     });
@@ -40,6 +40,9 @@ export class CountryRestaurantService {
 
     const country = await this.countryRepository.findOne({
       where: { id: countryId },
+      relations: {
+        restaurants: true,
+      },
     });
     if (!country)
       throw new BusinessLogicException(
@@ -47,16 +50,8 @@ export class CountryRestaurantService {
         BusinessError.NOT_FOUND,
       );
 
-    country.restaurants = country.restaurants || [];
-
-    country.restaurants = [...country.restaurants, restaurant];
-    restaurant.country = country;
-    await this.restaurantRepository.save(restaurant);
-    await this.countryRepository.save(country);
-
-    const restaurantWithoutCountry = { ...restaurant, country: undefined };
-
-    return restaurantWithoutCountry;
+    country.restaurants.push(restaurant);
+    return await this.countryRepository.save(country);
   }
 
   async findRestaurantsFromCountry(

@@ -38,7 +38,7 @@ export class CountryController {
   }
 
   @Get(":countryId")
-  @Roles(UserRoles.ADMIN, UserRoles.LIMITED_READER)
+  @Roles(UserRoles.ADMIN, UserRoles.FULL_READER, UserRoles.LIMITED_READER)
   async findOne(@Param("countryId") countryId: string) {
     return await this.countryService.findOne(countryId);
   }

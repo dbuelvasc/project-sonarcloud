@@ -18,7 +18,7 @@ export class GastronomicCultureCharacteristicProductService {
     private readonly characteristicProductRepository: Repository<CharacteristicProductEntity>,
   ) {}
 
-  async addCharacteristicProduct(
+  async addCharacteristicProductToGastronomicCulture(
     gastronomicCultureId: string,
     characteristicProductId: string,
   ) {

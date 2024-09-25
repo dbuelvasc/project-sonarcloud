@@ -3,7 +3,7 @@ import { JwtService } from "@nestjs/jwt";
 
 import { jwtConstants } from "@/shared/security/constants";
 import { UserService } from "@/user/user.service";
-import type { AuthRequest, ValidatedUser } from "./auth.types";
+import type { AuthRequest, JWTPayload, ValidatedUser } from "./auth.types";
 
 @Injectable()
 export class AuthService {
@@ -25,16 +25,16 @@ export class AuthService {
     const validatedUser: ValidatedUser = {
       id: user.id,
       username: user.username,
-      roles: user.roles,
+      role: user.role,
     };
     return validatedUser;
   }
 
   async login(req: AuthRequest) {
-    const payload = {
+    const payload: JWTPayload = {
       username: req.user.username,
       sub: req.user.id,
-      roles: req.user.roles,
+      role: req.user.role,
     };
     return {
       token: this.jwtService.sign(payload, {

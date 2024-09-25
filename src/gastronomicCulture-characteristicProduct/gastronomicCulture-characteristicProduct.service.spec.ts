@@ -72,10 +72,11 @@ describe("GastronomicCultureCharacteristicProductService", () => {
       // gastronomicCulture: [],
     });
 
-    const updatedGastronomicCulture = await service.addCharacteristicProduct(
-      gastronomicCulture.id,
-      characteristicProduct.id,
-    );
+    const updatedGastronomicCulture =
+      await service.addCharacteristicProductToGastronomicCulture(
+        gastronomicCulture.id,
+        characteristicProduct.id,
+      );
 
     expect(updatedGastronomicCulture).not.toBeNull();
     expect(updatedGastronomicCulture.characteristicProducts).toHaveLength(1);

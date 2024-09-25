@@ -13,7 +13,6 @@ import { JwtAuthGuard } from "@/auth/guards";
 import { RoleGuard } from "@/auth/roles/role.guard";
 import { Roles } from "@/auth/roles/roles.decorator";
 import { UserRoles } from "@/shared/security/userRoles";
-import { RestaurantEntity } from "@/restaurant/restaurant.entity";
 import {
   BusinessErrorsInterceptor,
   UUIDValidationInterceptor,
@@ -37,7 +36,7 @@ export class CountryRestaurantController {
   async findRestaurantByCountryIdRestaurantId(
     @Param("countryId") countryId: string,
     @Param("restaurantId") restaurantId: string,
-  ): Promise<RestaurantEntity> {
+  ) {
     return await this.countryRestaurantService.findRestaurantFromCountry(
       countryId,
       restaurantId,
@@ -46,9 +45,7 @@ export class CountryRestaurantController {
 
   @Get(":countryId/restaurants")
   @Roles(UserRoles.ADMIN, UserRoles.FULL_READER)
-  async findRestaurantsByCountryId(
-    @Param("countryId") countryId: string,
-  ): Promise<RestaurantEntity[]> {
+  async findRestaurantsByCountryId(@Param("countryId") countryId: string) {
     return await this.countryRestaurantService.findRestaurantsFromCountry(
       countryId,
     );
@@ -59,7 +56,7 @@ export class CountryRestaurantController {
   async addRestaurantToCountry(
     @Param("countryId") countryId: string,
     @Param("restaurantId") restaurantId: string,
-  ): Promise<RestaurantEntity> {
+  ) {
     return await this.countryRestaurantService.addRestaurantToCountry(
       countryId,
       restaurantId,
@@ -72,8 +69,8 @@ export class CountryRestaurantController {
   async deleteRestaurantFromCountry(
     @Param("countryId") countryId: string,
     @Param("restaurantId") restaurantId: string,
-  ): Promise<void> {
-    await this.countryRestaurantService.deleteRestaurantFromCountry(
+  ) {
+    return await this.countryRestaurantService.deleteRestaurantFromCountry(
       countryId,
       restaurantId,
     );

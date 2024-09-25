@@ -7,3 +7,9 @@ export type ValidatedUser = Omit<User, "password">;
 export interface AuthRequest extends Request {
   user: ValidatedUser;
 }
+
+export interface JWTPayload {
+  username: string;
+  role: string;
+  sub: number;
+}
