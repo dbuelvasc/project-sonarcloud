@@ -17,7 +17,7 @@ import {
 import { RecipeDto } from "./recipe.dto";
 import { RecipeService } from "./recipe.service";
 
-@Controller("recipe")
+@Controller("recipes")
 @UseInterceptors(
   BusinessErrorsInterceptor,
   new UUIDValidationInterceptor("recipeId"),
