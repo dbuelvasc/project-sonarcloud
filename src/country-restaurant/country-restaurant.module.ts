@@ -21,6 +21,5 @@ import { CountryRestaurantController } from "./country-restaurant.controller";
       path: ":memory:",
     }),
   ],
-  exports: [CountryRestaurantService],
 })
 export class CountryRestaurantModule {}
