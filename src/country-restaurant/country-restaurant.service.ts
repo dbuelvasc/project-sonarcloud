@@ -132,4 +132,51 @@ export class GastronomicCultureCharacteristicProductService {
 
     return characteristicProductInGastronomicCulture;
   }
+
+  async deleteCharacteristicProductFromGastronomicCulture(
+    gastronomicCultureId: string,
+    characteristicProductId: string,
+  ) {
+    const characteristicProduct =
+      await this.characteristicProductRepository.findOne({
+        where: { id: characteristicProductId },
+      });
+    if (!characteristicProduct)
+      throw new BusinessLogicException(
+        "The characteristic product with the given id was not found",
+        BusinessError.NOT_FOUND,
+      );
+
+    const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
+      where: { id: gastronomicCultureId },
+      relations: {
+        characteristicProducts: true,
+      },
+    });
+
+    if (!gastronomicCulture)
+      throw new BusinessLogicException(
+        "The gastronomic culture with the given id was not found",
+        BusinessError.NOT_FOUND,
+      );
+
+    const characteristicProductInGastronomicCulture =
+      gastronomicCulture.characteristicProducts.find(
+        (c) => c.id === characteristicProduct.id,
+      );
+
+    if (!characteristicProductInGastronomicCulture) {
+      throw new BusinessLogicException(
+        "The characteristic product with the given id is not associated with the given gastronomic culture",
+        BusinessError.PRECONDITION_FAILED,
+      );
+    }
+
+    gastronomicCulture.characteristicProducts =
+      gastronomicCulture.characteristicProducts.filter(
+        (c) => c.id !== characteristicProductId,
+      );
+
+    await this.gastronomicCultureRepository.save(gastronomicCulture);
+  }
 }
