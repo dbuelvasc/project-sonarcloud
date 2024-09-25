@@ -25,58 +25,58 @@ import { CharacteristicProductService } from "./characteristicProduct.service";
 @Controller("products")
 @UseInterceptors(
   BusinessErrorsInterceptor,
-  new UUIDValidationInterceptor("characteristicproductId"),
+  new UUIDValidationInterceptor("characteristicProductId"),
 )
 @UseGuards(JwtAuthGuard, RoleGuard)
 export class CharacteristicProductController {
   constructor(
-    private readonly characteristicproductService: CharacteristicProductService,
+    private readonly characteristicProductService: CharacteristicProductService,
   ) {}
 
   @Get()
   @Roles(UserRoles.ADMIN, UserRoles.FULL_READER)
   async findAll() {
-    return await this.characteristicproductService.findAll();
+    return await this.characteristicProductService.findAll();
   }
 
-  @Get(":characteristicproductId")
+  @Get(":characteristicProductId")
   @Roles(UserRoles.ADMIN, UserRoles.LIMITED_READER)
   async findOne(
-    @Param("characteristicproductId") characteristicproductId: string,
+    @Param("characteristicProductId") characteristicProductId: string,
   ) {
-    return await this.characteristicproductService.findOne(
-      characteristicproductId,
+    return await this.characteristicProductService.findOne(
+      characteristicProductId,
     );
   }
 
   @Post()
   @Roles(UserRoles.ADMIN, UserRoles.WRITER)
-  async create(@Body() characteristicproductDto: CharacteristicProductDto) {
-    return await this.characteristicproductService.create(
-      characteristicproductDto,
+  async create(@Body() characteristicProductDto: CharacteristicProductDto) {
+    return await this.characteristicProductService.create(
+      characteristicProductDto,
     );
   }
 
-  @Put(":characteristicproductId")
+  @Put(":characteristicProductId")
   @Roles(UserRoles.ADMIN, UserRoles.WRITER)
   async update(
-    @Param("characteristicproductId") characteristicproductId: string,
-    @Body() characteristicproductDto: CharacteristicProductDto,
+    @Param("characteristicProductId") characteristicProductId: string,
+    @Body() characteristicProductDto: CharacteristicProductDto,
   ) {
-    return await this.characteristicproductService.update(
-      characteristicproductId,
-      characteristicproductDto,
+    return await this.characteristicProductService.update(
+      characteristicProductId,
+      characteristicProductDto,
     );
   }
 
-  @Delete(":characteristicproductId")
+  @Delete(":characteristicProductId")
   @Roles(UserRoles.ADMIN, UserRoles.DELETE)
   @HttpCode(204)
   async delete(
-    @Param("characteristicproductId") characteristicproductId: string,
+    @Param("characteristicProductId") characteristicProductId: string,
   ) {
-    return await this.characteristicproductService.delete(
-      characteristicproductId,
+    return await this.characteristicProductService.delete(
+      characteristicProductId,
     );
   }
 }

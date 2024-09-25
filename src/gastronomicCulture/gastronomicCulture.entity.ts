@@ -22,7 +22,7 @@ export class GastronomicCultureEntity {
 
   @OneToMany(
     () => CharacteristicProductEntity,
-    (characteristicproduct) => characteristicproduct.gastronomicCulture,
+    (characteristicProduct) => characteristicProduct.gastronomicCulture,
   )
   characteristicProducts: CharacteristicProductEntity[];
 
