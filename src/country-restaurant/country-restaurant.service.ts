@@ -1,161 +1,95 @@
 import { CACHE_MANAGER } from "@nestjs/cache-manager";
 import { Inject, Injectable } from "@nestjs/common";
-import { Cache } from "cache-manager";
 import { InjectRepository } from "@nestjs/typeorm";
+import { Cache } from "cache-manager";
 import { Repository } from "typeorm";
 
-import { CountryEntity } from "@/country/country.entity";
-import { RestaurantEntity } from "@/restaurant/restaurant.entity";
+import { CharacteristicProductEntity } from "@/characteristicProduct/characteristicProduct.entity";
+import { GastronomicCultureEntity } from "@/gastronomicCulture/gastronomicCulture.entity";
 import {
   BusinessError,
   BusinessLogicException,
 } from "@/shared/errors/business-errors";
 
 @Injectable()
-export class CountryRestaurantService {
-  cacheKey = "country-restaurant";
+export class GastronomicCultureCharacteristicProductService {
+  cacheKey = "gastronomicCulture-characteristicProduct";
+
   constructor(
-    @InjectRepository(RestaurantEntity)
-    private readonly restaurantRepository: Repository<RestaurantEntity>,
-
-    @InjectRepository(CountryEntity)
-    private readonly countryRepository: Repository<CountryEntity>,
-
+    @InjectRepository(GastronomicCultureEntity)
+    private readonly gastronomicCultureRepository: Repository<GastronomicCultureEntity>,
+    @InjectRepository(CharacteristicProductEntity)
+    private readonly characteristicProductRepository: Repository<CharacteristicProductEntity>,
     @Inject(CACHE_MANAGER)
     private readonly cacheManager: Cache,
   ) {}
 
-  async addRestaurantToCountry(
-    countryId: string,
-    restaurantId: string,
-  ): Promise<CountryEntity> {
-    const restaurant = await this.restaurantRepository.findOne({
-      where: { id: restaurantId },
-    });
-    if (!restaurant)
-      throw new BusinessLogicException(
-        "The restaurant with the given id was not found",
-        BusinessError.NOT_FOUND,
-      );
-
-    const country = await this.countryRepository.findOne({
-      where: { id: countryId },
+  async addCharacteristicProductToGastronomicCulture(
+    gastronomicCultureId: string,
+    characteristicProductId: string,
+  ) {
+    const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
+      where: { id: gastronomicCultureId },
       relations: {
-        restaurants: true,
+        characteristicProducts: true,
       },
     });
-    if (!country)
+    if (!gastronomicCulture) {
       throw new BusinessLogicException(
-        "The country with the given id was not found",
+        "The gastronomic culture with the given id was not found",
         BusinessError.NOT_FOUND,
       );
+    }
 
-    country.restaurants.push(restaurant);
-    return await this.countryRepository.save(country);
+    const characteristicProduct =
+      await this.characteristicProductRepository.findOne({
+        where: { id: characteristicProductId },
+      });
+    if (!characteristicProduct) {
+      throw new BusinessLogicException(
+        "The characteristic product with the given id was not found",
+        BusinessError.NOT_FOUND,
+      );
+    }
+
+    gastronomicCulture.characteristicProducts = [
+      ...gastronomicCulture.characteristicProducts,
+      characteristicProduct,
+    ];
+
+    return this.gastronomicCultureRepository.save(gastronomicCulture);
   }
 
-  async findRestaurantsFromCountry(
-    countryId: string,
-  ): Promise<RestaurantEntity[]> {
-    const cachedRestaurants = await this.cacheManager.get<RestaurantEntity[]>(
+  async findCharacteristicProductsFromGastronomicCulture(
+    gastronomicCultureId: string,
+  ) {
+    const cachedCharacteristicProducts = await this.cacheManager.get<
+      CharacteristicProductEntity[]
+    >(this.cacheKey);
+
+    if (cachedCharacteristicProducts) {
+      return cachedCharacteristicProducts;
+    }
+
+    const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
+      where: { id: gastronomicCultureId },
+      relations: {
+        characteristicProducts: true,
+      },
+    });
+
+    if (!gastronomicCulture) {
+      throw new BusinessLogicException(
+        "The gastronomic culture with the given id was not found",
+        BusinessError.NOT_FOUND,
+      );
+    }
+
+    await this.cacheManager.set(
       this.cacheKey,
+      gastronomicCulture.characteristicProducts,
     );
 
-    if (cachedRestaurants) {
-      return cachedRestaurants;
-    }
-
-    const country = await this.countryRepository.findOne({
-      where: { id: countryId },
-      relations: {
-        restaurants: true,
-      },
-    });
-
-    if (!country) {
-      throw new BusinessLogicException(
-        "The country with the given id was not found",
-        BusinessError.NOT_FOUND,
-      );
-    }
-
-    await this.cacheManager.set(this.cacheKey, country.restaurants);
-
-    return country.restaurants;
-  }
-
-  async findRestaurantFromCountry(
-    countryId: string,
-    restaurantId: string,
-  ): Promise<RestaurantEntity> {
-    const restaurant = await this.restaurantRepository.findOne({
-      where: { id: restaurantId },
-    });
-
-    if (!restaurant)
-      throw new BusinessLogicException(
-        "The restaurant with the given id was not found",
-        BusinessError.NOT_FOUND,
-      );
-
-    const country = await this.countryRepository.findOne({
-      where: { id: countryId },
-      relations: ["restaurants"],
-    });
-    if (!country)
-      throw new BusinessLogicException(
-        "The country with the given id was not found",
-        BusinessError.NOT_FOUND,
-      );
-
-    const restaurantInCountry = country.restaurants.find(
-      (r) => r.id === restaurantId,
-    );
-    if (!restaurantInCountry)
-      throw new BusinessLogicException(
-        "The restaurant does not belong to the given country",
-        BusinessError.NOT_FOUND,
-      );
-
-    return restaurantInCountry;
-  }
-
-  async deleteRestaurantFromCountry(countryId: string, restaurantId: string) {
-    const restaurant = await this.restaurantRepository.findOne({
-      where: { id: restaurantId },
-    });
-    if (!restaurant)
-      throw new BusinessLogicException(
-        "The restaurant with the given id was not found",
-        BusinessError.NOT_FOUND,
-      );
-
-    const country = await this.countryRepository.findOne({
-      where: { id: countryId },
-      relations: ["restaurants"],
-    });
-
-    if (!country)
-      throw new BusinessLogicException(
-        "The country with the given id was not found",
-        BusinessError.NOT_FOUND,
-      );
-
-    const restaurantInCountry = country.restaurants.find(
-      (r) => r.id === restaurant.id,
-    );
-
-    if (!restaurantInCountry) {
-      throw new BusinessLogicException(
-        "The restaurant with the given id is not associated with the given country",
-        BusinessError.PRECONDITION_FAILED,
-      );
-    }
-
-    country.restaurants = country.restaurants.filter(
-      (r) => r.id !== restaurantId,
-    );
-
-    await this.countryRepository.save(country);
+    return gastronomicCulture.characteristicProducts;
   }
 }
