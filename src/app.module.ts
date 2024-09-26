@@ -18,7 +18,7 @@ import { UserModule } from "@/user/user.module";
     TypeOrmModule.forRoot({
       autoLoadEntities: true,
       database: process.env.DB_NAME,
-      dropSchema: true,
+      dropSchema: process.env.NODE_ENV === "development",
       host: process.env.DB_HOST,
       keepConnectionAlive: true,
       password: process.env.DB_PASSWORD,
