@@ -1,12 +1,13 @@
+import { faker } from "@faker-js/faker";
+import { CacheModule } from "@nestjs/cache-manager";
 import { Test, TestingModule } from "@nestjs/testing";
+import { getRepositoryToken } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
+
 import { CountryEntity } from "@/country/country.entity";
 import { RestaurantEntity } from "@/restaurant/restaurant.entity";
 import { TypeOrmTestingConfig } from "@/shared/testing-utils/typeorm-testing-config";
 import { CountryRestaurantService } from "./country-restaurant.service";
-import { getRepositoryToken } from "@nestjs/typeorm";
-import { faker } from "@faker-js/faker";
-import { CacheModule } from "@nestjs/cache-manager";
 
 describe("CountryRestaurantService", () => {
   let service: CountryRestaurantService;
