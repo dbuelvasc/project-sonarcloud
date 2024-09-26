@@ -20,7 +20,7 @@ export class CharacteristicProductService {
     private characteristicProductRepository: Repository<CharacteristicProductEntity>,
 
     @Inject(CACHE_MANAGER)
-    private cacheService: Cache,
+    private readonly cacheService: Cache,
   ) {}
 
   async findAll(): Promise<CharacteristicProductEntity[]> {
