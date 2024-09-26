@@ -13,7 +13,7 @@ export class UserService {
     new User(5, "remover", "remover", UserRoles.DELETE),
   ];
 
-  async findOne(username: string): Promise<User | undefined> {
+  findOne(username: string) {
     return this.users.find((user) => user.username === username);
   }
 }
