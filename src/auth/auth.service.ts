@@ -27,7 +27,7 @@ export class AuthService {
     return validatedUser;
   }
 
-  async login(req: AuthRequest) {
+  login(req: AuthRequest) {
     const payload: JWTPayload = {
       username: req.user.username,
       sub: req.user.id,
