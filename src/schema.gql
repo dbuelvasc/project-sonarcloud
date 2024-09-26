@@ -2,6 +2,26 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type RestaurantEntity {
+  id: String!
+  name: String!
+  city: String!
+  michelinStars: Float!
+  awardDate: DateTime!
+  country: CountryEntity!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type CountryEntity {
+  id: String!
+  name: String!
+  restaurants: [RestaurantEntity!]!
+}
+
 type CharacteristicProductEntity {
   id: String!
   name: String!
@@ -12,4 +32,28 @@ type CharacteristicProductEntity {
 
 type Query {
   characteristicProducts: [CharacteristicProductEntity!]!
+  countries: [CountryEntity!]!
+  country(id: String!): CountryEntity!
+  restaurants: [RestaurantEntity!]!
+  restaurant(id: String!): RestaurantEntity!
+}
+
+type Mutation {
+  createCountry(country: CountryDto!): CountryEntity!
+  updatePais(id: String!, country: CountryDto!): CountryEntity!
+  deleteCountry(id: String!): String!
+  createRestaurant(restaurant: RestaurantDto!): RestaurantEntity!
+  updateRestaurante(id: String!, restaurant: RestaurantDto!): RestaurantEntity!
+  deleteRestaurant(id: String!): String!
+}
+
+input CountryDto {
+  name: String!
+}
+
+input RestaurantDto {
+  name: String!
+  city: String!
+  michelinStars: Float!
+  awardDate: DateTime!
 }
