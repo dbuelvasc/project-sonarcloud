@@ -12,7 +12,7 @@ import * as sqliteStore from "cache-manager-sqlite";
     CacheModule.register({
       store: sqliteStore,
       options: {
-        ttl: 30,
+        ttl: 5,
       },
       path: ":memory:",
     }),
