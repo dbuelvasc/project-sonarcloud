@@ -1,8 +1,8 @@
-import { Injectable, Inject } from "@nestjs/common";
+import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
+import { Inject, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { plainToInstance } from "class-transformer";
 import { Repository } from "typeorm";
-import { CACHE_MANAGER, Cache } from "@nestjs/cache-manager";
 
 import {
   BusinessError,
@@ -22,19 +22,21 @@ export class CharacteristicProductService {
     @Inject(CACHE_MANAGER)
     private cacheService: Cache,
   ) {}
-  //Find all characteristic products
+
   async findAll(): Promise<CharacteristicProductEntity[]> {
-    const cached = await this.cacheService.get<CharacteristicProductEntity[]>(
-      this.cacheKey,
-    );
-    if (!cached) {
-      const products = await this.characteristicProductRepository.find();
-      await this.cacheService.set(this.cacheKey, products);
-      return products;
+    const cachedProducts = await this.cacheService.get<
+      CharacteristicProductEntity[]
+    >(this.cacheKey);
+
+    if (cachedProducts) {
+      return cachedProducts;
     }
-    return cached;
+
+    const products = await this.characteristicProductRepository.find();
+    await this.cacheService.set(this.cacheKey, products);
+    return products;
   }
-  //Find one characteristic product
+
   async findOne(id: string): Promise<CharacteristicProductEntity> {
     const product = await this.characteristicProductRepository.findOne({
       where: { id },
@@ -47,7 +49,7 @@ export class CharacteristicProductService {
 
     return product;
   }
-  //Create a characteristic product
+
   async create(
     characteristicProductDto: CharacteristicProductDto,
   ): Promise<CharacteristicProductEntity> {
@@ -61,7 +63,7 @@ export class CharacteristicProductService {
 
     return await this.characteristicProductRepository.save(product);
   }
-  //Modify a characteristic product
+
   async update(
     id: string,
     characteristicProductDto: CharacteristicProductDto,
@@ -86,7 +88,7 @@ export class CharacteristicProductService {
       ...product,
     });
   }
-  //Delete a characteristic product
+
   async delete(id: string) {
     const product = await this.characteristicProductRepository.findOne({
       where: { id },
