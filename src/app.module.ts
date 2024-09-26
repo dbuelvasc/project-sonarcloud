@@ -1,6 +1,9 @@
+import { ApolloDriver } from "@nestjs/apollo";
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
+import { GraphQLModule } from "@nestjs/graphql";
 import { TypeOrmModule } from "@nestjs/typeorm";
+import { join } from "path";
 
 import { AuthModule } from "@/auth/auth.module";
 import { CharacteristicProductModule } from "@/characteristicProduct/characteristicProduct.module";
@@ -26,6 +29,10 @@ import { UserModule } from "@/user/user.module";
       synchronize: true,
       type: "postgres",
       username: process.env.DB_USER,
+    }),
+    GraphQLModule.forRoot({
+      autoSchemaFile: join(process.cwd(), "src/schema.gql"),
+      driver: ApolloDriver,
     }),
     AuthModule,
     CharacteristicProductModule,
