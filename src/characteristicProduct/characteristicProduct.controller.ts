@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   HttpCode,
+  HttpStatus,
   Param,
   Post,
   Put,
@@ -40,7 +41,7 @@ export class CharacteristicProductController {
   }
 
   @Get(":characteristicProductId")
-  @Roles(UserRoles.ADMIN, UserRoles.LIMITED_READER)
+  @Roles(UserRoles.ADMIN, UserRoles.FULL_READER, UserRoles.LIMITED_READER)
   async findOne(
     @Param("characteristicProductId") characteristicProductId: string,
   ) {
@@ -71,7 +72,7 @@ export class CharacteristicProductController {
 
   @Delete(":characteristicProductId")
   @Roles(UserRoles.ADMIN, UserRoles.DELETE)
-  @HttpCode(204)
+  @HttpCode(HttpStatus.NO_CONTENT)
   async delete(
     @Param("characteristicProductId") characteristicProductId: string,
   ) {

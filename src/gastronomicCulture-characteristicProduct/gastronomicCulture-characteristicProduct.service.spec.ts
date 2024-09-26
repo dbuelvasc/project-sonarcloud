@@ -323,7 +323,7 @@ describe("GastronomicCultureCharacteristicProductService", () => {
 
     const characteristicProductId = faker.string.uuid();
 
-    await expect(
+    await expect
       service.deleteCharacteristicProductFromGastronomicCulture(
         gastronomicCulture.id,
         characteristicProductId,
