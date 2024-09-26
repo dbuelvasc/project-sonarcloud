@@ -3,6 +3,7 @@ import {
   Delete,
   Get,
   HttpCode,
+  HttpStatus,
   Param,
   Post,
   UseGuards,
@@ -44,7 +45,7 @@ export class GastronomicCultureCharacteristicProductController {
   }
 
   @Get(":gastronomicCultureId/products")
-  @Roles(UserRoles.ADMIN, UserRoles.FULL_READER)
+  @Roles(UserRoles.ADMIN, UserRoles.FULL_READER, UserRoles.LIMITED_READER)
   async findRestaurantsByCountryId(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
   ) {
@@ -67,7 +68,7 @@ export class GastronomicCultureCharacteristicProductController {
 
   @Delete(":gastronomicCultureId/products/:productId")
   @Roles(UserRoles.ADMIN, UserRoles.DELETE)
-  @HttpCode(204)
+  @HttpCode(HttpStatus.NO_CONTENT)
   async deleteRestaurantFromCountry(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
     @Param("productId") productId: string,
