@@ -4,6 +4,7 @@ import { CountryService } from "./country.service";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { CountryEntity } from "./country.entity";
 import { CountryController } from "./country.controller";
+import { CountryResolver } from './country.resolver';
 import * as sqliteStore from "cache-manager-sqlite";
 
 @Module({
@@ -17,7 +18,7 @@ import * as sqliteStore from "cache-manager-sqlite";
       path: ":memory:",
     }),
   ],
-  providers: [CountryService],
+  providers: [CountryService, CountryResolver],
   controllers: [CountryController],
 })
 export class CountryModule {}

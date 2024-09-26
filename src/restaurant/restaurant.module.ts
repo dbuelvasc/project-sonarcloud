@@ -4,6 +4,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { RestaurantService } from "./restaurant.service";
 import { RestaurantEntity } from "./restaurant.entity";
 import { RestaurantController } from "./restaurant.controller";
+import { RestaurantResolver } from './restaurant.resolver';
 import * as sqliteStore from "cache-manager-sqlite";
 
 @Module({
@@ -17,7 +18,7 @@ import * as sqliteStore from "cache-manager-sqlite";
       path: ":memory:",
     }),
   ],
-  providers: [RestaurantService],
+  providers: [RestaurantService, RestaurantResolver],
   controllers: [RestaurantController],
 })
 export class RestaurantModule {}
