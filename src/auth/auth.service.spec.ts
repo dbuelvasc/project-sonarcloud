@@ -2,7 +2,6 @@ import { Test, TestingModule } from "@nestjs/testing";
 import { JwtService } from "@nestjs/jwt";
 import { UserService } from "@/user/user.service";
 import { AuthService } from "./auth.service";
-import { jwtConstants } from "@/shared/security/constants";
 import { UserRoles } from "@/shared/security/userRoles";
 
 describe("AuthService", () => {
