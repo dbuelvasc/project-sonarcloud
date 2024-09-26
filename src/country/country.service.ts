@@ -14,21 +14,22 @@ import { CountryEntity } from "./country.entity";
 
 @Injectable()
 export class CountryService {
-  cacheKey = 'countries';
+  cacheKey = "countries";
 
   constructor(
     @InjectRepository(CountryEntity)
     private readonly countryRepository: Repository<CountryEntity>,
 
     @Inject(CACHE_MANAGER)
-       private readonly cacheManager: Cache
+    private readonly cacheManager: Cache,
   ) {}
 
   async findAll(): Promise<CountryEntity[]> {
-    const cachedCountries: CountryEntity[] | undefined = await this.cacheManager.get<CountryEntity[]>(this.cacheKey);
+    const cachedCountries: CountryEntity[] | undefined =
+      await this.cacheManager.get<CountryEntity[]>(this.cacheKey);
     if (!cachedCountries) {
       const countries = await this.countryRepository.find({
-        relations: ['gastronomicCultures']
+        relations: ["gastronomicCultures"],
       });
       await this.cacheManager.set(this.cacheKey, countries);
       return countries;

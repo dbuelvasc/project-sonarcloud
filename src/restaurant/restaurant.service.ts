@@ -14,21 +14,22 @@ import { RestaurantEntity } from "./restaurant.entity";
 
 @Injectable()
 export class RestaurantService {
-  cacheKey = 'restaurants';
+  cacheKey = "restaurants";
 
   constructor(
     @InjectRepository(RestaurantEntity)
     private readonly restaurantRepository: Repository<RestaurantEntity>,
 
     @Inject(CACHE_MANAGER)
-       private readonly cacheManager: Cache
+    private readonly cacheManager: Cache,
   ) {}
 
   async findAll(): Promise<RestaurantEntity[]> {
-    const cachedRestaurants: RestaurantEntity[] | undefined = await this.cacheManager.get<RestaurantEntity[]>(this.cacheKey);
+    const cachedRestaurants: RestaurantEntity[] | undefined =
+      await this.cacheManager.get<RestaurantEntity[]>(this.cacheKey);
     if (!cachedRestaurants) {
       const restaurants = await this.restaurantRepository.find({
-        relations: ['gastronomicCulture']
+        relations: ["gastronomicCulture"],
       });
       await this.cacheManager.set(this.cacheKey, restaurants);
       return restaurants;
