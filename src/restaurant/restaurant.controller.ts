@@ -4,16 +4,22 @@ import {
   Delete,
   Get,
   HttpCode,
+  HttpStatus,
   Param,
   Post,
   Put,
+  UseGuards,
   UseInterceptors,
 } from "@nestjs/common";
 
+import { JwtAuthGuard } from "@/auth/guards";
+import { RoleGuard } from "@/auth/roles/role.guard";
+import { Roles } from "@/auth/roles/roles.decorator";
 import {
   BusinessErrorsInterceptor,
   UUIDValidationInterceptor,
 } from "@/shared/interceptors";
+import { UserRoles } from "@/shared/security/userRoles";
 import { RestaurantDto } from "./restaurant.dto";
 import { RestaurantService } from "./restaurant.service";
 
@@ -22,33 +28,30 @@ import { RestaurantService } from "./restaurant.service";
   BusinessErrorsInterceptor,
   new UUIDValidationInterceptor("restaurantId"),
 )
+@UseGuards(JwtAuthGuard, RoleGuard)
 export class RestaurantController {
   constructor(private readonly restaurantService: RestaurantService) {}
 
   @Get()
-  //@UseGuards(JwtAuthGuard, RoleGuard)
-  //@Roles(userRoles.ADMIN, userRoles.FULL_READER)
+  @Roles(UserRoles.ADMIN, UserRoles.FULL_READER)
   async findAll() {
     return await this.restaurantService.findAll();
   }
 
   @Get(":restaurantId")
-  //@UseGuards(JwtAuthGuard, RoleGuard)
-  //@Roles(userRoles.ADMIN, userRoles.LIMITED_READER)
+  @Roles(UserRoles.ADMIN, UserRoles.FULL_READER, UserRoles.LIMITED_READER)
   async findOne(@Param("restaurantId") restaurantId: string) {
     return await this.restaurantService.findOne(restaurantId);
   }
 
   @Post()
-  //@UseGuards(JwtAuthGuard, RoleGuard)
-  //@Roles(userRoles.ADMIN, userRoles.WRITER)
+  @Roles(UserRoles.ADMIN, UserRoles.WRITER)
   async create(@Body() restaurantDto: RestaurantDto) {
     return await this.restaurantService.create(restaurantDto);
   }
 
   @Put(":restaurantId")
-  //@UseGuards(JwtAuthGuard, RoleGuard)
-  //@Roles(userRoles.ADMIN, userRoles.WRITER)
+  @Roles(UserRoles.ADMIN, UserRoles.WRITER)
   async update(
     @Param("restaurantId") restaurantId: string,
     @Body() restaurantDto: RestaurantDto,
@@ -57,9 +60,8 @@ export class RestaurantController {
   }
 
   @Delete(":restaurantId")
-  //@UseGuards(JwtAuthGuard, RoleGuard)
-  //@Roles(userRoles.ADMIN, userRoles.DELETE)
-  @HttpCode(204)
+  @Roles(UserRoles.ADMIN, UserRoles.DELETE)
+  @HttpCode(HttpStatus.NO_CONTENT)
   async delete(@Param("restaurantId") restaurantId: string) {
     return await this.restaurantService.delete(restaurantId);
   }

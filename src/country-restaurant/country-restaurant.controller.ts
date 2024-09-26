@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   HttpCode,
+  HttpStatus,
   Param,
   Post,
   Put,
@@ -35,7 +36,7 @@ export class CountryRestaurantController {
   ) {}
 
   @Get(":countryId/restaurants/:restaurantId")
-  @Roles(UserRoles.ADMIN, UserRoles.FULL_READER)
+  @Roles(UserRoles.ADMIN, UserRoles.FULL_READER, UserRoles.LIMITED_READER)
   async findRestaurantByCountryIdRestaurantId(
     @Param("countryId") countryId: string,
     @Param("restaurantId") restaurantId: string,
@@ -47,7 +48,7 @@ export class CountryRestaurantController {
   }
 
   @Get(":countryId/restaurants")
-  @Roles(UserRoles.ADMIN, UserRoles.FULL_READER)
+  @Roles(UserRoles.ADMIN, UserRoles.FULL_READER, UserRoles.LIMITED_READER)
   async findRestaurantsByCountryId(@Param("countryId") countryId: string) {
     return await this.countryRestaurantService.findRestaurantsFromCountry(
       countryId,
@@ -80,7 +81,7 @@ export class CountryRestaurantController {
 
   @Delete(":countryId/restaurants/:restaurantId")
   @Roles(UserRoles.ADMIN, UserRoles.DELETE)
-  @HttpCode(204)
+  @HttpCode(HttpStatus.NO_CONTENT)
   async deleteRestaurantFromCountry(
     @Param("countryId") countryId: string,
     @Param("restaurantId") restaurantId: string,
