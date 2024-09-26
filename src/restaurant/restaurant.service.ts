@@ -27,13 +27,16 @@ export class RestaurantService {
   async findAll(): Promise<RestaurantEntity[]> {
     const cachedRestaurants: RestaurantEntity[] | undefined =
       await this.cacheManager.get<RestaurantEntity[]>(this.cacheKey);
-    if (!cachedRestaurants) {
-      const restaurants = await this.restaurantRepository.find({
-        relations: ["gastronomicCulture"],
-      });
-      await this.cacheManager.set(this.cacheKey, restaurants);
-      return restaurants;
+
+    if (cachedRestaurants) {
+      return cachedRestaurants;
     }
+
+    const restaurants = await this.restaurantRepository.find();
+
+    await this.cacheManager.set(this.cacheKey, restaurants);
+
+    return restaurants;
   }
 
   async findOne(id: string): Promise<RestaurantEntity> {

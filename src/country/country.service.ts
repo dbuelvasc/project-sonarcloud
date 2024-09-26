@@ -27,14 +27,16 @@ export class CountryService {
   async findAll(): Promise<CountryEntity[]> {
     const cachedCountries: CountryEntity[] | undefined =
       await this.cacheManager.get<CountryEntity[]>(this.cacheKey);
-    if (!cachedCountries) {
-      const countries = await this.countryRepository.find({
-        relations: ["gastronomicCultures"],
-      });
-      await this.cacheManager.set(this.cacheKey, countries);
-      return countries;
+
+    if (cachedCountries) {
+      return cachedCountries;
     }
-    return cachedCountries;
+
+    const countries = await this.countryRepository.find();
+
+    await this.cacheManager.set(this.cacheKey, countries);
+
+    return countries;
   }
 
   async findOne(id: string): Promise<CountryEntity> {
