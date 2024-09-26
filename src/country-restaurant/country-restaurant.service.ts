@@ -1,10 +1,12 @@
 import { CACHE_MANAGER } from "@nestjs/cache-manager";
 import { Inject, Injectable } from "@nestjs/common";
-import { Cache } from "cache-manager";
 import { InjectRepository } from "@nestjs/typeorm";
+import { Cache } from "cache-manager";
+import { plainToInstance } from "class-transformer";
 import { Repository } from "typeorm";
 
 import { CountryEntity } from "@/country/country.entity";
+import { RestaurantDto } from "@/restaurant/restaurant.dto";
 import { RestaurantEntity } from "@/restaurant/restaurant.entity";
 import {
   BusinessError,
@@ -118,6 +120,48 @@ export class CountryRestaurantService {
       );
 
     return restaurantInCountry;
+  }
+
+  async associateRestaurantsToCountry(
+    countryId: string,
+    restaurantsDto: RestaurantDto[],
+  ) {
+    const country = await this.countryRepository.findOne({
+      where: { id: countryId },
+      relations: {
+        restaurants: true,
+      },
+    });
+
+    if (!country)
+      throw new BusinessLogicException(
+        "The country with the given id was not found",
+        BusinessError.NOT_FOUND,
+      );
+
+    const restaurantsInstance = plainToInstance(
+      RestaurantEntity,
+      restaurantsDto,
+    );
+
+    await Promise.all(
+      restaurantsInstance.map(async (restaurantInstance) => {
+        const existingRestaurant = await this.restaurantRepository.findOne({
+          where: { id: restaurantInstance.id },
+        });
+
+        if (!existingRestaurant)
+          throw new BusinessLogicException(
+            "The restaurant with the given id was not found",
+            BusinessError.NOT_FOUND,
+          );
+
+        return restaurantInstance;
+      }),
+    );
+
+    country.restaurants = restaurantsInstance;
+    return await this.countryRepository.save(country);
   }
 
   async deleteRestaurantFromCountry(countryId: string, restaurantId: string) {

@@ -19,7 +19,7 @@ import { CharacteristicProductEntity } from "@/characteristicProduct/characteris
     CacheModule.register({
       store: sqliteStore,
       options: {
-        ttl: 30,
+        ttl: 5,
       },
       path: ":memory:",
     }),

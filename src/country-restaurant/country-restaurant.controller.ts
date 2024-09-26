@@ -1,10 +1,12 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
   HttpCode,
   Param,
   Post,
+  Put,
   UseGuards,
   UseInterceptors,
 } from "@nestjs/common";
@@ -12,11 +14,12 @@ import {
 import { JwtAuthGuard } from "@/auth/guards";
 import { RoleGuard } from "@/auth/roles/role.guard";
 import { Roles } from "@/auth/roles/roles.decorator";
-import { UserRoles } from "@/shared/security/userRoles";
+import { RestaurantDto } from "@/restaurant/restaurant.dto";
 import {
   BusinessErrorsInterceptor,
   UUIDValidationInterceptor,
 } from "@/shared/interceptors";
+import { UserRoles } from "@/shared/security/userRoles";
 import { CountryRestaurantService } from "./country-restaurant.service";
 
 @Controller("countries")
@@ -60,6 +63,18 @@ export class CountryRestaurantController {
     return await this.countryRestaurantService.addRestaurantToCountry(
       countryId,
       restaurantId,
+    );
+  }
+
+  @Put(":countryId/restaurants")
+  @Roles(UserRoles.ADMIN, UserRoles.WRITER)
+  async associateRestaurantsToCountry(
+    @Param("countryId") countryId: string,
+    @Body() restaurantsDto: RestaurantDto[],
+  ) {
+    return await this.countryRestaurantService.associateRestaurantsToCountry(
+      countryId,
+      restaurantsDto,
     );
   }
 
