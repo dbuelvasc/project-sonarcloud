@@ -15,82 +15,82 @@ import {
 import { JwtAuthGuard } from "@/auth/guards";
 import { RoleGuard } from "@/auth/roles/role.guard";
 import { Roles } from "@/auth/roles/roles.decorator";
-import { CharacteristicProductDto } from "@/characteristicProduct/characteristicProduct.dto";
+import { CountryDto } from "@/country/country.dto";
 import {
   BusinessErrorsInterceptor,
   UUIDValidationInterceptor,
 } from "@/shared/interceptors";
 import { UserRoles } from "@/shared/security/userRoles";
-import { GastronomicCultureCharacteristicProductService } from "./gastronomicCulture-characteristicProduct.service";
+import { GastronomicCultureCountryService } from "./gastronomicCulture-country.service";
 
 @Controller("gastronomic-cultures")
 @UseInterceptors(
   BusinessErrorsInterceptor,
   new UUIDValidationInterceptor("gastronomicCultureId"),
-  new UUIDValidationInterceptor("characteristicProductId"),
+  new UUIDValidationInterceptor("countryId"),
 )
 @UseGuards(JwtAuthGuard, RoleGuard)
-export class GastronomicCultureCharacteristicProductController {
+export class GastronomicCultureCountryController {
   constructor(
-    private readonly gastronomicCultureCharacteristicProductService: GastronomicCultureCharacteristicProductService,
+    private readonly gastronomicCultureCountryService: GastronomicCultureCountryService,
   ) {}
 
-  @Get(":gastronomicCultureId/products/:productId")
+  @Get(":gastronomicCultureId/countries/:countryId")
   @Roles(UserRoles.ADMIN, UserRoles.FULL_READER)
   async findCharacteristicProductFromGastronomicCulture(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
-    @Param("productId") productId: string,
+    @Param("countryId") countryId: string,
   ) {
-    return await this.gastronomicCultureCharacteristicProductService.findCharacteristicProductFromGastronomicCulture(
+    return await this.gastronomicCultureCountryService.findCountryFromGastronomicCulture(
       gastronomicCultureId,
-      productId,
+      countryId,
     );
   }
 
-  @Get(":gastronomicCultureId/products")
+  @Get(":gastronomicCultureId/countries")
   @Roles(UserRoles.ADMIN, UserRoles.FULL_READER, UserRoles.LIMITED_READER)
   async findRestaurantsByCountryId(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
   ) {
-    return await this.gastronomicCultureCharacteristicProductService.findCharacteristicProductsFromGastronomicCulture(
+    return await this.gastronomicCultureCountryService.findCountriesFromGastronomicCulture(
       gastronomicCultureId,
     );
   }
 
-  @Post(":gastronomicCultureId/products/:productId")
+  @Post(":gastronomicCultureId/countries/:countryId")
   @Roles(UserRoles.ADMIN, UserRoles.WRITER)
   async addRestaurantToCountry(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
-    @Param("productId") productId: string,
+    @Param("countryId") countryId: string,
   ) {
-    return await this.gastronomicCultureCharacteristicProductService.addCharacteristicProductToGastronomicCulture(
+    return await this.gastronomicCultureCountryService.addCountryToGastronomicCulture(
       gastronomicCultureId,
-      productId,
+      countryId,
     );
   }
 
-  @Put(":gastronomicCultureId/products")
+  @Put(":gastronomicCultureId/countries")
   @Roles(UserRoles.ADMIN, UserRoles.WRITER)
   async associateRestaurantsToCountry(
     @Param("countryId") countryId: string,
-    @Body() characteristicProductsDto: CharacteristicProductDto[],
+    @Body() countriesDto: CountryDto[],
   ) {
-    return await this.gastronomicCultureCharacteristicProductService.associateCharacteristicProductsToGastronomicCulture(
+    return await this.gastronomicCultureCountryService.associateCountryToGastronomicCulture(
       countryId,
-      characteristicProductsDto,
+      countriesDto,
     );
   }
 
-  @Delete(":gastronomicCultureId/products/:productId")
+  @Delete(":gastronomicCultureId/countries/:countryId")
   @Roles(UserRoles.ADMIN, UserRoles.DELETE)
   @HttpCode(HttpStatus.NO_CONTENT)
   async deleteRestaurantFromCountry(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
-    @Param("productId") productId: string,
+    @Param("countryId") countryId: string,
   ) {
-    return await this.gastronomicCultureCharacteristicProductService.deleteCharacteristicProductFromGastronomicCulture(
+    return await this.gastronomicCultureCountryService.deleteCountryFromGastronomicCulture(
       gastronomicCultureId,
-      productId,
+      countryId,
     );
   }
 }

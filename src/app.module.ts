@@ -10,6 +10,7 @@ import { CharacteristicProductModule } from "@/characteristicProduct/characteris
 import { CountryRestaurantModule } from "@/country-restaurant/country-restaurant.module";
 import { CountryModule } from "@/country/country.module";
 import { GastronomicCultureCharacteristicProductModule } from "@/gastronomicCulture-characteristicProduct/gastronomicCulture-characteristicProduct.module";
+import { GastronomicCultureCountryModule } from "@/gastronomicCulture-country/gastronomicCulture-country.module";
 import { GastronomicCultureModule } from "@/gastronomicCulture/gastronomicCulture.module";
 import { RecipeModule } from "@/recipe/recipe.module";
 import { RestaurantModule } from "@/restaurant/restaurant.module";
@@ -39,6 +40,7 @@ import { UserModule } from "@/user/user.module";
     CountryModule,
     CountryRestaurantModule,
     GastronomicCultureCharacteristicProductModule,
+    GastronomicCultureCountryModule,
     GastronomicCultureModule,
     RecipeModule,
     RestaurantModule,

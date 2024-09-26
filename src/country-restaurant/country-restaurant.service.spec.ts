@@ -58,7 +58,7 @@ describe("CountryRestaurantService", () => {
     expect(service).toBeDefined();
   });
 
-  it("addRestaurantToCountry should add a restaurant to a country", async () => {
+  it("should add a restaurant to a country", async () => {
     const newRestaurant: RestaurantEntity = await restaurantRepository.save({
       name: faker.company.name(),
       city: faker.location.city(),
@@ -75,7 +75,7 @@ describe("CountryRestaurantService", () => {
     expect(result.restaurants[5]).not.toBeNull();
   });
 
-  it("addRestaurantToCountry should throw an exception for an invalid restaurant", async () => {
+  it("should throw an exception for an invalid restaurant", async () => {
     await expect(
       service.addRestaurantToCountry(country.id, "0"),
     ).rejects.toHaveProperty(
@@ -84,7 +84,7 @@ describe("CountryRestaurantService", () => {
     );
   });
 
-  it("addRestaurantToCountry should throw an exception for an invalid country", async () => {
+  it("should throw an exception for an invalid country", async () => {
     const newRestaurant: RestaurantEntity = await restaurantRepository.save({
       name: faker.company.name(),
       city: faker.location.city(),
@@ -100,7 +100,7 @@ describe("CountryRestaurantService", () => {
     );
   });
 
-  it("findRestaurantFromCountry should return restaurant by country", async () => {
+  it("should return restaurant by country", async () => {
     const restaurant: RestaurantEntity = restaurantsList[0];
     const storedRestaurant: RestaurantEntity =
       await service.findRestaurantFromCountry(country.id, restaurant.id);
@@ -109,7 +109,7 @@ describe("CountryRestaurantService", () => {
     expect(storedRestaurant.city).toBe(restaurant.city);
   });
 
-  it("findRestaurantFromCountry should throw an exception for an invalid restaurant", async () => {
+  it("should throw an exception for an invalid restaurant", async () => {
     await expect(
       service.findRestaurantFromCountry(country.id, "0"),
     ).rejects.toHaveProperty(
@@ -118,7 +118,7 @@ describe("CountryRestaurantService", () => {
     );
   });
 
-  it("findRestaurantFromCountry should throw an exception for an invalid country", async () => {
+  it("should throw an exception for an invalid country", async () => {
     const restaurant: RestaurantEntity = restaurantsList[0];
     await expect(
       service.findRestaurantFromCountry("0", restaurant.id),
@@ -128,7 +128,7 @@ describe("CountryRestaurantService", () => {
     );
   });
 
-  it("findRestaurantFromCountry should throw an exception for a restaurant not associated to the country", async () => {
+  it("should throw an exception for a restaurant not associated to the country", async () => {
     const newRestaurant: RestaurantEntity = await restaurantRepository.save({
       name: faker.company.name(),
       city: faker.location.city(),
@@ -144,13 +144,13 @@ describe("CountryRestaurantService", () => {
     );
   });
 
-  it("findRestaurantsFromCountry should return restaurants by country", async () => {
+  it("should return restaurants by country", async () => {
     const restaurants: RestaurantEntity[] =
       await service.findRestaurantsFromCountry(country.id);
     expect(restaurants.length).toBe(5);
   });
 
-  it("findRestaurantsFromCountry should throw an exception for an invalid country", async () => {
+  it("should throw an exception for an invalid country", async () => {
     await expect(
       service.findRestaurantsFromCountry("0"),
     ).rejects.toHaveProperty(
@@ -159,7 +159,7 @@ describe("CountryRestaurantService", () => {
     );
   });
 
-  it("associateRestaurantsToCountry should update restaurants list for a country", async () => {
+  it("should update restaurants list for a country", async () => {
     const newRestaurant: RestaurantEntity = await restaurantRepository.save({
       name: faker.company.name(),
       city: faker.location.city(),
@@ -174,7 +174,7 @@ describe("CountryRestaurantService", () => {
     expect(updatedCountry.restaurants[0].city).toBe(newRestaurant.city);
   });
 
-  it("associateRestaurantsToCountry should throw an exception for non existing restaurant", async () => {
+  it("should throw an exception for non existing restaurant", async () => {
     const newRestaurant: RestaurantEntity = await restaurantRepository.save({
       name: faker.company.name(),
       city: faker.location.city(),
@@ -192,7 +192,7 @@ describe("CountryRestaurantService", () => {
     );
   });
 
-  it("associateRestaurantsToCountry should throw an exception for an invalid country", async () => {
+  it("should throw an exception for an invalid country", async () => {
     const newRestaurant: RestaurantEntity = await restaurantRepository.save({
       name: faker.company.name(),
       city: faker.location.city(),
@@ -208,7 +208,7 @@ describe("CountryRestaurantService", () => {
     );
   });
 
-  it("deleteRestaurantFromCountry should remove a restaurant from a country", async () => {
+  it("should remove a restaurant from a country", async () => {
     const restaurant: RestaurantEntity = restaurantsList[0];
 
     await service.deleteRestaurantFromCountry(country.id, restaurant.id);
@@ -224,7 +224,7 @@ describe("CountryRestaurantService", () => {
     expect(deletedRestaurant).toBeUndefined();
   });
 
-  it("deleteRestaurantFromCountry should throw an exception for an invalid restaurant", async () => {
+  it("should throw an exception for an invalid restaurant", async () => {
     await expect(
       service.deleteRestaurantFromCountry(country.id, "0"),
     ).rejects.toHaveProperty(
@@ -233,7 +233,7 @@ describe("CountryRestaurantService", () => {
     );
   });
 
-  it("deleteRestaurantFromCountry should throw an exception for an invalid country", async () => {
+  it("should throw an exception for an invalid country", async () => {
     const restaurant: RestaurantEntity = restaurantsList[0];
     await expect(
       service.deleteRestaurantFromCountry("0", restaurant.id),
@@ -243,7 +243,7 @@ describe("CountryRestaurantService", () => {
     );
   });
 
-  it("deleteRestaurantFromCountry should throw an exception for a non associated restaurant", async () => {
+  it("should throw an exception for a non associated restaurant", async () => {
     const newRestaurant: RestaurantEntity = await restaurantRepository.save({
       name: faker.company.name(),
       city: faker.location.city(),

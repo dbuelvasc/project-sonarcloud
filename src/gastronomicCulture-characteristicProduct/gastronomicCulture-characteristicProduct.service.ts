@@ -2,8 +2,10 @@ import { CACHE_MANAGER } from "@nestjs/cache-manager";
 import { Inject, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Cache } from "cache-manager";
+import { plainToInstance } from "class-transformer";
 import { Repository } from "typeorm";
 
+import { CharacteristicProductDto } from "@/characteristicProduct/characteristicProduct.dto";
 import { CharacteristicProductEntity } from "@/characteristicProduct/characteristicProduct.entity";
 import { GastronomicCultureEntity } from "@/gastronomicCulture/gastronomicCulture.entity";
 import {
@@ -131,6 +133,51 @@ export class GastronomicCultureCharacteristicProductService {
       );
 
     return characteristicProductInGastronomicCulture;
+  }
+
+  async associateCharacteristicProductsToGastronomicCulture(
+    gastronomicCultureId: string,
+    characteristicProductsDto: CharacteristicProductDto[],
+  ) {
+    const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
+      where: { id: gastronomicCultureId },
+      relations: {
+        characteristicProducts: true,
+      },
+    });
+
+    if (!gastronomicCulture)
+      throw new BusinessLogicException(
+        "The gastronomic culture with the given id was not found",
+        BusinessError.NOT_FOUND,
+      );
+
+    const characteristicProductsInstance = plainToInstance(
+      CharacteristicProductEntity,
+      characteristicProductsDto,
+    );
+
+    await Promise.all(
+      characteristicProductsInstance.map(
+        async (characteristicProductInstance) => {
+          const existingCharacteristicProduct =
+            await this.characteristicProductRepository.findOne({
+              where: { id: characteristicProductInstance.id },
+            });
+
+          if (!existingCharacteristicProduct)
+            throw new BusinessLogicException(
+              "The characteristic product with the given id was not found",
+              BusinessError.NOT_FOUND,
+            );
+
+          return characteristicProductInstance;
+        },
+      ),
+    );
+
+    gastronomicCulture.characteristicProducts = characteristicProductsInstance;
+    return await this.gastronomicCultureRepository.save(gastronomicCulture);
   }
 
   async deleteCharacteristicProductFromGastronomicCulture(
