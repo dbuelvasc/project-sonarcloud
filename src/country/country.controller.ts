@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   HttpCode,
+  HttpStatus,
   Param,
   Post,
   Put,
@@ -60,7 +61,7 @@ export class CountryController {
 
   @Delete(":countryId")
   @Roles(UserRoles.ADMIN, UserRoles.DELETE)
-  @HttpCode(204)
+  @HttpCode(HttpStatus.NO_CONTENT)
   async delete(@Param("countryId") countryId: string) {
     return await this.countryService.delete(countryId);
   }
