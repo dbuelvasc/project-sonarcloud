@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
@@ -6,6 +7,7 @@ import {
   HttpStatus,
   Param,
   Post,
+  Put,
   UseGuards,
   UseInterceptors,
 } from "@nestjs/common";
@@ -13,11 +15,12 @@ import {
 import { JwtAuthGuard } from "@/auth/guards";
 import { RoleGuard } from "@/auth/roles/role.guard";
 import { Roles } from "@/auth/roles/roles.decorator";
-import { UserRoles } from "@/shared/security/userRoles";
+import { CharacteristicProductDto } from "@/characteristicProduct/characteristicProduct.dto";
 import {
   BusinessErrorsInterceptor,
   UUIDValidationInterceptor,
 } from "@/shared/interceptors";
+import { UserRoles } from "@/shared/security/userRoles";
 import { GastronomicCultureCharacteristicProductService } from "./gastronomicCulture-characteristicProduct.service";
 
 @Controller("gastronomic-cultures")
@@ -63,6 +66,18 @@ export class GastronomicCultureCharacteristicProductController {
     return await this.gastronomicCultureCharacteristicProductService.addCharacteristicProductToGastronomicCulture(
       gastronomicCultureId,
       productId,
+    );
+  }
+
+  @Put(":gastronomicCultureId/products")
+  @Roles(UserRoles.ADMIN, UserRoles.WRITER)
+  async associateRestaurantsToCountry(
+    @Param("countryId") countryId: string,
+    @Body() characteristicProductsDto: CharacteristicProductDto[],
+  ) {
+    return await this.gastronomicCultureCharacteristicProductService.associateCharacteristicProductsToGastronomicCulture(
+      countryId,
+      characteristicProductsDto,
     );
   }
 
