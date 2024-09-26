@@ -6,6 +6,7 @@ import * as sqliteStore from "cache-manager-sqlite";
 import { CharacteristicProductController } from "./characteristicProduct.controller";
 import { CharacteristicProductEntity } from "./characteristicProduct.entity";
 import { CharacteristicProductService } from "./characteristicProduct.service";
+import { CharacteristicProductResolver } from "./characteristicProduct.resolver";
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { CharacteristicProductService } from "./characteristicProduct.service";
       path: ":memory:",
     }),
   ],
-  providers: [CharacteristicProductService],
+  providers: [CharacteristicProductService, CharacteristicProductResolver],
   controllers: [CharacteristicProductController],
 })
 export class CharacteristicProductModule {}

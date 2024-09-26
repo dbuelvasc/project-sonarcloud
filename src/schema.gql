@@ -1,0 +1,15 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CharacteristicProductEntity {
+  id: String!
+  name: String!
+  description: String!
+  history: String!
+  category: String!
+}
+
+type Query {
+  characteristicProducts: [CharacteristicProductEntity!]!
+}
