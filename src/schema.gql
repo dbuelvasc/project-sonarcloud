@@ -32,6 +32,7 @@ type CharacteristicProductEntity {
 
 type Query {
   characteristicProducts: [CharacteristicProductEntity!]!
+  characteristicProduct(id: String!): CharacteristicProductEntity!
   countries: [CountryEntity!]!
   country(id: String!): CountryEntity!
   restaurants: [RestaurantEntity!]!
@@ -39,12 +40,22 @@ type Query {
 }
 
 type Mutation {
+  createCharacteristicProduct(characteristicProduct: CharacteristicProductDto!): CharacteristicProductEntity!
+  updateCharacteristicProduct(id: String!, characteristicProduct: CharacteristicProductDto!): CharacteristicProductEntity!
+  deleteCharacteristicProduct(id: String!): String!
   createCountry(country: CountryDto!): CountryEntity!
   updateCountry(id: String!, country: CountryDto!): CountryEntity!
   deleteCountry(id: String!): String!
   createRestaurant(restaurant: RestaurantDto!): RestaurantEntity!
   updateRestaurant(id: String!, restaurant: RestaurantDto!): RestaurantEntity!
   deleteRestaurant(id: String!): String!
+}
+
+input CharacteristicProductDto {
+  name: String!
+  description: String!
+  history: String!
+  category: String!
 }
 
 input CountryDto {
