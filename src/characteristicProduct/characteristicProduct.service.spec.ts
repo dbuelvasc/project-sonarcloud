@@ -46,13 +46,13 @@ describe("CharacteristicProductService", () => {
     expect(service).toBeDefined();
   });
 
-  it("findAll should return all products", async () => {
+  it("should return all products", async () => {
     const products: CharacteristicProductEntity[] = await service.findAll();
     expect(products).not.toBeNull();
     expect(products).toHaveLength(productsList.length);
   });
 
-  it("findOne should return a product by id", async () => {
+  it("should return a single product", async () => {
     const storedProduct: CharacteristicProductEntity = productsList[0];
     const product: CharacteristicProductEntity = await service.findOne(
       storedProduct.id,
@@ -63,14 +63,14 @@ describe("CharacteristicProductService", () => {
     expect(product.history).toEqual(storedProduct.history);
   });
 
-  it("findOne should throw an exception for an invalid product", async () => {
+  it("should throw an exception for an invalid product", async () => {
     await expect(() => service.findOne("0")).rejects.toHaveProperty(
       "message",
       "The product with the given id was not found",
     );
   });
 
-  it("create should return a new product", async () => {
+  it("should create a new product", async () => {
     const product = {
       id: "0",
       name: faker.word.noun(),
@@ -92,7 +92,7 @@ describe("CharacteristicProductService", () => {
     expect(storedProduct.history).toEqual(newProduct.history);
   });
 
-  it("update should modify a product", async () => {
+  it("should update a product", async () => {
     const product: CharacteristicProductEntity = productsList[0];
     product.name = "Wonderland";
     product.description = "A wonderfull place";
@@ -111,7 +111,7 @@ describe("CharacteristicProductService", () => {
     expect(storedProduct.history).toEqual(product.history);
   });
 
-  it("update should throw an exception for an invalid product", async () => {
+  it("should throw an exception for an invalid product", async () => {
     let product: CharacteristicProductEntity = productsList[0];
     product = {
       ...product,
@@ -125,7 +125,7 @@ describe("CharacteristicProductService", () => {
     );
   });
 
-  it("delete should remove a product", async () => {
+  it("should delete a product", async () => {
     const product: CharacteristicProductEntity = productsList[0];
     await service.delete(product.id);
     const deletedProduct = await repository.findOne({
@@ -134,7 +134,7 @@ describe("CharacteristicProductService", () => {
     expect(deletedProduct).toBeNull();
   });
 
-  it("delete should throw an exception for an invalid product", async () => {
+  it("should throw an exception for an invalid product", async () => {
     await expect(() => service.delete("0")).rejects.toHaveProperty(
       "message",
       "The product with the given id was not found",

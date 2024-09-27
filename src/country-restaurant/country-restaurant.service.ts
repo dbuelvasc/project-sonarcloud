@@ -15,7 +15,7 @@ import {
 
 @Injectable()
 export class CountryRestaurantService {
-  cacheKey = "country-restaurant";
+  baseCacheKey = "country-restaurant";
   constructor(
     @InjectRepository(RestaurantEntity)
     private readonly restaurantRepository: Repository<RestaurantEntity>,
@@ -59,9 +59,10 @@ export class CountryRestaurantService {
   async findRestaurantsFromCountry(
     countryId: string,
   ): Promise<RestaurantEntity[]> {
-    const cachedRestaurants = await this.cacheManager.get<RestaurantEntity[]>(
-      this.cacheKey,
-    );
+    const cacheKey = `${this.baseCacheKey}-${countryId}`;
+
+    const cachedRestaurants =
+      await this.cacheManager.get<RestaurantEntity[]>(cacheKey);
 
     if (cachedRestaurants) {
       return cachedRestaurants;
@@ -81,7 +82,7 @@ export class CountryRestaurantService {
       );
     }
 
-    await this.cacheManager.set(this.cacheKey, country.restaurants);
+    await this.cacheManager.set(cacheKey, country.restaurants);
 
     return country.restaurants;
   }

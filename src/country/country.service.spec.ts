@@ -43,27 +43,27 @@ describe("CountryService", () => {
     expect(service).toBeDefined();
   });
 
-  it("findAll should return all countries", async () => {
+  it("should return all countries", async () => {
     const countries: CountryEntity[] = await service.findAll();
     expect(countries).not.toBeNull();
     expect(countries).toHaveLength(countriesList.length);
   });
 
-  it("findOne should return a country by id", async () => {
+  it("should return a single country", async () => {
     const storedCountry: CountryEntity = countriesList[0];
     const country: CountryEntity = await service.findOne(storedCountry.id);
     expect(country).not.toBeNull();
     expect(country.name).toEqual(storedCountry.name);
   });
 
-  it("findOne should throw an exception for an invalid country", async () => {
+  it("should throw an exception for an invalid country", async () => {
     await expect(service.findOne("0")).rejects.toHaveProperty(
       "message",
       "The country with the given id was not found",
     );
   });
 
-  it("create should return a new country", async () => {
+  it("should create a new country", async () => {
     const country: CountryEntity = {
       id: "",
       name: faker.location.country(),
@@ -81,7 +81,7 @@ describe("CountryService", () => {
     expect(storedCountry.name).toEqual(newCountry.name);
   });
 
-  it("update should modify a country", async () => {
+  it("should update a country", async () => {
     const country: CountryEntity = countriesList[0];
     country.name = "Wonderland";
     const updatedCountry: CountryEntity = await service.update(
@@ -96,7 +96,7 @@ describe("CountryService", () => {
     expect(storedCountry.name).toEqual(country.name);
   });
 
-  it("update should throw an exception for an invalid country", async () => {
+  it("should throw an exception for an invalid country", async () => {
     let country: CountryEntity = countriesList[0];
     country = {
       ...country,
@@ -108,7 +108,7 @@ describe("CountryService", () => {
     );
   });
 
-  it("delete should remove a country", async () => {
+  it("should delete a country", async () => {
     const country: CountryEntity = countriesList[0];
     await service.delete(country.id);
     const deletedCountry = await repository.findOne({
@@ -117,7 +117,7 @@ describe("CountryService", () => {
     expect(deletedCountry).toBeNull();
   });
 
-  it("delete should throw an exception for an invalid country", async () => {
+  it("should throw an exception for an invalid country", async () => {
     await expect(service.delete("0")).rejects.toHaveProperty(
       "message",
       "The country with the given id was not found",

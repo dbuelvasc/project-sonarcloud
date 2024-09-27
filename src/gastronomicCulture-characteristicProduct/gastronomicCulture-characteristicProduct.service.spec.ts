@@ -295,7 +295,7 @@ describe("GastronomicCultureCharacteristicProductService", () => {
     );
   });
 
-  it("associateRestaurantsToCountry should update restaurants list for a country", async () => {
+  it("should associate characteristic products to a gastronomic culture", async () => {
     const newCharacteristicProduct: CharacteristicProductEntity =
       await characteristicProductRepository.save({
         name: faker.word.verb(),
@@ -320,7 +320,7 @@ describe("GastronomicCultureCharacteristicProductService", () => {
     );
   });
 
-  it("associateRestaurantsToCountry should throw an exception for non existing restaurant", async () => {
+  it("should throw an error if the characteristic product is not found", async () => {
     const newCharacteristicProduct: CharacteristicProductEntity =
       await characteristicProductRepository.save({
         name: faker.word.verb(),
@@ -352,7 +352,7 @@ describe("GastronomicCultureCharacteristicProductService", () => {
     );
   });
 
-  it("associateRestaurantsToCountry should throw an exception for an invalid country", async () => {
+  it("should throw an error if the gastronomic culture is not found", async () => {
     const newCharacteristicProduct: CharacteristicProductEntity =
       await characteristicProductRepository.save({
         name: faker.word.verb(),

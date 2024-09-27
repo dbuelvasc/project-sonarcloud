@@ -5,8 +5,8 @@ import { Cache } from "cache-manager";
 import { plainToInstance } from "class-transformer";
 import { Repository } from "typeorm";
 
-import { CountryDto } from "@/country/country.dto";
-import { CountryEntity } from "@/country/country.entity";
+import { RestaurantDto } from "@/restaurant/restaurant.dto";
+import { RestaurantEntity } from "@/restaurant/restaurant.entity";
 import { GastronomicCultureDto } from "@/gastronomicCulture/gastronomicCulture.dto";
 import { GastronomicCultureEntity } from "@/gastronomicCulture/gastronomicCulture.entity";
 import {
@@ -15,26 +15,26 @@ import {
 } from "@/shared/errors/business-errors";
 
 @Injectable()
-export class GastronomicCultureCountryService {
+export class GastronomicCultureRestaurantService {
   baseCacheKey = "gastronomicCulture-characteristicProduct";
 
   constructor(
     @InjectRepository(GastronomicCultureEntity)
     private readonly gastronomicCultureRepository: Repository<GastronomicCultureEntity>,
-    @InjectRepository(CountryEntity)
-    private readonly countryRepository: Repository<CountryEntity>,
+    @InjectRepository(RestaurantEntity)
+    private readonly restaurantRepository: Repository<RestaurantEntity>,
     @Inject(CACHE_MANAGER)
     private readonly cacheManager: Cache,
   ) {}
 
-  async addCountryToGastronomicCulture(
+  async addRestaurantToGastronomicCulture(
     gastronomicCultureId: string,
-    countryId: string,
+    restaurantId: string,
   ) {
     const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
       where: { id: gastronomicCultureId },
       relations: {
-        countries: true,
+        restaurants: true,
       },
     });
     if (!gastronomicCulture) {
@@ -44,8 +44,8 @@ export class GastronomicCultureCountryService {
       );
     }
 
-    const characteristicProduct = await this.countryRepository.findOne({
-      where: { id: countryId },
+    const characteristicProduct = await this.restaurantRepository.findOne({
+      where: { id: restaurantId },
     });
     if (!characteristicProduct) {
       throw new BusinessLogicException(
@@ -54,27 +54,27 @@ export class GastronomicCultureCountryService {
       );
     }
 
-    gastronomicCulture.countries = [
-      ...gastronomicCulture.countries,
+    gastronomicCulture.restaurants = [
+      ...gastronomicCulture.restaurants,
       characteristicProduct,
     ];
 
     return this.gastronomicCultureRepository.save(gastronomicCulture);
   }
 
-  async findCountriesFromGastronomicCulture(gastronomicCultureId: string) {
+  async findRestaurantsFromGastronomicCulture(gastronomicCultureId: string) {
     const cacheKey = `${this.baseCacheKey}-gastronomicCulture-${gastronomicCultureId}`;
-    const cachedCountries =
-      await this.cacheManager.get<CountryEntity[]>(cacheKey);
+    const cachedRestaurants =
+      await this.cacheManager.get<RestaurantEntity[]>(cacheKey);
 
-    if (cachedCountries) {
-      return cachedCountries;
+    if (cachedRestaurants) {
+      return cachedRestaurants;
     }
 
     const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
       where: { id: gastronomicCultureId },
       relations: {
-        countries: true,
+        restaurants: true,
       },
     });
 
@@ -85,17 +85,17 @@ export class GastronomicCultureCountryService {
       );
     }
 
-    await this.cacheManager.set(cacheKey, gastronomicCulture.countries);
+    await this.cacheManager.set(cacheKey, gastronomicCulture.restaurants);
 
-    return gastronomicCulture.countries;
+    return gastronomicCulture.restaurants;
   }
 
-  async findCountryFromGastronomicCulture(
+  async findRestaurantFromGastronomicCulture(
     gastronomicCultureId: string,
-    countryId: string,
+    restaurantId: string,
   ) {
-    const characteristicProduct = await this.countryRepository.findOne({
-      where: { id: countryId },
+    const characteristicProduct = await this.restaurantRepository.findOne({
+      where: { id: restaurantId },
     });
 
     if (!characteristicProduct)
@@ -107,7 +107,7 @@ export class GastronomicCultureCountryService {
     const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
       where: { id: gastronomicCultureId },
       relations: {
-        countries: true,
+        restaurants: true,
       },
     });
     if (!gastronomicCulture)
@@ -117,7 +117,7 @@ export class GastronomicCultureCountryService {
       );
 
     const characteristicProductInGastronomicCulture =
-      gastronomicCulture.countries.find((c) => c.id === countryId);
+      gastronomicCulture.restaurants.find((c) => c.id === restaurantId);
     if (!characteristicProductInGastronomicCulture)
       throw new BusinessLogicException(
         "The characteristic product does not belong to the given gastronomic culture",
@@ -127,14 +127,14 @@ export class GastronomicCultureCountryService {
     return characteristicProductInGastronomicCulture;
   }
 
-  async associateCountryToGastronomicCulture(
+  async associateRestaurantToGastronomicCulture(
     gastronomicCultureId: string,
-    countriesDto: CountryDto[],
+    restaurantsDto: RestaurantDto[],
   ) {
     const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
       where: { id: gastronomicCultureId },
       relations: {
-        countries: true,
+        restaurants: true,
       },
     });
 
@@ -144,12 +144,15 @@ export class GastronomicCultureCountryService {
         BusinessError.NOT_FOUND,
       );
 
-    const countriesInstance = plainToInstance(CountryEntity, countriesDto);
+    const restaurantsInstance = plainToInstance(
+      RestaurantEntity,
+      restaurantsDto,
+    );
 
     await Promise.all(
-      countriesInstance.map(async (characteristicProductInstance) => {
+      restaurantsInstance.map(async (characteristicProductInstance) => {
         const existingCharacteristicProduct =
-          await this.countryRepository.findOne({
+          await this.restaurantRepository.findOne({
             where: { id: characteristicProductInstance.id },
           });
 
@@ -163,16 +166,16 @@ export class GastronomicCultureCountryService {
       }),
     );
 
-    gastronomicCulture.countries = countriesInstance;
+    gastronomicCulture.restaurants = restaurantsInstance;
     return await this.gastronomicCultureRepository.save(gastronomicCulture);
   }
 
-  async deleteCountryFromGastronomicCulture(
+  async deleteRestaurantFromGastronomicCulture(
     gastronomicCultureId: string,
-    countryId: string,
+    restaurantId: string,
   ) {
-    const characteristicProduct = await this.countryRepository.findOne({
-      where: { id: countryId },
+    const characteristicProduct = await this.restaurantRepository.findOne({
+      where: { id: restaurantId },
     });
     if (!characteristicProduct)
       throw new BusinessLogicException(
@@ -183,7 +186,7 @@ export class GastronomicCultureCountryService {
     const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
       where: { id: gastronomicCultureId },
       relations: {
-        countries: true,
+        restaurants: true,
       },
     });
 
@@ -194,7 +197,7 @@ export class GastronomicCultureCountryService {
       );
 
     const characteristicProductInGastronomicCulture =
-      gastronomicCulture.countries.find(
+      gastronomicCulture.restaurants.find(
         (c) => c.id === characteristicProduct.id,
       );
 
@@ -205,26 +208,26 @@ export class GastronomicCultureCountryService {
       );
     }
 
-    gastronomicCulture.countries = gastronomicCulture.countries.filter(
-      (c) => c.id !== countryId,
+    gastronomicCulture.restaurants = gastronomicCulture.restaurants.filter(
+      (c) => c.id !== restaurantId,
     );
 
     await this.gastronomicCultureRepository.save(gastronomicCulture);
   }
 
-  async addGastronomicCultureToCountry(
-    countryId: string,
+  async addGastronomicCultureToRestaurant(
+    restaurantId: string,
     gastronomicCultureId: string,
   ) {
-    const country = await this.countryRepository.findOne({
-      where: { id: countryId },
+    const restaurant = await this.restaurantRepository.findOne({
+      where: { id: restaurantId },
       relations: {
         gastronomicCultures: true,
       },
     });
-    if (!country) {
+    if (!restaurant) {
       throw new BusinessLogicException(
-        "The country with the given id was not found",
+        "The restaurant with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
@@ -239,15 +242,15 @@ export class GastronomicCultureCountryService {
       );
     }
 
-    country.gastronomicCultures = [
-      ...country.gastronomicCultures,
+    restaurant.gastronomicCultures = [
+      ...restaurant.gastronomicCultures,
       gastronomicCulture,
     ];
 
-    return this.countryRepository.save(country);
+    return this.restaurantRepository.save(restaurant);
   }
-  async findGastronomicCulturesFromCountry(countryId: string) {
-    const cacheKey = `${this.baseCacheKey}-country-${countryId}`;
+  async findGastronomicCulturesFromRestaurant(restaurantId: string) {
+    const cacheKey = `${this.baseCacheKey}-restaurant-${restaurantId}`;
     const cachedGastronomicCultures =
       await this.cacheManager.get<GastronomicCultureEntity[]>(cacheKey);
 
@@ -255,28 +258,28 @@ export class GastronomicCultureCountryService {
       return cachedGastronomicCultures;
     }
 
-    const country = await this.countryRepository.findOne({
-      where: { id: countryId },
+    const restaurant = await this.restaurantRepository.findOne({
+      where: { id: restaurantId },
       relations: {
         gastronomicCultures: true,
       },
     });
 
-    if (!country) {
+    if (!restaurant) {
       throw new BusinessLogicException(
-        "The country with the given id was not found",
+        "The restaurant with the given id was not found",
         BusinessError.NOT_FOUND,
       );
     }
 
-    const gastronomicCultures = country.gastronomicCultures;
+    const gastronomicCultures = restaurant.gastronomicCultures;
     await this.cacheManager.set(cacheKey, gastronomicCultures);
 
     return gastronomicCultures;
   }
 
-  async findGastronomicCultureFromCountry(
-    countryId: string,
+  async findGastronomicCultureFromRestaurant(
+    restaurantId: string,
     gastronomicCultureId: string,
   ) {
     const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
@@ -289,44 +292,44 @@ export class GastronomicCultureCountryService {
         BusinessError.NOT_FOUND,
       );
 
-    const country = await this.countryRepository.findOne({
-      where: { id: countryId },
+    const restaurant = await this.restaurantRepository.findOne({
+      where: { id: restaurantId },
       relations: {
         gastronomicCultures: true,
       },
     });
-    if (!country)
+    if (!restaurant)
       throw new BusinessLogicException(
-        "The country with the given id was not found",
+        "The restaurant with the given id was not found",
         BusinessError.NOT_FOUND,
       );
 
-    const gastronomicCultureInCountry = country.gastronomicCultures.find(
+    const gastronomicCultureInRestaurant = restaurant.gastronomicCultures.find(
       (gc) => gc.id === gastronomicCultureId,
     );
-    if (!gastronomicCultureInCountry)
+    if (!gastronomicCultureInRestaurant)
       throw new BusinessLogicException(
-        "The gastronomic culture does not belong to the given country",
+        "The gastronomic culture does not belong to the given restaurant",
         BusinessError.NOT_FOUND,
       );
 
-    return gastronomicCultureInCountry;
+    return gastronomicCultureInRestaurant;
   }
 
-  async associateGastronomicCulturesToCountry(
-    countryId: string,
+  async associateGastronomicCulturesToRestaurant(
+    restaurantId: string,
     gastronomicCulturesDto: GastronomicCultureDto[],
   ) {
-    const country = await this.countryRepository.findOne({
-      where: { id: countryId },
+    const restaurant = await this.restaurantRepository.findOne({
+      where: { id: restaurantId },
       relations: {
         gastronomicCultures: true,
       },
     });
 
-    if (!country)
+    if (!restaurant)
       throw new BusinessLogicException(
-        "The country with the given id was not found",
+        "The restaurant with the given id was not found",
         BusinessError.NOT_FOUND,
       );
 
@@ -352,24 +355,24 @@ export class GastronomicCultureCountryService {
       }),
     );
 
-    country.gastronomicCultures = gastronomicCulturesInstance;
-    return await this.countryRepository.save(country);
+    restaurant.gastronomicCultures = gastronomicCulturesInstance;
+    return await this.restaurantRepository.save(restaurant);
   }
 
-  async deleteGastronomicCultureFromCountry(
-    countryId: string,
+  async deleteGastronomicCultureFromRestaurant(
+    restaurantId: string,
     gastronomicCultureId: string,
   ) {
-    const country = await this.countryRepository.findOne({
-      where: { id: countryId },
+    const restaurant = await this.restaurantRepository.findOne({
+      where: { id: restaurantId },
       relations: {
         gastronomicCultures: true,
       },
     });
 
-    if (!country)
+    if (!restaurant)
       throw new BusinessLogicException(
-        "The country with the given id was not found",
+        "The restaurant with the given id was not found",
         BusinessError.NOT_FOUND,
       );
 
@@ -384,21 +387,21 @@ export class GastronomicCultureCountryService {
       );
     }
 
-    const gastronomicCultureInCountry = country.gastronomicCultures.find(
+    const gastronomicCultureInRestaurant = restaurant.gastronomicCultures.find(
       (gc) => gc.id === gastronomicCultureId,
     );
 
-    if (!gastronomicCultureInCountry) {
+    if (!gastronomicCultureInRestaurant) {
       throw new BusinessLogicException(
-        "The gastronomic culture with the given id is not associated with the given country",
+        "The gastronomic culture with the given id is not associated with the given restaurant",
         BusinessError.PRECONDITION_FAILED,
       );
     }
 
-    country.gastronomicCultures = country.gastronomicCultures.filter(
+    restaurant.gastronomicCultures = restaurant.gastronomicCultures.filter(
       (gc) => gc.id !== gastronomicCultureId,
     );
 
-    await this.countryRepository.save(country);
+    await this.restaurantRepository.save(restaurant);
   }
 }

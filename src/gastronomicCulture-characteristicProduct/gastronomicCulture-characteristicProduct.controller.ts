@@ -49,7 +49,7 @@ export class GastronomicCultureCharacteristicProductController {
 
   @Get(":gastronomicCultureId/products")
   @Roles(UserRoles.ADMIN, UserRoles.FULL_READER, UserRoles.LIMITED_READER)
-  async findRestaurantsByCountryId(
+  async findCharacteristicProductsFromGastronomicCulture(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
   ) {
     return await this.gastronomicCultureCharacteristicProductService.findCharacteristicProductsFromGastronomicCulture(
@@ -59,7 +59,7 @@ export class GastronomicCultureCharacteristicProductController {
 
   @Post(":gastronomicCultureId/products/:productId")
   @Roles(UserRoles.ADMIN, UserRoles.WRITER)
-  async addRestaurantToCountry(
+  async addCharacteristicProductToGastronomicCulture(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
     @Param("productId") productId: string,
   ) {
@@ -71,12 +71,12 @@ export class GastronomicCultureCharacteristicProductController {
 
   @Put(":gastronomicCultureId/products")
   @Roles(UserRoles.ADMIN, UserRoles.WRITER)
-  async associateRestaurantsToCountry(
-    @Param("countryId") countryId: string,
+  async associateCharacteristicProductsToGastronomicCulture(
+    @Param("gastronomicCultureId") gastronomicCultureId: string,
     @Body() characteristicProductsDto: CharacteristicProductDto[],
   ) {
     return await this.gastronomicCultureCharacteristicProductService.associateCharacteristicProductsToGastronomicCulture(
-      countryId,
+      gastronomicCultureId,
       characteristicProductsDto,
     );
   }

@@ -5,8 +5,8 @@ import { Cache } from "cache-manager";
 import { plainToInstance } from "class-transformer";
 import { Repository } from "typeorm";
 
-import { CharacteristicProductDto } from "@/characteristicProduct/characteristicProduct.dto";
-import { CharacteristicProductEntity } from "@/characteristicProduct/characteristicProduct.entity";
+import { RecipeDto } from "@/recipe/recipe.dto";
+import { RecipeEntity } from "@/recipe/recipe.entity";
 import { GastronomicCultureEntity } from "@/gastronomicCulture/gastronomicCulture.entity";
 import {
   BusinessError,
@@ -14,26 +14,26 @@ import {
 } from "@/shared/errors/business-errors";
 
 @Injectable()
-export class GastronomicCultureCharacteristicProductService {
-  baseCacheKey = "gastronomicCulture-characteristicProduct";
+export class GastronomicCultureRecipeService {
+  baseCacheKey = "gastronomicCulture-recipe";
 
   constructor(
     @InjectRepository(GastronomicCultureEntity)
     private readonly gastronomicCultureRepository: Repository<GastronomicCultureEntity>,
-    @InjectRepository(CharacteristicProductEntity)
-    private readonly characteristicProductRepository: Repository<CharacteristicProductEntity>,
+    @InjectRepository(RecipeEntity)
+    private readonly recipeRepository: Repository<RecipeEntity>,
     @Inject(CACHE_MANAGER)
     private readonly cacheManager: Cache,
   ) {}
 
-  async addCharacteristicProductToGastronomicCulture(
+  async addRecipeToGastronomicCulture(
     gastronomicCultureId: string,
-    characteristicProductId: string,
+    recipeId: string,
   ) {
     const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
       where: { id: gastronomicCultureId },
       relations: {
-        characteristicProducts: true,
+        recipes: true,
       },
     });
     if (!gastronomicCulture) {
@@ -43,10 +43,9 @@ export class GastronomicCultureCharacteristicProductService {
       );
     }
 
-    const characteristicProduct =
-      await this.characteristicProductRepository.findOne({
-        where: { id: characteristicProductId },
-      });
+    const characteristicProduct = await this.recipeRepository.findOne({
+      where: { id: recipeId },
+    });
     if (!characteristicProduct) {
       throw new BusinessLogicException(
         "The characteristic product with the given id was not found",
@@ -54,30 +53,26 @@ export class GastronomicCultureCharacteristicProductService {
       );
     }
 
-    gastronomicCulture.characteristicProducts = [
-      ...gastronomicCulture.characteristicProducts,
+    gastronomicCulture.recipes = [
+      ...gastronomicCulture.recipes,
       characteristicProduct,
     ];
 
     return this.gastronomicCultureRepository.save(gastronomicCulture);
   }
 
-  async findCharacteristicProductsFromGastronomicCulture(
-    gastronomicCultureId: string,
-  ) {
+  async findRecipesFromGastronomicCulture(gastronomicCultureId: string) {
     const cacheKey = `${this.baseCacheKey}-${gastronomicCultureId}`;
+    const cachedRecipes = await this.cacheManager.get<RecipeEntity[]>(cacheKey);
 
-    const cachedCharacteristicProducts =
-      await this.cacheManager.get<CharacteristicProductEntity[]>(cacheKey);
-
-    if (cachedCharacteristicProducts) {
-      return cachedCharacteristicProducts;
+    if (cachedRecipes) {
+      return cachedRecipes;
     }
 
     const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
       where: { id: gastronomicCultureId },
       relations: {
-        characteristicProducts: true,
+        recipes: true,
       },
     });
 
@@ -88,22 +83,18 @@ export class GastronomicCultureCharacteristicProductService {
       );
     }
 
-    await this.cacheManager.set(
-      cacheKey,
-      gastronomicCulture.characteristicProducts,
-    );
+    await this.cacheManager.set(cacheKey, gastronomicCulture.recipes);
 
-    return gastronomicCulture.characteristicProducts;
+    return gastronomicCulture.recipes;
   }
 
-  async findCharacteristicProductFromGastronomicCulture(
+  async findRecipeFromGastronomicCulture(
     gastronomicCultureId: string,
-    characteristicProductId: string,
+    recipeId: string,
   ) {
-    const characteristicProduct =
-      await this.characteristicProductRepository.findOne({
-        where: { id: characteristicProductId },
-      });
+    const characteristicProduct = await this.recipeRepository.findOne({
+      where: { id: recipeId },
+    });
 
     if (!characteristicProduct)
       throw new BusinessLogicException(
@@ -114,7 +105,7 @@ export class GastronomicCultureCharacteristicProductService {
     const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
       where: { id: gastronomicCultureId },
       relations: {
-        characteristicProducts: true,
+        recipes: true,
       },
     });
     if (!gastronomicCulture)
@@ -124,9 +115,7 @@ export class GastronomicCultureCharacteristicProductService {
       );
 
     const characteristicProductInGastronomicCulture =
-      gastronomicCulture.characteristicProducts.find(
-        (c) => c.id === characteristicProductId,
-      );
+      gastronomicCulture.recipes.find((c) => c.id === recipeId);
     if (!characteristicProductInGastronomicCulture)
       throw new BusinessLogicException(
         "The characteristic product does not belong to the given gastronomic culture",
@@ -136,14 +125,14 @@ export class GastronomicCultureCharacteristicProductService {
     return characteristicProductInGastronomicCulture;
   }
 
-  async associateCharacteristicProductsToGastronomicCulture(
+  async associateRecipeToGastronomicCulture(
     gastronomicCultureId: string,
-    characteristicProductsDto: CharacteristicProductDto[],
+    recipesDto: RecipeDto[],
   ) {
     const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
       where: { id: gastronomicCultureId },
       relations: {
-        characteristicProducts: true,
+        recipes: true,
       },
     });
 
@@ -153,42 +142,36 @@ export class GastronomicCultureCharacteristicProductService {
         BusinessError.NOT_FOUND,
       );
 
-    const characteristicProductsInstance = plainToInstance(
-      CharacteristicProductEntity,
-      characteristicProductsDto,
-    );
+    const recipesInstance = plainToInstance(RecipeEntity, recipesDto);
 
     await Promise.all(
-      characteristicProductsInstance.map(
-        async (characteristicProductInstance) => {
-          const existingCharacteristicProduct =
-            await this.characteristicProductRepository.findOne({
-              where: { id: characteristicProductInstance.id },
-            });
+      recipesInstance.map(async (characteristicProductInstance) => {
+        const existingCharacteristicProduct =
+          await this.recipeRepository.findOne({
+            where: { id: characteristicProductInstance.id },
+          });
 
-          if (!existingCharacteristicProduct)
-            throw new BusinessLogicException(
-              "The characteristic product with the given id was not found",
-              BusinessError.NOT_FOUND,
-            );
+        if (!existingCharacteristicProduct)
+          throw new BusinessLogicException(
+            "The characteristic product with the given id was not found",
+            BusinessError.NOT_FOUND,
+          );
 
-          return characteristicProductInstance;
-        },
-      ),
+        return characteristicProductInstance;
+      }),
     );
 
-    gastronomicCulture.characteristicProducts = characteristicProductsInstance;
+    gastronomicCulture.recipes = recipesInstance;
     return await this.gastronomicCultureRepository.save(gastronomicCulture);
   }
 
-  async deleteCharacteristicProductFromGastronomicCulture(
+  async deleteRecipeFromGastronomicCulture(
     gastronomicCultureId: string,
-    characteristicProductId: string,
+    recipeId: string,
   ) {
-    const characteristicProduct =
-      await this.characteristicProductRepository.findOne({
-        where: { id: characteristicProductId },
-      });
+    const characteristicProduct = await this.recipeRepository.findOne({
+      where: { id: recipeId },
+    });
     if (!characteristicProduct)
       throw new BusinessLogicException(
         "The characteristic product with the given id was not found",
@@ -198,7 +181,7 @@ export class GastronomicCultureCharacteristicProductService {
     const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
       where: { id: gastronomicCultureId },
       relations: {
-        characteristicProducts: true,
+        recipes: true,
       },
     });
 
@@ -209,9 +192,7 @@ export class GastronomicCultureCharacteristicProductService {
       );
 
     const characteristicProductInGastronomicCulture =
-      gastronomicCulture.characteristicProducts.find(
-        (c) => c.id === characteristicProduct.id,
-      );
+      gastronomicCulture.recipes.find((c) => c.id === characteristicProduct.id);
 
     if (!characteristicProductInGastronomicCulture) {
       throw new BusinessLogicException(
@@ -220,10 +201,9 @@ export class GastronomicCultureCharacteristicProductService {
       );
     }
 
-    gastronomicCulture.characteristicProducts =
-      gastronomicCulture.characteristicProducts.filter(
-        (c) => c.id !== characteristicProductId,
-      );
+    gastronomicCulture.recipes = gastronomicCulture.recipes.filter(
+      (c) => c.id !== recipeId,
+    );
 
     await this.gastronomicCultureRepository.save(gastronomicCulture);
   }
