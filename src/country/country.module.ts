@@ -1,10 +1,12 @@
-import { Module } from "@nestjs/common";
 import { CacheModule } from "@nestjs/cache-manager";
-import { CountryService } from "./country.service";
+import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { CountryEntity } from "./country.entity";
-import { CountryController } from "./country.controller";
 import * as sqliteStore from "cache-manager-sqlite";
+
+import { CountryController } from "./country.controller";
+import { CountryEntity } from "./country.entity";
+import { CountryResolver } from "./country.resolver";
+import { CountryService } from "./country.service";
 
 @Module({
   imports: [
@@ -17,7 +19,7 @@ import * as sqliteStore from "cache-manager-sqlite";
       path: ":memory:",
     }),
   ],
-  providers: [CountryService],
+  providers: [CountryService, CountryResolver],
   controllers: [CountryController],
 })
 export class CountryModule {}
