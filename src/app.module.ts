@@ -16,6 +16,7 @@ import { GastronomicCultureModule } from "@/gastronomicCulture/gastronomicCultur
 import { RecipeModule } from "@/recipe/recipe.module";
 import { RestaurantModule } from "@/restaurant/restaurant.module";
 import { UserModule } from "@/user/user.module";
+import { GastronomicCultureRestaurantModule } from "./gastronomicCulture-restaurant/gastronomicCulture-restaurant.module";
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import { UserModule } from "@/user/user.module";
     GastronomicCultureCountryModule,
     GastronomicCultureModule,
     GastronomicCultureRecipeModule,
+    GastronomicCultureRestaurantModule,
     RecipeModule,
     RestaurantModule,
     UserModule,
