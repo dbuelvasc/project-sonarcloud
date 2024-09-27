@@ -1,5 +1,4 @@
 import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
-import { plainToInstance } from "class-transformer";
 
 import { CountryDto } from "./country.dto";
 import { CountryEntity } from "./country.entity";
@@ -22,8 +21,7 @@ export class CountryResolver {
   createCountry(
     @Args("country") countryDto: CountryDto,
   ): Promise<CountryEntity> {
-    const country = plainToInstance(CountryEntity, countryDto);
-    return this.countryService.create(country);
+    return this.countryService.create(countryDto);
   }
 
   @Mutation(() => CountryEntity)
@@ -31,8 +29,7 @@ export class CountryResolver {
     @Args("id") id: string,
     @Args("country") countryDto: CountryDto,
   ): Promise<CountryEntity> {
-    const country = plainToInstance(CountryEntity, countryDto);
-    return this.countryService.update(id, country);
+    return this.countryService.update(id, countryDto);
   }
 
   @Mutation(() => String)

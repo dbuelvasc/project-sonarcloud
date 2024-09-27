@@ -1,5 +1,4 @@
 import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
-import { plainToInstance } from "class-transformer";
 
 import { RestaurantDto } from "./restaurant.dto";
 import { RestaurantEntity } from "./restaurant.entity";
@@ -23,8 +22,7 @@ export class RestaurantResolver {
   createRestaurant(
     @Args("restaurant") restaurantDto: RestaurantDto,
   ): Promise<RestaurantEntity> {
-    const restaurant = plainToInstance(RestaurantEntity, restaurantDto);
-    return this.restaurantService.create(restaurant);
+    return this.restaurantService.create(restaurantDto);
   }
 
   @Mutation(() => RestaurantEntity)
@@ -32,8 +30,7 @@ export class RestaurantResolver {
     @Args("id") id: string,
     @Args("restaurant") restaurantDto: RestaurantDto,
   ): Promise<RestaurantEntity> {
-    const restaurant = plainToInstance(RestaurantEntity, restaurantDto);
-    return this.restaurantService.update(id, restaurant);
+    return this.restaurantService.update(id, restaurantDto);
   }
 
   @Mutation(() => String)
