@@ -11,6 +11,7 @@ import { CountryRestaurantModule } from "@/country-restaurant/country-restaurant
 import { CountryModule } from "@/country/country.module";
 import { GastronomicCultureCharacteristicProductModule } from "@/gastronomicCulture-characteristicProduct/gastronomicCulture-characteristicProduct.module";
 import { GastronomicCultureCountryModule } from "@/gastronomicCulture-country/gastronomicCulture-country.module";
+import { GastronomicCultureRecipeModule } from "@/gastronomicCulture-recipe/gastronomicCulture-recipe.module";
 import { GastronomicCultureModule } from "@/gastronomicCulture/gastronomicCulture.module";
 import { RecipeModule } from "@/recipe/recipe.module";
 import { RestaurantModule } from "@/restaurant/restaurant.module";
@@ -42,6 +43,7 @@ import { UserModule } from "@/user/user.module";
     GastronomicCultureCharacteristicProductModule,
     GastronomicCultureCountryModule,
     GastronomicCultureModule,
+    GastronomicCultureRecipeModule,
     RecipeModule,
     RestaurantModule,
     UserModule,
