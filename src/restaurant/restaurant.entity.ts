@@ -37,7 +37,7 @@ export class RestaurantEntity {
     () => GastronomicCultureEntity,
     (gastronomicCulture) => gastronomicCulture.restaurants,
   )
-  gastronomicCulture: GastronomicCultureEntity[];
+  gastronomicCultures: GastronomicCultureEntity[];
 
   @Field(() => CountryEntity)
   @ManyToOne(() => CountryEntity, (country) => country.restaurants)
