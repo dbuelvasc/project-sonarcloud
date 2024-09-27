@@ -40,10 +40,10 @@ type Query {
 
 type Mutation {
   createCountry(country: CountryDto!): CountryEntity!
-  updatePais(id: String!, country: CountryDto!): CountryEntity!
+  updateCountry(id: String!, country: CountryDto!): CountryEntity!
   deleteCountry(id: String!): String!
   createRestaurant(restaurant: RestaurantDto!): RestaurantEntity!
-  updateRestaurante(id: String!, restaurant: RestaurantDto!): RestaurantEntity!
+  updateRestaurant(id: String!, restaurant: RestaurantDto!): RestaurantEntity!
   deleteRestaurant(id: String!): String!
 }
 

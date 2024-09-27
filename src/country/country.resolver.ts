@@ -27,7 +27,7 @@ export class CountryResolver {
   }
 
   @Mutation(() => CountryEntity)
-  updatePais(
+  updateCountry(
     @Args("id") id: string,
     @Args("country") countryDto: CountryDto,
   ): Promise<CountryEntity> {

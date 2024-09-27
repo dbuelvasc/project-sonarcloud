@@ -28,7 +28,7 @@ export class RestaurantResolver {
   }
 
   @Mutation(() => RestaurantEntity)
-  updateRestaurante(
+  updateRestaurant(
     @Args("id") id: string,
     @Args("restaurant") restaurantDto: RestaurantDto,
   ): Promise<RestaurantEntity> {
