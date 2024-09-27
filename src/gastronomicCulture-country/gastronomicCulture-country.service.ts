@@ -63,7 +63,7 @@ export class GastronomicCultureCountryService {
   }
 
   async findCountriesFromGastronomicCulture(gastronomicCultureId: string) {
-    const cacheKey = `${this.baseCacheKey}-country-${gastronomicCultureId}`;
+    const cacheKey = `${this.baseCacheKey}-gastronomicCulture-${gastronomicCultureId}`;
     const cachedCountries =
       await this.cacheManager.get<CountryEntity[]>(cacheKey);
 

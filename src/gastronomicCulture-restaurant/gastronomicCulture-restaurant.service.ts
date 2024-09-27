@@ -63,7 +63,7 @@ export class GastronomicCultureRestaurantService {
   }
 
   async findRestaurantsFromGastronomicCulture(gastronomicCultureId: string) {
-    const cacheKey = `${this.baseCacheKey}-restaurant-${gastronomicCultureId}`;
+    const cacheKey = `${this.baseCacheKey}-gastronomicCulture-${gastronomicCultureId}`;
     const cachedRestaurants =
       await this.cacheManager.get<RestaurantEntity[]>(cacheKey);
 

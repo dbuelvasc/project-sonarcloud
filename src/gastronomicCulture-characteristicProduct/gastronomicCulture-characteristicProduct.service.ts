@@ -15,7 +15,7 @@ import {
 
 @Injectable()
 export class GastronomicCultureCharacteristicProductService {
-  cacheKey = "gastronomicCulture-characteristicProduct";
+  baseCacheKey = "gastronomicCulture-characteristicProduct";
 
   constructor(
     @InjectRepository(GastronomicCultureEntity)
@@ -65,9 +65,10 @@ export class GastronomicCultureCharacteristicProductService {
   async findCharacteristicProductsFromGastronomicCulture(
     gastronomicCultureId: string,
   ) {
-    const cachedCharacteristicProducts = await this.cacheManager.get<
-      CharacteristicProductEntity[]
-    >(this.cacheKey);
+    const cacheKey = `${this.baseCacheKey}-${gastronomicCultureId}`;
+
+    const cachedCharacteristicProducts =
+      await this.cacheManager.get<CharacteristicProductEntity[]>(cacheKey);
 
     if (cachedCharacteristicProducts) {
       return cachedCharacteristicProducts;
@@ -88,7 +89,7 @@ export class GastronomicCultureCharacteristicProductService {
     }
 
     await this.cacheManager.set(
-      this.cacheKey,
+      cacheKey,
       gastronomicCulture.characteristicProducts,
     );
 
