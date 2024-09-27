@@ -12,4 +12,18 @@ type CharacteristicProductEntity {
 
 type Query {
   characteristicProducts: [CharacteristicProductEntity!]!
+  characteristicProduct(id: String!): CharacteristicProductEntity!
+}
+
+type Mutation {
+  createCharacteristicProduct(categoriaProducto: CharacteristicProductDto!): CharacteristicProductEntity!
+  updateCharacteristicProduct(id: String!, categoriaProducto: CharacteristicProductDto!): CharacteristicProductEntity!
+  deletecharacteristicProduct(id: String!): String!
+}
+
+input CharacteristicProductDto {
+  name: String!
+  description: String!
+  history: String!
+  category: String!
 }
