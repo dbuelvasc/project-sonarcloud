@@ -1,13 +1,14 @@
+import { Field, ObjectType } from "@nestjs/graphql";
 import {
-  Entity,
-  PrimaryGeneratedColumn,
   Column,
+  Entity,
   ManyToMany,
   ManyToOne,
+  PrimaryGeneratedColumn,
 } from "typeorm";
-import { GastronomicCultureEntity } from "@/gastronomicCulture/gastronomicCulture.entity";
+
 import { CountryEntity } from "@/country/country.entity";
-import { Field, ObjectType } from '@nestjs/graphql';
+import { GastronomicCultureEntity } from "@/gastronomicCulture/gastronomicCulture.entity";
 
 @ObjectType()
 @Entity()
@@ -32,14 +33,13 @@ export class RestaurantEntity {
   @Column()
   awardDate: Date;
 
-  
   @ManyToMany(
     () => GastronomicCultureEntity,
     (gastronomicCulture) => gastronomicCulture.restaurants,
   )
   gastronomicCulture: GastronomicCultureEntity[];
 
-  @Field(type => CountryEntity)
+  @Field(() => CountryEntity)
   @ManyToOne(() => CountryEntity, (country) => country.restaurants)
   country: CountryEntity;
 }

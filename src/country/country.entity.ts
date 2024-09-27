@@ -1,3 +1,4 @@
+import { Field, ObjectType } from "@nestjs/graphql";
 import {
   Column,
   Entity,
@@ -9,7 +10,6 @@ import {
 
 import { GastronomicCultureEntity } from "@/gastronomicCulture/gastronomicCulture.entity";
 import { RestaurantEntity } from "@/restaurant/restaurant.entity";
-import { Field, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 @Entity()
@@ -22,12 +22,11 @@ export class CountryEntity {
   @Column()
   name: string;
 
-  @Field(type => [RestaurantEntity])
+  @Field(() => [RestaurantEntity])
   @OneToMany(() => RestaurantEntity, (restaurant) => restaurant.country)
   @JoinTable()
   restaurants: RestaurantEntity[];
 
-  
   @ManyToMany(
     () => GastronomicCultureEntity,
     (gastronomicCulture) => gastronomicCulture.countries,
