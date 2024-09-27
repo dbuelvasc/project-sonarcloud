@@ -1,27 +1,35 @@
+import { Field, ObjectType } from "@nestjs/graphql";
 import {
-  Entity,
-  PrimaryGeneratedColumn,
   Column,
+  Entity,
   ManyToMany,
   ManyToOne,
+  PrimaryGeneratedColumn,
 } from "typeorm";
-import { GastronomicCultureEntity } from "@/gastronomicCulture/gastronomicCulture.entity";
-import { CountryEntity } from "@/country/country.entity";
 
+import { CountryEntity } from "@/country/country.entity";
+import { GastronomicCultureEntity } from "@/gastronomicCulture/gastronomicCulture.entity";
+
+@ObjectType()
 @Entity()
 export class RestaurantEntity {
   @PrimaryGeneratedColumn("uuid")
+  @Field()
   id: string;
 
+  @Field()
   @Column()
   name: string;
 
+  @Field()
   @Column()
   city: string;
 
+  @Field()
   @Column()
   michelinStars: number;
 
+  @Field()
   @Column()
   awardDate: Date;
 
@@ -31,6 +39,7 @@ export class RestaurantEntity {
   )
   gastronomicCulture: GastronomicCultureEntity[];
 
+  @Field(() => CountryEntity)
   @ManyToOne(() => CountryEntity, (country) => country.restaurants)
   country: CountryEntity;
 }

@@ -45,9 +45,9 @@ describe("AuthService", () => {
       role: UserRoles.ADMIN,
     };
 
-    jest.spyOn(userService, "findOne").mockResolvedValue(user);
+    jest.spyOn(userService, "findOne").mockReturnValue(user);
 
-    const result = await service.validateUser("admin", "admin");
+    const result = service.validateUser("admin", "admin");
 
     expect(userService.findOne).toHaveBeenCalledWith("admin");
     expect(result).toEqual({
@@ -58,9 +58,9 @@ describe("AuthService", () => {
   });
 
   it("should return null if the user is not found", async () => {
-    jest.spyOn(userService, "findOne").mockResolvedValue(null);
+    jest.spyOn(userService, "findOne").mockReturnValue(null);
 
-    const result = await service.validateUser("testuser", "password");
+    const result = service.validateUser("testuser", "password");
 
     expect(userService.findOne).toHaveBeenCalledWith("testuser");
     expect(result).toBeNull();
@@ -73,9 +73,9 @@ describe("AuthService", () => {
       password: "admin",
       role: UserRoles.ADMIN,
     };
-    jest.spyOn(userService, "findOne").mockResolvedValue(user);
+    jest.spyOn(userService, "findOne").mockReturnValue(user);
 
-    const result = await service.validateUser("testuser", "wrongpassword");
+    const result = service.validateUser("testuser", "wrongpassword");
 
     expect(userService.findOne).toHaveBeenCalledWith("testuser");
     expect(result).toBeNull();
@@ -91,7 +91,7 @@ describe("AuthService", () => {
     const token = "generatedtoken";
     jest.spyOn(jwtService, "sign").mockReturnValue(token);
 
-    const result = await service.login({ user } as any);
+    const result = service.login({ user } as any);
 
     expect(result).toEqual({ token });
   });

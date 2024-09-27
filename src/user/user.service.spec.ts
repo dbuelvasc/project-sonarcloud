@@ -16,4 +16,12 @@ describe("UserService", () => {
   it("should be defined", () => {
     expect(service).toBeDefined();
   });
+
+  it("should return a user if it exists", () => {
+    expect(service.findOne("admin")).toBeDefined();
+  });
+
+  it("should return undefined if the user does not exist", () => {
+    expect(service.findOne("testuser")).toBeUndefined();
+  });
 });
