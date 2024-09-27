@@ -19,7 +19,6 @@ export class RestaurantDto {
   readonly michelinStars: number;
 
   @Field()
-  @IsString()
   @IsDateString()
   @IsNotEmpty()
   readonly awardDate: Date;
