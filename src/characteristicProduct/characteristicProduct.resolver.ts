@@ -1,5 +1,4 @@
 import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
-import { plainToInstance } from "class-transformer";
 
 import { CharacteristicProductDto } from "./characteristicProduct.dto";
 import { CharacteristicProductEntity } from "./characteristicProduct.entity";
@@ -23,31 +22,23 @@ export class CharacteristicProductResolver {
 
   @Mutation(() => CharacteristicProductEntity)
   createCharacteristicProduct(
-    @Args("categoriaProducto")
-    CharacteristicProductDto: CharacteristicProductDto,
+    @Args("characteristicProduct")
+    characteristicProductDto: CharacteristicProductDto,
   ): Promise<CharacteristicProductEntity> {
-    const categoriaProducto = plainToInstance(
-      CharacteristicProductEntity,
-      CharacteristicProductDto,
-    );
-    return this.service.create(categoriaProducto);
+    return this.service.create(characteristicProductDto);
   }
 
   @Mutation(() => CharacteristicProductEntity)
   updateCharacteristicProduct(
     @Args("id") id: string,
-    @Args("categoriaProducto")
-    CharacteristicProductDto: CharacteristicProductDto,
+    @Args("characteristicProduct")
+    characteristicProductDto: CharacteristicProductDto,
   ): Promise<CharacteristicProductEntity> {
-    const categoriaProducto = plainToInstance(
-      CharacteristicProductEntity,
-      CharacteristicProductDto,
-    );
-    return this.service.update(id, categoriaProducto);
+    return this.service.update(id, characteristicProductDto);
   }
 
   @Mutation(() => String)
-  deletecharacteristicProduct(@Args("id") id: string) {
+  deleteCharacteristicProduct(@Args("id") id: string) {
     this.service.delete(id);
     return id;
   }

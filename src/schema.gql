@@ -40,9 +40,9 @@ type Query {
 }
 
 type Mutation {
-  createCharacteristicProduct(categoriaProducto: CharacteristicProductDto!): CharacteristicProductEntity!
-  updateCharacteristicProduct(id: String!, categoriaProducto: CharacteristicProductDto!): CharacteristicProductEntity!
-  deletecharacteristicProduct(id: String!): String!
+  createCharacteristicProduct(characteristicProduct: CharacteristicProductDto!): CharacteristicProductEntity!
+  updateCharacteristicProduct(id: String!, characteristicProduct: CharacteristicProductDto!): CharacteristicProductEntity!
+  deleteCharacteristicProduct(id: String!): String!
   createCountry(country: CountryDto!): CountryEntity!
   updateCountry(id: String!, country: CountryDto!): CountryEntity!
   deleteCountry(id: String!): String!
