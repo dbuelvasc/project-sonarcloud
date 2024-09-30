@@ -27,6 +27,7 @@ export class CountryEntity {
   @JoinTable()
   restaurants: RestaurantEntity[];
 
+  @Field(() => [GastronomicCultureEntity])
   @ManyToMany(
     () => GastronomicCultureEntity,
     (gastronomicCulture) => gastronomicCulture.countries,
