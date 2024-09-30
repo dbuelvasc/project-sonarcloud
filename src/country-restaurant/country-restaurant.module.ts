@@ -5,11 +5,12 @@ import * as sqliteStore from "cache-manager-sqlite";
 
 import { CountryEntity } from "@/country/country.entity";
 import { RestaurantEntity } from "@/restaurant/restaurant.entity";
-import { CountryRestaurantService } from "./country-restaurant.service";
 import { CountryRestaurantController } from "./country-restaurant.controller";
+import { CountryRestaurantResolver } from "./country-restaurant.resolver";
+import { CountryRestaurantService } from "./country-restaurant.service";
 
 @Module({
-  providers: [CountryRestaurantService],
+  providers: [CountryRestaurantService, CountryRestaurantResolver],
   controllers: [CountryRestaurantController],
   imports: [
     TypeOrmModule.forFeature([CountryEntity, RestaurantEntity]),
