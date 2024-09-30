@@ -24,7 +24,7 @@ export class CountryService {
     private readonly cacheManager: Cache,
   ) {}
 
-  async findAll(): Promise<CountryEntity[]> {
+  async findAll(includeRelations: boolean = false): Promise<CountryEntity[]> {
     const cachedCountries: CountryEntity[] | undefined =
       await this.cacheManager.get<CountryEntity[]>(this.cacheKey);
 
@@ -32,15 +32,29 @@ export class CountryService {
       return cachedCountries;
     }
 
-    const countries = await this.countryRepository.find();
+    const countries = await this.countryRepository.find({
+      relations: {
+        restaurants: includeRelations,
+        gastronomicCultures: includeRelations,
+      },
+    });
 
     await this.cacheManager.set(this.cacheKey, countries);
 
     return countries;
   }
 
-  async findOne(id: string): Promise<CountryEntity> {
-    const country = await this.countryRepository.findOne({ where: { id } });
+  async findOne(
+    id: string,
+    includeRelations: boolean = false,
+  ): Promise<CountryEntity> {
+    const country = await this.countryRepository.findOne({
+      where: { id },
+      relations: {
+        restaurants: includeRelations,
+        gastronomicCultures: includeRelations,
+      },
+    });
     if (!country) {
       throw new BusinessLogicException(
         "The country with the given id was not found",
