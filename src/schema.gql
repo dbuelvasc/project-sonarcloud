@@ -51,6 +51,8 @@ type Query {
   characteristicProduct(id: String!): CharacteristicProductEntity!
   countries: [CountryEntity!]!
   country(id: String!): CountryEntity!
+  findCharacteristicProductFromGastronomicCulture(gastronomicCultureId: String!, productId: String!): GastronomicCultureEntity!
+  findCharacteristicProductsFromGastronomicCulture(gastronomicCultureId: String!): [GastronomicCultureEntity!]!
   gastronomicCultures: [GastronomicCultureEntity!]!
   gastronomicCulture(id: String!): GastronomicCultureEntity!
   recipes: [RecipeEntity!]!
@@ -66,6 +68,9 @@ type Mutation {
   createCountry(country: CountryDto!): CountryEntity!
   updateCountry(id: String!, country: CountryDto!): CountryEntity!
   deleteCountry(id: String!): String!
+  addCharacteristicProductToGastronomicCulture(gastronomicCultureId: String!, productId: String!): GastronomicCultureEntity!
+  associateCharacteristicProductsToGastronomicCulture(gastronomicCultureId: String!, characteristicProducts: [CharacteristicProductDto!]!): [GastronomicCultureEntity!]!
+  deleteCharacteristicProductFromGastronomicCulture(gastronomicCultureId: String!, productId: String!): Boolean!
   createGastronomicCulture(gastronomicCulture: GastronomicCultureDto!): GastronomicCultureEntity!
   updateGastronomicCulture(id: String!, gastronomicCulture: GastronomicCultureDto!): GastronomicCultureEntity!
   deleteGastronomicCulture(id: String!): String!
