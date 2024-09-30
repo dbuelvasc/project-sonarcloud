@@ -22,6 +22,25 @@ type CountryEntity {
   restaurants: [RestaurantEntity!]!
 }
 
+type RecipeEntity {
+  id: String!
+  name: String!
+  description: String!
+  photo: String!
+  preparationProcess: String!
+  video: String
+  gastronomicCulture: GastronomicCultureEntity
+}
+
+type GastronomicCultureEntity {
+  id: String!
+  name: String!
+  characteristicProducts: [CharacteristicProductEntity!]!
+  restaurants: [RestaurantEntity!]!
+  countries: [CountryEntity!]!
+  recipes: [RecipeEntity!]!
+}
+
 type CharacteristicProductEntity {
   id: String!
   name: String!
@@ -35,6 +54,10 @@ type Query {
   characteristicProduct(id: String!): CharacteristicProductEntity!
   countries: [CountryEntity!]!
   country(id: String!): CountryEntity!
+  gastronomicCultures: [GastronomicCultureEntity!]!
+  gastronomicCulture(id: String!): GastronomicCultureEntity!
+  recipes: [RecipeEntity!]!
+  recipe(id: String!): RecipeEntity!
   restaurants: [RestaurantEntity!]!
   restaurant(id: String!): RestaurantEntity!
 }
@@ -46,6 +69,12 @@ type Mutation {
   createCountry(country: CountryDto!): CountryEntity!
   updateCountry(id: String!, country: CountryDto!): CountryEntity!
   deleteCountry(id: String!): String!
+  createGastronomicCulture(gastronomicCulture: GastronomicCultureDto!): GastronomicCultureEntity!
+  updateGastronomicCulture(id: String!, gastronomicCulture: GastronomicCultureDto!): GastronomicCultureEntity!
+  deleteGastronomicCulture(id: String!): String!
+  createRecipe(recipe: RecipeDto!): RecipeEntity!
+  updateRecipe(id: String!, recipe: RecipeDto!): RecipeEntity!
+  deleteRecipe(id: String!): String!
   createRestaurant(restaurant: RestaurantDto!): RestaurantEntity!
   updateRestaurant(id: String!, restaurant: RestaurantDto!): RestaurantEntity!
   deleteRestaurant(id: String!): String!
@@ -60,6 +89,18 @@ input CharacteristicProductDto {
 
 input CountryDto {
   name: String!
+}
+
+input GastronomicCultureDto {
+  name: String!
+}
+
+input RecipeDto {
+  name: String!
+  description: String!
+  photo: String!
+  preparationProcess: String!
+  video: String!
 }
 
 input RestaurantDto {
