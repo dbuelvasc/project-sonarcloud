@@ -37,7 +37,7 @@ export class CountryGastronomicCultureController {
 
   @Get(":countryId/gastronomic-cultures/:gastronomicCultureId")
   @Roles(UserRoles.ADMIN, UserRoles.FULL_READER)
-  async findCharacteristicProductFromGastronomicCulture(
+  async findGastronomicCultureFromCountry(
     @Param("countryId") countryId: string,
     @Param("gastronomicCultureId") gastronomicCultureId: string,
   ) {
@@ -49,7 +49,9 @@ export class CountryGastronomicCultureController {
 
   @Get(":countryId/gastronomic-cultures")
   @Roles(UserRoles.ADMIN, UserRoles.FULL_READER, UserRoles.LIMITED_READER)
-  async findRestaurantsByCountryId(@Param("countryId") countryId: string) {
+  async findGastronomicCulturesFromCountry(
+    @Param("countryId") countryId: string,
+  ) {
     return await this.gastronomicCultureCharacteristicProductService.findGastronomicCulturesFromCountry(
       countryId,
     );
@@ -57,7 +59,7 @@ export class CountryGastronomicCultureController {
 
   @Post(":countryId/gastronomic-cultures/:gastronomicCultureId")
   @Roles(UserRoles.ADMIN, UserRoles.WRITER)
-  async addRestaurantToCountry(
+  async addGastronomicCultureToCountry(
     @Param("countryId") countryId: string,
     @Param("gastronomicCultureId") gastronomicCultureId: string,
   ) {
@@ -69,7 +71,7 @@ export class CountryGastronomicCultureController {
 
   @Put(":countryId/gastronomic-cultures")
   @Roles(UserRoles.ADMIN, UserRoles.WRITER)
-  async associateRestaurantsToCountry(
+  async associateGastronomicCulturesToCountry(
     @Param("countryId") countryId: string,
     @Body() gastronomicCulturesDto: GastronomicCultureDto[],
   ) {
@@ -82,7 +84,7 @@ export class CountryGastronomicCultureController {
   @Delete(":countryId/gastronomic-cultures/:gastronomicCultureId")
   @Roles(UserRoles.ADMIN, UserRoles.DELETE)
   @HttpCode(HttpStatus.NO_CONTENT)
-  async deleteRestaurantFromCountry(
+  async deleteGastronomicCultureFromCountry(
     @Param("countryId") countryId: string,
     @Param("gastronomicCultureId") gastronomicCultureId: string,
   ) {

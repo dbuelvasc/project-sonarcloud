@@ -53,6 +53,10 @@ type Query {
   country(id: String!): CountryEntity!
   findCharacteristicProductFromGastronomicCulture(gastronomicCultureId: String!, productId: String!): GastronomicCultureEntity!
   findCharacteristicProductsFromGastronomicCulture(gastronomicCultureId: String!): [GastronomicCultureEntity!]!
+  findGastronomicCultureFromCountry(countryId: String!, gastronomicCultureId: String!): GastronomicCultureEntity!
+  findGastronomicCulturesFromCountry(countryId: String!): [GastronomicCultureEntity!]!
+  findCountryFromGastronomicCulture(gastronomicCultureId: String!, countryId: String!): CountryEntity!
+  findCountriesFromGastronomicCulture(gastronomicCultureId: String!): [CountryEntity!]!
   gastronomicCultures: [GastronomicCultureEntity!]!
   gastronomicCulture(id: String!): GastronomicCultureEntity!
   recipes: [RecipeEntity!]!
@@ -71,6 +75,12 @@ type Mutation {
   addCharacteristicProductToGastronomicCulture(gastronomicCultureId: String!, productId: String!): GastronomicCultureEntity!
   associateCharacteristicProductsToGastronomicCulture(gastronomicCultureId: String!, characteristicProducts: [CharacteristicProductDto!]!): [GastronomicCultureEntity!]!
   deleteCharacteristicProductFromGastronomicCulture(gastronomicCultureId: String!, productId: String!): Boolean!
+  addGastronomicCultureToCountry(countryId: String!, gastronomicCultureId: String!): CountryEntity!
+  associateGastronomicCulturesToCountry(countryId: String!, gastronomicCultures: [GastronomicCultureDto!]!): CountryEntity!
+  deleteGastronomicCultureFromCountry(countryId: String!, gastronomicCultureId: String!): Boolean!
+  addCountryToGastronomicCulture(gastronomicCultureId: String!, countryId: String!): GastronomicCultureEntity!
+  associateCountriesToGastronomicCulture(gastronomicCultureId: String!, countries: [CountryDto!]!): GastronomicCultureEntity!
+  deleteCountryFromGastronomicCulture(gastronomicCultureId: String!, countryId: String!): Boolean!
   createGastronomicCulture(gastronomicCulture: GastronomicCultureDto!): GastronomicCultureEntity!
   updateGastronomicCulture(id: String!, gastronomicCulture: GastronomicCultureDto!): GastronomicCultureEntity!
   deleteGastronomicCulture(id: String!): String!

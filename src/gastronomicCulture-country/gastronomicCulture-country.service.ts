@@ -127,7 +127,7 @@ export class GastronomicCultureCountryService {
     return characteristicProductInGastronomicCulture;
   }
 
-  async associateCountryToGastronomicCulture(
+  async associateCountriesToGastronomicCulture(
     gastronomicCultureId: string,
     countriesDto: CountryDto[],
   ) {
