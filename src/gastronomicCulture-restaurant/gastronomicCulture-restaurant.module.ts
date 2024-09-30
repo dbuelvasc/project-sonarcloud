@@ -8,9 +8,15 @@ import { GastronomicCultureEntity } from "@/gastronomicCulture/gastronomicCultur
 import { RestaurantGastronomicCultureController } from "./restaurant-gastronomicCulture.controller";
 import { GastronomicCultureRestaurantController } from "./gastronomicCulture-restaurant.controller";
 import { GastronomicCultureRestaurantService } from "./gastronomicCulture-restaurant.service";
+import { GastronomicCultureRestaurantResolver } from "./gastronomicCulture-restaurant.resolver";
+import { RestaurantGastronomicCultureResolver } from "./restaurant-gastronomicCulture.resolver";
 
 @Module({
-  providers: [GastronomicCultureRestaurantService],
+  providers: [
+    GastronomicCultureRestaurantService,
+    GastronomicCultureRestaurantResolver,
+    RestaurantGastronomicCultureResolver,
+  ],
   controllers: [
     RestaurantGastronomicCultureController,
     GastronomicCultureRestaurantController,

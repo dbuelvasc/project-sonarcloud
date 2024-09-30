@@ -12,7 +12,7 @@ export class GastronomicCultureRecipeResolver {
   ) {}
 
   @Query(() => RecipeEntity)
-  async findCharacteristicProductFromGastronomicCulture(
+  async findCharacteristicProductFromRecipe(
     @Args("gastronomicCultureId") gastronomicCultureId: string,
     @Args("recipeId") recipeId: string,
   ) {

@@ -51,7 +51,7 @@ type Query {
   characteristicProduct(id: String!): CharacteristicProductEntity!
   countries: [CountryEntity!]!
   country(id: String!): CountryEntity!
-  findCharacteristicProductFromGastronomicCulture(gastronomicCultureId: String!, recipeId: String!): RecipeEntity!
+  findCharacteristicProductFromGastronomicCulture(gastronomicCultureId: String!, productId: String!): GastronomicCultureEntity!
   findCharacteristicProductsFromGastronomicCulture(gastronomicCultureId: String!): [GastronomicCultureEntity!]!
   findGastronomicCultureFromCountry(countryId: String!, gastronomicCultureId: String!): GastronomicCultureEntity!
   findGastronomicCulturesFromCountry(countryId: String!): [GastronomicCultureEntity!]!
@@ -59,7 +59,12 @@ type Query {
   findCountriesFromGastronomicCulture(gastronomicCultureId: String!): [CountryEntity!]!
   gastronomicCultures: [GastronomicCultureEntity!]!
   gastronomicCulture(id: String!): GastronomicCultureEntity!
+  findCharacteristicProductFromRecipe(gastronomicCultureId: String!, recipeId: String!): RecipeEntity!
   findRestaurantsByRecipeId(gastronomicCultureId: String!): [RecipeEntity!]!
+  findRestaurantFromGastronomicCulture(gastronomicCultureId: String!, restaurantId: String!): RestaurantEntity!
+  findRestaurantsByGastronomicCulture(gastronomicCultureId: String!): [RestaurantEntity!]!
+  findGastronomicCultureFromRestaurant(restaurantId: String!, gastronomicCultureId: String!): GastronomicCultureEntity!
+  findGastronomicCulturesByRestaurant(restaurantId: String!): [GastronomicCultureEntity!]!
   recipes: [RecipeEntity!]!
   recipe(id: String!): RecipeEntity!
   restaurants: [RestaurantEntity!]!
@@ -88,6 +93,12 @@ type Mutation {
   addRestaurantToRecipe(gastronomicCultureId: String!, recipeId: String!): GastronomicCultureEntity!
   associateRestaurantsToRecipe(recipeId: String!, recipes: [RecipeDto!]!): GastronomicCultureEntity!
   deleteRestaurantFromRecipe(gastronomicCultureId: String!, recipeId: String!): Boolean!
+  addRestaurantToGastronomicCulture(gastronomicCultureId: String!, restaurantId: String!): GastronomicCultureEntity!
+  associateRestaurantsToGastronomicCulture(restaurantId: String!, restaurants: [RestaurantDto!]!): GastronomicCultureEntity!
+  deleteRestaurantFromGastronomicCulture(gastronomicCultureId: String!, restaurantId: String!): Boolean!
+  addGastronomicCultureToRestaurant(restaurantId: String!, gastronomicCultureId: String!): RestaurantEntity!
+  associateGastronomicCulturesToRestaurant(restaurantId: String!, gastronomicCultures: [GastronomicCultureDto!]!): RestaurantEntity!
+  deleteGastronomicCultureFromRestaurant(restaurantId: String!, gastronomicCultureId: String!): Boolean!
   createRecipe(recipe: RecipeDto!): RecipeEntity!
   updateRecipe(id: String!, recipe: RecipeDto!): RecipeEntity!
   deleteRecipe(id: String!): String!

@@ -11,7 +11,7 @@ export class GastronomicCultureRestaurantResolver {
   ) {}
 
   @Query(() => RestaurantEntity)
-  async findCharacteristicProductFromGastronomicCulture(
+  async findRestaurantFromGastronomicCulture(
     @Args("gastronomicCultureId") gastronomicCultureId: string,
     @Args("restaurantId") restaurantId: string,
   ) {
@@ -22,7 +22,7 @@ export class GastronomicCultureRestaurantResolver {
   }
 
   @Query(() => [RestaurantEntity])
-  async findRestaurantsByRestaurantId(
+  async findRestaurantsByGastronomicCulture(
     @Args("gastronomicCultureId") gastronomicCultureId: string,
   ) {
     return await this.gastronomicCultureRestaurantService.findRestaurantsFromGastronomicCulture(
@@ -31,7 +31,7 @@ export class GastronomicCultureRestaurantResolver {
   }
 
   @Mutation(() => GastronomicCultureEntity)
-  async addRestaurantToRestaurant(
+  async addRestaurantToGastronomicCulture(
     @Args("gastronomicCultureId") gastronomicCultureId: string,
     @Args("restaurantId") restaurantId: string,
   ) {
@@ -54,7 +54,7 @@ export class GastronomicCultureRestaurantResolver {
   }
 
   @Mutation(() => Boolean)
-  async deleteRestaurantFromRestaurant(
+  async deleteRestaurantFromGastronomicCulture(
     @Args("gastronomicCultureId") gastronomicCultureId: string,
     @Args("restaurantId") restaurantId: string,
   ) {
