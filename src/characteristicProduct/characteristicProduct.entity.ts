@@ -26,7 +26,7 @@ export class CharacteristicProductEntity {
   @Column()
   category: string;
 
-  // @Field(() => GastronomicCultureEntity)
+  @Field(() => GastronomicCultureEntity, { nullable: true })
   @ManyToOne(
     () => GastronomicCultureEntity,
     (gastronomicCulture) => gastronomicCulture.characteristicProducts,

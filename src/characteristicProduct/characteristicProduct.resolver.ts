@@ -10,14 +10,14 @@ export class CharacteristicProductResolver {
 
   @Query(() => [CharacteristicProductEntity])
   async characteristicProducts() {
-    return this.service.findAll();
+    return this.service.findAll(true);
   }
 
   @Query(() => CharacteristicProductEntity)
   async characteristicProduct(
     @Args("id") id: string,
   ): Promise<CharacteristicProductEntity> {
-    return this.service.findOne(id);
+    return this.service.findOne(id, true);
   }
 
   @Mutation(() => CharacteristicProductEntity)

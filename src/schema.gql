@@ -47,6 +47,7 @@ type CharacteristicProductEntity {
   description: String!
   history: String!
   category: String!
+  gastronomicCulture: GastronomicCultureEntity
 }
 
 type Query {
