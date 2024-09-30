@@ -45,7 +45,7 @@ describe("GastronomicCultureRestaurantService", () => {
         name: faker.company.name(),
         city: faker.location.city(),
         michelinStars: faker.number.int({ min: 1, max: 3 }),
-        awardDate: faker.date.past(),
+        awardDate: faker.date.past().toISOString(),
         gastronomicCulture: [],
       });
       restaurantsList.push(restaurant);
@@ -67,7 +67,7 @@ describe("GastronomicCultureRestaurantService", () => {
       name: faker.company.name(),
       city: faker.location.city(),
       michelinStars: faker.number.int({ min: 1, max: 3 }),
-      awardDate: faker.date.past(),
+      awardDate: faker.date.past().toISOString(),
       gastronomicCulture: [],
     });
 
@@ -96,7 +96,7 @@ describe("GastronomicCultureRestaurantService", () => {
       name: faker.company.name(),
       city: faker.location.city(),
       michelinStars: faker.number.int({ min: 1, max: 3 }),
-      awardDate: faker.date.past(),
+      awardDate: faker.date.past().toISOString(),
       gastronomicCulture: [],
     });
 
@@ -160,7 +160,7 @@ describe("GastronomicCultureRestaurantService", () => {
       name: faker.company.name(),
       city: faker.location.city(),
       michelinStars: faker.number.int({ min: 1, max: 3 }),
-      awardDate: faker.date.past(),
+      awardDate: faker.date.past().toISOString(),
       gastronomicCulture: [],
     });
 
@@ -180,7 +180,7 @@ describe("GastronomicCultureRestaurantService", () => {
       name: faker.company.name(),
       city: faker.location.city(),
       michelinStars: faker.number.int({ min: 1, max: 3 }),
-      awardDate: faker.date.past(),
+      awardDate: faker.date.past().toISOString(),
       gastronomicCulture: [],
     });
 
@@ -214,7 +214,7 @@ describe("GastronomicCultureRestaurantService", () => {
       name: faker.company.name(),
       city: faker.location.city(),
       michelinStars: faker.number.int({ min: 1, max: 3 }),
-      awardDate: faker.date.past(),
+      awardDate: faker.date.past().toISOString(),
       gastronomicCulture: [],
     });
 
@@ -273,7 +273,7 @@ describe("GastronomicCultureRestaurantService", () => {
       name: faker.company.name(),
       city: faker.location.city(),
       michelinStars: faker.number.int({ min: 1, max: 3 }),
-      awardDate: faker.date.past(),
+      awardDate: faker.date.past().toISOString(),
       gastronomicCulture: [],
     });
 

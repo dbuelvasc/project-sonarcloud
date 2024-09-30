@@ -43,7 +43,7 @@ describe("CountryRestaurantService", () => {
         name: faker.company.name(),
         city: faker.location.city(),
         michelinStars: faker.number.int({ min: 1, max: 5 }),
-        awardDate: faker.date.past(),
+        awardDate: faker.date.past().toISOString(),
       });
       restaurantsList.push(restaurant);
     }
@@ -63,7 +63,7 @@ describe("CountryRestaurantService", () => {
       name: faker.company.name(),
       city: faker.location.city(),
       michelinStars: faker.number.int({ min: 1, max: 5 }),
-      awardDate: faker.date.past(),
+      awardDate: faker.date.past().toISOString(),
     });
 
     const result: CountryEntity = await service.addRestaurantToCountry(
@@ -89,7 +89,7 @@ describe("CountryRestaurantService", () => {
       name: faker.company.name(),
       city: faker.location.city(),
       michelinStars: faker.number.int({ min: 1, max: 5 }),
-      awardDate: faker.date.past(),
+      awardDate: faker.date.past().toISOString(),
     });
 
     await expect(
@@ -133,7 +133,7 @@ describe("CountryRestaurantService", () => {
       name: faker.company.name(),
       city: faker.location.city(),
       michelinStars: faker.number.int({ min: 1, max: 5 }),
-      awardDate: faker.date.past(),
+      awardDate: faker.date.past().toISOString(),
     });
 
     await expect(
@@ -164,7 +164,7 @@ describe("CountryRestaurantService", () => {
       name: faker.company.name(),
       city: faker.location.city(),
       michelinStars: faker.number.int({ min: 1, max: 5 }),
-      awardDate: faker.date.past(),
+      awardDate: faker.date.past().toISOString(),
     });
 
     const updatedCountry: CountryEntity =
@@ -179,7 +179,7 @@ describe("CountryRestaurantService", () => {
       name: faker.company.name(),
       city: faker.location.city(),
       michelinStars: faker.number.int({ min: 1, max: 5 }),
-      awardDate: faker.date.past(),
+      awardDate: faker.date.past().toISOString(),
     });
 
     newRestaurant.id = "a00e7840-77aa-4065-964a-d9e216eaf076";
@@ -197,7 +197,7 @@ describe("CountryRestaurantService", () => {
       name: faker.company.name(),
       city: faker.location.city(),
       michelinStars: faker.number.int({ min: 1, max: 5 }),
-      awardDate: faker.date.past(),
+      awardDate: faker.date.past().toISOString(),
     });
 
     await expect(
@@ -248,7 +248,7 @@ describe("CountryRestaurantService", () => {
       name: faker.company.name(),
       city: faker.location.city(),
       michelinStars: faker.number.int({ min: 1, max: 5 }),
-      awardDate: faker.date.past(),
+      awardDate: faker.date.past().toISOString(),
     });
 
     await expect(

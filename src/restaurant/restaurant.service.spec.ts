@@ -34,7 +34,7 @@ describe("RestaurantService", () => {
         name: faker.company.name(),
         city: faker.location.city(),
         michelinStars: faker.number.int({ min: 1, max: 3 }),
-        awardDate: faker.date.past(),
+        awardDate: faker.date.past().toISOString(),
         gastronomicCulture: [],
       });
       restaurantList.push(restaurant);
@@ -73,7 +73,7 @@ describe("RestaurantService", () => {
       name: faker.company.name(),
       city: faker.location.city() || "Default City", // Asegurarse de que city no sea nulo
       michelinStars: faker.number.int({ min: 1, max: 3 }),
-      awardDate: faker.date.past(),
+      awardDate: faker.date.past().toISOString(),
       gastronomicCulture: [],
     };
 
