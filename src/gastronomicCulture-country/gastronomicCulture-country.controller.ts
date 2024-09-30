@@ -37,7 +37,7 @@ export class GastronomicCultureCountryController {
 
   @Get(":gastronomicCultureId/countries/:countryId")
   @Roles(UserRoles.ADMIN, UserRoles.FULL_READER)
-  async findCharacteristicProductFromGastronomicCulture(
+  async findCountryFromGastronomicCulture(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
     @Param("countryId") countryId: string,
   ) {
@@ -49,7 +49,7 @@ export class GastronomicCultureCountryController {
 
   @Get(":gastronomicCultureId/countries")
   @Roles(UserRoles.ADMIN, UserRoles.FULL_READER, UserRoles.LIMITED_READER)
-  async findRestaurantsByCountryId(
+  async findCountriesFromGastronomicCulture(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
   ) {
     return await this.gastronomicCultureCountryService.findCountriesFromGastronomicCulture(
@@ -59,7 +59,7 @@ export class GastronomicCultureCountryController {
 
   @Post(":gastronomicCultureId/countries/:countryId")
   @Roles(UserRoles.ADMIN, UserRoles.WRITER)
-  async addRestaurantToCountry(
+  async addCountryToGastronomicCulture(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
     @Param("countryId") countryId: string,
   ) {
@@ -71,11 +71,11 @@ export class GastronomicCultureCountryController {
 
   @Put(":gastronomicCultureId/countries")
   @Roles(UserRoles.ADMIN, UserRoles.WRITER)
-  async associateRestaurantsToCountry(
+  async associateCountriesToGastronomicCulture(
     @Param("countryId") countryId: string,
     @Body() countriesDto: CountryDto[],
   ) {
-    return await this.gastronomicCultureCountryService.associateCountryToGastronomicCulture(
+    return await this.gastronomicCultureCountryService.associateCountriesToGastronomicCulture(
       countryId,
       countriesDto,
     );
@@ -84,7 +84,7 @@ export class GastronomicCultureCountryController {
   @Delete(":gastronomicCultureId/countries/:countryId")
   @Roles(UserRoles.ADMIN, UserRoles.DELETE)
   @HttpCode(HttpStatus.NO_CONTENT)
-  async deleteRestaurantFromCountry(
+  async deleteCountryFromGastronomicCulture(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
     @Param("countryId") countryId: string,
   ) {

@@ -22,7 +22,7 @@ export class RecipeService {
     private readonly cacheManager: Cache,
   ) {}
 
-  async findAll(): Promise<RecipeEntity[]> {
+  async findAll(includeRelations: boolean = false): Promise<RecipeEntity[]> {
     const cachedRecipes = await this.cacheManager.get<
       RecipeEntity[] | undefined
     >(this.cacheKey);
@@ -31,15 +31,27 @@ export class RecipeService {
       return cachedRecipes;
     }
 
-    const recipes = await this.recipeRepository.find();
+    const recipes = await this.recipeRepository.find({
+      relations: {
+        gastronomicCulture: includeRelations,
+      },
+    });
 
     await this.cacheManager.set(this.cacheKey, recipes);
 
     return recipes;
   }
 
-  async findOne(id: string): Promise<RecipeEntity> {
-    const recipe = await this.recipeRepository.findOne({ where: { id } });
+  async findOne(
+    id: string,
+    includeRelations: boolean = false,
+  ): Promise<RecipeEntity> {
+    const recipe = await this.recipeRepository.findOne({
+      where: { id },
+      relations: {
+        gastronomicCulture: includeRelations,
+      },
+    });
     if (!recipe) {
       throw new BusinessLogicException(
         "The recipe with the given id was not found",

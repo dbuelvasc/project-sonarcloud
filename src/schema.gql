@@ -7,19 +7,34 @@ type RestaurantEntity {
   name: String!
   city: String!
   michelinStars: Float!
-  awardDate: DateTime!
-  country: CountryEntity!
+  awardDate: String!
+  country: CountryEntity
 }
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
 
 type CountryEntity {
   id: String!
   name: String!
   restaurants: [RestaurantEntity!]!
+  gastronomicCultures: [GastronomicCultureEntity!]!
+}
+
+type RecipeEntity {
+  id: String!
+  name: String!
+  description: String!
+  photo: String!
+  preparationProcess: String!
+  video: String
+  gastronomicCulture: GastronomicCultureEntity
+}
+
+type GastronomicCultureEntity {
+  id: String!
+  name: String!
+  characteristicProducts: [CharacteristicProductEntity!]!
+  restaurants: [RestaurantEntity!]!
+  countries: [CountryEntity!]!
+  recipes: [RecipeEntity!]!
 }
 
 type CharacteristicProductEntity {
@@ -28,6 +43,7 @@ type CharacteristicProductEntity {
   description: String!
   history: String!
   category: String!
+  gastronomicCulture: GastronomicCultureEntity
 }
 
 type Query {
@@ -35,6 +51,24 @@ type Query {
   characteristicProduct(id: String!): CharacteristicProductEntity!
   countries: [CountryEntity!]!
   country(id: String!): CountryEntity!
+  findRestaurantFromCountry(countryId: String!, restaurantId: String!): RestaurantEntity!
+  findRestaurantsFromCountry(countryId: String!): [RestaurantEntity!]!
+  findCharacteristicProductFromGastronomicCulture(gastronomicCultureId: String!, productId: String!): GastronomicCultureEntity!
+  findCharacteristicProductsFromGastronomicCulture(gastronomicCultureId: String!): [GastronomicCultureEntity!]!
+  findGastronomicCultureFromCountry(countryId: String!, gastronomicCultureId: String!): GastronomicCultureEntity!
+  findGastronomicCulturesFromCountry(countryId: String!): [GastronomicCultureEntity!]!
+  findCountryFromGastronomicCulture(gastronomicCultureId: String!, countryId: String!): CountryEntity!
+  findCountriesFromGastronomicCulture(gastronomicCultureId: String!): [CountryEntity!]!
+  gastronomicCultures: [GastronomicCultureEntity!]!
+  gastronomicCulture(id: String!): GastronomicCultureEntity!
+  findCharacteristicProductFromRecipe(gastronomicCultureId: String!, recipeId: String!): RecipeEntity!
+  findRestaurantsByRecipeId(gastronomicCultureId: String!): [RecipeEntity!]!
+  findRestaurantFromGastronomicCulture(gastronomicCultureId: String!, restaurantId: String!): RestaurantEntity!
+  findRestaurantsByGastronomicCulture(gastronomicCultureId: String!): [RestaurantEntity!]!
+  findGastronomicCultureFromRestaurant(restaurantId: String!, gastronomicCultureId: String!): GastronomicCultureEntity!
+  findGastronomicCulturesByRestaurant(restaurantId: String!): [GastronomicCultureEntity!]!
+  recipes: [RecipeEntity!]!
+  recipe(id: String!): RecipeEntity!
   restaurants: [RestaurantEntity!]!
   restaurant(id: String!): RestaurantEntity!
 }
@@ -46,6 +80,33 @@ type Mutation {
   createCountry(country: CountryDto!): CountryEntity!
   updateCountry(id: String!, country: CountryDto!): CountryEntity!
   deleteCountry(id: String!): String!
+  addRestaurantToCountry(countryId: String!, restaurantId: String!): CountryEntity!
+  associateRestaurantsToCountry(countryId: String!, restaurants: [RestaurantDto!]!): CountryEntity!
+  deleteRestaurantFromCountry(countryId: String!, restaurantId: String!): Boolean!
+  addCharacteristicProductToGastronomicCulture(gastronomicCultureId: String!, productId: String!): GastronomicCultureEntity!
+  associateCharacteristicProductsToGastronomicCulture(gastronomicCultureId: String!, characteristicProducts: [CharacteristicProductDto!]!): [GastronomicCultureEntity!]!
+  deleteCharacteristicProductFromGastronomicCulture(gastronomicCultureId: String!, productId: String!): Boolean!
+  addGastronomicCultureToCountry(countryId: String!, gastronomicCultureId: String!): CountryEntity!
+  associateGastronomicCulturesToCountry(countryId: String!, gastronomicCultures: [GastronomicCultureDto!]!): CountryEntity!
+  deleteGastronomicCultureFromCountry(countryId: String!, gastronomicCultureId: String!): Boolean!
+  addCountryToGastronomicCulture(gastronomicCultureId: String!, countryId: String!): GastronomicCultureEntity!
+  associateCountriesToGastronomicCulture(gastronomicCultureId: String!, countries: [CountryDto!]!): GastronomicCultureEntity!
+  deleteCountryFromGastronomicCulture(gastronomicCultureId: String!, countryId: String!): Boolean!
+  createGastronomicCulture(gastronomicCulture: GastronomicCultureDto!): GastronomicCultureEntity!
+  updateGastronomicCulture(id: String!, gastronomicCulture: GastronomicCultureDto!): GastronomicCultureEntity!
+  deleteGastronomicCulture(id: String!): String!
+  addRestaurantToRecipe(gastronomicCultureId: String!, recipeId: String!): GastronomicCultureEntity!
+  associateRestaurantsToRecipe(recipeId: String!, recipes: [RecipeDto!]!): GastronomicCultureEntity!
+  deleteRestaurantFromRecipe(gastronomicCultureId: String!, recipeId: String!): Boolean!
+  addRestaurantToGastronomicCulture(gastronomicCultureId: String!, restaurantId: String!): GastronomicCultureEntity!
+  associateRestaurantsToGastronomicCulture(restaurantId: String!, restaurants: [RestaurantDto!]!): GastronomicCultureEntity!
+  deleteRestaurantFromGastronomicCulture(gastronomicCultureId: String!, restaurantId: String!): Boolean!
+  addGastronomicCultureToRestaurant(restaurantId: String!, gastronomicCultureId: String!): RestaurantEntity!
+  associateGastronomicCulturesToRestaurant(restaurantId: String!, gastronomicCultures: [GastronomicCultureDto!]!): RestaurantEntity!
+  deleteGastronomicCultureFromRestaurant(restaurantId: String!, gastronomicCultureId: String!): Boolean!
+  createRecipe(recipe: RecipeDto!): RecipeEntity!
+  updateRecipe(id: String!, recipe: RecipeDto!): RecipeEntity!
+  deleteRecipe(id: String!): String!
   createRestaurant(restaurant: RestaurantDto!): RestaurantEntity!
   updateRestaurant(id: String!, restaurant: RestaurantDto!): RestaurantEntity!
   deleteRestaurant(id: String!): String!
@@ -66,5 +127,17 @@ input RestaurantDto {
   name: String!
   city: String!
   michelinStars: Float!
-  awardDate: DateTime!
+  awardDate: String!
+}
+
+input GastronomicCultureDto {
+  name: String!
+}
+
+input RecipeDto {
+  name: String!
+  description: String!
+  photo: String!
+  preparationProcess: String!
+  video: String!
 }

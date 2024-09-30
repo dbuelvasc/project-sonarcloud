@@ -163,7 +163,7 @@ describe("GastronomicCultureCountryService", () => {
     });
 
     const updatedGastronomicCulture: GastronomicCultureEntity =
-      await service.associateCountryToGastronomicCulture(
+      await service.associateCountriesToGastronomicCulture(
         gastronomicCulture.id,
         [newCountry],
       );
@@ -176,7 +176,7 @@ describe("GastronomicCultureCountryService", () => {
     newCountry.id = "a00e7840-77aa-4065-964a-d9e216eaf076";
 
     await expect(
-      service.associateCountryToGastronomicCulture(gastronomicCulture.id, [
+      service.associateCountriesToGastronomicCulture(gastronomicCulture.id, [
         newCountry,
       ]),
     ).rejects.toHaveProperty(
@@ -191,7 +191,7 @@ describe("GastronomicCultureCountryService", () => {
     });
 
     await expect(
-      service.associateCountryToGastronomicCulture("0", [newCountry]),
+      service.associateCountriesToGastronomicCulture("0", [newCountry]),
     ).rejects.toHaveProperty(
       "message",
       "The gastronomic culture with the given id was not found",

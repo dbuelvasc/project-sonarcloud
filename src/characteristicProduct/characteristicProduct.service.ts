@@ -23,7 +23,9 @@ export class CharacteristicProductService {
     private readonly cacheService: Cache,
   ) {}
 
-  async findAll(): Promise<CharacteristicProductEntity[]> {
+  async findAll(
+    includeRelations: boolean = false,
+  ): Promise<CharacteristicProductEntity[]> {
     const cachedProducts = await this.cacheService.get<
       CharacteristicProductEntity[]
     >(this.cacheKey);
@@ -32,14 +34,24 @@ export class CharacteristicProductService {
       return cachedProducts;
     }
 
-    const products = await this.characteristicProductRepository.find();
+    const products = await this.characteristicProductRepository.find({
+      relations: {
+        gastronomicCulture: includeRelations,
+      },
+    });
     await this.cacheService.set(this.cacheKey, products);
     return products;
   }
 
-  async findOne(id: string): Promise<CharacteristicProductEntity> {
+  async findOne(
+    id: string,
+    includeRelations: boolean = false,
+  ): Promise<CharacteristicProductEntity> {
     const product = await this.characteristicProductRepository.findOne({
       where: { id },
+      relations: {
+        gastronomicCulture: includeRelations,
+      },
     });
     if (!product)
       throw new BusinessLogicException(

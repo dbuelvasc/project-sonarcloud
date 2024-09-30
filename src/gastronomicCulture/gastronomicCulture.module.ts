@@ -5,6 +5,7 @@ import * as sqliteStore from "cache-manager-sqlite";
 
 import { GastronomicCultureController } from "./gastronomicCulture.controller";
 import { GastronomicCultureEntity } from "./gastronomicCulture.entity";
+import { GastronomicCultureResolver } from "./gastronomicCulture.resolver";
 import { GastronomicCultureService } from "./gastronomicCulture.service";
 
 @Module({
@@ -18,7 +19,7 @@ import { GastronomicCultureService } from "./gastronomicCulture.service";
       path: ":memory:",
     }),
   ],
-  providers: [GastronomicCultureService],
+  providers: [GastronomicCultureService, GastronomicCultureResolver],
   controllers: [GastronomicCultureController],
 })
 export class GastronomicCultureModule {}

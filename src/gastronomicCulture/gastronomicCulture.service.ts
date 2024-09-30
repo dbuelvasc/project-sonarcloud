@@ -23,7 +23,9 @@ export class GastronomicCultureService {
     private readonly cacheManager: Cache,
   ) {}
 
-  async findAll(): Promise<GastronomicCultureEntity[]> {
+  async findAll(
+    includeRelations: boolean = false,
+  ): Promise<GastronomicCultureEntity[]> {
     const cachedGastronomicCultures = await this.cacheManager.get<
       GastronomicCultureEntity[] | undefined
     >(this.cacheKey);
@@ -32,16 +34,32 @@ export class GastronomicCultureService {
       return cachedGastronomicCultures;
     }
 
-    const gastronomicCultures = await this.gastronomicCultureRepository.find();
+    const gastronomicCultures = await this.gastronomicCultureRepository.find({
+      relations: {
+        countries: includeRelations,
+        characteristicProducts: includeRelations,
+        recipes: includeRelations,
+        restaurants: includeRelations,
+      },
+    });
 
     await this.cacheManager.set(this.cacheKey, gastronomicCultures);
 
     return gastronomicCultures;
   }
 
-  async findOne(id: string): Promise<GastronomicCultureEntity> {
+  async findOne(
+    id: string,
+    includeRelations: boolean = false,
+  ): Promise<GastronomicCultureEntity> {
     const gastronomicCulture = await this.gastronomicCultureRepository.findOne({
       where: { id },
+      relations: {
+        countries: includeRelations,
+        characteristicProducts: includeRelations,
+        recipes: includeRelations,
+        restaurants: includeRelations,
+      },
     });
     if (!gastronomicCulture) {
       throw new BusinessLogicException(

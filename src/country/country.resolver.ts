@@ -10,11 +10,11 @@ export class CountryResolver {
 
   @Query(() => [CountryEntity])
   countries(): Promise<CountryEntity[]> {
-    return this.countryService.findAll();
+    return this.countryService.findAll(true);
   }
   @Query(() => CountryEntity)
   country(@Args("id") id: string): Promise<CountryEntity> {
-    return this.countryService.findOne(id);
+    return this.countryService.findOne(id, true);
   }
 
   @Mutation(() => CountryEntity)
