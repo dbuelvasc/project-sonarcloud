@@ -21,5 +21,5 @@ export class RestaurantDto {
   @Field()
   @IsDateString()
   @IsNotEmpty()
-  readonly awardDate: Date;
+  readonly awardDate: string;
 }

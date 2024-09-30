@@ -31,7 +31,7 @@ export class RestaurantEntity {
 
   @Field()
   @Column()
-  awardDate: Date;
+  awardDate: string;
 
   @ManyToMany(
     () => GastronomicCultureEntity,
@@ -39,7 +39,7 @@ export class RestaurantEntity {
   )
   gastronomicCultures: GastronomicCultureEntity[];
 
-  @Field(() => CountryEntity)
+  @Field(() => CountryEntity, { nullable: true })
   @ManyToOne(() => CountryEntity, (country) => country.restaurants)
   country: CountryEntity;
 }
