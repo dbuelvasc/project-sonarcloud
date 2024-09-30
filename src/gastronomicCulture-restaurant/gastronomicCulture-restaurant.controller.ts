@@ -37,7 +37,7 @@ export class GastronomicCultureRestaurantController {
 
   @Get(":gastronomicCultureId/countries/:restaurantId")
   @Roles(UserRoles.ADMIN, UserRoles.FULL_READER)
-  async findCharacteristicProductFromGastronomicCulture(
+  async findRestaurantFromGastronomicCulture(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
     @Param("restaurantId") restaurantId: string,
   ) {
@@ -49,7 +49,7 @@ export class GastronomicCultureRestaurantController {
 
   @Get(":gastronomicCultureId/countries")
   @Roles(UserRoles.ADMIN, UserRoles.FULL_READER, UserRoles.LIMITED_READER)
-  async findRestaurantsByRestaurantId(
+  async findRestaurantsFromGastronomicCulture(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
   ) {
     return await this.gastronomicCultureRestaurantService.findRestaurantsFromGastronomicCulture(
@@ -59,7 +59,7 @@ export class GastronomicCultureRestaurantController {
 
   @Post(":gastronomicCultureId/countries/:restaurantId")
   @Roles(UserRoles.ADMIN, UserRoles.WRITER)
-  async addRestaurantToRestaurant(
+  async addRestaurantToGastronomicCulture(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
     @Param("restaurantId") restaurantId: string,
   ) {
@@ -71,7 +71,7 @@ export class GastronomicCultureRestaurantController {
 
   @Put(":gastronomicCultureId/countries")
   @Roles(UserRoles.ADMIN, UserRoles.WRITER)
-  async associateRestaurantsToGastronomicCulture(
+  async associateRestaurantToGastronomicCulture(
     @Param("restaurantId") restaurantId: string,
     @Body() restaurantsDto: RestaurantDto[],
   ) {
@@ -84,7 +84,7 @@ export class GastronomicCultureRestaurantController {
   @Delete(":gastronomicCultureId/countries/:restaurantId")
   @Roles(UserRoles.ADMIN, UserRoles.DELETE)
   @HttpCode(HttpStatus.NO_CONTENT)
-  async deleteRestaurantFromRestaurant(
+  async deleteRestaurantFromGastronomicCulture(
     @Param("gastronomicCultureId") gastronomicCultureId: string,
     @Param("restaurantId") restaurantId: string,
   ) {
